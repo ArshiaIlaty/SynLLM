@@ -1,0 +1,630 @@
+{
+  "numerical_statistics": {
+    "age": {
+      "mean_difference": 32.9644,
+      "std_difference": 0.3086549614195171,
+      "relative_mean_error": 0.7970347302146096,
+      "real_quartiles": [
+        "20.75",
+        "43.0",
+        "60.5"
+      ],
+      "synthetic_quartiles": [
+        "0.08",
+        "0.08",
+        "0.1"
+      ]
+    },
+    "avg_glucose_level": {
+      "mean_difference": 39.3594,
+      "std_difference": 3.136472424314242,
+      "relative_mean_error": 0.3884685460040229,
+      "real_quartiles": [
+        "75.67",
+        "89.32499999999999",
+        "113.2975"
+      ],
+      "synthetic_quartiles": [
+        "55.0",
+        "55.0",
+        "55.0"
+      ]
+    },
+    "bmi": {
+      "mean_difference": 10.956,
+      "std_difference": 15.379164285340531,
+      "relative_mean_error": 0.3993293483015017,
+      "real_quartiles": [
+        "22.425",
+        "26.5",
+        "32.2"
+      ],
+      "synthetic_quartiles": [
+        "10.0",
+        "10.0",
+        "10.0"
+      ]
+    }
+  },
+  "categorical_similarity": {
+    "gender": {
+      "chi2_statistic": 0.0,
+      "p_value": 1.0,
+      "distribution_difference": {
+        "Female": 0.65,
+        "Male": 0.65
+      }
+    },
+    "work_type": {
+      "chi2_statistic": 0.6154181818181819,
+      "p_value": 0.8928938393917916,
+      "distribution_difference": {
+        "Govt_job": 0.1,
+        "Private": 0.48,
+        "Self-employed": 0.19999999999999998,
+        "children": 0.18
+      }
+    },
+    "Residence_type": {
+      "chi2_statistic": 0.0,
+      "p_value": 1.0,
+      "distribution_difference": {
+        "Rural": 0.5499999999999999,
+        "Urban": 0.55
+      }
+    },
+    "smoking_status": {
+      "chi2_statistic": 1.4959747474747476,
+      "p_value": 0.6831996676844352,
+      "distribution_difference": {
+        "Unknown": 0.38,
+        "formerly smoked": 0.86,
+        "never smoked": 0.33999999999999997,
+        "smokes": 0.13999999999999999
+      }
+    },
+    "hypertension": {
+      "chi2_statistic": 0.0,
+      "p_value": 1.0,
+      "distribution_difference": {
+        "0": 0.05999999999999994,
+        "1": 0.06
+      }
+    },
+    "heart_disease": {
+      "chi2_statistic": 0.0,
+      "p_value": 1.0,
+      "distribution_difference": {
+        "0": 0.019999999999999907,
+        "1": 0.020000000000000004
+      }
+    },
+    "ever_married": {
+      "chi2_statistic": "nan",
+      "p_value": "nan",
+      "distribution_difference": {}
+    },
+    "stroke": {
+      "chi2_statistic": 0.0,
+      "p_value": 1.0,
+      "distribution_difference": {
+        "0": 0.0,
+        "1": 0.0
+      }
+    }
+  },
+  "feature_correlations": {
+    "correlation_matrix_distance": NaN,
+    "real_correlations": {
+      "age": {
+        "age": "1.0",
+        "avg_glucose_level": "0.2503738216272958",
+        "bmi": "0.37209203034797633",
+        "gender_encoded": "0.17342226581773582",
+        "work_type_encoded": "-0.4602051957844814",
+        "Residence_type_encoded": "-0.23925446072132792",
+        "smoking_status_encoded": "0.46207795405043056",
+        "hypertension": "0.4194838571835904",
+        "heart_disease": "0.27081098772457235",
+        "ever_married": "nan",
+        "stroke": "0.24758169184193274"
+      },
+      "avg_glucose_level": {
+        "age": "0.2503738216272958",
+        "avg_glucose_level": "1.0",
+        "bmi": "0.21900575869989633",
+        "gender_encoded": "0.032751842137128805",
+        "work_type_encoded": "-0.14719882522446506",
+        "Residence_type_encoded": "0.12426869995108294",
+        "smoking_status_encoded": "-0.11704418863913846",
+        "hypertension": "0.13147746045125244",
+        "heart_disease": "0.2053038851546068",
+        "ever_married": "nan",
+        "stroke": "0.3950224629261474"
+      },
+      "bmi": {
+        "age": "0.37209203034797633",
+        "avg_glucose_level": "0.21900575869989633",
+        "bmi": "1.0",
+        "gender_encoded": "0.13494357821305064",
+        "work_type_encoded": "-0.41318364765441035",
+        "Residence_type_encoded": "-0.1130633217263797",
+        "smoking_status_encoded": "0.275274141491012",
+        "hypertension": "0.059432677720961266",
+        "heart_disease": "0.2057535006291852",
+        "ever_married": "nan",
+        "stroke": "0.16272419922592912"
+      },
+      "gender_encoded": {
+        "age": "0.17342226581773582",
+        "avg_glucose_level": "0.032751842137128805",
+        "bmi": "0.13494357821305064",
+        "gender_encoded": "1.0",
+        "work_type_encoded": "0.059435836500705296",
+        "Residence_type_encoded": "-0.12916280955024897",
+        "smoking_status_encoded": "0.08508162635812465",
+        "hypertension": "-0.05695565875461182",
+        "heart_disease": "0.25601637583037695",
+        "ever_married": "nan",
+        "stroke": "0.27817432013209337"
+      },
+      "work_type_encoded": {
+        "age": "-0.4602051957844814",
+        "avg_glucose_level": "-0.14719882522446506",
+        "bmi": "-0.41318364765441035",
+        "gender_encoded": "0.059435836500705296",
+        "work_type_encoded": "1.0",
+        "Residence_type_encoded": "0.15247442984982496",
+        "smoking_status_encoded": "-0.4827849917097629",
+        "hypertension": "-0.006040271709002833",
+        "heart_disease": "-0.08519826198635204",
+        "ever_married": "nan",
+        "stroke": "0.006807921404144814"
+      },
+      "Residence_type_encoded": {
+        "age": "-0.23925446072132792",
+        "avg_glucose_level": "0.12426869995108294",
+        "bmi": "-0.1130633217263797",
+        "gender_encoded": "-0.12916280955024897",
+        "work_type_encoded": "0.15247442984982496",
+        "Residence_type_encoded": "1.0",
+        "smoking_status_encoded": "-0.11908166290007628",
+        "hypertension": "-0.047125921836835706",
+        "heart_disease": "-0.13438347874062637",
+        "ever_married": "nan",
+        "stroke": "0.13193885226541166"
+      },
+      "smoking_status_encoded": {
+        "age": "0.46207795405043056",
+        "avg_glucose_level": "-0.11704418863913846",
+        "bmi": "0.275274141491012",
+        "gender_encoded": "0.08508162635812465",
+        "work_type_encoded": "-0.4827849917097629",
+        "Residence_type_encoded": "-0.11908166290007628",
+        "smoking_status_encoded": "1.0",
+        "hypertension": "0.22889657070258881",
+        "heart_disease": "0.05182682705059775",
+        "ever_married": "nan",
+        "stroke": "-0.09467009427161652"
+      },
+      "hypertension": {
+        "age": "0.4194838571835904",
+        "avg_glucose_level": "0.13147746045125244",
+        "bmi": "0.059432677720961266",
+        "gender_encoded": "-0.05695565875461182",
+        "work_type_encoded": "-0.006040271709002833",
+        "Residence_type_encoded": "-0.047125921836835706",
+        "smoking_status_encoded": "0.22889657070258881",
+        "hypertension": "1.0",
+        "heart_disease": "0.04575599661042249",
+        "ever_married": "nan",
+        "stroke": "0.09133370363944024"
+      },
+      "heart_disease": {
+        "age": "0.27081098772457235",
+        "avg_glucose_level": "0.2053038851546068",
+        "bmi": "0.2057535006291852",
+        "gender_encoded": "0.25601637583037695",
+        "work_type_encoded": "-0.08519826198635204",
+        "Residence_type_encoded": "-0.13438347874062637",
+        "smoking_status_encoded": "0.05182682705059775",
+        "hypertension": "0.04575599661042249",
+        "heart_disease": "1.0",
+        "ever_married": "nan",
+        "stroke": "0.37818779029489075"
+      },
+      "ever_married": {
+        "age": "nan",
+        "avg_glucose_level": "nan",
+        "bmi": "nan",
+        "gender_encoded": "nan",
+        "work_type_encoded": "nan",
+        "Residence_type_encoded": "nan",
+        "smoking_status_encoded": "nan",
+        "hypertension": "nan",
+        "heart_disease": "nan",
+        "ever_married": "nan",
+        "stroke": "nan"
+      },
+      "stroke": {
+        "age": "0.24758169184193274",
+        "avg_glucose_level": "0.3950224629261474",
+        "bmi": "0.16272419922592912",
+        "gender_encoded": "0.27817432013209337",
+        "work_type_encoded": "0.006807921404144814",
+        "Residence_type_encoded": "0.13193885226541166",
+        "smoking_status_encoded": "-0.09467009427161652",
+        "hypertension": "0.09133370363944024",
+        "heart_disease": "0.37818779029489075",
+        "ever_married": "nan",
+        "stroke": "1.0"
+      }
+    },
+    "synthetic_correlations": {
+      "age": {
+        "age": "1.0",
+        "avg_glucose_level": "0.13136026884296995",
+        "bmi": "-0.0973036466093527",
+        "gender_encoded": "nan",
+        "work_type_encoded": "-0.03397071970988225",
+        "Residence_type_encoded": "0.04840277310253585",
+        "smoking_status_encoded": "-0.04175261671617372",
+        "hypertension": "-0.0755989545192911",
+        "heart_disease": "0.02602355910027974",
+        "ever_married": "nan",
+        "stroke": "-0.06916122280487191"
+      },
+      "avg_glucose_level": {
+        "age": "0.13136026884296995",
+        "avg_glucose_level": "1.0",
+        "bmi": "-0.006551920049869259",
+        "gender_encoded": "nan",
+        "work_type_encoded": "0.5673372772354482",
+        "Residence_type_encoded": "0.026721947558442965",
+        "smoking_status_encoded": "-0.0253248368409198",
+        "hypertension": "-0.04291304646699613",
+        "heart_disease": "0.15981083252137593",
+        "ever_married": "nan",
+        "stroke": "-0.038182162930097685"
+      },
+      "bmi": {
+        "age": "-0.0973036466093527",
+        "avg_glucose_level": "-0.006551920049869259",
+        "bmi": "1.0",
+        "gender_encoded": "nan",
+        "work_type_encoded": "-0.028863117348920598",
+        "Residence_type_encoded": "0.04102634165415789",
+        "smoking_status_encoded": "-0.03888135048162355",
+        "hypertension": "0.1130612579640799",
+        "heart_disease": "-0.08468605694315438",
+        "ever_married": "nan",
+        "stroke": "-0.05862126845503702"
+      },
+      "gender_encoded": {
+        "age": "nan",
+        "avg_glucose_level": "nan",
+        "bmi": "nan",
+        "gender_encoded": "nan",
+        "work_type_encoded": "nan",
+        "Residence_type_encoded": "nan",
+        "smoking_status_encoded": "nan",
+        "hypertension": "nan",
+        "heart_disease": "nan",
+        "ever_married": "nan",
+        "stroke": "nan"
+      },
+      "work_type_encoded": {
+        "age": "-0.03397071970988225",
+        "avg_glucose_level": "0.5673372772354482",
+        "bmi": "-0.028863117348920598",
+        "gender_encoded": "nan",
+        "work_type_encoded": "1.0",
+        "Residence_type_encoded": "0.014357683075131768",
+        "smoking_status_encoded": "-0.013607016498184346",
+        "hypertension": "-0.023057148795535966",
+        "heart_disease": "-0.02963694829829263",
+        "ever_married": "nan",
+        "stroke": "-0.020515248496554478"
+      },
+      "Residence_type_encoded": {
+        "age": "0.04840277310253585",
+        "avg_glucose_level": "0.026721947558442965",
+        "bmi": "0.04102634165415789",
+        "gender_encoded": "nan",
+        "work_type_encoded": "0.014357683075131768",
+        "Residence_type_encoded": "1.0",
+        "smoking_status_encoded": "0.019341157817422457",
+        "hypertension": "0.03277367626722314",
+        "heart_disease": "-0.22116293423234573",
+        "ever_married": "nan",
+        "stroke": "0.029160592175990308"
+      },
+      "smoking_status_encoded": {
+        "age": "-0.04175261671617372",
+        "avg_glucose_level": "-0.0253248368409198",
+        "bmi": "-0.03888135048162355",
+        "gender_encoded": "nan",
+        "work_type_encoded": "-0.013607016498184346",
+        "Residence_type_encoded": "0.019341157817422457",
+        "smoking_status_encoded": "1.0",
+        "hypertension": "0.3830753239596317",
+        "heart_disease": "-0.03992377400061885",
+        "ever_married": "nan",
+        "stroke": "-0.027635981150940715"
+      },
+      "hypertension": {
+        "age": "-0.0755989545192911",
+        "avg_glucose_level": "-0.04291304646699613",
+        "bmi": "0.1130612579640799",
+        "gender_encoded": "nan",
+        "work_type_encoded": "-0.023057148795535966",
+        "Residence_type_encoded": "0.03277367626722314",
+        "smoking_status_encoded": "0.3830753239596317",
+        "hypertension": "1.0",
+        "heart_disease": "-0.06765100914917382",
+        "ever_married": "nan",
+        "stroke": "-0.04682929057908473"
+      },
+      "heart_disease": {
+        "age": "0.02602355910027974",
+        "avg_glucose_level": "0.15981083252137593",
+        "bmi": "-0.08468605694315438",
+        "gender_encoded": "nan",
+        "work_type_encoded": "-0.02963694829829263",
+        "Residence_type_encoded": "-0.22116293423234573",
+        "smoking_status_encoded": "-0.03992377400061885",
+        "hypertension": "-0.06765100914917382",
+        "heart_disease": "1.0",
+        "ever_married": "nan",
+        "stroke": "-0.0601929265428846"
+      },
+      "ever_married": {
+        "age": "nan",
+        "avg_glucose_level": "nan",
+        "bmi": "nan",
+        "gender_encoded": "nan",
+        "work_type_encoded": "nan",
+        "Residence_type_encoded": "nan",
+        "smoking_status_encoded": "nan",
+        "hypertension": "nan",
+        "heart_disease": "nan",
+        "ever_married": "nan",
+        "stroke": "nan"
+      },
+      "stroke": {
+        "age": "-0.06916122280487191",
+        "avg_glucose_level": "-0.038182162930097685",
+        "bmi": "-0.05862126845503702",
+        "gender_encoded": "nan",
+        "work_type_encoded": "-0.020515248496554478",
+        "Residence_type_encoded": "0.029160592175990308",
+        "smoking_status_encoded": "-0.027635981150940715",
+        "hypertension": "-0.04682929057908473",
+        "heart_disease": "-0.0601929265428846",
+        "ever_married": "nan",
+        "stroke": "1.0"
+      }
+    }
+  },
+  "medical_consistency": {
+    "glucose_stroke_relationship": {
+      "real_means": {
+        "0": "98.0675",
+        "1": "179.365"
+      },
+      "synthetic_means": {
+        "0": "62.25",
+        "1": "55.0"
+      },
+      "difference_in_difference": 88.54750000000001
+    },
+    "hypertension_stroke_relationship": {
+      "real_proportions": {
+        "0": {
+          "0": "0.9662921348314607",
+          "1": "0.9090909090909091"
+        },
+        "1": {
+          "0": "0.033707865168539325",
+          "1": "0.09090909090909091"
+        }
+      },
+      "synthetic_proportions": {
+        "0": {
+          "0": "0.9578947368421052",
+          "1": "1.0"
+        },
+        "1": {
+          "0": "0.042105263157894736",
+          "1": "0.0"
+        }
+      }
+    },
+    "age_stroke_relationship": {
+      "real_means": {
+        "0": "40.134166666666665",
+        "1": "70.75"
+      },
+      "synthetic_means": {
+        "0": "8.740833333333333",
+        "1": "0.08"
+      },
+      "difference_in_difference": 39.27666666666667
+    },
+    "heart_disease_stroke_relationship": {
+      "real_proportions": {
+        "0": {
+          "0": "0.9787234042553191",
+          "1": "0.6666666666666666"
+        },
+        "1": {
+          "0": "0.02127659574468085",
+          "1": "0.3333333333333333"
+        }
+      },
+      "synthetic_proportions": {
+        "0": {
+          "0": "0.9565217391304348",
+          "1": "1.0"
+        },
+        "1": {
+          "0": "0.043478260869565216",
+          "1": "0.0"
+        }
+      }
+    }
+  },
+  "distribution_metrics": {
+    "age": {
+      "wasserstein": 0.4019546471038472,
+      "jensen_shannon": 0.7258530793995874,
+      "kl_divergence": 19.81212863403088
+    },
+    "avg_glucose_level": {
+      "wasserstein": 0.20909016517413673,
+      "jensen_shannon": 0.7346121180418738,
+      "kl_divergence": 20.30466761274666
+    },
+    "bmi": {
+      "wasserstein": 0.33527667984189724,
+      "jensen_shannon": 0.7826058291455423,
+      "kl_divergence": 20.308830962357945
+    }
+  },
+  "advanced_metrics": {
+    "numerical_metrics": {
+      "age": {
+        "ks_statistic": 0.87,
+        "ks_pvalue": 1.9509242595079607e-39,
+        "quartile_differences": 41.330000000000005,
+        "std_difference": 0.3086549614195171,
+        "range_coverage": 1.0
+      },
+      "avg_glucose_level": {
+        "ks_statistic": 0.96,
+        "ks_pvalue": 1.4287357500157535e-51,
+        "quartile_differences": 37.76416666666666,
+        "std_difference": 3.136472424314242,
+        "range_coverage": 1.0
+      },
+      "bmi": {
+        "ks_statistic": 0.92,
+        "ks_pvalue": 1.2170049699100436e-45,
+        "quartile_differences": 17.041666666666668,
+        "std_difference": 15.379164285340531,
+        "range_coverage": 1.0
+      }
+    },
+    "categorical_metrics": {
+      "gender": {
+        "category_preservation": "0.5",
+        "distribution_difference": 0.65,
+        "mutual_information": "0.0"
+      },
+      "work_type": {
+        "category_preservation": "0.5",
+        "distribution_difference": 0.23999999999999996,
+        "mutual_information": 0.006781964379514949
+      },
+      "Residence_type": {
+        "category_preservation": "1.0",
+        "distribution_difference": 0.55,
+        "mutual_information": 0.017150554491466102
+      },
+      "smoking_status": {
+        "category_preservation": "0.75",
+        "distribution_difference": 0.43,
+        "mutual_information": 0.029753309719936068
+      }
+    },
+    "privacy_metrics": {
+      "nn_distance_ratio": 0.009990087454562993,
+      "identifiability_score": "0.0"
+    },
+    "statistical_tests": {
+      "age": {
+        "anderson_darling_statistic": 104.30096442859391,
+        "anderson_darling_pvalue": 0.001
+      },
+      "avg_glucose_level": {
+        "anderson_darling_statistic": 159.5746987482607,
+        "anderson_darling_pvalue": 0.001
+      },
+      "bmi": {
+        "anderson_darling_statistic": 137.422194498691,
+        "anderson_darling_pvalue": 0.001
+      }
+    },
+    "stroke_prediction_metrics": {
+      "risk_factor_correlations": {
+        "real": {
+          "age": 0.24758169184193307,
+          "hypertension": 0.09133370363944018,
+          "heart_disease": 0.378187790294891,
+          "avg_glucose_level": 0.39502246292614773,
+          "bmi": 0.16272419922592943
+        },
+        "synthetic": {
+          "age": -0.06916122280487207,
+          "hypertension": -0.04682929057908478,
+          "heart_disease": -0.06019292654288501,
+          "avg_glucose_level": -0.038182162930097775,
+          "bmi": -0.058621268455037186
+        },
+        "absolute_differences": {
+          "age": 0.31674291464680515,
+          "hypertension": 0.13816299421852496,
+          "heart_disease": 0.438380716837776,
+          "avg_glucose_level": 0.43320462585624553,
+          "bmi": 0.2213454676809666
+        }
+      },
+      "stroke_prevalence_by_age": {
+        "real": {
+          "<18": "0.0",
+          "18-40": "0.0",
+          "41-60": "0.03225806451612903",
+          "61-80": "0.08695652173913043",
+          ">80": "0.5"
+        },
+        "synthetic": {
+          "<18": "0.044444444444444446",
+          "18-40": "nan",
+          "41-60": "nan",
+          "61-80": "nan",
+          ">80": "0.0"
+        }
+      }
+    }
+  },
+  "privacy_assessment": {
+    "age_violations": {
+      "records_below_k": "4",
+      "violation_rate": "0.04"
+    },
+    "gender_violations": {
+      "records_below_k": "0",
+      "violation_rate": "0.0"
+    },
+    "bmi_violations": {
+      "records_below_k": "2",
+      "violation_rate": "0.02"
+    },
+    "age_gender_violations": {
+      "records_below_k": "4",
+      "violation_rate": "0.04"
+    },
+    "age_bmi_violations": {
+      "records_below_k": "6",
+      "violation_rate": "0.06"
+    },
+    "gender_bmi_violations": {
+      "records_below_k": "2",
+      "violation_rate": "0.02"
+    },
+    "age_gender_bmi_violations": {
+      "records_below_k": "6",
+      "violation_rate": "0.06"
+    }
+  }
+}

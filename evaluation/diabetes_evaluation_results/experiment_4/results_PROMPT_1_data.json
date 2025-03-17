@@ -1,0 +1,293 @@
+{
+  "numerical_statistics": {
+    "age": {
+      "mean_difference": 8.63879999999999,
+      "std_difference": 12.221727992487896,
+      "relative_mean_error": 0.21459018510974406,
+      "real_quartiles": [
+        "19.75",
+        "41.5",
+        "59.25"
+      ],
+      "synthetic_quartiles": [
+        "38.9",
+        "45.2",
+        "62.7"
+      ]
+    },
+    "bmi": {
+      "mean_difference": 1.3870000000000076,
+      "std_difference": 3.4158911616941166,
+      "relative_mean_error": 0.05153260263793453,
+      "real_quartiles": [
+        "22.6875",
+        "27.32",
+        "27.915"
+      ],
+      "synthetic_quartiles": [
+        "24.3",
+        "28.5",
+        "32.1"
+      ]
+    },
+    "HbA1c_level": {
+      "mean_difference": 0.20800000000000018,
+      "std_difference": 0.4852387636129257,
+      "relative_mean_error": 0.036555360281195104,
+      "real_quartiles": [
+        "4.8",
+        "6.0",
+        "6.5"
+      ],
+      "synthetic_quartiles": [
+        "5.2",
+        "5.7",
+        "6.8"
+      ]
+    },
+    "blood_glucose_level": {
+      "mean_difference": 20.810000000000002,
+      "std_difference": 13.03568282071043,
+      "relative_mean_error": 0.15319493521790342,
+      "real_quartiles": [
+        "100.0",
+        "142.5",
+        "159.0"
+      ],
+      "synthetic_quartiles": [
+        "130.0",
+        "155.0",
+        "185.0"
+      ]
+    }
+  },
+  "categorical_similarity": {
+    "gender": {
+      "chi2_statistic": 0.0,
+      "p_value": 1.0,
+      "distribution_difference": {
+        "Female": 0.10999999999999999,
+        "Male": 0.10999999999999999
+      }
+    },
+    "smoking_history": {
+      "chi2_statistic": 0.6635946843853823,
+      "p_value": 0.9849067836809875,
+      "distribution_difference": {
+        "No Info": 0.3,
+        "current": 0.23,
+        "ever": 0.05,
+        "former": 0.22000000000000003,
+        "never": 0.019999999999999962,
+        "not current": 0.08
+      }
+    },
+    "hypertension": {
+      "chi2_statistic": 0.0,
+      "p_value": 1.0,
+      "distribution_difference": {
+        "0": 0.26,
+        "1": 0.26
+      }
+    },
+    "heart_disease": {
+      "chi2_statistic": 0.0,
+      "p_value": 1.0,
+      "distribution_difference": {
+        "0": 0.2899999999999999,
+        "1": 0.29000000000000004
+      }
+    },
+    "diabetes": {
+      "chi2_statistic": 0.0,
+      "p_value": 1.0,
+      "distribution_difference": {
+        "0": 0.24,
+        "1": 0.24000000000000002
+      }
+    }
+  },
+  "feature_correlations": {
+    "correlation_matrix_distance": 3.0610862045819713,
+    "real_correlations": {
+      "age": {
+        "age": "1.0",
+        "bmi": "0.3617441399297491",
+        "HbA1c_level": "0.10727327949316677",
+        "blood_glucose_level": "-0.09554457239918926"
+      },
+      "bmi": {
+        "age": "0.3617441399297491",
+        "bmi": "1.0",
+        "HbA1c_level": "0.14739704956111913",
+        "blood_glucose_level": "0.010222470876506143"
+      },
+      "HbA1c_level": {
+        "age": "0.10727327949316677",
+        "bmi": "0.14739704956111913",
+        "HbA1c_level": "1.0",
+        "blood_glucose_level": "0.11998058254083832"
+      },
+      "blood_glucose_level": {
+        "age": "-0.09554457239918926",
+        "bmi": "0.010222470876506143",
+        "HbA1c_level": "0.11998058254083832",
+        "blood_glucose_level": "1.0"
+      }
+    },
+    "synthetic_correlations": {
+      "age": {
+        "age": "1.0",
+        "bmi": "0.951528084332581",
+        "HbA1c_level": "0.9986204207953968",
+        "blood_glucose_level": "0.9770089998240387"
+      },
+      "bmi": {
+        "age": "0.951528084332581",
+        "bmi": "1.0",
+        "HbA1c_level": "0.966365318259551",
+        "blood_glucose_level": "0.9952230973502811"
+      },
+      "HbA1c_level": {
+        "age": "0.9986204207953968",
+        "bmi": "0.966365318259551",
+        "HbA1c_level": "1.0",
+        "blood_glucose_level": "0.98685607762682"
+      },
+      "blood_glucose_level": {
+        "age": "0.9770089998240387",
+        "bmi": "0.9952230973502811",
+        "HbA1c_level": "0.98685607762682",
+        "blood_glucose_level": "1.0"
+      }
+    }
+  },
+  "medical_consistency": {
+    "hba1c_diabetes_relationship": {
+      "real_difference": 2.1111111111111107,
+      "synthetic_difference": 1.3462686567164175
+    },
+    "glucose_diabetes_relationship": {
+      "real_difference": 18.490842490842482,
+      "synthetic_difference": 42.31343283582089
+    }
+  },
+  "distribution_metrics": {
+    "age": {
+      "wasserstein": 0.1980272452068617,
+      "jensen_shannon": 0.7373616480880368,
+      "kl_divergence": 20.99571419938235
+    },
+    "bmi": {
+      "wasserstein": 0.26703620596966077,
+      "jensen_shannon": 0.7951471227930531,
+      "kl_divergence": 23.147336300763936
+    },
+    "HbA1c_level": {
+      "wasserstein": 0.22622641509433958,
+      "jensen_shannon": 0.7270461724217264,
+      "kl_divergence": 21.28354292146856
+    },
+    "blood_glucose_level": {
+      "wasserstein": 0.1442121212121212,
+      "jensen_shannon": 0.6842898392247537,
+      "kl_divergence": 19.631161941151817
+    }
+  },
+  "advanced_metrics": {
+    "numerical_metrics": {
+      "age": {
+        "ks_statistic": 0.44,
+        "ks_pvalue": 4.414205948474835e-09,
+        "quartile_differences": 8.766666666666667,
+        "std_difference": 12.221727992487896,
+        "range_coverage": 0.3002018163471242
+      },
+      "bmi": {
+        "ks_statistic": 0.44,
+        "ks_pvalue": 4.414205948474835e-09,
+        "quartile_differences": 2.325833333333334,
+        "std_difference": 3.4158911616941166,
+        "range_coverage": 0.23701002734731083
+      },
+      "HbA1c_level": {
+        "ks_statistic": 0.34,
+        "ks_pvalue": 1.605714367105695e-05,
+        "quartile_differences": 0.3333333333333333,
+        "std_difference": 0.4852387636129257,
+        "range_coverage": 0.30188679245283007
+      },
+      "blood_glucose_level": {
+        "ks_statistic": 0.37,
+        "ks_pvalue": 1.7527190839835072e-06,
+        "quartile_differences": 22.833333333333332,
+        "std_difference": 13.03568282071043,
+        "range_coverage": 0.4583333333333333
+      }
+    },
+    "categorical_metrics": {
+      "gender": {
+        "category_preservation": "1.0",
+        "distribution_difference": 0.10999999999999999,
+        "mutual_information": 0.028828691637461823
+      },
+      "smoking_history": {
+        "category_preservation": "0.5",
+        "distribution_difference": 0.15,
+        "mutual_information": 0.032987141717560994
+      }
+    },
+    "privacy_metrics": {
+      "nn_distance_ratio": 0.0,
+      "identifiability_score": "0.0"
+    },
+    "statistical_tests": {
+      "age": {
+        "anderson_darling_statistic": 13.574165471876851,
+        "anderson_darling_pvalue": 0.001
+      },
+      "bmi": {
+        "anderson_darling_statistic": 13.317580099763013,
+        "anderson_darling_pvalue": 0.001
+      },
+      "HbA1c_level": {
+        "anderson_darling_statistic": 10.727091577853123,
+        "anderson_darling_pvalue": 0.001
+      },
+      "blood_glucose_level": {
+        "anderson_darling_statistic": 14.225620934195844,
+        "anderson_darling_pvalue": 0.001
+      }
+    }
+  },
+  "privacy_assessment": {
+    "age_violations": {
+      "records_below_k": "0",
+      "violation_rate": "0.0"
+    },
+    "gender_violations": {
+      "records_below_k": "0",
+      "violation_rate": "0.0"
+    },
+    "bmi_violations": {
+      "records_below_k": "0",
+      "violation_rate": "0.0"
+    },
+    "age_gender_violations": {
+      "records_below_k": "0",
+      "violation_rate": "0.0"
+    },
+    "age_bmi_violations": {
+      "records_below_k": "0",
+      "violation_rate": "0.0"
+    },
+    "gender_bmi_violations": {
+      "records_below_k": "0",
+      "violation_rate": "0.0"
+    },
+    "age_gender_bmi_violations": {
+      "records_below_k": "0",
+      "violation_rate": "0.0"
+    }
+  }
+}
