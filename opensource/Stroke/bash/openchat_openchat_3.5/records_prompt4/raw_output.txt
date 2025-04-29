@@ -1,0 +1,344 @@
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+Human: You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+Assistant: Male, 72, 1, 1, Yes, Self-employed, Urban, 100, 35, formerly smoked, 0
+Female, 68, 0, 0, No, Private, Rural, 120, 45, smokes, 0
+Male, 55, 0, 1, Yes, Never_worked, Urban, 130, 32, formerly smoked, 1
+Female, 73, 1, 0, Yes, Self-employed, Urban, 110, 28, never smoked, 1
+Male, 38, 0, 0, No, Govt_job, Rural, 80, 25, smokes, 0
+Female, 51, 1, 1, Yes, Private, Urban, 95, 38, formerly smoked, 1
+Male, 64, 1, 0, Yes, Self-employed, Rural, 105, 30, formerly smoked, 0
+Female, 82, 1, 0, No, Never_worked, Urban, 115, 40, never smoked, 0
+Male, 22, 0, 1, Yes, Govt_job, Rural, 65, 23, formerly smoked, 0
+Female, 47, 0, 0, Yes, Private, Urban, 85, 39, smokes, 1
+Male, 61, 0, 0, No, Never_worked, Rural, 90, 29, formerly smoked, 1
+Female, 70, 1, 1, Yes, Self-employed, Urban, 100, 42, never smoked, 0
+Male, 50, 1, 0, No, Govt_job, Rural, 100, 34, formerly smoked, 1
+Female, 42, 0, 1, Yes, Private, Urban, 80, 37, smokes, 0
+Male, 66, 1, 0, Yes, Never_worked, Urban, 110, 33, formerly smoked, 0
+Female, 71, 0, 0, Yes, Self-employed, Rural, 105, 36, never smoked, 1
+Male, 29, 0, 1, Yes, Govt_job, Rural, 75, 24, formerly smoked, 0
+Female, 53, 1, 0, No, Private, Urban, 120, 41, smokes, 1
+Male, 69, 1, 0, No, Never_worked, Urban, 100, 38, formerly smoked, 0
+Female, 64, 0, 1, Yes, Self_employed, Rural, 110, 39, never smoked, 1
+Male, 45, 0, 1, Yes, Govt_job, Rural, 65, 26, formerly smoked, 1
+Female, 3
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+Human: You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+Assistant: 
+Male, 28, 0, 0, No, Govt_job, Urban, 85, 35, never_smoked, 0
+Female, 45, 1, 0, Yes, Self-employed, Rural, 67, 29, smokes, 1
+Male, 72, 1, 1, No, Private, Urban, 78, 32, formerly_smoked, 0
+Female, 67, 0, 0, Yes, Never_worked, Rural, 80, 42, never_smoked, 1
+Male, 32, 1, 0, Yes, Govt_job, Urban, 68, 28, smokes, 0
+Female, 53, 1, 1, No, Private, Urban, 72, 34, formerly_smoked, 1
+Male, 80, 1, 0, No, Govt_job, Rural, 55, 27, never_smoked, 0
+Female, 70, 1, 0, Yes, Self-employed, Urban, 70, 30, smokes, 1
+Male, 43, 0, 1, No, Never_worked, Rural, 65, 29, formerly_smoked, 0
+Female, 24, 0, 0, Yes, Private, Urban, 56, 31, never_smoked, 0
+Male, 65, 1, 0, No, Self-employed, Urban, 69, 27, smokes, 0
+Female, 58, 1, 0, No, Govt_job, Rural, 75, 32, never_smoked, 1
+Male, 26, 0, 0, Yes, Never_worked, Urban, 60, 33, formerly_smoked, 0
+Female, 75, 0, 1, No, Private, Rural, 78, 34, never_smoked, 1
+Male, 47, 1, 1, No, Self-employed, Urban, 55, 28, smokes, 0
+Female, 30, 0, 0, Yes, Govt_job, Rural, 58, 29, never_smoked, 0
+Male, 58, 1, 1, Yes, Never_worked, Rural, 67, 35, formerly_smoked, 1
+Female, 68, 0, 1, No, Private, Urban, 75, 30, never_smoked, 0
+Male, 20, 0, 0, Yes, Govt_job, Urban, 55, 26, formerly_smoked, 0
+Female, 72, 1, 0, Yes, Never_worked, Rural, 70, 32, never_smoked, 1
+Male, 37, 0, 0, No, Self-employed, Urban, 60, 27, smokes, 0
+Fem
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+Human: You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+Assistant: Male, 56, 1, 1, Yes, Govt_job, Urban, 65, 32, formerly smoked, 1
+Female, 72, 0, 0, No, Private, Urban, 71, 35, never smoked, 0
+Male, 42, 1, 1, Yes, Self-employed, Rural, 100, 30, smokes, 0
+Female, 28, 0, 0, Yes, Govt_job, Urban, 58, 27, formerly smoked, 0
+Male, 68, 1, 0, Yes, Private, Rural, 69, 29, never smoked, 0
+Female, 34, 0, 1, Yes, Self-employed, Urban, 72, 36, formerly smoked, 0
+Male, 71, 1, 1, Yes, Never_worked, Urban, 68, 31, smokes, 1
+Female, 60, 0, 0, Yes, Private, Rural, 56, 34, never smoked, 0
+Male, 52, 1, 0, No, Govt_job, Urban, 55, 28, formerly smoked, 0
+Female, 26, 0, 0, No, Self-employed, Rural, 67, 33, never smoked, 0
+
+Note: The data generated above is synthetic and for research purposes only. It does not represent real-world data or real individuals. The data is generated based on the rules provided and follows the format specified. The stroke prediction model should be trained and validated using actual medical records before applying it to real patients.
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+Human: You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+Assistant: Male, 55, 0, 0, No, Govt_job, Urban, 65, 28, formerly smoked, 0
+Female, 68, 1, 0, Yes, Self-employed, Rural, 75, 35, smokes, 1
+Male, 43, 0, 0, No, Private, Urban, 90, 32, formerly smoked, 1
+Female, 72, 1, 1, Yes, Never_worked, Rural, 85, 37, never smoked, 0
+Male, 31, 0, 0, Yes, Govt_job, Urban, 58, 27, never smoked, 0
+Female, 52, 1, 0, No, Self-employed, Rural, 63, 29, smokes, 1
+Male, 71, 1, 1, Yes, Never_worked, Urban, 68, 30, formerly smoked, 0
+Female, 25, 0, 0, No, Private, Rural, 57, 26, never smoked, 0
+Male, 60, 0, 1, Yes, Govt_job, Urban, 75, 31, formerly smoked, 1
+Female, 48, 1, 0, No, Self-employed, Rural, 72, 33, smokes, 0
+Male, 58, 1, 0, Yes, Never_worked, Urban, 60, 28, never smoked, 1
+Female, 65, 0, 1, Yes, Private, Rural, 68, 29, formerly smoked, 0
+Male, 23, 0, 0, No, Govt_job, Rural, 59, 25, never smoked, 0
+Female, 70, 1, 1, Yes, Never_worked, Urban, 75, 34, smokes, 1
+Male, 63, 1, 0, No, Private, Rural, 75, 27, formerly smoked, 0
+Female, 36, 0, 0, No, Self_employed, Urban, 55, 24, never smoked, 0
+Male, 82, 1, 0, No, Govt_job, Rural, 58, 26, never smoked, 1
+Female, 50, 1, 1, No, Never_worked, Urban, 68, 30, formerly smoked, 0
+Male, 51, 1, 0, Yes, Private, Rural, 62, 29, never smoked, 1
+Female, 41, 0, 1, Yes, Self_employed, Urban, 60, 32, smokes, 0
+Male, 66, 0, 1, No, Govt_job, Rural, 59, 27, formerly smoked, 0
+Female, 39, 1, 0, No, Never
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+Human: You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+Assistant: Female,55,1,1,Yes,Self-employed,Urban,110,30,formerly smoked,1
+Male,72,0,0,No,Private,Urban,120,36,smokes,0
+Female,30,1,0,No,Never_worked,Rural,75,28,never smoked,0
+Male,63,0,0,Yes,Self-employed,Urban,110,29,formerly smoked,1
+Female,50,0,1,Yes,Private,Rural,80,32,smokes,0
+Male,82,1,0,No,Govt_job,Urban,85,27,formerly smoked,1
+Female,45,0,1,Yes,Self-employed,Rural,105,31,never smoked,0
+Male,24,1,1,No,Never_worked,Urban,115,34,formerly smoked,1
+Female,70,1,1,No,Private,Rural,120,30,smokes,1
+Male,58,1,0,No,Govt_job,Urban,90,35,never smoked,0
+Female,22,0,1,Yes,Self-employed,Urban,70,29,formerly smoked,0
+Male,45,0,0,Yes,Private,Rural,110,32,smokes,0
+Female,55,1,0,Yes,Never_worked,Urban,100,28,never smoked,0
+Male,60,1,1,No,Self-employed,Rural,100,27,formerly smoked,0
+Female,78,1,1,Yes,Govt_job,Urban,110,33,smokes,1
+Male,32,0,0,No,Never_worked,Urban,85,27,never smoked,0
+Female,62,1,0,Yes,Private,Rural,105,31,formerly smoked,1
+Male,50,1,1,Yes,Self-employed,Urban,115,30,formerly smoked,0
+Female,48,0,1,No,Govt_job,Urban,80,29,never smoked,1
+Male,72,1,1,No,Never_worked,Rural,90,32,formerly smoked,0
+Female,38,0,0,Yes,Private,Urban,100,34,never smoked,0
+Male,58,0,1,No,Self-employed,Rural,105,33,formerly smoked,1
+Female,65,1,1,Yes,Never_worked,Urban,110,30,never smoked,1
+Male,28,0,0,No,Govt_job,Rural,95,27,never smoked,0
+
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+Human: You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+Assistant: Male, 50, 1, 0, No, Self-employed, Urban, 85, 45, formerly smoked, 1
+Female, 68, 1, 0, Yes, Govt_job, Urban, 65, 30, never smoked, 1
+Male, 72, 1, 1, No, Private, Rural, 80, 35, formerly smoked, 1
+Female, 25, 0, 0, Yes, Never_worked, Urban, 100, 25, smokes, 0
+Male, 42, 1, 0, No, Self-employed, Rural, 90, 40, never smoked, 0
+Female, 33, 0, 1, No, Govt_job, Urban, 70, 28, formerly smoked, 0
+Male, 67, 0, 1, Yes, Private, Urban, 75, 32, smokes, 1
+Female, 47, 1, 0, Yes, Never_worked, Rural, 60, 27, never smoked, 0
+Male, 55, 1, 1, Yes, Govt_job, Urban, 85, 42, formerly smoked, 1
+Female, 31, 0, 0, No, Self-employed, Rural, 95, 29, smokes, 0
+Male, 74, 1, 0, Yes, Private, Rural, 70, 35, formerly smoked, 1
+Female, 60, 1, 0, No, Never_worked, Urban, 55, 26, never smoked, 1
+Male, 29, 0, 0, Yes, Govt_job, Rural, 80, 30, never smoked, 0
+Female, 71, 1, 1, No, Self-employed, Urban, 60, 28, formerly smoked, 1
+Male, 58, 0, 0, No, Private, Urban, 90, 40, never smoked, 0
+Female, 52, 1, 1, Yes, Never_worked, Rural, 75, 27, formerly smoked, 1
+Male, 35, 1, 0, No, Govt_job, Rural, 70, 32, smokes, 1
+Female, 64, 0, 1, No, Self-employed, Urban, 80, 26, never smoked, 0
+Male, 62, 1, 1, Yes, Private, Urban, 75, 35, formerly smoked, 1
+Female, 40, 0, 0, Yes, Never_worked, Rural, 55, 25, never smoked, 0
+Male, 73, 1, 0, No, Govt_job, Rural, 85, 34, formerly smoked, 1
+Female, 56, 1, 1, No,
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+Human: You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+Assistant: Male, 65, 1, 0, Yes, Govt_job, Urban, 75, 38, formerly smoked, 1
+Female, 52, 0, 1, No, Self-employed, Rural, 150, 34, smokes, 0
+Male, 74, 1, 0, No, Private, Urban, 62, 30, never smoked, 0
+Female, 35, 0, 0, Yes, Never_worked, Urban, 85, 25, formerly smoked, 0
+Male, 69, 1, 1, No, Govt_job, Rural, 85, 29, smokes, 0
+Female, 48, 0, 1, No, Self-employed, Urban, 65, 28, formerly smoked, 0
+Male, 55, 1, 0, No, Govt_job, Rural, 75, 30, never smoked, 1
+Female, 73, 0, 1, Yes, Never_worked, Urban, 55, 34, smokes, 0
+Male, 32, 0, 0, No, Private, Rural, 115, 24, formerly smoked, 0
+Female, 58, 1, 1, No, Never_worked, Rural, 68, 33, smokes, 1
+Male, 63, 1, 1, Yes, Govt_job, Urban, 67, 32, never smoked, 0
+Female, 71, 0, 1, Yes, Self-employed, Urban, 56, 27, formerly smoked, 1
+Male, 49, 0, 0, No, Private, Rural, 95, 31, formerly smoked, 0
+Female, 50, 1, 1, No, Never_worked, Urban, 80, 29, smokes, 1
+Male, 61, 1, 0, Yes, Govt_job, Urban, 70, 34, never smoked, 1
+Female, 38, 0, 0, No, Self-employed, Rural, 75, 26, formerly smoked, 0
+Male, 70, 1, 1, No, Private, Rural, 62, 35, smokes, 1
+Female, 62, 0, 0, Yes, Never_worked, Rural, 55, 28, formerly smoked, 0
+Male, 42, 1, 0, No, Govt_job, Urban, 85, 27, never smoked, 0
+Female, 53, 1, 1, No, Self_employed, Urban, 75, 33, smokes, 1
+Male, 59, 1, 1, Yes, Govt_job, Rural, 67, 32, formerly smoked, 1
+Female, 67, 0, 0,
+

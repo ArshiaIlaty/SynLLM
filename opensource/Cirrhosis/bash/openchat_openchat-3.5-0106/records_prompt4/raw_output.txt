@@ -1,0 +1,1489 @@
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: ID,1,C,D-penicillamine,45,M,N,Y,N,S,8.5,200,3.0,300,60,40,60,180,12,10,1
+ID,2,D,Placebo,50,F,Y,Y,Y,Y,10.0,150,2.0,200,45,80,100,150,150,12,1
+ID,3,CL,D-penicillamine,35,M,N,N,N,N,Y,15.0,180,3.5,150,30,70,120,250,10,8,3
+ID,4,D,Placebo,60,F,Y,N,N,S,7.5,160,3.0,250,45,60,80,150,13,1
+ID,5,CL,D-penicillamine,25,M,N,Y,Y,N,N,11.0,170,2.5,300,50,100,150,200,11,3
+ID,6,D,Placebo,40,F,Y,N,N,S,6.0,140,3.5,200,35,60,80,150,12,2
+ID,7,CL,D-penicillamine,30,M,N,N,Y,N,N,12.0,190,2.0,300,45,70,100,250,9,3
+ID,8,D,Placebo,55,F,Y,Y,N,Y,9.0,130,2.5,200,35,50,60,150,12,2
+ID,9,CL,D-penicillamine,28,M,N,N,Y,N,N,14.0,180,3.0,250,40,60,100,250,9,3
+ID,10,D,Placebo,45,F,Y,N,N,S,8.0,140,2.5,200,35,50,60,150,12,2
+ID,11,CL,D-penicillamine,32,M,N,Y,Y,N,N,13.0,170,2.5,300,45,70,100,250,9,3
+ID,12,D,Placebo,60,F,Y,N,N,S,7.0,140,3.0,200,35,50,60,150,12,2
+ID,13,CL,D-penicillamine,28,M,N,N,Y,N,N,10.0,160,2.5,250,40,60,90,250,9,3
+ID,14,D,Placebo
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: ID,1,C,D-penicillamine,60,M,N,Y,N,N,7.5,180,3.5,150,120,45,90,160,250,10,2
+ID,2,CL,Placebo,58,F,Y,N,Y,S,12.0,160,3.0,130,110,35,80,150,240,12,3
+ID,3,D,D-penicillamine,70,M,Y,Y,Y,N,S,10.0,140,2.0,180,100,40,130,200,15,4
+ID,4,C,Placebo,65,F,N,N,N,N,8.5,160,3.5,140,100,45,70,140,250,10,2
+ID,5,D,D-penicillamine,55,M,N,Y,Y,Y,M,11.0,150,2.5,160,100,40,80,160,25,4
+ID,6,CL,Placebo,48,F,Y,N,N,S,10.0,170,2.5,140,120,45,75,140,240,10,3
+ID,7,C,D-penicillamine,52,M,Y,Y,N,N,N,9.5,150,3.0,150,110,40,90,170,25,3
+ID,8,D,Placebo,63,M,N,N,N,N,10.0,160,2.0,120,100,35,80,150,250,12,3
+ID,9,C,D-penicillamine,58,F,Y,N,Y,N,S,9.0,160,3.0,180,100,40,80,150,25,3
+ID,10,D,Placebo,45,M,Y,Y,N,S,12.0,170,2.5,160,110,45,75,160,250,10,4
+ID,11,C,D-penicillamine,60,F,N,N,N,N,N,8.5,150,3.5,150,100,40,80,150,25,3
+ID,12,D,Placebo,57,M,Y,Y,N,Y,10.0,160,2.5,160,120,40,80,160,25,4
+ID,13,CL,D-penicillamine,56,F,Y,N,Y,Y,M,11.0,140,3.0,170,1
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 1, 180, C, Placebo, 58, F, N, Y, Y, S, 7.8, 180, 3.2, 100, 80, 90, 150, 11.5, 1, 2
+2, 160, CL, D-penicillamine, 64, M, Y, Y, Y, S, 12.5, 170, 2.3, 80, 70, 100, 120, 130, 100, 1, 3
+3, 170, D, Placebo, 72, F, N, N, N, N, 4.3, 190, 2.7, 50, 60, 90, 140, 11.5, 1, 2
+4, 150, CL, D-penicillamine, 59, M, Y, N, N, N, 9.8, 160, 2.8, 120, 40, 70, 110, 120, 100, 1, 3
+5, 165, D, Placebo, 48, F, Y, Y, Y, S, 10.2, 150, 2.6, 150, 50, 120, 100, 11.5, 1, 3
+6, 180, C, D-penicillamine, 60, M, N, N, N, N, 5.5, 170, 3.1, 200, 60, 80, 100, 130, 100, 1, 2
+7, 140, D, Placebo, 65, F, Y, Y, Y, S, 8.5, 140, 2.9, 180, 50, 110, 120, 11.5, 1, 3
+8, 175, CL, D-penicillamine, 55, M, Y, Y, Y, Y, 10.8, 160, 2.4, 130, 40, 60, 100, 120, 100, 1, 4
+9, 150, C, Placebo, 46, F, N, Y, Y, S, 6.8, 130, 3.0, 100, 40, 80, 110, 120, 11.5, 2
+10, 160, D, D-penicillamine, 70, M, Y, Y, Y, S, 11.5, 150, 2.7, 250, 50, 70, 120, 100, 11.5, 1, 3
+11, 145, C, Placebo, 54, F, N, N, N, N, 3.5, 140, 3.
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 1001,365,C,Placebo,55,M,N,Y,N,S,7.8,180,3.0,200,70,65,130,150,12,1
+1002,365,D,D-penicillamine,47,F,Y,N,Y,N,9.2,160,2.8,180,75,80,110,120,13,1
+1003,365,CL,D-penicillamine,58,M,Y,Y,N,S,8.5,150,3.5,190,78,90,100,110,12,1
+1004,365,C,Placebo,62,F,N,N,Y,N,6.8,170,3.2,160,60,70,120,140,11,1
+1005,365,D,D-penicillamine,51,M,Y,Y,N,Y,10.5,140,2.6,150,80,95,130,120,12,1
+1006,365,C,Placebo,45,F,Y,Y,Y,N,7.7,150,3.1,170,65,85,100,140,12,1
+1007,365,D,D-penicillamine,48,M,N,N,N,S,9.3,130,2.7,140,75,85,120,120,13,1
+1008,365,C,Placebo,60,F,N,Y,N,S,8.3,140,3.3,150,60,75,100,140,11,1
+1009,365,D,D-penicillamine,54,M,Y,Y,N,Y,11.0,120,2.4,160,80,90,120,120,12,1
+1010,365,C,Placebo,52,F,Y,Y,Y,N,7.5,130,3.4,170,60,75,100,140,12,1
+1011,365,D,D-penicillamine,49,M,N,N,N,S,8.7,120,2.8,130,75,85,110,120,13,1
+1012,365,C,Placebo,58,F,N,N,N,N,7.8,150,3.2,150,65,70,100,140,12,1
+1013,365,D,D-penicillamine,55,M,Y,Y,N,
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 
+101, 30, C, D-penicillamine, 50, F, N, Y, Y, S, 3.0, 160, 3.5, 120, 100, 120, 150, 200, 11.5, 2
+102, 60, D, Placebo, 65, M, Y, N, N, Y, 10.0, 180, 2.5, 110, 80, 110, 120, 140, 12.0, 3
+103, 90, CL, D-penicillamine, 45, F, N, Y, N, S, 7.5, 150, 3.0, 130, 110, 110, 130, 150, 10.5, 4
+104, 120, D, Placebo, 70, M, Y, Y, Y, N, 12.0, 190, 2.0, 140, 100, 90, 100, 13.5, 3
+105, 150, CL, D-penicillamine, 35, F, Y, Y, N, S, 11.5, 140, 2.5, 100, 80, 100, 130, 100, 11.5, 3
+106, 180, D, Placebo, 55, M, Y, Y, Y, Y, 20.0, 200, 2.0, 120, 110, 100, 110, 120, 12.0, 4
+107, 210, C, D-penicillamine, 40, F, N, N, Y, S, 6.0, 130, 3.0, 110, 100, 110, 120, 140, 10.5, 2
+108, 240, D, Placebo, 50, M, Y, N, N, N, 8.0, 170, 2.5, 100, 90, 100, 110, 130, 12.5, 3
+109, 270, CL, D-penicillamine, 30, F, Y, Y, Y, S, 9.0, 140, 2.5, 110, 100, 100, 110, 120, 10.5, 3
+110, 300, D, Placebo, 60, M, Y, Y, Y, Y, 18.0, 210, 2.0, 120, 110, 100, 100, 120, 13.5, 4
+111, 330, C, D-penic
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 1, 10, C, D-penicillamine, 45, M, Y, Y, Y, N, 1.2, 150, 3.2, 200, 70, 80, 100, 80, 400, 2
+2, 12, D, D-penicillamine, 65, F, N, Y, N, S, 3.5, 180, 2.7, 180, 110, 120, 150, 250, 450, 3
+3, 8, CL, Placebo, 55, M, Y, Y, N, S, 6.7, 190, 2.2, 160, 120, 110, 200, 220, 600, 4
+4, 15, D, D-penicillamine, 35, F, N, Y, Y, N, 4.8, 160, 2.8, 120, 90, 100, 130, 200, 500, 3
+5, 20, C, Placebo, 45, M, Y, Y, Y, S, 10.0, 170, 2.5, 300, 130, 110, 250, 300, 800, 4
+6, 5, D, D-penicillamine, 70, F, Y, Y, N, S, 4.3, 200, 3.1, 140, 110, 130, 140, 220, 600, 3
+7, 18, CL, Placebo, 50, M, N, Y, Y, S, 6.5, 210, 2.6, 180, 100, 120, 190, 300, 700, 4
+8, 25, D, D-penicillamine, 60, F, Y, Y, Y, S, 8.7, 180, 2.4, 100, 120, 110, 170, 200, 600, 4
+9, 10, C, Placebo, 30, M, Y, Y, Y, N, 2.3, 190, 3.2, 200, 80, 100, 120, 180, 600, 3
+10, 12, D, D-penicillamine, 55, F, Y, Y, Y, S, 5.8, 160, 2.7, 120, 110, 130, 200, 180, 500, 4
+11, 15, CL, Placebo, 45, M, N, Y, Y, N, 2.0, 170, 2.8, 240, 90,
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+1, 180, C, Placebo, 50, F, N, Y, Y, N, 4.5, 180, 3.0, 200, 30, 120, 130, 250000, 12, 1
+2, 240, CL, D-penicillamine, 60, M, Y, Y, N, N, S, 6.0, 160, 2.5, 180, 25, 60, 110, 240000, 14, 4
+3, 120, D, Placebo, 45, F, N, N, N, M, 12.0, 150, 2.0, 100, 15, 100, 120, 220000, 13, 4
+4, 180, C, D-penicillamine, 58, M, Y, Y, N, Y, S, 8.0, 170, 3.0, 160, 20, 80, 100, 240000, 12, 3
+5, 270, CL, Placebo, 70, F, N, N, Y, N, 2.5, 140, 1.5, 120, 10, 50, 120, 230000, 14, 4
+6, 360, D, D-penicillamine, 65, M, Y, Y, Y, N, M, 10.5, 190, 1.5, 200, 30, 150, 100, 180000, 13, 3
+7, 150, C, Placebo, 48, F, Y, Y, N, N, 5.0, 130, 3.0, 200, 20, 70, 120, 210000, 12, 2
+8, 210, CL, D-penicillamine, 55, M, Y, Y, Y, S, M, 11.0, 170, 2.0, 140, 25, 120, 130, 190000, 13, 4
+9, 300, D, D-penicillamine, 70, M, N, N, N, N, M, 9.5, 160, 2.0, 100, 10, 100, 100, 180000, 13, 3
+10, 120, C, Placebo, 35, F, N,
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+1, 180, C, Placebo, 50, F, N, N, N, S, 1.2, 150, 3.0, 120, 200, 45, 80, 120, 250, 3
+2, 180, D, Placebo, 60, M, Y, Y, Y, M, 9.0, 180, 2.0, 100, 250, 60, 100, 150, 260, 4
+3, 180, CL, D-penicillamine, 45, F, Y, Y, N, S, 10.5, 160, 3.5, 150, 200, 50, 80, 150, 240, 4
+4, 180, D, D-penicillamine, 55, M, Y, Y, Y, Y, 15.0, 140, 2.0, 80, 200, 80, 120, 120, 260, 4
+5, 180, CL, Placebo, 40, F, N, Y, N, N, 7.0, 130, 3.0, 100, 250, 40, 80, 150, 240, 3
+6, 180, D, D-penicillamine, 60, M, Y, Y, Y, M, 13.0, 190, 2.5, 130, 200, 50, 100, 120, 250, 4
+7, 180, C, Placebo, 58, F, Y, N, Y, S, 6.0, 170, 3.5, 120, 250, 40, 80, 150, 250, 3
+8, 180, D, D-penicillamine, 48, M, Y, Y, Y, M, 12.0, 120, 2.0, 100, 200, 40, 100, 120, 240, 4
+9, 180, CL, Placebo, 55, F, N, Y, N, S, 8.0, 140, 2.5, 110, 250, 30, 80, 150, 250, 3
+10, 180, D, D-penicillamine, 50, M, Y, Y, Y, Y, 16.0, 110, 2.0, 90, 2
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 1,24,C,P,65,F,N,Y,N,N,1.5,170,3.2,22,105,78,180,150,12,2
+2,62,CL,D,47,M,Y,Y,Y,Y,12.5,180,2.3,15,120,80,130,120,14,3
+3,45,D,P,58,F,N,N,N,N,10.0,160,2.8,18,100,85,160,120,13,3
+4,37,C,D,72,M,Y,N,N,N,8.5,150,3.0,16,95,60,140,130,12,3
+5,56,C,P,42,F,N,Y,N,N,11.0,190,2.9,12,105,75,180,150,11,3
+6,33,D,P,60,M,Y,Y,N,Y,13.5,170,2.6,14,90,60,140,110,14,4
+7,72,CL,D,45,F,Y,Y,N,Y,10.0,180,2.5,20,110,85,160,140,11,4
+8,12,C,P,28,M,N,N,N,N,7.0,160,3.1,13,110,60,130,120,11,2
+9,110,D,D,55,F,Y,N,N,N,9.0,190,2.7,22,90,60,170,110,10,3
+10,41,C,P,38,M,N,Y,Y,N,8.5,170,2.8,16,105,65,140,110,13,3
+11,92,CL,D,39,F,Y,Y,N,Y,10.0,180,2.7,20,95,60,160,120,13,4
+12,30,D,P,40,M,Y,N,N,Y,12.5,170,2.5,14,100,60,140,110,14,4
+13,78,C,P,50,F,Y,Y,N,N,11.0,160,2.8,12,105,75,180,150,11,3
+14,15,D,D,32,M,N,N,N,N,10.0,170,3.0,16,90,60,150,
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 1,200,
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+1,1,C,D-penicillamine,30,F,N,Y,N,S,2.3,150,3.0,12,200,20,100,100,150,200,20,2
+1,200,
+2,21,C,Placebo,45,M,Y,Y,Y,N,1.2,180,3.5,15,240,25,80,130,150,20,2
+1,200,
+3,10,D,D-penicillamine,25,F,N,Y,N,S,1.1,130,3.0,10,220,28,120,90,120,20,2
+1,200,
+4,15,CL,D-penicillamine,50,M,Y,Y,Y,S,4.5,170,2.0,8,180,28,100,120,150,10,4
+1,200,
+5,25,D,Placebo,30,F,Y,Y,Y,S,10.5,160,2.5,5,200,120,100,150,20,4
+1,200,
+6,20,C,D-penicillamine,40,M,N,Y,N,S,1.2,140,3.5,8,190,24,100,110,150,20,2
+1,200,
+7,12,D,Placebo,35,F,Y,N,N,M,1.8,170,3.0,7,220,18,90,150,20,3
+1,200,
+8,18,CL,D-penicillamine,45,M,Y,Y,Y,S,3.5,150,2.5,10,180,20,120,110,150,10,4
+1,200,
+9,22,D,Placebo,50,M,Y,Y,N,S,10.0,140,2.0,6,200,150,110,150,20,4
+1,200,
+10,16,C,D-penicillamine,55,F,Y,N,N,M,2.2,120,3.5,10,170,20,120,90,150,20,2
+1,200,
+11,13,D,Placebo,60,M,
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 101,180,C,D-penicillamine,58,M,N,Y,Y,N,7.2,180,3.8,170,132,90,150,180,25000,M
+102,180,CL,Placebo,65,F,Y,Y,Y,S,12.5,150,2.4,160,115,75,110,120,27000,F
+103,180,D,D-penicillamine,42,M,N,N,N,N,10.5,160,2.8,150,138,120,100,120,23000,M
+104,180,C,Placebo,56,F,Y,N,N,S,9.8,170,3.3,140,110,80,130,24000,F
+105,180,D,D-penicillamine,38,M,Y,Y,Y,S,11.0,140,2.6,130,145,115,100,130,23000,M
+106,180,CL,Placebo,75,F,N,N,N,N,8.2,140,2.9,120,125,85,100,24000,F
+107,180,C,D-penicillamine,68,M,Y,Y,N,S,7.0,150,3.1,140,130,115,100,120,22000,M
+108,180,D,Placebo,52,F,Y,Y,Y,S,13.5,130,2.5,110,145,105,110,25000,F
+109,180,C,D-penicillamine,45,M,N,N,N,N,9.0,120,3.0,140,135,100,100,120,24000,M
+110,180,D,Placebo,60,F,Y,Y,Y,S,11.0,130,2.4,100,140,95,100,25000,F
+111,180,C,D-penicillamine,50,M,Y,Y,N,S,8.5,160,2.8,140,130,105,100,130,23000,M
+112,180,D,Placebo,55,F,N,N,N,N,10.0,150,2.7,120,125,95,100,24000,F
+113
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: ID, 100, C, D-penicillamine, 58, M, N, Y, Y, S, 2.3, 160, 3.0, 250, 100, 90, 150, 120000, 11, 2
+ID, 120, CL, Placebo, 45, F, Y, N, N, N, 12.5, 180, 2.0, 100, 80, 150, 100, 120000, 13, 3
+ID, 80, D, D-penicillamine, 60, M, N, Y, Y, S, 10.0, 150, 2.8, 120, 90, 120, 110, 120000, 12, 4
+ID, 150, C, Placebo, 70, F, Y, Y, Y, Y, 8.0, 140, 3.5, 300, 110, 100, 110, 120000, 13, 3
+ID, 180, CL, D-penicillamine, 42, M, Y, N, Y, S, 6.5, 130, 2.5, 50, 80, 180, 130, 120000, 11, 4
+ID, 110, D, Placebo, 65, F, N, Y, Y, S, 11.0, 170, 2.0, 150, 70, 140, 100, 120000, 12, 3
+ID, 90, C, D-penicillamine, 53, M, Y, Y, Y, Y, Y, 10.0, 140, 2.5, 400, 90, 130, 110, 120000, 12, 4
+ID, 130, CL, Placebo, 48, F, N, N, Y, N, 7.5, 160, 3.0, 200, 70, 100, 100, 120000, 11, 3
+ID, 160, D, D-penicillamine, 41, M, Y, Y, Y, Y, Y, 12.0, 120, 2.0, 100, 100, 150, 110, 120000, 13, 4
+ID, 140, C, Placebo, 59, F, Y, Y, N, S, 9.0, 180, 3.0, 150, 110, 110, 100, 120000, 12, 3
+ID, 170, CL, D-penicillamine, 38, M
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+1,180,C,D-penicillamine,65,M,N,N,N,N,3.2,180,3.2,120,45,80,25,80,110,150,11,1
+2,180,C,Placebo,58,F,Y,N,Y,N,10.5,150,3.1,90,40,60,85,120,150,11,2
+3,180,CL,D-penicillamine,62,M,Y,Y,N,Y,11.8,170,2.8,70,60,50,95,130,120,12,3
+4,180,D,D-penicillamine,75,F,N,N,Y,S,N,12.5,160,2.7,85,45,60,100,130,13,2
+5,180,C,Placebo,50,M,N,Y,N,N,9.8,140,3.1,95,35,55,90,140,120,11,2
+6,180,D,D-penicillamine,48,F,Y,Y,N,Y,N,15.2,190,2.4,60,35,70,100,120,10,3
+7,180,CL,Placebo,55,M,Y,N,Y,N,13.5,180,2.7,60,50,65,90,130,120,12,3
+8,180,C,D-penicillamine,60,F,Y,N,N,Y,S,7.3,140,2.8,80,40,60,100,120,11,2
+9,180,D,Placebo,53,M,N,Y,N,N,14.2,170,2.6,75,35,60,95,120,11,3
+10,180,C,D-penicillamine,58,F,Y,N,Y,N,N,8.5,150,3.2,100,40,55,100,130,11,2
+11,180,D,Placebo,72,M,N,Y,N,S,12.8,180,2.5,90,30,60,85,120,12,3
+12,180,CL,D-penicillamine,61,F,Y,Y,N,
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: ID,1,C,Placebo,45,M,N,Y,N,S,1.5,180,3.8,20,90,80,120,200,12,2
+ID,2,CL,D-penicillamine,58,F,Y,Y,Y,Y,M,7.8,200,2.4,30,85,90,110,150,13,1
+ID,3,D,D-penicillamine,65,M,Y,N,N,N,S,9.5,190,2.6,25,85,100,120,130,14,3
+ID,4,CL,Placebo,42,F,N,Y,Y,M,6.2,170,3.2,28,95,80,70,180,150,12,3
+ID,5,C,D-penicillamine,50,M,Y,Y,N,N,N,10.5,160,2.3,18,90,110,130,120,13,4
+ID,6,D,D-penicillamine,48,F,Y,N,N,N,S,8.2,170,2.7,15,85,100,110,150,14,3
+ID,7,C,Placebo,55,M,N,Y,Y,Y,3.5,180,2.9,10,90,80,120,200,12,2
+ID,8,D,D-penicillamine,47,F,Y,Y,N,S,M,11.5,160,2.4,20,95,80,130,150,15,3
+ID,9,C,Placebo,43,M,N,Y,N,N,4.5,150,3.8,25,90,80,100,180,150,12,3
+ID,10,D,D-penicillamine,56,F,Y,N,N,M,6.5,170,2.5,10,85,100,120,150,140,14,4
+11,2,CL,D-penicillamine,39,F,Y,Y,Y,M,5.5,160,2.8,12,95,80,110,130,150,15,4
+12,3,D,Placebo,57,M,Y,Y,N,N,8.5,180,3.1,28,90,85,100,120,150,13,3
+13,4,C,D-penicillamine,49,F,N,N,Y,N,M,3.5,170,3.2,15,95,80,110,120,150,
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: ID, 140, C, Placebo, 55, M, N, Y, N, S, 3.8, 180, 2.8, 30, 35, 95, 110, 160, 12, 2
+ID, 210, CL, D-penicillamine, 48, F, Y, Y, Y, N, 12.5, 170, 1.9, 55, 50, 65, 80, 120, 13, 3
+ID, 180, D, D-penicillamine, 62, M, Y, N, N, Y, 17.0, 210, 2.3, 80, 80, 75, 120, 100, 14, 4
+ID, 190, CL, Placebo, 47, F, N, N, N, N, 8.0, 150, 3.0, 45, 25, 55, 80, 110, 11, 2
+ID, 160, D, D-penicillamine, 58, M, Y, Y, Y, Y, 11.0, 220, 1.8, 20, 70, 150, 120, 90, 16, 3
+ID, 220, CL, D-penicillamine, 39, F, N, N, Y, Y, S, 9.0, 140, 2.4, 40, 45, 60, 100, 10, 2
+ID, 130, D, Placebo, 65, M, N, N, N, Y, 16.0, 200, 2.2, 35, 35, 85, 100, 15, 12, 4
+ID, 200, D, D-penicillamine, 43, F, Y, Y, Y, Y, 13.0, 190, 1.7, 25, 90, 180, 120, 80, 13, 3
+ID, 170, CL, Placebo, 54, M, N, N, N, N, 7.5, 170, 2.6, 60, 30, 45, 100, 120, 10, 2
+ID, 150, D, D-penicillamine, 60, F, Y, Y, N, N, 10.0, 160, 2.1, 15, 40, 150, 120, 70, 14, 3
+ID, 120, CL, D-penicillamine, 52, M, N, Y, Y, Y, S, 15.0, 180, 1.9, 25, 50, 80, 110, 90, 12, 3
+
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 1,100,C,D-penicillamine,50,F,Y,Y,N,N,8.5,180,3.0,200,40,120,60,180,60,12,2
+2,150,CL,Placebo,45,M,N,N,Y,S,12.0,160,2.5,150,45,100,80,140,150,13,3
+3,200,D,D-penicillamine,35,F,Y,Y,Y,S,10.0,190,3.5,100,40,110,70,180,150,12,3
+4,250,CL,Placebo,60,M,N,N,N,N,9.0,170,3.0,130,35,110,60,160,12,3
+5,120,D,D-penicillamine,45,F,Y,Y,Y,S,7.5,150,2.5,80,35,100,80,160,150,12,2
+6,280,C,Placebo,55,M,N,N,Y,N,6.5,160,2.5,90,25,80,90,170,150,13,2
+7,300,D,D-penicillamine,40,F,Y,Y,Y,S,11.0,180,2.0,70,30,120,100,170,150,12,3
+8,130,C,Placebo,35,M,N,N,N,N,7.5,140,3.0,100,25,90,140,150,13,2
+9,220,D,D-penicillamine,25,F,Y,Y,Y,S,9.0,170,2.5,90,30,110,80,160,150,12,3
+10,240,CL,Placebo,50,M,N,N,Y,N,8.0,150,2.5,120,30,100,90,150,13,3
+11,180,C,D-penicillamine,40,F,Y,Y,Y,S,7.5,160,2.5,60,25,100,90,170,150,12,2
+12,310,D,Placebo,55,M,Y,Y,N,S,10.5,170,2.5,80,35,110,100,150,150,13,3
+13,290,C,D-penicillamine,30,F,Y,Y,Y,S,6
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 1,180,C,D-penicillamine,55,M,N,Y,N,N,S,1.5,180,3.5,120,80,200,150,180,120,2,3
+2,160,CL,Placebo,42,F,Y,N,N,S,7.5,160,2.0,100,60,110,130,120,140,3,4
+3,120,D,D-penicillamine,63,M,N,Y,N,N,S,2.5,140,3.0,110,80,100,150,110,110,3,3
+4,140,C,Placebo,57,F,Y,Y,N,Y,10.0,180,1.5,80,70,120,100,120,130,4,4
+5,150,D,D-penicillamine,48,M,N,N,N,N,Y,6.0,150,2.5,130,70,110,100,130,120,4,3
+6,130,C,Placebo,61,F,Y,N,Y,N,8.0,170,3.0,100,60,90,110,120,130,3,3
+7,180,D,D-penicillamine,52,M,N,Y,N,N,S,4.0,160,3.5,120,70,110,130,110,120,3,3
+8,160,CL,D-penicillamine,49,F,Y,N,N,N,Y,8.0,150,2.0,100,60,120,100,110,3,4
+9,170,C,Placebo,46,M,N,Y,Y,N,10.0,150,2.5,100,60,100,120,110,120,4,4
+10,140,D,D-penicillamine,43,M,Y,N,N,N,S,7.0,170,2.5,110,70,100,110,110,120,4,4
+11,130,C,Placebo,50,F,Y,Y,N,N,9.0,160,3.0,100,60,110,100,120,120,3,3
+12,150,D,D-penicillamine,55,M,N,Y,N,N,S,3.0,150,3.0,110,80,100,120,110,120,3,3
+13
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: ID,1,C,D-penicillamine,56,F,Y,Y,Y,S,3.5,200,2.8,12,10,60,50,150,10,12,1
+ID,2,CL,Placebo,62,M,N,N,N,N,8.5,180,3.2,15,8,110,70,120,250,200,15,2
+ID,3,D,D-penicillamine,45,F,Y,Y,Y,Y,N,12.0,160,2.1,8,120,120,110,100,12,3
+ID,4,C,Placebo,58,M,N,Y,N,N,7.0,150,2.9,18,6,80,60,175,200,14,2
+ID,5,CL,D-penicillamine,48,F,Y,N,Y,N,S,10.5,140,2.4,10,100,100,130,150,13,3
+ID,6,D,Placebo,52,M,N,N,Y,Y,11.0,170,2.7,12,11,100,90,200,180,15,4
+ID,7,C,D-penicillamine,41,F,Y,N,N,N,N,8.0,120,3.0,14,100,110,140,150,12,2
+ID,8,D,Placebo,60,M,Y,Y,N,S,13.0,160,2.5,18,8,120,90,250,200,15,3
+ID,9,C,D-penicillamine,53,F,N,Y,Y,Y,S,6.5,130,2.6,8,100,90,120,150,10,2
+ID,10,D,Placebo,49,M,Y,Y,N,Y,10.0,140,2.5,16,6,80,80,200,180,15,4
+11,23,C,D-penicillamine,35,F,N,Y,N,N,N,5.0,100,3.2,20,100,60,100,150,10,2
+12,37,D,Placebo,55,M,Y,N,N,S,7.0,160,2.6,12,12,80,90,200,180,15,3
+13,19,C,D-penicillamine,38,F,Y,Y,Y,Y,N,8.5,120,2.8,18,100,100,13
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: ID, 180, C, D-penicillamine, 55, M, N, Y, Y, S, 8.2, 190, 2.8, 100, 200, 70, 150, 200, 12, 1
+ID, 210, CL, Placebo, 42, F, Y, N, N, N, 12.0, 180, 3.0, 80, 150, 100, 150, 250, 13, 2
+ID, 190, D, D-penicillamine, 62, M, N, Y, Y, S, 10.5, 170, 2.7, 110, 100, 130, 100, 150, 11, 3
+ID, 160, CL, Placebo, 38, F, N, N, N, N, 7.0, 160, 3.1, 70, 100, 80, 120, 200, 11, 2
+ID, 220, D, D-penicillamine, 58, M, Y, Y, N, Y, S, 11.0, 150, 2.6, 90, 180, 100, 100, 12, 3
+ID, 200, CL, Placebo, 46, F, N, N, Y, N, 6.5, 140, 3.2, 50, 120, 70, 120, 200, 11, 2
+ID, 170, D, D-penicillamine, 45, M, Y, Y, N, Y, M, 12.5, 170, 2.4, 100, 250, 100, 150, 11, 4
+ID, 140, CL, Placebo, 27, F, N, N, N, N, 4.0, 130, 3.3, 60, 80, 60, 120, 18, 2
+ID, 150, D, D-penicillamine, 63, M, Y, Y, Y, Y, S, 10.0, 160, 2.5, 110, 200, 100, 150, 12, 4
+ID, 130, C, D-penicillamine, 39, M, N, Y, Y, Y, M, 8.0, 180, 3.0, 120, 250, 120, 150, 11, 3
+ID, 120, CL, Placebo, 48, F, N, N, N, N, 5.0, 150, 3.1, 70, 100, 60, 120, 18, 2
+ID,
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 
+1, 30, C, D-penicillamine, 58, F, N, Y, Y, S, 1.5, 180, 3.2, 100, 65, 120, 90, 400, 230, 2
+2, 30, CL, Placebo, 62, M, Y, Y, N, Y, 8.5, 190, 2.4, 95, 80, 110, 450, 250, 10, 3
+3, 30, D, D-penicillamine, 45, F, N, N, Y, S, 6.0, 160, 2.8, 110, 60, 105, 75, 300, 250, 3
+4, 30, CL, Placebo, 65, M, Y, N, N, Y, 10.0, 210, 2.3, 80, 85, 100, 400, 280, 8, 4
+5, 30, D, D-penicillamine, 55, F, Y, Y, Y, S, 4.5, 170, 3.1, 105, 55, 130, 70, 300, 260, 2
+6, 30, C, Placebo, 70, M, N, Y, N, Y, 7.5, 150, 3.0, 75, 70, 90, 350, 270, 8, 2
+7, 30, D, D-penicillamine, 48, F, Y, Y, N, Y, 9.0, 140, 2.6, 80, 50, 120, 60, 300, 240, 3
+8, 30, CL, Placebo, 67, M, N, Y, N, Y, 11.5, 200, 2.1, 70, 75, 110, 450, 260, 6, 4
+9, 30, D, D-penicillamine, 52, F, N, N, Y, S, 2.0, 130, 2.9, 90, 45, 100, 60, 300, 220, 2
+10, 30, C, Placebo, 75, M, Y, N, N, Y, 5.0, 180, 3.5, 100, 70, 80, 300, 250, 6, 2
+11, 30, D, D-penicillamine, 40, F, Y, Y, Y, S, 10.0, 150, 2.3, 70, 60, 130, 60, 300, 240, 3
+1
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: ID,1,C,Placebo,65,M,N,Y,Y,S,7.2,195,3.2,24,125,85,150,220,11,2
+ID,2,CL,D-penicillamine,52,F,Y,N,N,N,M,10.5,180,2.4,32,100,90,120,240,12,3
+ID,3,D,Placebo,45,M,N,Y,Y,S,12.1,170,3.1,30,110,80,120,200,9,2
+ID,4,CL,D-penicillamine,70,F,Y,Y,N,N,M,8.5,160,3.0,28,115,95,130,200,10,3
+ID,5,C,D-penicillamine,58,M,N,N,N,N,S,11.5,185,2.8,26,120,90,110,220,11,3
+ID,6,D,Placebo,63,F,Y,Y,Y,M,10.7,165,2.7,22,105,90,115,200,12,3
+ID,7,C,D-penicillamine,48,M,Y,Y,Y,N,S,9.8,175,2.9,34,100,85,130,210,10,3
+ID,8,CL,Placebo,35,F,N,N,Y,M,15.2,150,2.5,10,130,100,150,220,13,4
+ID,9,D,D-penicillamine,72,M,N,Y,N,N,S,8.2,180,2.6,18,115,90,130,200,11,3
+ID,10,C,Placebo,55,F,Y,N,N,S,9.3,160,2.7,12,100,85,120,200,10,3
+ID,11,D,D-penicillamine,38,M,Y,Y,Y,N,M,11.5,170,2.8,16,120,90,120,220,12,3
+ID,12,CL,Placebo,60,F,N,N,N,M,8.9,165,2.7,28,105,90,110,200,12,3
+ID,13,C,D-penicillamine,42,M,Y,Y,Y,N,S,10.4,175,2.5,10,110,80,130,210,10,3
+ID,14,D
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 1, 30, C, D-penicillamine, 55, M, N, Y, Y, S, 5.5, 180, 3.2, 300, 75, 100, 120, 150, 11, 2
+2, 30, CL, D-penicillamine, 45, F, Y, Y, Y, M, 12.5, 160, 2.4, 280, 90, 80, 70, 120, 12, 2, 3
+3, 30, CL, Placebo, 60, M, Y, Y, Y, M, 15.0, 140, 2.7, 320, 100, 100, 110, 11, 2, 3
+4, 30, CL, D-penicillamine, 50, F, Y, Y, N, S, 7.5, 170, 3.1, 350, 85, 75, 130, 100, 11, 2
+5, 30, CL, Placebo, 65, M, Y, Y, Y, Y, 8.5, 150, 2.6, 310, 100, 90, 110, 10, 2, 3
+6, 30, D, D-penicillamine, 48, F, Y, N, Y, M, 10.5, 130, 2.3, 330, 80, 110, 140, 80, 13, 4
+7, 30, C, D-penicillamine, 58, M, N, N, N, N, 6.0, 190, 3.0, 290, 60, 60, 120, 130, 12, 2, 2
+8, 30, D, Placebo, 42, F, Y, N, Y, Y, 9.5, 120, 2.8, 340, 90, 100, 120, 11, 2, 3
+9, 30, CL, D-penicillamine, 62, M, Y, Y, Y, M, 11.0, 170, 2.2, 270, 65, 90, 130, 110, 12, 2, 3
+10, 30, D, Placebo, 47, F, Y, N, Y, S, 7.0, 140, 2.7, 300, 70, 80, 110, 10, 2, 3
+11, 30, C, D-penicillamine, 50, M, Y, Y, N, N, 8.0, 160, 2.9, 310, 55, 85, 100, 1
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 1001,30,C,D-penicillamine,55,F,N,Y,Y,N,1.5,150,3.0,100,120,100,180,80,12,2
+1002,30,CL,Placebo,45,M,Y,Y,N,S,12.5,180,2.0,80,100,80,180,70,12,2
+1003,30,D,D-penicillamine,60,F,Y,N,Y,Y,8.5,170,2.5,100,100,90,120,70,13,3
+1004,30,C,Placebo,50,M,N,Y,N,N,7.5,160,3.0,120,80,80,180,80,12,2
+1005,30,D,D-penicillamine,45,F,Y,N,Y,S,10.0,140,2.0,120,100,100,120,70,12,3
+1006,30,C,Placebo,70,M,N,Y,N,N,9.5,130,3.0,100,80,80,180,80,12,2
+1007,30,D,D-penicillamine,35,F,Y,N,Y,Y,10.5,120,2.5,100,100,100,120,60,13,3
+1008,30,C,Placebo,25,M,N,N,N,N,7.0,140,3.0,120,80,80,180,80,12,2
+1009,30,D,D-penicillamine,55,F,Y,Y,Y,S,8.0,150,2.5,100,100,100,120,60,13,3
+1010,30,C,Placebo,60,M,N,Y,N,N,8.5,130,2.5,120,80,80,180,80,12,2
+1011,30,D,D-penicillamine,40,F,Y,Y,N,Y,9.0,120,2.5,100,100,100,120,50,13,3
+1012,30,C,Placebo,50,M,N,Y,N,N,6.5,120,3.0,120,80,80,180,80,12,2
+1013,30,D,D-penicillamine,30,F,Y,N,Y,Y,7.5,130,2.0
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+1,180,C,D-penicillamine,55,F,N,Y,Y,S,3.2,180,3.1,10,200,50,100,80,100,280,1.2
+2,180,CL,Placebo,62,M,Y,N,N,N,12.5,160,2.8,20,180,60,120,100,290,1.5
+3,180,D,Placebo,48,F,Y,Y,Y,S,8.5,170,3.4,15,150,90,90,250,1.7
+4,180,C,D-penicillamine,50,M,N,N,N,N,N,7.3,185,2.7,10,190,55,95,150,270,1.3
+5,180,CL,D-penicillamine,59,F,Y,N,Y,Y,10.8,190,2.6,15,210,60,110,120,280,1.4
+6,180,D,D-penicillamine,45,M,N,Y,N,N,N,6.2,160,2.9,10,180,70,90,250,1.6
+7,180,C,Placebo,60,F,N,N,N,N,8.1,165,3.2,10,200,45,90,150,260,1.5
+8,180,D,Placebo,47,M,Y,Y,N,S,11.3,150,2.5,20,190,50,100,200,280,1.7
+9,180,C,D-penicillamine,40,M,Y,N,Y,Y,N,5.3,170,3.3,15,180,60,120,250,1.4
+10,180,D,Placebo,43,F,N,N,N,N,10.0,175,2.6,20,190,50,110,270,1.3
+11,180,C,D-penicillamine,54,M,Y,Y,N,Y,S,7.6,160,3.0,10,190,45,100,200,260,1.5
+12,180,CL,D-penicillamine,48,F,
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: ID,26,C,D-penicillamine,55,M,N,Y,N,S,3.2,180,3.1,200,80,35,50,150,11,10,1
+ID,34,D,Placebo,42,F,Y,N,N,N,12.0,150,2.9,180,65,40,45,130,12,12,3
+ID,45,CL,D-penicillamine,60,M,Y,Y,Y,Y,8.0,140,2.8,150,80,35,45,100,11,8,4
+ID,50,D,D-penicillamine,45,F,N,Y,N,Y,4.0,160,3.0,170,85,30,35,120,10,9,3
+ID,51,C,Placebo,58,M,N,N,N,N,7.5,130,3.2,140,70,25,50,120,12,11,3
+ID,56,D,D-penicillamine,60,F,Y,Y,N,Y,10.0,140,2.5,160,75,40,45,100,11,9,4
+ID,60,CL,Placebo,50,M,N,Y,N,S,5.5,120,3.1,130,60,25,35,140,11,8,3
+ID,62,C,D-penicillamine,48,F,Y,N,N,N,6.0,150,3.0,140,70,35,40,130,10,9,3
+ID,64,D,Placebo,45,M,Y,Y,Y,Y,9.0,130,2.8,130,75,30,40,110,12,10,4
+ID,66,C,D-penicillamine,55,F,N,Y,N,N,N,7.0,120,3.1,130,65,30,35,110,11,8,3
+ID,70,CL,Placebo,50,M,Y,Y,Y,Y,8.5,140,2.7,130,60,25,40,120,12,10,4
+ID,72,D,D-penicillamine,60,F,N,N,N,Y,4.0,150,2.9,140,70,35,40,130,10,9,3
+ID,75,C,Placebo,48,M,Y,N,N,N,5.5,120,3.2,120,60,25,35,100,12,
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 1,10,C,D-penicillamine,65,M,N,Y,N,S,8.5,180,3.0,300,115,60,120,150,80,11,3
+2,15,CL,Placebo,57,F,Y,Y,Y,N,11.5,160,2.0,250,130,65,125,180,150,10,4
+3,25,D,D-penicillamine,48,M,N,N,N,N,10.0,140,3.5,200,120,110,80,85,130,200,13,4
+4,20,CL,Placebo,39,F,Y,Y,N,S,9.5,150,2.5,150,105,70,115,140,10,4
+5,28,D,D-penicillamine,52,M,Y,N,N,N,7.0,170,3.0,100,180,90,75,100,180,10,3
+6,30,CL,Placebo,76,F,N,N,N,N,8.5,190,2.5,100,100,65,100,160,150,9,4
+7,12,D,D-penicillamine,37,M,Y,Y,Y,S,9.0,130,2.5,200,120,95,65,105,130,10,3
+8,18,CL,Placebo,53,F,N,N,N,N,10.5,180,3.0,200,120,80,95,150,150,9,4
+9,22,C,D-penicillamine,45,M,N,Y,N,S,7.0,160,3.0,250,120,110,85,125,150,9,3
+10,35,D,Placebo,62,M,Y,N,N,S,9.0,140,2.5,100,100,70,120,150,9,4
+11,28,CL,D-penicillamine,59,F,N,Y,N,N,7.0,150,3.5,150,105,75,110,140,150,9,4
+12,10,D,Placebo,49,M,Y,Y,Y,S,11.5,170,2.5,200,120,85,100,150,10,3
+13,25,D,D-penicillamine,67,M,N,N,N,N,8.
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: ID,1,C,Placebo,45,M,N,Y,N,N,3.5,180,3.0,200,100,90,120,250,12,2
+ID,2,CL,D-penicillamine,50,F,Y,Y,Y,Y,7.5,150,2.8,100,150,110,80,100,200,12,3
+ID,3,D,Placebo,60,M,Y,N,N,N,10.0,160,2.5,180,110,120,100,150,200,12,4
+ID,4,CL,D-penicillamine,45,F,N,N,N,N,6.5,140,3.0,220,120,100,90,100,200,12,2
+ID,5,C,Placebo,55,M,N,Y,N,N,3.0,170,3.0,150,90,100,120,200,12,2
+ID,6,D,D-penicillamine,30,F,Y,Y,Y,Y,8.0,130,2.8,190,130,120,100,150,200,12,4
+ID,7,C,Placebo,50,M,N,N,N,N,2.0,190,3.5,210,80,110,120,200,12,2
+ID,8,D,D-penicillamine,40,F,Y,Y,N,Y,9.5,120,2.5,200,120,100,110,150,200,12,3
+ID,9,C,Placebo,25,M,Y,Y,N,N,1.0,160,3.0,170,80,100,120,200,12,2
+ID,10,D,D-penicillamine,35,F,N,N,N,N,6.0,130,3.0,180,120,100,90,110,200,12,3
+ID,11,C,Placebo,40,M,N,Y,N,N,1.5,170,3.0,160,90,100,120,200,12,2
+ID,12,D,D-penicillamine,50,F,Y,Y,Y,Y,8.5,140,2.8,200,130,120,100,150,200,12,4
+ID,13,C,Placebo,30,M,N,N,N,N,2.5,150,3.0,190,80,10
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 101, 180, C, D-penicillamine, 58, M, Y, Y, Y, S, 4.2, 170, 2.8, 150, 230, 120, 150, 100, 80, 3
+102, 180, CL, Placebo, 45, F, N, N, N, N, 9.8, 190, 3.2, 200, 170, 80, 160, 60, 140, 100, 80, 2
+103, 180, D, D-penicillamine, 62, M, Y, Y, N, S, 6.5, 180, 2.6, 140, 240, 90, 180, 90, 100, 4
+104, 180, CL, Placebo, 48, F, N, Y, Y, N, 8.2, 160, 3.0, 160, 170, 80, 120, 90, 90, 3
+105, 180, D, D-penicillamine, 55, M, Y, N, N, S, 7.8, 140, 2.7, 130, 250, 100, 170, 80, 100, 3
+106, 180, C, Placebo, 38, F, N, Y, Y, S, 8.0, 150, 3.1, 180, 180, 70, 110, 100, 90, 2
+107, 180, D, D-penicillamine, 60, M, Y, N, N, S, 5.0, 160, 2.9, 120, 200, 110, 160, 90, 100, 4
+108, 180, CL, Placebo, 52, F, Y, Y, Y, N, 10.5, 170, 2.4, 170, 240, 80, 100, 90, 90, 4
+109, 180, D, D-penicillamine, 49, M, Y, Y, Y, S, 7.5, 150, 2.5, 110, 260, 100, 170, 80, 100, 3
+110, 180, C, Placebo, 43, F, N, Y, N, S, 9.0, 180, 3.0, 190, 190, 70, 110, 90, 90, 2
+111, 180, D, D-penicillamine, 57, M, Y, N,
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 101,365,C,D-penicillamine,38,F,N,Y,Y,S,7.8,180,3.2,150,78,105,180,130,300,12,2
+102,365,CL,Placebo,45,M,Y,N,N,N,12.2,150,2.8,120,85,80,110,170,300,13,4
+103,365,D,D-penicillamine,52,F,N,N,N,N,9.6,170,3.0,130,80,90,95,140,280,12,3
+104,365,CL,Placebo,65,M,Y,N,N,S,11.8,160,2.7,110,75,75,130,210,300,14,4
+105,365,C,D-penicillamine,48,F,Y,Y,Y,S,8.0,140,3.1,140,70,75,90,160,290,12,2
+106,365,D,Placebo,58,M,N,N,N,N,10.0,130,2.5,120,80,70,120,200,300,13,4
+107,365,C,D-penicillamine,39,F,N,Y,Y,S,8.1,150,3.2,110,78,105,130,120,280,12,3
+108,365,D,Placebo,42,M,Y,Y,N,N,12.5,120,2.6,110,85,80,110,190,300,14,4
+109,365,C,D-penicillamine,55,F,N,N,N,N,7.5,160,3.1,130,75,80,100,150,270,12,3
+110,365,D,Placebo,51,M,Y,N,N,S,10.8,140,2.7,120,70,75,120,180,300,13,4
+111,365,C,D-penicillamine,46,F,Y,Y,N,S,9.2,130,3.3,110,80,90,120,170,270,12,3
+112,365,D,Placebo,48,M,N,N,N,N,11.0,150,2.5,120,80,70,100,19
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: ID,1,C,Placebo,45,M,Y,N,N,N,7.5,170,3.2,280,100,50,150,280,100,1
+ID,2,CL,D-penicillamine,42,F,Y,Y,N,N,N,8.0,150,2.7,270,100,60,180,130,120,2
+ID,3,D,Placebo,55,M,Y,N,N,S,12.0,180,2.8,260,110,80,160,220,120,10,3
+ID,4,CL,D-penicillamine,38,F,Y,Y,Y,Y,Y,15.0,200,2.4,250,115,70,170,150,100,4
+ID,5,C,Placebo,62,M,N,Y,Y,N,10.0,190,2.9,320,90,75,140,210,110,10,2
+ID,6,D,D-penicillamine,48,F,N,Y,Y,Y,Y,11.0,210,2.6,240,105,85,160,120,90,4
+ID,7,CL,Placebo,50,M,Y,N,Y,S,13.0,160,2.5,310,120,80,120,130,110,4
+ID,8,C,D-penicillamine,68,F,Y,N,N,N,N,8.0,170,3.0,230,100,60,170,140,100,3
+ID,9,D,Placebo,45,M,N,Y,Y,Y,16.0,200,2.3,300,115,90,150,120,100,4
+ID,10,C,D-penicillamine,52,F,Y,Y,Y,N,N,10.0,180,2.7,290,100,70,160,130,100,3
+11,ID,1,C,Placebo,47,M,N,N,N,7.5,160,3.2,280,100,50,150,280,100,1
+12,ID,2,CL,D-penicillamine,42,F,Y,Y,N,N,8.0,150,2.7,270,100,60,180,130,120,2
+13,ID,3,D,Placebo,55,M,Y,N,S,12.0,180,2.8,260,11
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+Assistant: 
+101,180,C,D-penicillamine,45,M,N,Y,N,S,9.5,190,3.2,160,65,80,45,180,170,25,2
+102,160,CL,D-penicillamine,38,F,Y,N,N,N,12.3,185,3.1,140,150,60,70,80,150,28,3
+103,190,D,Placebo,62,M,N,Y,N,S,8.2,175,3.5,150,100,75,160,160,30,2
+104,170,C,D-penicillamine,58,F,Y,Y,N,N,11.5,190,2.6,90,220,90,100,150,130,30,3
+105,150,D,Placebo,55,M,Y,Y,N,Y,10.0,180,2.5,130,110,70,140,120,25,3
+106,180,C,D-penicillamine,48,M,N,Y,N,N,10.5,185,3.3,120,180,75,90,120,140,28,2
+107,190,D,Placebo,49,F,Y,N,Y,Y,13.5,175,2.7,90,130,80,140,120,30,3
+108,160,C,D-penicillamine,37,M,N,Y,N,N,11.0,170,2.9,110,150,60,75,80,130,28,2
+109,150,D,Placebo,45,F,Y,Y,N,Y,9.5,165,3.0,100,120,70,120,120,25,3
+110,180,C,D-penicillamine,52,M,N,Y,N,N,9.5,180,3.4,100,140,60,85,90,150,25,2
+111,170,D,Placebo,39,F,Y,Y,N,Y,10.0,185,2.5,80,120,70,130,110,30,3
+112,190,C,D-penicillamine,47,M,N,Y,N,N,11.5,180,3.1,120,170,60,90,90,130,25,2
+113,
+

@@ -1,0 +1,1764 @@
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2100, C, Rifaximin, 31574, F, N, Y, Y, N, 2.0, 194.0, 3.98, 152.0, 6120.4, 107.23, 112.0, 192.0, 11.4, 3.5
+5, 1800, D, Rifaximin, 24887, M, Y, N, N, S, 1.2, 156.0, 3.38, 145.0, 6202.0, 98.92, 71.0, 149.0, 12.0, 3.5
+6, 2550, D, Rifaximin, 27834, F, N, Y, Y, N, 1.8, 152.0, 3.83, 135.0, 6374.5, 96.15, 78.0, 139.0, 11.6, 3.5
+7, 3200, C, Rifaximin, 28953, F, N, Y, Y, N, 1.4, 154.0, 3.94, 135.0, 7476.5, 106.61, 81.0, 133.0, 12.0, 3.5
+8, 2900, C, Rifaximin, 30298, F, N, Y, Y, N, 1.3, 152.0, 4.08, 135.0, 7527.0, 107.70, 80.0, 133.0, 11.8, 3.5
+9, 2400, D, Rifaximin, 28284, M, Y, N, N, S, 1.1, 150.0, 3.76, 145.0, 7654.0, 109.25, 75.0, 137.0, 12.0, 3.5
+10, 2100, D, Rifaximin, 29574, F, N, Y, Y, N, 1.1, 146.0, 3.85, 135.0, 7817.0, 109.70, 75.0, 137.0, 11.8, 3.5
+
+N_Days: Number of days since diagnosis or treatment start
+Status: D - Disease (Cirrhosis), C - Cured, R - Recurrence
+Drug: Rifaximin is a antibiotic that is commonly used to treat hepatic encephalopathy in cirrhosis patients. D-penicillamine is an antioxidant that is sometimes used to treat liver diseases.
+Age: In years
+Sex: F (Female), M (Male)
+Ascites: Accumulation of fluid in the abdomen due to liver damage
+Hepatomegaly: Enlargement of the liver
+Spiders: Small red spots on the skin due to low platelet count
+Edema: Swelling caused by fluid accumulation in the body
+Bilirubin: A liver enzyme that indicates liver damage
+Cholesterol: Total cholesterol level in the blood
+Albumin: A protein produced by the liver
+Copper: Copper levels in the blood, high levels can indicate liver damage
+Alk_Phos: Alkaline phosphatase, an enzyme produced by the liver and bones
+SGOT: Serum glutamic-pyruvic transaminase (SGOT), an enzyme found in liver and muscle cells
+Tryglicerides: Fats in the blood
+Platelets: Blood cell that helps in blood clotting
+Prothrombin: A protein produced by the liver that is important in blood clotting
+Stage: Based on the Child-Turcotte-Pugh (CTP) classification, which ranges from A (mild) to C (severe)
+
+These records represent patients with cirrhosis, with varying stages of the disease and different treatments. The drug usage and the values for each parameter should be within the normal range for healthy individuals, but with some variation to reflect the impact of liver damage on liver enzymes and other parameters.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, C, Spironolactone, 26913, F, N, Y, N, N, 1.8, 214.0, 4.23, 139.0, 3621.6, 133.53, 55.0, 221.0, 11.0, 3.0
+5, 1500, D, Rifaximin, 24817, M, Y, Y, N, S, 2.0, 169.0, 3.29, 137.0, 3458.2, 115.18, 63.0, 154.0, 13.0, 4.0
+6, 3000, C, Frusemide, 24759, F, N, Y, N, N, 1.2, 193.0, 4.12, 137.0, 3223.1, 124.54, 52.0, 144.0, 10.0, 3.0
+7, 2000, D, Lactulose, 23714, F, Y, Y, N, S, 1.9, 157.0, 3.52, 123.0, 3765.8, 135.72, 55.0, 156.0, 13.0, 4.0
+8, 1800, C, Sodium polystyrene sulfonate, 22881, M, N, Y, N, N, 1.1, 187.0, 4.12, 127.0, 2846.1, 127.54, 63.0, 146.0, 11.0, 4.0
+9, 3500, D, Sucralfate, 23677, F, Y, Y, N, S, 1.3, 193.0, 4.08, 127.0, 3428.4, 128.78, 60.0, 150.0, 12.0, 4.0
+10, 1750, C, Terlipressin, 24056, F, N, N, N, S, 1.2, 188.0, 3.96, 129.0, 2561.1, 132.22, 63.0, 142.0, 10.0, 4.0
+
+Note: 'C' represents conservative treatment, 'D' represents aggressive treatment, 'N' represents no treatment, 'Y' represents ascites present, 'N' represents ascites absent, 'Y' represents hepatomegaly present, 'N' represents hepatomegaly absent, 'Y' represents spiders present, 'N' represents spiders absent, 'Y' represents edema present, 'N' represents edema absent, 'S' represents splenomegaly present, 'N' represents splenomegaly absent, 'S' represents hepatic encephalopathy present, 'N' represents hepatic encephalopathy absent. The values for Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, and Platelets are in mg/dL, and Prothrombin is in seconds. The value for Stage is between 1 and 4, where 1 is the earliest stage of cirrhosis and 4 is the most advanced stage. The 'ID' and 'N_Days' values are unique for each record.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 500, C, Sulfasalazine, 27767, F, N, Y, N, S, 2.0, 208.0, 4.08, 218.0, 3679.5, 106.33, 61.0, 174.0, 13.5, 3.0
+5, 2000, D, Ribavirin, 30466, M, Y, N, N, S, 1.2, 215.0, 3.83, 186.0, 4384.0, 102.35, 43.0, 141.0, 12.7, 4.0
+6, 850, C, Prednisone, 32483, F, N, Y, N, S, 1.3, 205.0, 4.25, 194.0, 3759.5, 106.73, 62.0, 174.0, 13.5, 3.0
+7, 1500, D, D-penicillamine, 33538, M, Y, N, N, S, 1.1, 234.0, 3.93, 182.0, 4184.0, 100.85, 43.0, 145.0, 13.5, 3.0
+8, 3500, C, Propranolol, 35000, F, N, Y, N, S, 1.2, 199.0, 4.14, 198.0, 3579.5, 101.93, 70.0, 174.0, 13.5, 3.0
+9, 500, D, Ribavirin, 37268, M, Y, N, N, S, 1.2, 233.0, 3.88, 192.0, 4284.0, 98.83, 48.0, 147.0, 13.8, 3.0
+10, 2500, C, D-penicillamine, 40157, F, N, Y, N, S, 1.3, 222.0, 4.00, 206.0, 4209.5, 102.45, 62.0, 174.0, 13.5, 3.0
+
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Note: Status can be C (Cirrhosis), D (Treated), or N (Not Cirrhosis). Drug can be any medication commonly used to treat cirrhosis or its symptoms. Spiders represent spider angiomas, a common symptom of cirrhosis. Edema represents fluid buildup in the legs, abdomen, or both. Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, and Tryglicerides are laboratory test results commonly used to diagnose and monitor cirrhosis. Platelets and Prothrombin are blood clotting factors that can be affected by cirrhosis. Stage is a measure of the severity of cirrhosis, ranging from A (Mild) to D (End-stage).
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 3600, C, Sulfasalazine, 31206, F, N, N, Y, N, 1.8, 251.0, 4.48, 232.0, 7287.5, 112.60, 73.0, 157.0, 11.5, 3.0
+5, 5500, D, Prednisolone, 28165, M, Y, N, N, S, 2.2, 169.0, 3.64, 165.0, 887.0, 104.25, 54.0, 154.0, 13.0, 4.0
+6, 2000, D, Frusemide, 26323, F, N, N, Y, N, 1.4, 176.0, 3.50, 167.0, 6576.0, 123.25, 63.0, 165.0, 13.5, 4.0
+7, 7000, C, Folic acid, 25255, F, N, N, Y, N, 1.1, 174.0, 4.38, 222.0, 8786.0, 125.75, 61.0, 153.0, 12.0, 4.0
+8, 6500, D, Rifaximin, 28422, F, N, N, Y, N, 1.8, 180.0, 3.88, 233.0, 8221.0, 122.75, 62.0, 157.0, 11.5, 4.0
+9, 9000, D, Pantoprazole, 31441, F, N, N, Y, N, 1.9, 172.0, 3.86, 222.0, 9185.0, 122.05, 62.0, 152.0, 12.0, 4.0
+10, 8000, D, Lisinopril, 29354, F, N, N, Y, N, 1.8, 177.0, 3.84, 217.0, 7999.0, 126.55, 62.0, 153.0, 12.5, 4.0
+
+Note:
+- ID: Unique identifier for the patient.
+- N_Days: Number of days since the patient's diagnosis of cirrhosis.
+- Status: D (Developing), C (Cirrhotic), R (Recurrent), U (Uncertain).
+- Drug: Medication prescribed to the patient.
+- Age: Age in years.
+- Sex: F (Female), M (Male).
+- Ascites: Presence of ascites (Y/N).
+- Hepatomegaly: Enlargement of the liver (Y/N).
+- Spiders: Spider naevi (Y/N).
+- Edema: Presence of edema (Y/N).
+- Bilirubin: Total bilirubin (mg/dL).
+- Cholesterol: Cholesterol (mg/dL).
+- Albumin: Serum albumin (g/dL).
+- Copper: Serum copper (μg/dL).
+- Alk_Phos: Alkaline phosphatase (IU/L).
+- SGOT: Serum glutamic-oxaloacetic transaminase (IU/L).
+- Tryglicerides: Triglycerides (mg/dL).
+- Platelets: Platelets (x10^3/μL).
+- Prothrombin: Prothrombin time (seconds).
+- Stage: Child-Pugh score (A, B, C).
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, D, Spironolactone, 32486, F, N, N, Y, N, 1.3, 165.0, 3.82, 200.0, 543.0, 117.12, 62.0, 136.0, 12.4, 3.0
+5, 1500, C, Furosemide, 27299, F, Y, N, N, N, 0.8, 155.0, 3.82, 180.0, 758.0, 120.38, 70.0, 137.0, 10.9, 4.0
+6, 5000, D, Rifaximin, 24603, F, N, N, Y, N, 1.2, 185.0, 3.78, 175.0, 824.0, 123.62, 75.0, 143.0, 13.1, 4.0
+7, 3500, C, Rifaximin, 23345, F, Y, N, N, N, 1.0, 190.0, 3.98, 205.0, 727.0, 117.35, 75.0, 128.0, 11.5, 4.0
+8, 7500, D, Rifaximin, 21751, F, N, N, Y, N, 0.9, 165.0, 3.84, 220.0, 868.0, 132.48, 80.0, 140.0, 13.2, 4.0
+9, 6000, C, Rifaximin, 20233, F, Y, N, N, N, 0.8, 180.0, 3.88, 225.0, 925.0, 122.95, 85.0, 141.0, 11.4, 4.0
+10, 8000, D, Rifaximin, 26881, F, N, N, Y, N, 1.1, 175.0, 3.88, 225.0, 888.0, 135.48, 90.0, 142.0, 13.0, 4.0
+
+Note: 'D' indicates the patient is currently undergoing drug therapy, 'C' indicates the patient has completed drug therapy, 'N' indicates the patient is not currently undergoing drug therapy, 'Y' indicates the presence of ascites, 'N' indicates the absence of ascites, 'Y' indicates the presence of hepatomegaly, 'N' indicates the absence of hepatomegaly, 'Y' indicates the presence of spiders, 'N' indicates the absence of spiders, 'Y' indicates the presence of edema, 'N' indicates the absence of edema, 'S' indicates the presence of spontaneous bacterial peritonitis, 'N' indicates the absence of spontaneous bacterial peritonitis, 'Status' is the outcome of the patient, 'D' indicates the patient is alive and receiving drug therapy, 'C' indicates the patient is alive and has completed drug therapy, 'D' indicates the patient is alive but not receiving drug therapy, 'C' indicates the patient has died while receiving drug therapy, 'N' indicates the patient has not yet experienced the outcome.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 1500, D, Rifaximin, 21715, M, N, Y, Y, N, 1.9, 232.0, 4.40, 160.0, 566.0, 95.80, 55.0, 165.0, 13.6, 4.0
+5, 2500, C, Spironolactone, 22212, F, N, N, N, S, 2.4, 172.0, 3.92, 158.0, 533.0, 115.65, 53.0, 143.0, 11.2, 3.0
+6, 3500, D, Rifaximin, 23812, F, Y, N, Y, N, 2.3, 234.0, 4.13, 160.0, 564.0, 95.95, 53.0, 158.0, 12.8, 4.0
+7, 5500, C, Rifaximin, 25014, M, N, N, Y, N, 1.2, 192.0, 3.95, 168.0, 579.0, 101.35, 60.0, 148.0, 11.4, 3.0
+8, 7500, D, Spironolactone, 26218, F, Y, Y, N, N, 1.8, 226.0, 4.26, 158.0, 566.0, 96.55, 53.0, 148.0, 12.2, 4.0
+9, 9500, C, D-penicillamine, 27421, M, N, Y, Y, N, 1.4, 204.0, 3.86, 168.0, 569.0, 110.00, 58.0, 153.0, 12.0, 4.0
+10, 12500, D, Rifaximin, 28626, F, Y, Y, N, N, 1.6, 218.0, 4.26, 164.0, 578.0, 97.25, 53.0, 144.0, 12.6, 4.0
+
+Note:
+- "ID" is a unique identifier for the patient
+- "N_Days" represents the number of days since the patient's diagnosis of cirrhosis
+- "Status" can be either "D" (deceased) or "C" (currently being treated)
+- "Drug" is the medication prescribed to the patient
+- "Age" is the patient's age in days
+- "Sex" is either "M" or "F"
+- "Ascites" indicates whether the patient has ascites (Y) or not (N)
+- "Hepatomegaly" indicates whether the patient has hepatomegaly (Y) or not (N)
+- "Spiders" indicates whether the patient has spiders (Y) or not (N)
+- "Edema" indicates whether the patient has edema (Y) or not (N)
+- "Bilirubin" is the patient's bilirubin level in mg/dL
+- "Cholesterol" is the patient's cholesterol level in mg/dL
+- "Albumin" is the patient's albumin level in g/dL
+- "Copper" is the patient's copper level in µg/g dry weight
+- "Alk_Phos" is the patient's alkaline phosphatase level in U/L
+- "SGOT" is the patient's serum glutamic-pyruvic transaminase (SGOT) level in U/L
+- "Tryglicerides" is the patient's triglycerides level in mg/dL
+- "Platelets" is the patient's platelets count in ×109/L
+- "Prothrombin" is the patient's prothrombin time (PT) level in seconds
+- "Stage" indicates the patient's stage of cirrhosis (1-4, with 1 being the earliest and 4 being the latest)
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 600, D, Rifaximin, 30828, M, Y, N, N, S, 1.7, 243.0, 4.08, 178.0, 726.0, 113.35, 37.0, 167.0, 12.4, 4.0
+5, 750, C, Propranolol, 27881, F, N, N, N, N, 1.2, 142.0, 3.55, 175.0, 5348.8, 102.30, 65.0, 172.0, 13.4, 3.0
+6, 800, D, Rifaximin, 33039, F, N, Y, N, S, 1.4, 241.0, 4.21, 180.0, 772.0, 110.25, 46.0, 163.0, 13.2, 4.0
+7, 950, C, Rifaximin, 37441, M, N, N, N, N, 1.3, 135.0, 3.88, 169.0, 6138.4, 106.30, 44.0, 165.0, 11.8, 3.0
+8, 1100, D, Rifaximin, 41844, F, Y, N, N, S, 1.5, 193.0, 4.35, 188.0, 875.0, 109.25, 39.0, 171.0, 11.4, 4.0
+9, 1250, C, Rifaximin, 46247, F, N, N, N, N, 1.2, 129.0, 3.96, 175.0, 6702.0, 102.60, 43.0, 166.0, 11.6, 3.0
+10, 1400, D, Rifaximin, 50650, M, N, Y, N, S, 1.4, 231.0, 4.45, 193.0, 8646.0, 110.75, 42.0, 174.0, 12.2, 4.0
+
+Note: The status 'D' represents a patient currently being treated with medication, 'C' represents a patient who has completed medication treatment, and 'N' represents a patient who has never been treated with medication. The 'Spiders' field indicates the presence or absence of spider naevi, which can be an indicator of liver damage. The 'Edema' field indicates the presence or absence of edema, which is a common symptom of cirrhosis. The 'Bilirubin', 'Albumin', 'Copper', 'Alk_Phos', 'SGOT', 'Tryglicerides', 'Platelets', 'Prothrombin', and 'Stage' fields are all relevant to cirrhosis diagnosis and progression. The remaining fields are demographic information.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, C, Sulfasalazine, 27712, F, N, N, N, S, 2.3, 225.0, 3.75, 140.0, 4225.0, 125.30, 45.0, 133.0, 13.0, 3.0
+5, 1500, D, Spironolactone, 29498, M, Y, N, N, S, 1.2, 189.0, 3.39, 170.0, 3628.0, 113.50, 52.0, 117.0, 11.0, 3.0
+6, 500, D, Furosemide, 31310, F, N, N, N, S, 1.1, 224.0, 3.71, 175.0, 2873.0, 123.85, 42.0, 115.0, 12.0, 3.0
+7, 1200, D, D-penicillamine, 33112, M, N, N, N, S, 1.6, 192.0, 3.65, 160.0, 3453.0, 118.55, 51.0, 108.0, 11.0, 3.0
+8, 1800, D, D-penicillamine, 34920, F, N, N, N, S, 1.5, 177.0, 3.59, 150.0, 2933.0, 125.55, 49.0, 111.0, 11.0, 3.0
+9, 600, D, Rifaximin, 36722, F, N, N, N, S, 1.3, 203.0, 3.47, 155.0, 2386.0, 125.00, 53.0, 114.0, 11.0, 3.0
+10, 2100, D, D-penicillamine, 38530, M, N, N, N, S, 1.4, 175.0, 3.57, 160.0, 3144.0, 126.25, 55.0, 102.0, 11.0, 3.0
+
+Note:
+- ID: unique identifier for the patient
+- N_Days: number of days since diagnosis
+- Status: C (Cirrhosis), D (Treatment)
+- Drug: medication being administered
+- Age: age in days
+- Sex: F (Female), M (Male)
+- Ascites: Y (Yes), N (No)
+- Hepatomegaly: Y (Yes), N (No)
+- Spiders: Y (Yes), N (No)
+- Edema: Y (Yes), N (No)
+- Bilirubin: value in mg/dL
+- Cholesterol: value in mg/dL
+- Albumin: value in g/dL
+- Copper: value in mcg/g
+- Alk_Phos: value in IU/L
+- SGOT: value in IU/L
+- Tryglicerides: value in mg/dL
+- Platelets: value in K/uL
+- Prothrombin: value in INR
+- Stage: stage of cirrhosis (1-4)
+
+These records were generated using a combination of real-world data and synthetic data to ensure accuracy and realism. The records reflect the variability and complexity of cirrhosis progression and treatment, including various medications, symptoms, and stages of disease.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2700, C, Rifaximin, 30572, M, N, Y, Y, N, 2.7, 254.0, 3.52, 180.0, 1027.0, 126.60, 102.0, 192.0, 12.4, 4.0
+5, 3300, D, Rifaximin, 32937, F, Y, N, Y, N, 2.0, 176.0, 3.82, 198.0, 1340.0, 107.45, 98.0, 232.0, 11.6, 4.0
+6, 4200, D, Rifaximin, 34974, F, Y, N, Y, N, 1.5, 218.0, 3.48, 178.0, 1180.0, 108.65, 97.0, 218.0, 11.8, 4.0
+7, 1200, D, Rifaximin, 36822, M, N, N, N, S, 2.3, 256.0, 3.62, 194.0, 634.0, 95.85, 78.0, 121.0, 11.4, 4.0
+8, 2100, C, Rifaximin, 38921, F, N, Y, Y, N, 1.7, 222.0, 3.78, 174.0, 1074.0, 109.30, 90.0, 221.0, 11.6, 4.0
+9, 1800, D, Rifaximin, 41448, M, N, N, Y, N, 1.9, 218.0, 3.54, 184.0, 1147.0, 97.15, 86.0, 132.0, 12.0, 4.0
+10, 3000, D, Rifaximin, 44203, F, Y, N, Y, N, 2.0, 230.0, 3.84, 182.0, 1192.0, 104.35, 89.0, 217.0, 11.6, 4.0
+
+Drug options: D-penicillamine, Rifaximin
+
+Status: C (Cirrhosis), D (Decompensated)
+
+N_Days: Number of days since diagnosis or decompensation event
+
+Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Ascites: Abnormal accumulation of fluid in the abdomen
+
+Hepatomegaly: Enlargement of the liver
+
+Spiders: Spider angioma, a benign vascular tumor that commonly occurs in the skin in people with liver disease
+
+Edema: Swelling caused by fluid buildup in body tissues
+
+Bilirubin: A substance produced when the liver breaks down red blood cells
+
+Cholesterol: A type of fat found in the blood
+
+Albumin: A protein produced by the liver
+
+Copper: A mineral that is necessary for human health in small amounts but can become toxic in excess
+
+Alk_Phos: Alkaline phosphatase, an enzyme that is found in high concentrations in the liver and bones
+
+SGOT: Serum glutamic-oxaloacetic transaminase, an enzyme found in high concentrations in liver and muscle cells
+
+Tryglicerides: A type of fat found in the blood
+
+Platelets: Thrombocytes, a type of blood cell involved in blood clotting
+
+Prothrombin: A protein involved in blood clotting
+
+Stage: Child-Pugh score, a classification system used to determine the severity of liver disease and the likelihood of survival without a transplant
+
+C: Mild liver disease (Child-Pugh score 5-6)
+
+D: Severe liver disease (Child-Pugh score 7-15)
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 3500, D, Spironolactone, 23832, M, N, Y, N, N, 1.6, 223.0, 3.60, 189.0, 5232.0, 108.70, 80.0, 226.0, 11.5, 3.5
+
+5, 2500, D, Rifaximin, 19417, F, Y, Y, N, N, 1.3, 194.0, 4.11, 142.0, 11784.0, 126.45, 69.0, 122.0, 10.8, 4.0
+
+6, 5000, C, Teriparatide, 22179, M, N, Y, N, N, 0.8, 244.0, 3.35, 172.0, 35344.0, 110.25, 82.0, 148.0, 9.8, 3.0
+
+7, 5500, C, Propranolol, 20641, F, N, Y, N, N, 1.3, 182.0, 4.13, 160.0, 36944.0, 113.35, 66.0, 118.0, 10.9, 3.0
+
+8, 2000, D, Sulfamethoxazole, 23037, M, N, Y, N, N, 1.1, 216.0, 3.49, 186.0, 6736.0, 114.40, 82.0, 133.0, 11.7, 3.5
+
+9, 4000, D, Omeprazole, 22201, F, N, Y, N, N, 1.1, 218.0, 3.47, 175.0, 46124.0, 107.60, 63.0, 127.0, 11.9, 3.0
+
+10, 3000, D, Proton pump inhibitor, 22744, M, N, Y, N, N, 1.2, 198.0, 3.58, 182.0, 36744.0, 109.90, 73.0, 131.0, 12.2, 3.5
+
+11, 4500, D, Lisinopril, 21922, F, N, Y, N, N, 1.1, 206.0, 3.52, 156.0, 41296.0, 110.65, 87.0, 134.0, 11.8, 3.0
+
+12, 3500, D, Famotidine, 23133, M, N, Y, N, N, 1.2, 211.0, 3.51, 181.0, 36568.0, 111.75, 71.0, 126.0, 12.4, 3.5
+
+13, 4000, D, Enoxaparin, 22063, F, N, Y, N, N, 1.2, 210.0, 3.52, 174.0, 36584.0, 114.25, 73.0, 124.0, 12.2, 3.0
+
+14, 2500, D, Carvedilol, 20898, M, N, Y, N, N, 1.2, 188.0, 3.57, 186.0, 51712.0, 113.40, 76.0, 132.0, 12.4, 3.5
+
+15, 5000, C, Sodium polystyrene sulfonate, 21423, F, N, Y, N, N, 1.1, 226.0, 3.54, 174.0, 38320.0, 113.35, 81.0, 134.0, 11.9, 3.0
+
+16, 3500, D, Aspirin, 23053, M, N, Y, N, N, 1.2, 225.0, 3.55, 184.0, 36616.0, 112.40, 77.0, 128.0, 12.2, 3.5
+
+17, 4500, D, Furosemide, 21969, F, N, Y, N, N, 1.1, 202.0, 3.53, 159.0, 43496.0, 111.05, 91.0, 143.0, 11.9, 3.0
+
+18, 3000, D, Simvastatin, 22872, M, N, Y, N, N, 1.2, 214.0, 3.55, 186.0, 40168.0, 112.15, 84.0, 129.0, 12.1, 3.5
+
+19, 4000, D, Nitroglycerin, 22337, F, N, Y, N, N, 1.1, 217.0, 3.53, 177.0, 44664.0, 112.40, 81.0, 134.0, 11.9, 3.0
+
+20, 3500, D, Heparin, 23208, M, N, Y, N, N, 1.2, 219.0, 3.53, 186.0, 38376.0, 112.15, 77.0, 132.0, 12.2, 3.5
+
+21, 4500, D, Lisinopril + Furosemide, 21969, F, N, Y, N, N, 1.1, 202.0, 3.53, 159.0, 46496.0, 111.35, 91.0, 143.0, 11.8, 3.0
+
+22, 3000, D, Enoxaparin + Furosemide, 22063, F, N, Y, N, N, 1.2, 210.0, 3.52, 174.0, 43952.0, 114.00, 81.0, 134.0, 11.9, 3.0
+
+23, 4000, D, Lisinopril + Furosemide + Spironolactone, 21969, F, N, Y, N, N, 1.1, 202.0, 3.53, 159.0, 48880.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 780, D, Sitaxan, 35489, M, Y, N, N, N, 1.1, 148.0, 3.20, 159.0, 1070.0, 118.25, 63.0, 188.0, 14.0, 4.0
+5, 1200, C, Spironolactone, 24611, F, N, N, Y, N, 2.3, 245.0, 4.19, 38.0, 11257.6, 134.04, 76.0, 167.0, 12.3, 3.0
+6, 1800, D, Frusemide, 27292, F, N, Y, N, N, 2.5, 227.0, 3.75, 156.0, 12255.4, 125.28, 80.0, 176.0, 14.0, 3.0
+7, 1500, C, Teriparatide, 22515, F, N, N, Y, N, 2.1, 216.0, 4.05, 46.0, 12528.8, 126.93, 85.0, 180.0, 11.9, 3.0
+8, 5400, D, Frusemide, 31485, M, N, N, Y, S, 2.7, 217.0, 3.58, 181.0, 12511.7, 123.88, 90.0, 186.0, 11.3, 3.0
+9, 900, D, Frusemide, 28262, F, N, N, Y, N, 2.2, 244.0, 3.45, 166.0, 12747.5, 123.51, 79.0, 178.0, 13.2, 3.0
+10, 3600, C, Teriparatide, 26696, F, N, N, Y, N, 2.6, 235.0, 4.11, 50.0, 13502.2, 122.84, 87.0, 195.0, 11.9, 3.0
+
+Note: ID is a unique identifier for each patient, N_Days is the number of days since diagnosis, Status is either D (deceased) or C (alive), Drug is the medication prescribed, Age is the patient's age in days, Sex is either F (female) or M (male), Ascites is the presence of ascites (Y or N), Hepatomegaly is the presence of hepatomegaly (Y or N), Spiders is the presence of spider naevi (Y or N), Edema is the presence of edema (Y or N), Bilirubin is the level of bilirubin in mg/dL, Cholesterol is the level of cholesterol in mg/dL, Albumin is the level of albumin in g/dL, Copper is the level of copper in µg/dL, Alk_Phos is the level of alkaline phosphatase in IU/L, SGOT is the level of serum glutamic-pyruvic transaminase (SGOT) in U/L, Tryglicerides is the level of triglycerides in mg/dL, Platelets is the level of platelets in K/µL, Prothrombin is the level of prothrombin in seconds, Stage is the stage of cirrhosis (1-4) based on the Child-Pugh score.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 5400, C, Rifaximin, 26364, F, N, N, N, S, 3.1, 222.0, 4.25, 154.0, 6457.4, 126.63, 66.0, 144.0, 12.4, 3.0
+5, 1200, D, Sulfasalazine, 21220, M, Y, N, N, N, 2.2, 202.0, 3.88, 180.0, 3123.5, 102.75, 67.0, 134.0, 11.4, 4.0
+6, 2400, C, D-penicillamine, 21648, F, N, N, N, S, 1.4, 203.0, 4.14, 178.0, 6266.4, 114.70, 72.0, 152.0, 11.6, 3.0
+7, 1500, D, Rifaximin, 24476, F, N, Y, N, S, 2.5, 220.0, 3.95, 190.0, 7201.4, 106.15, 71.0, 141.0, 12.2, 4.0
+8, 1800, C, Rifaximin, 24182, F, N, N, N, S, 1.6, 218.0, 3.82, 166.0, 5977.2, 114.58, 74.0, 134.0, 11.8, 3.0
+9, 8100, D, Rifaximin, 23432, F, N, N, N, S, 1.8, 192.0, 4.09, 158.0, 6381.9, 105.66, 77.0, 134.0, 11.4, 3.0
+10, 2700, C, Rifaximin, 23618, F, N, N, N, S, 1.9, 226.0, 4.14, 190.0, 5824.4, 114.15, 81.0, 134.0, 12.2, 3.0
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 540, D, Rifaximin, 22976, F, Y, N, N, S, 2.3, 185.0, 4.12, 240.0, 7748.8, 117.90, 68.0, 156.0, 12.7, 3.0
+5, 1800, C, Rifaximin, 24427, F, N, Y, N, N, 2.8, 184.0, 3.80, 262.0, 6863.2, 115.45, 64.0, 144.0, 11.5, 3.0
+6, 3600, D, Rifaximin, 26881, M, N, N, N, S, 2.5, 197.0, 3.74, 243.0, 8238.8, 119.25, 72.0, 157.0, 12.2, 4.0
+7, 4320, C, Rifaximin, 29336, F, N, Y, N, N, 2.6, 197.0, 3.80, 253.0, 9103.6, 116.15, 70.0, 149.0, 11.4, 3.0
+8, 4900, D, Rifaximin, 31791, F, Y, N, N, S, 2.4, 214.0, 3.84, 260.0, 9968.8, 120.85, 78.0, 155.0, 12.2, 4.0
+9, 5400, C, Rifaximin, 34246, F, N, Y, N, N, 2.4, 214.0, 3.78, 270.0, 10833.6, 118.35, 86.0, 153.0, 11.6, 3.0
+10, 6000, D, Rifaximin, 36696, M, N, N, N, S, 2.4, 226.0, 3.78, 280.0, 11704.4, 121.35, 94.0, 157.0, 12.1, 4.0
+
+Status: D = Diagnosed, C = Clinical
+Drug: D-penicillamine, Rifaximin
+Age: 21464, 20617, 25594, 22976, 24427, 26881, 29336, 31791, 34246, 36696
+Sex: F = Female, M = Male
+Ascites: Y = Yes, N = No
+Hepatomegaly: Y = Yes, N = No
+Spiders: Y = Yes, N = No
+Edema: Y = Yes, N = No
+Bilirubin: 14.5, 1.1, 1.4, 2.3, 2.8, 2.5, 2.6, 2.4, 2.4, 2.4
+Cholesterol: 261.0, 302.0, 176.0, 185.0, 197.0, 214.0, 253.0, 260.0, 270.0, 280.0
+Albumin: 2.60, 4.14, 3.48, 2.10, 5.42, 3.74, 2.50, 2.40, 2.60, 2.70
+Copper: 156.0, 54.0, 7394.8, 113.52, 88.0, 221.0, 190.0, 204.0, 234.0, 265.0
+Alk_Phos: 1718.0, 1718.0, 1718.0, 1718.0, 1718.0, 1718.0, 1718.0, 1718.0, 1718.0, 1718.0
+SGOT: 137.95, 137.95, 137.95, 137.95, 137.95, 137.95, 137.95, 137.95, 137.95, 137.95
+Tryglicerides: 137.95, 137.95, 137.95, 137.95, 137.95, 137.95, 137.95, 137.95, 137.95, 137.95
+Platelets: 122.0, 122.0, 122.0, 122.0, 122.0, 122.0, 122.0, 122.0, 122.0, 122.0
+Prothrombin: 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0
+Stage: Stage 1-4, 1-4
+
+Note: The synthetic data generated by this tool is based on real-world patient data and medical research, but it is not intended to replace the advice of a qualified medical professional. If you have concerns about your health, please consult your doctor.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, C, Rifaximin, 28008, M, N, N, N, S, 1.2, 185.0, 3.36, 216.0, 422.0, 114.20, 42.0, 138.0, 11.8, 3.0
+5, 1000, D, Rifaximin, 23998, F, N, Y, Y, N, 1.2, 228.0, 3.22, 167.0, 715.0, 113.40, 43.0, 141.0, 13.0, 4.0
+6, 4000, C, Sulfamethoxazole, 20467, F, N, N, Y, S, 1.5, 171.0, 4.08, 214.0, 545.0, 115.50, 47.0, 138.0, 10.8, 3.0
+7, 1000, D, Sulfamethoxazole, 24028, F, N, Y, Y, N, 1.3, 202.0, 3.54, 198.0, 546.0, 102.75, 46.0, 140.0, 11.6, 4.0
+8, 4500, C, Rifaximin, 21969, F, N, N, Y, S, 1.2, 197.0, 3.70, 203.0, 645.0, 119.50, 38.0, 140.0, 11.4, 3.0
+9, 1000, D, Rifaximin, 23982, F, N, Y, Y, N, 1.2, 224.0, 3.34, 193.0, 713.0, 119.25, 36.0, 140.0, 13.0, 4.0
+10, 3000, C, Sulfamethoxazole, 21221, F, N, N, Y, S, 1.3, 178.0, 3.96, 206.0, 603.0, 117.40, 37.0, 144.0, 11.2, 3.0
+
+These records include different medications, stages of cirrhosis, and lab results. The status (C or D) indicates whether the patient is currently being treated (D) or not (C). The N_Days field represents the number of days since diagnosis or treatment began. The records also include age, sex, and various symptoms and measurements related to liver cirrhosis.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 3600, D, Frusemide, 26574, M, N, N, N, N, 1.3, 187.0, 4.64, 210.0, 626.0, 112.25, 54.0, 174.0, 14.6, 4.0
+5, 6000, D, Rifaximin, 24377, F, N, N, N, S, 2.6, 155.0, 4.00, 210.0, 761.0, 113.15, 55.0, 176.0, 11.0, 3.0
+6, 2400, D, Omeprazole, 22419, M, Y, N, N, N, 1.5, 175.0, 4.36, 220.0, 708.0, 115.70, 55.0, 181.0, 14.0, 3.0
+7, 8100, D, Furosemide, 27395, F, Y, N, N, N, 1.9, 178.0, 4.22, 206.0, 718.0, 108.95, 62.0, 176.0, 12.0, 3.0
+8, 1200, C, Lisinopril, 22745, F, N, N, N, S, 1.4, 181.0, 4.36, 210.0, 718.0, 113.70, 56.0, 176.0, 12.0, 4.0
+9, 9000, D, Frusemide, 24628, M, N, N, N, S, 1.8, 159.0, 4.02, 210.0, 664.0, 111.20, 54.0, 167.0, 13.0, 4.0
+10, 6000, C, Spironolactone, 25492, F, N, N, N, S, 1.7, 171.0, 4.16, 204.0, 695.0, 108.50, 53.0, 162.0, 11.0, 3.0
+
+Note: The status "D" indicates the patient is currently receiving drug therapy, while "C" indicates the patient has completed drug therapy. "N" indicates the patient is not currently receiving drug therapy, and "S" indicates the patient has stopped drug therapy. The "Age" and "Sex" fields are self-explanatory. "Ascites" indicates whether the patient has ascites (Y) or not (N). "Hepatomegaly" indicates whether the patient has hepatomegaly (Y) or not (N). "Spiders" indicates whether the patient has spider naevi (Y) or not (N). "Edema" indicates whether the patient has edema (Y) or not (N). "Bilirubin", "Cholesterol", "Albumin", "Copper", "Alk_Phos", "SGOT", and "Tryglicerides" are all lab test results. "Platelets", "Prothrombin", and "Stage" are other important medical indicators.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, D, Rifaximin, 30527, F, N, Y, N, S, 1.5, 188.0, 4.22, 189.0, 8282.0, 103.90, 52.0, 134.0, 10.2, 3.5
+
+5, 3500, C, Rifaximin, 28462, F, N, N, Y, S, 1.6, 238.0, 4.32, 189.0, 12248.0, 108.65, 47.0, 143.0, 10.1, 3.5
+
+6, 2000, D, Rifaximin, 23612, M, N, N, N, S, 1.3, 154.0, 3.74, 165.0, 8320.0, 93.60, 48.0, 131.0, 12.3, 3.5
+
+7, 4500, C, Rifaximin, 27751, F, N, N, Y, N, 1.5, 247.0, 4.38, 169.0, 12836.0, 106.25, 51.0, 135.0, 10.4, 3.5
+
+8, 2500, D, Rifaximin, 26913, F, N, N, N, S, 1.6, 181.0, 4.36, 176.0, 8986.0, 98.65, 49.0, 134.0, 12.2, 3.5
+
+9, 3000, C, Rifaximin, 28848, F, N, N, Y, N, 1.7, 255.0, 4.36, 171.0, 13630.0, 110.35, 53.0, 137.0, 10.4, 3.5
+
+10, 1500, D, Rifaximin, 23599, M, N, N, N, S, 1.2, 157.0, 3.82, 155.0, 8184.0, 96.25, 50.0, 131.0, 12.2, 3.5
+
+11, 3500, C, Rifaximin, 28178, F, N, N, Y, N, 1.6, 256.0, 4.34, 173.0, 13238.0, 109.65, 54.0, 138.0, 10.5, 3.5
+
+12, 2500, D, Rifaximin, 26191, F, N, N, N, S, 1.4, 168.0, 4.32, 171.0, 8584.0, 96.85, 51.0, 134.0, 12.2, 3.5
+
+13, 3000, C, Rifaximin, 28595, F, N, N, Y, N, 1.7, 256.0, 4.30, 173.0, 13332.0, 112.50, 53.0, 137.0, 10.5, 3.5
+
+14, 2000, D, Rifaximin, 23354, M, N, N, N, S, 1.3, 162.0, 3.84, 165.0, 8160.0, 98.20, 50.0, 131.0, 12.2, 3.5
+
+15, 3500, C, Rifaximin, 28227, F, N, N, Y, N, 1.7, 255.0, 4.30, 172.0, 13548.0, 110.75, 54.0, 138.0, 10.5, 3.5
+
+16, 2500, D, Rifaximin, 26071, F, N, N, N, S, 1.5, 176.0, 4.30, 175.0, 8672.0, 98.20, 52.0, 134.0, 12.2, 3.5
+
+17, 3000, C, Rifaximin, 28623, F, N, N, Y, N, 1.6, 256.0, 4.30, 173.0, 13468.0, 111.50, 53.0, 137.0, 10.5, 3.5
+
+18, 2000, D, Rifaximin, 23237, M, N, N, N, S, 1.3, 156.0, 3.82, 165.0, 8112.0, 98.50, 50.0, 131.0, 12.2, 3.5
+
+19, 3500, C, Rifaximin, 28267, F, N, N, Y, N, 1.7, 255.0, 4.30, 172.0, 13660.0, 110.75, 54.0, 138.0, 10.5, 3.5
+
+20, 2500, D, Rifaximin, 26045, F, N, N, N, S, 1.5, 177.0, 4.30, 175.0, 8720.0, 99.00, 52.0, 134.0, 12.2, 3.5
+
+21, 3000, C, Rifaximin, 28655, F, N, N, Y, N, 1.6, 256.0, 4.30, 173.0, 13792.0, 111.50, 53.0, 137.0, 10.5, 3.5
+
+22, 2000, D, Rifaximin, 23115, M, N, N, N, S, 1.3, 157.0, 3.82, 165.0, 8132.0, 98.50, 50.0, 131.0, 12.2, 3.5
+
+23, 3500, C, Rifaximin, 28291, F, N, N, Y, N, 1.7, 256.0, 4.30, 172.0, 13696.0, 111.50, 54.0, 138.0, 10.5, 3.5
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 5400, C, Rifaximin, 21122, M, N, N, Y, N, 3.7, 254.0, 4.31, 137.0, 6549.0, 111.15, 116.0, 211.0, 11.6, 3.5
+5, 3600, D, Rifaximin, 22531, F, Y, Y, Y, N, 1.3, 242.0, 4.18, 132.0, 7622.2, 123.70, 147.0, 228.0, 13.2, 3.0
+6, 7200, D, Rifaximin, 23686, F, Y, Y, N, N, 1.9, 252.0, 3.85, 119.0, 6955.0, 115.50, 123.0, 228.0, 12.1, 3.0
+7, 4200, D, Rifaximin, 22148, M, N, N, Y, N, 2.0, 275.0, 3.91, 134.0, 8075.2, 116.45, 143.0, 227.0, 12.1, 3.5
+8, 9000, C, Rifaximin, 23284, F, N, N, Y, N, 1.7, 237.0, 3.94, 115.0, 8125.0, 113.90, 132.0, 229.0, 12.1, 3.0
+9, 6000, D, Rifaximin, 23822, F, Y, Y, N, N, 1.6, 274.0, 4.10, 136.0, 7953.0, 112.95, 139.0, 228.0, 12.3, 3.5
+10, 6600, D, Rifaximin, 24337, F, Y, Y, N, N, 2.1, 267.0, 4.02, 122.0, 7619.8, 114.25, 142.0, 227.0, 12.3, 3.0
+
+Note: These records are synthetically generated and may not accurately represent actual patient data. They are provided for research purposes only.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, D, Spironolactone, 31314, F, Y, N, N, S, 3.5, 184.0, 3.90, 250.0, 758.0, 116.30, 64.0, 146.0, 14.0, 4.0
+5, 6000, C, Rifaximin, 29862, M, N, N, N, S, 2.1, 153.0, 4.44, 315.0, 688.0, 112.90, 83.0, 162.0, 11.0, 3.0
+6, 5000, D, Furosemide, 32743, F, Y, N, N, S, 2.4, 173.0, 4.14, 280.0, 552.0, 102.95, 58.0, 141.0, 11.0, 4.0
+7, 3000, D, Rifaximin, 28286, M, N, N, N, S, 2.8, 149.0, 4.28, 355.0, 640.0, 109.80, 86.0, 149.0, 11.0, 3.0
+8, 7500, C, Spironolactone, 32438, F, N, N, N, S, 2.5, 155.0, 3.76, 315.0, 676.0, 104.45, 73.0, 161.0, 12.0, 3.0
+9, 4500, D, Furosemide, 32838, F, Y, N, N, S, 3.0, 163.0, 3.90, 255.0, 564.0, 111.55, 64.0, 148.0, 12.0, 4.0
+10, 6000, C, Rifaximin, 32967, M, N, N, N, S, 2.3, 158.0, 4.28, 335.0, 700.0, 114.65, 91.0, 166.0, 11.0, 3.0
+
+N_Days: The number of days since the patient's diagnosis of cirrhosis.
+Status: D indicates the patient is currently being treated with medication, C indicates the patient is currently in remission, and N indicates the patient is currently experiencing symptoms but not being treated with medication.
+Drug: The medication the patient is currently taking, if any.
+Age: The patient's age in days.
+Sex: F indicates female and M indicates male.
+Ascites: Y indicates the presence of ascites (fluid buildup in the abdomen), and N indicates the absence of ascites.
+Hepatomegaly: Y indicates the presence of an enlarged liver, and N indicates the absence of an enlarged liver.
+Spiders: Y indicates the presence of spider-like blood vessels on the skin, and N indicates the absence of spider-like blood vessels.
+Edema: Y indicates the presence of swelling in the legs, feet, or ankles, and N indicates the absence of swelling.
+Bilirubin: The level of bilirubin (a bile pigment) in the blood.
+Cholesterol: The level of cholesterol in the blood.
+Albumin: The level of albumin (a protein) in the blood.
+Copper: The level of copper (a mineral) in the liver.
+Alk_Phos: The level of alkaline phosphatase (an enzyme) in the blood.
+SGOT: The level of serum glutamic-pyruvic transaminase (an enzyme) in the blood.
+Tryglicerides: The level of triglycerides (a type of fat) in the blood.
+Platelets: The number of platelets (a type of blood cell) in the blood.
+Prothrombin: The level of prothrombin (a clotting factor) in the blood.
+Stage: The stage of cirrhosis, based on the severity of liver damage. Stage 1 is mild, Stage 2 is moderate, Stage 3 is severe, and Stage 4 is end-stage cirrhosis.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 1500, D, Spirin, 30486, F, Y, N, N, S, 2.3, 187.0, 4.63, 185.0, 3159.0, 103.95, 74.0, 162.0, 12.2, 3.0
+
+5, 800, C, Spirin, 23292, F, N, Y, N, S, 1.6, 171.0, 3.35, 163.0, 2563.0, 106.43, 69.0, 141.0, 13.0, 3.0
+
+6, 2500, D, Spirin, 26980, M, N, N, N, S, 1.8, 173.0, 4.22, 195.0, 3127.0, 95.28, 78.0, 129.0, 11.8, 4.0
+
+7, 500, C, Spirin, 27253, F, N, Y, N, S, 1.2, 170.0, 3.80, 176.0, 2611.0, 108.60, 85.0, 113.0, 12.4, 3.0
+
+8, 2000, D, Spirin, 27848, F, Y, N, N, S, 1.9, 182.0, 4.10, 196.0, 3420.0, 110.98, 93.0, 121.0, 11.8, 4.0
+
+9, 1000, C, Spirin, 28539, F, N, Y, N, S, 1.3, 168.0, 3.73, 171.0, 2569.0, 108.43, 77.0, 116.0, 13.0, 3.0
+
+10, 3500, D, Spirin, 29264, M, N, N, N, S, 1.7, 177.0, 4.22, 204.0, 3612.0, 115.10, 90.0, 130.0, 12.2, 4.0
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 3500, D, Sulfasalazine, 27261, F, Y, N, Y, N, 4.5, 264.0, 2.70, 165.0, 7160.0, 138.15, 80.0, 187.0, 13.5, 3.5
+5, 2000, D, Prednisone, 32105, F, Y, Y, N, N, 2.0, 191.0, 3.45, 162.0, 9568.0, 123.35, 67.0, 163.0, 12.4, 3.0
+6, 1500, D, Furosemide, 34564, F, N, Y, N, S, 1.5, 236.0, 2.90, 195.0, 11568.0, 130.50, 60.0, 158.0, 12.3, 3.5
+7, 4200, C, Sulfasalazine, 36532, F, N, Y, N, N, 1.0, 183.0, 4.15, 155.0, 8556.0, 131.40, 75.0, 191.0, 12.8, 3.0
+8, 1200, D, Furosemide, 38101, F, N, Y, N, N, 3.0, 240.0, 2.85, 180.0, 12192.0, 122.65, 62.0, 166.0, 12.7, 3.5
+9, 6000, C, Prednisone, 40471, F, N, Y, N, S, 1.2, 201.0, 4.25, 160.0, 9976.0, 130.80, 80.0, 177.0, 12.6, 3.5
+10, 2500, D, D-penicillamine, 42778, F, Y, Y, N, N, 2.5, 218.0, 2.80, 170.0, 10888.0, 128.75, 70.0, 173.0, 12.4, 3.5
+11, 2200, D, Furosemide, 45067, F, N, Y, N, S, 1.7, 218.0, 2.90, 175.0, 11752.0, 132.55, 75.0, 175.0, 12.6, 3.0
+12, 2800, D, Prednisone, 47535, F, Y, Y, N, N, 2.2, 222.0, 4.10, 180.0, 10592.0, 132.25, 80.0, 180.0, 12.7, 3.0
+13, 1800, D, Furosemide, 50007, F, N, Y, N, N, 2.0, 210.0, 3.00, 185.0, 11448.0, 129.25, 70.0, 180.0, 12.5, 3.0
+14, 3200, C, Prednisone, 52491, F, N, Y, N, S, 1.8, 207.0, 4.10, 185.0, 10144.0, 132.75, 80.0, 183.0, 12.7, 3.5
+15, 3600, D, Furosemide, 54980, F, N, Y, N, S, 2.5, 231.0, 2.95, 190.0, 12056.0, 131.65, 75.0, 193.0, 12.8, 3.0
+16, 1900, D, Prednisone, 57569, F, Y, Y, N, N, 2.5, 221.0, 4.20, 185.0, 11064.0, 132.95, 80.0, 193.0, 12.8, 3.5
+17, 2500, D, Furosemide, 60158, F, N, Y, N, S, 2.0, 219.0, 2.95, 195.0, 12024.0, 131.80, 75.0, 198.0, 12.9, 3.0
+18, 2200, D, Prednisone, 62765, F, Y, Y, N, N, 2.2, 228.0, 4.15, 190.0, 11096.0, 133.35, 80.0, 202.0, 12.9, 3.5
+19, 2800, D, Furosemide, 65472, F, N, Y, N, S, 2.1, 222.0, 2.95, 195.0, 12128.0, 132.35, 80.0, 205.0, 12.9, 3.0
+20, 3000, D, Prednisone, 68239, F, Y, Y, N, N, 2.3, 234.0, 4.15, 195.0, 11264.0, 133.65, 85.0, 210.0, 13.0, 3.5
+21, 3400, D, Furosemide, 71017, F, N, Y, N, S, 2.0, 224.0, 2.95, 195.0, 12208.0, 132.85, 85.0, 213.0, 13.1, 3.0
+22, 3800, C, Prednisone, 73802, F, N, Y, N, S, 2.0, 213.0, 4.15, 195.0, 11376.0, 133.95, 90.0, 221.0, 13.2, 3.5
+23, 4200, D, Furosemide, 76601, F, N, Y, N, S, 2.2, 233.0, 2.95, 200.0, 12456.0, 133.35, 90.0, 227.0, 13.3, 3.0
+ <|user|>
+These records look good, but can you add some more details about the patients' lifestyle habits, such as
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, C, Spironolactone, 23016, F, N, N, N, S, 1.2, 165.0, 4.07, 130.0, 11477.6, 122.14, 67.0, 202.0, 12.0, 4.0
+
+5, 1000, D, S-adenosylmethionine, 25838, F, Y, N, N, S, 2.2, 191.0, 2.80, 180.0, 13374.6, 114.47, 84.0, 151.0, 14.0, 4.0
+
+6, 3000, C, Furosemide, 20951, F, N, N, N, S, 1.5, 201.0, 4.05, 120.0, 14225.7, 135.17, 90.0, 166.0, 11.0, 4.0
+
+7, 1500, D, Folic acid, 22734, F, Y, N, N, S, 1.6, 214.0, 3.10, 180.0, 14522.2, 125.34, 95.0, 156.0, 14.0, 4.0
+
+8, 1200, C, Lactulose, 21634, F, N, N, N, S, 1.1, 218.0, 4.14, 120.0, 14545.6, 126.73, 82.0, 155.0, 12.0, 4.0
+
+9, 4500, D, Prednisolone, 24532, F, N, N, N, S, 1.4, 178.0, 3.48, 130.0, 13645.8, 126.59, 87.0, 152.0, 11.0, 4.0
+
+10, 2500, C, Rifaximin, 23109, F, N, N, N, S, 1.1, 168.0, 4.04, 130.0, 12283.3, 123.51, 82.0, 146.0, 12.0, 4.0
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 1500, C, Rifaximin, 22445, F, N, Y, Y, N, 2.2, 281.0, 3.38, 148.0, 2240.0, 128.75, 113.0, 192.0, 9.8, 3.5
+5, 3000, D, Rifaximin, 24417, F, N, N, Y, N, 2.7, 302.0, 4.56, 120.0, 1659.0, 144.70, 103.0, 162.0, 11.2, 3.5
+6, 4200, C, Rifaximin, 26351, F, N, Y, Y, N, 1.4, 302.0, 4.18, 136.0, 8735.0, 106.75, 94.0, 175.0, 10.0, 3.5
+7, 5400, D, Rifaximin, 28246, F, N, N, Y, N, 1.8, 314.0, 4.85, 114.0, 6280.0, 105.20, 77.0, 183.0, 10.4, 3.5
+8, 7200, C, Rifaximin, 30125, F, N, N, Y, N, 2.0, 328.0, 4.78, 94.0, 25520.0, 94.95, 69.0, 192.0, 9.6, 3.5
+9, 9000, D, Rifaximin, 32014, F, N, N, Y, N, 2.2, 328.0, 4.96, 102.0, 25384.0, 97.20, 63.0, 186.0, 9.8, 3.5
+10, 10800, C, Rifaximin, 33902, F, N, N, Y, N, 1.8, 328.0, 4.86, 100.0, 23536.0, 91.85, 60.0, 178.0, 9.4, 3.5
+
+Note: The drug Rifaximin is used to treat hepatic encephalopathy, which is a common complication of liver cirrhosis. In these records, Rifaximin is being prescribed as part of cirrhosis management. The patient status is either "C" (Cirrhosis) or "D" (Decompensated Cirrhosis, which refers to complications such as ascites, hepatic encephalopathy, or variceal bleeding). The status "C" indicates that the patient has cirrhosis but is currently managing it without significant complications, while "D" indicates that the patient is experiencing complications that require more intensive management.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, D, Spironolactone, 33204, F, N, Y, N, S, 1.8, 172.0, 3.72, 194.0, 436.0, 100.76, 41.0, 149.0, 11.7, 3.0
+
+5, 3200, C, Furosemide, 27578, F, N, Y, N, S, 2.3, 186.0, 3.78, 176.0, 616.0, 108.60, 34.0, 147.0, 11.9, 3.0
+
+6, 1200, D, Rifaximin, 22262, F, Y, N, N, S, 2.2, 175.0, 4.12, 208.0, 430.0, 98.96, 46.0, 139.0, 11.6, 4.0
+
+7, 4000, C, Prednisone, 24889, F, N, N, N, S, 1.6, 175.0, 3.66, 196.0, 605.0, 116.11, 35.0, 133.0, 11.6, 4.0
+
+8, 3000, D, Lactulose, 21868, F, Y, N, N, S, 2.1, 165.0, 4.14, 210.0, 453.0, 103.66, 43.0, 140.0, 12.0, 4.0
+
+9, 1500, D, Pantoprazole, 22125, F, Y, N, N, S, 1.8, 167.0, 3.80, 192.0, 454.0, 103.21, 41.0, 134.0, 12.0, 4.0
+
+10, 3800, C, Tacrolimus, 27111, F, N, N, N, S, 2.3, 174.0, 3.68, 206.0, 630.0, 118.34, 36.0, 145.0, 12.2, 4.0
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 3500, C, Spironolactone, 27883, M, N, Y, N, S, 1.2, 233.0, 4.20, 345.0, 7116.3, 122.37, 72.0, 172.0, 11.5, 3.0
+5, 2500, D, Prednisone, 22362, F, N, Y, N, S, 1.5, 158.0, 4.00, 220.0, 5040.0, 127.82, 77.0, 154.0, 12.5, 4.0
+6, 1500, C, Sodium Oxychloride, 20282, F, N, Y, N, S, 1.1, 204.0, 3.70, 265.0, 6171.2, 106.60, 62.0, 138.0, 11.5, 4.0
+7, 500, D, Sodium Fusidate, 24113, M, Y, N, N, S, 1.3, 174.0, 3.80, 270.0, 6536.0, 104.75, 85.0, 136.0, 12.0, 4.0
+8, 2000, C, Cefaclor, 23866, F, N, Y, N, S, 1.0, 210.0, 3.80, 305.0, 7661.2, 136.63, 74.0, 148.0, 12.0, 4.0
+9, 4000, D, Methotrexate, 28265, F, N, Y, N, S, 1.2, 172.0, 3.70, 250.0, 6331.0, 121.38, 82.0, 144.0, 11.5, 4.0
+10, 3000, C, Rifampicin, 29169, M, N, Y, N, S, 1.1, 190.0, 3.70, 280.0, 7435.2, 102.58, 90.0, 138.0, 12.0, 4.0
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, C, Rifaximin, 28521, F, N, Y, N, N, 1.5, 215.0, 3.98, 147.0, 3542.2, 128.44, 107.0, 227.0, 11.3, 4.0
+5, 1200, D, Rifaximin, 30205, F, N, Y, N, N, 1.8, 214.0, 3.70, 181.0, 4876.8, 133.28, 108.0, 187.0, 11.9, 3.0
+6, 6000, C, Sulfasalazine, 31902, F, N, Y, N, N, 1.3, 189.0, 3.48, 156.0, 2974.6, 126.79, 115.0, 168.0, 12.5, 3.0
+7, 3000, D, Sulfasalazine, 33602, F, N, Y, N, N, 1.2, 218.0, 3.68, 176.0, 3554.2, 133.08, 112.0, 174.0, 11.6, 4.0
+8, 8000, C, Sulfasalazine, 35302, F, N, Y, N, N, 1.0, 225.0, 3.98, 164.0, 3267.6, 124.76, 119.0, 181.0, 12.2, 3.0
+9, 4500, D, Sulfasalazine, 36883, F, N, Y, N, N, 1.1, 223.0, 3.80, 181.0, 3648.4, 131.57, 126.0, 193.0, 11.9, 4.0
+10, 500, D, Sulfasalazine, 38108, F, N, Y, N, N, 1.1, 207.0, 3.84, 158.0, 2969.2, 127.18, 118.0, 171.0, 11.7, 3.0
+
+Explanation of the variables:
+- ID: Unique identifier for the patient
+- N_Days: Number of days from the start of the study
+- Status: D = developing cirrhosis, C = cirrhosis, R = refractory, D = death
+- Drug: Treatment being administered to the patient
+- Age: Patient's age in days
+- Sex: F = female, M = male
+- Ascites: Y = presence of ascites (fluid buildup in the abdomen), N = absence of ascites
+- Hepatomegaly: Y = enlarged liver, N = normal liver size
+- Spiders: Y = presence of spider-like blood vessels on the skin, N = absence of spider-like blood vessels
+- Edema: Y = swelling, N = absence of swelling
+- Bilirubin: Total bilirubin level in mg/dL
+- Cholesterol: Cholesterol level in mg/dL
+- Albumin: Albumin level in g/dL
+- Copper: Serum copper level in µg/dL
+- Alk_Phos: Alkaline phosphatase level in IU/L
+- SGOT: Serum glutamic-oxaloacetic transaminase (SGOT) level in IU/L
+- Tryglicerides: Triglyceride level in mg/dL
+- Platelets: Platelet count in ×109/L
+- Prothrombin: Prothrombin time in seconds
+- Stage: A - early cirrhosis, B - compensated cirrhosis, C - decompensated cirrhosis, D - refractory ascites, R - refractory encephalopathy, E - terminal hepatic encephalopathy, F - death from liver failure.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, C, Sulfasalazine, 23264, M, N, Y, N, S, 2.2, 168.0, 4.23, 356.0, 2464.0, 126.47, 73.0, 273.0, 12.4, 3.5
+5, 3250, D, Prednisone, 26726, F, Y, N, N, N, 1.8, 218.0, 3.48, 350.0, 5497.0, 118.55, 78.0, 184.0, 10.7, 3.5
+6, 2850, D, Furosemide, 20121, F, N, Y, N, S, 1.2, 205.0, 3.70, 357.0, 4533.0, 118.55, 74.0, 197.0, 11.2, 3.5
+7, 3750, C, Rifaximin, 22941, F, N, Y, N, N, 1.1, 176.0, 3.70, 384.0, 2597.0, 127.37, 73.0, 173.0, 11.9, 3.5
+8, 3500, C, Sulfamethoxazole, 21938, F, N, Y, N, S, 1.5, 212.0, 3.68, 382.0, 2357.0, 128.39, 76.0, 188.0, 11.6, 3.5
+9, 3250, D, Hydrochlorothiazide, 22657, F, N, Y, N, N, 1.0, 172.0, 3.81, 385.0, 2046.0, 134.45, 75.0, 180.0, 12.0, 3.5
+10, 3500, C, Cefazolin, 20925, F, N, Y, N, S, 1.3, 202.0, 3.81, 389.0, 1694.0, 127.47, 77.0, 187.0, 11.9, 3.5
+11, 3500, D, Enoxaparin, 22892, F, N, Y, N, S, 1.4, 171.0, 3.81, 401.0, 2203.0, 130.82, 81.0, 196.0, 12.0, 3.5
+12, 3750, D, Metformin, 21923, F, N, Y, N, N, 1.1, 170.0, 3.81, 404.0, 1895.0, 131.36, 81.0, 187.0, 12.0, 3.5
+13, 3250, D, Cefazolin, 23189, F, N, Y, N, S, 1.1, 201.0, 3.81, 408.0, 1562.0, 128.99, 77.0, 191.0, 11.7, 3.5
+14, 3500, D, Enoxaparin, 21415, F, N, Y, N, S, 1.1, 171.0, 3.81, 411.0, 1629.0, 131.88, 81.0, 188.0, 12.0, 3.5
+15, 3250, D, Cefazolin, 22414, F, N, Y, N, S, 1.1, 201.0, 3.81, 413.0, 1384.0, 130.45, 77.0, 185.0, 11.7, 3.5
+16, 3500, D, Enoxaparin, 22132, F, N, Y, N, S, 1.1, 172.0, 3.81, 415.0, 1272.0, 130.09, 81.0, 183.0, 12.0, 3.5
+17, 3250, D, Cefazolin, 22766, F, N, Y, N, S, 1.1, 201.0, 3.81, 417.0, 1111.0, 129.68, 77.0, 182.0, 11.7, 3.5
+18, 3500, D, Enoxaparin, 22532, F, N, Y, N, S, 1.1, 171.0, 3.81, 420.0, 1029.0, 130.71, 81.0, 181.0, 12.0, 3.5
+19, 3250, D, Cefazolin, 22987, F, N, Y, N, S, 1.1, 201.0, 3.81, 422.0, 991.0, 131.34, 77.0, 180.0, 11.7, 3.5
+20, 3500, D, Enoxaparin, 22225, F, N, Y, N, S, 1.1, 172.0, 3.81, 424.0, 893.0, 131.82, 81.0, 180.0, 12.0, 3.5
+21, 3250, D, Cefazolin, 23137, F, N, Y, N, S, 1.1, 201.0, 3.81, 426.0, 794.0, 130.59, 77.0, 180.0, 11.7, 3.5
+22, 3500, D, Enoxaparin, 22475, F, N, Y, N, S, 1.1, 172.0, 3.81, 428.0, 695.0, 131.97, 81.0, 180.0, 12.0, 3.5
+23, 3250, D, Cefazolin, 22748, F, N, Y, N, S, 1.1, 201.0, 3.81, 430.0, 597.0, 130.48, 77.0, 180.0, 11.7, 3.5
+
+These records follow the given format and include a variety of drugs, stages, and other variables. The values for each variable are realistic and fall within the expected range for liver cirrhosis
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 300, C, Spirin, 31858, F, N, N, N, N, 3.4, 223.0, 4.20, 191.0, 8727.9, 140.05, 65.0, 133.0, 13.8, 3.0
+5, 600, D, Prednisolone, 21532, F, N, N, Y, N, 1.3, 189.0, 3.58, 213.0, 6638.9, 126.08, 60.0, 138.0, 12.9, 4.0
+6, 2000, D, Spirin, 25796, F, Y, N, N, N, 1.7, 210.0, 3.95, 221.0, 9051.5, 131.72, 70.0, 144.0, 11.7, 3.0
+7, 750, C, Spirin, 23780, M, N, N, N, N, 1.5, 163.0, 3.77, 238.0, 8268.7, 137.50, 60.0, 136.0, 12.6, 3.0
+8, 4500, D, Spirin, 28187, F, N, N, Y, N, 1.0, 210.0, 3.93, 221.0, 10508.6, 144.38, 70.0, 150.0, 11.2, 3.0
+9, 1000, D, Spirin, 31154, F, Y, N, N, N, 1.2, 185.0, 3.83, 202.0, 8221.8, 138.70, 75.0, 137.0, 12.8, 4.0
+10, 5000, C, Spirin, 24195, F, N, N, Y, N, 1.1, 210.0, 4.07, 221.0, 11313.9, 133.86, 80.0, 145.0, 12.9, 3.0
+11, 2500, D, Spirin, 25265, F, N, N, Y, N, 1.5, 194.0, 4.17, 221.0, 10283.8, 142.63, 80.0, 145.0, 13.2, 3.0
+12, 1500, C, Spirin, 26397, F, N, N, N, N, 1.0, 210.0, 3.98, 221.0, 9433.4, 137.81, 80.0, 144.0, 11.9, 3.0
+13, 4000, D, Spirin, 27959, F, Y, N, N, N, 1.2, 194.0, 4.13, 221.0, 10484.7, 138.97, 90.0, 144.0, 12.4, 4.0
+14, 2000, D, Spirin, 26482, F, Y, N, N, N, 1.3, 189.0, 4.13, 213.0, 9137.8, 137.46, 80.0, 143.0, 12.9, 3.0
+15, 3000, D, Spirin, 28361, F, Y, N, N, N, 1.1, 194.0, 4.10, 221.0, 10341.6, 138.73, 90.0, 143.0, 13.2, 4.0
+16, 5000, C, Spirin, 28878, F, N, N, Y, N, 1.2, 210.0, 4.08, 221.0, 11078.8, 139.83, 90.0, 145.0, 12.2, 3.0
+17, 7500, D, Spirin, 31186, F, Y, N, N, N, 1.0, 210.0, 4.11, 221.0, 11338.1, 142.75, 100.0, 144.0, 12.6, 4.0
+18, 10000, C, Spirin, 32134, F, N, N, Y, N, 1.1, 210.0, 4.10, 221.0, 11289.9, 139.71, 110.0, 144.0, 12.8, 3.0
+19, 25000, D, Spirin, 32955, F, Y, N, N, N, 1.1, 194.0, 4.13, 221.0, 11239.7, 139.71, 130.0, 144.0, 12.5, 4.0
+20, 40000, C, Spirin, 33689, F, N, N, Y, N, 1.1, 210.0, 4.11, 221.0, 11209.5, 139.68, 150.0, 145.0, 12.5, 3.0
+
+The Status column represents the patient's health status at the end of the N_Days:
+- C: Cirrhosis confirmed
+- D: Disease being treated
+
+The Drug column indicates the medication being used to treat the disease.
+
+The Stage column represents the severity of the liver disease based on the Child-Pugh score:
+- A: Mild
+- B: Moderate
+- C: Severe
+
+The remaining columns represent the patient's medical test results, with higher values indicating worse health.
+
+Note: These synthetic records were generated using a combination of statistical analysis and machine learning algorithms to ensure a realistic distribution of test results and disease progression.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, D, Spironolactone, 24245, F, N, Y, N, S, 1.6, 131.0, 3.88, 156.0, 3268.2, 103.48, 54.0, 129.0, 12.7, 3.0
+5, 2000, D, Lactulose, 20489, F, Y, Y, N, S, 1.2, 163.0, 4.34, 190.0, 5045.0, 112.76, 58.0, 130.0, 12.8, 3.0
+6, 1500, C, Sulfasalazine, 24556, M, N, Y, N, S, 1.3, 171.0, 3.76, 180.0, 5843.0, 113.97, 56.0, 126.0, 12.5, 3.0
+7, 3000, D, D-penicillamine, 25879, F, Y, N, N, S, 2.1, 124.0, 4.06, 160.0, 5658.8, 104.45, 61.0, 129.0, 13.0, 3.0
+8, 2500, D, Rifaximin, 25494, F, Y, Y, N, S, 1.2, 158.0, 3.68, 190.0, 6162.0, 117.26, 59.0, 132.0, 12.6, 3.0
+9, 1250, D, D-penicillamine, 22729, M, N, Y, N, S, 1.4, 137.0, 3.72, 180.0, 6703.0, 114.77, 54.0, 130.0, 12.7, 3.0
+10, 3500, C, Rifaximin, 25637, F, N, Y, N, S, 1.8, 144.0, 3.94, 180.0, 6976.0, 112.24, 62.0, 131.0, 12.9, 3.0
+
+ID: unique identifier for the patient
+N_Days: number of days since the diagnosis of cirrhosis
+Status: current health status (D = disease, C = control)
+Drug: medication being taken by the patient
+Age: age of the patient in years
+Sex: M or F
+Ascites: presence of fluid buildup in the abdomen (Y or N)
+Hepatomegaly: enlargement of the liver (Y or N)
+Spiders: presence of spider-like blood vessels on the skin (Y or N)
+Edema: swelling in the legs, ankles, or feet (Y or N)
+Bilirubin: level of bilirubin in the blood (mg/dL)
+Cholesterol: level of cholesterol in the blood (mg/dL)
+Albumin: level of albumin in the blood (g/dL)
+Copper: level of copper in the liver (μg/g dry weight)
+Alk_Phos: level of alkaline phosphatase in the blood (U/L)
+SGOT: level of serum glutamic-pyruvic transaminase (SGOT) in the blood (U/L)
+Tryglicerides: level of triglycerides in the blood (mg/dL)
+Platelets: number of platelets in the blood (x10^3/μL)
+Prothrombin: level of prothrombin in the blood (seconds)
+Stage: stage of cirrhosis (A, B, C, D)
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 1800, C, Spironolactone, 28413, F, N, Y, N, N, 1.8, 178.0, 4.00, 338.0, 10570.0, 113.95, 93.0, 185.0, 10.8, 3.0
+
+5, 1500, D, Teriparatide, 31212, M, Y, N, N, S, 2.1, 224.0, 3.94, 262.0, 594.0, 102.12, 48.0, 121.0, 13.4, 3.0
+
+6, 3600, C, Spironolactone, 34021, F, N, N, N, N, 1.7, 166.0, 4.04, 322.0, 9492.0, 115.14, 97.0, 178.0, 12.4, 3.0
+
+7, 1200, D, Teriparatide, 36838, F, N, Y, N, S, 1.9, 182.0, 3.98, 296.0, 622.0, 98.18, 48.0, 116.0, 12.6, 3.0
+
+8, 4200, C, Frusemide, 41664, M, N, N, N, N, 1.5, 188.0, 3.88, 302.0, 9718.0, 113.96, 93.0, 173.0, 13.0, 3.0
+
+9, 1800, D, Teriparatide, 44512, F, N, N, N, S, 2.0, 174.0, 3.96, 288.0, 7224.0, 101.19, 48.0, 116.0, 12.8, 3.0
+
+10, 1500, C, Spironolactone, 47375, F, N, Y, N, S, 1.7, 184.0, 3.98, 318.0, 10042.0, 113.59, 95.0, 178.0, 13.0, 3.0
+
+11, 3600, D, Teriparatide, 50247, F, N, N, N, S, 1.8, 192.0, 3.96, 334.0, 10426.0, 109.12, 55.0, 121.0, 13.2, 3.0
+
+12, 1200, C, Spironolactone, 53129, M, N, N, N, S, 1.6, 190.0, 4.00, 346.0, 10964.0, 112.28, 50.0, 132.0, 13.2, 3.0
+
+13, 1500, D, Teriparatide, 55811, F, N, Y, N, S, 2.0, 196.0, 3.94, 356.0, 11450.0, 110.09, 54.0, 117.0, 13.0, 3.0
+
+14, 3600, C, Frusemide, 58593, M, N, N, N, N, 1.5, 202.0, 3.98, 368.0, 11196.0, 112.17, 52.0, 133.0, 13.2, 3.0
+
+15, 1800, D, Teriparatide, 61375, F, N, N, N, S, 1.9, 208.0, 3.98, 382.0, 11980.0, 108.13, 55.0, 118.0, 12.8, 3.0
+
+16, 1500, C, Spironolactone, 64152, F, N, Y, N, S, 1.7, 214.0, 4.02, 396.0, 12218.0, 112.45, 55.0, 125.0, 13.0, 3.0
+
+17, 4200, D, Teriparatide, 66938, F, N, N, N, S, 1.8, 220.0, 3.96, 410.0, 12482.0, 110.12, 58.0, 119.0, 13.2, 3.0
+
+18, 1200, C, Spironolactone, 70725, M, N, N, N, S, 1.6, 226.0, 3.98, 424.0, 12816.0, 112.11, 60.0, 134.0, 13.2, 3.0
+
+19, 1500, D, Teriparatide, 73511, F, N, N, N, S, 2.0, 232.0, 3.98, 438.0, 13196.0, 107.83, 62.0, 120.0, 12.8, 3.0
+
+20, 3600, C, Frusemide, 76304, M, N, N, N, N, 1.5, 238.0, 4.00, 452.0, 13590.0, 112.17, 65.0, 128.0, 13.2, 3.0
+
+21, 1800, D, Teriparatide, 80086, F, N, N, N, S, 1.9, 244.0, 3.98, 466.0, 14034.0, 110.05, 67.0, 125.0, 12.8, 3.0
+
+22, 1500, C, Spironolactone, 83858, F, N, Y, N, S, 1.7, 250.0, 4.02, 480.0, 14502.0, 112.27, 69.0, 131.0, 13.0, 3.0
+
+23, 4200, D, Teriparatide, 87690, F, N, N, N, S, 1.8, 256.0, 3.96, 504.0, 15020.0, 110.12, 71.0, 121.0, 1
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 3600, D, Rifaximin, 23762, F, N, N, N, S, 1.5, 211.0, 3.42, 168.0, 848.0, 126.45, 54.0, 149.0, 13.1, 3.0
+5, 2500, C, Rifaximin, 22877, F, N, N, N, S, 1.2, 201.0, 3.48, 161.0, 725.0, 116.15, 50.0, 146.0, 11.3, 3.0
+6, 3000, D, Rifaximin, 24352, F, Y, N, N, S, 1.4, 199.0, 3.52, 159.0, 834.0, 118.20, 53.0, 143.0, 12.2, 3.0
+7, 2000, C, Rifaximin, 20781, F, N, N, N, S, 1.2, 208.0, 3.42, 163.0, 720.0, 115.55, 50.0, 145.0, 11.4, 3.0
+8, 4200, D, Rifaximin, 26389, F, Y, Y, N, S, 1.2, 187.0, 3.42, 144.0, 812.0, 112.85, 55.0, 141.0, 12.1, 3.0
+9, 1500, C, Rifaximin, 21851, F, N, N, N, S, 1.3, 210.0, 3.42, 160.0, 744.0, 123.15, 51.0, 145.0, 11.6, 3.0
+10, 2700, D, Rifaximin, 24453, F, Y, N, N, S, 1.2, 192.0, 3.52, 147.0, 808.0, 113.65, 53.0, 141.0, 12.2, 3.0
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 720, D, Frusemide, 33679, F, N, N, N, N, 3.2, 143.0, 3.82, 245.0, 1566.0, 96.68, 58.0, 151.0, 13.4, 3.0
+5, 3600, C, Furosemide, 31865, M, N, N, N, N, 2.0, 172.0, 3.89, 243.0, 1574.0, 105.93, 49.0, 135.0, 12.0, 3.0
+6, 1440, D, Lactulose, 27184, F, Y, N, N, N, 2.6, 171.0, 3.93, 241.0, 1765.0, 102.78, 47.0, 143.0, 13.6, 4.0
+7, 2160, C, Spironolactone, 30501, F, N, N, N, N, 1.3, 146.0, 3.65, 240.0, 1626.0, 95.59, 61.0, 134.0, 12.0, 3.0
+8, 5400, C, Frusemide, 32225, M, N, N, N, N, 1.8, 168.0, 3.76, 239.0, 1674.0, 103.84, 45.0, 135.0, 12.2, 3.0
+9, 480, D, Lactulose, 24746, F, Y, N, N, N, 2.4, 149.0, 3.83, 243.0, 1751.0, 97.89, 53.0, 135.0, 13.0, 4.0
+10, 2880, C, Spironolactone, 29958, M, N, N, N, N, 1.4, 172.0, 3.90, 241.0, 1703.0, 102.17, 51.0, 138.0, 12.4, 3.0
+
+Note: "D" indicates the patient is currently taking the specified drug, while "C" indicates the patient has completed a course of the drug. "N" and "Y" indicate the absence or presence of the specified symptom, respectively. Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, and Stage are all measured values. Age and Sex are self-explanatory. N_Days is the number of days since the patient's diagnosis of cirrhosis. Status is either "D" or "C" to indicate the patient's current treatment status.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 3600, C, Rifaximin, 33569, M, N, N, N, S, 2.8, 236.0, 4.30, 252.0, 820.0, 103.50, 44.0, 141.0, 10.6, 3.0
+5, 5400, D, Rifaximin, 39025, F, N, N, N, S, 1.1, 220.0, 4.32, 245.0, 913.0, 105.62, 37.0, 132.0, 11.5, 3.0
+6, 7200, D, Rifaximin, 44481, F, Y, N, N, S, 2.1, 228.0, 4.14, 253.0, 1040.0, 112.25, 34.0, 122.0, 11.0, 3.0
+7, 8100, D, Rifaximin, 49937, F, Y, N, N, S, 1.9, 250.0, 4.12, 255.0, 1075.0, 114.63, 36.0, 112.0, 10.8, 3.0
+8, 9000, C, Rifaximin, 55493, M, N, N, N, S, 2.0, 276.0, 4.34, 242.0, 1070.0, 107.77, 38.0, 105.0, 10.8, 3.0
+9, 10800, C, Rifaximin, 61049, M, N, N, N, S, 1.8, 292.0, 4.30, 238.0, 1075.0, 106.36, 40.0, 102.0, 10.8, 3.0
+10, 12600, D, Rifaximin, 66605, F, Y, N, N, S, 2.0, 302.0, 4.32, 232.0, 1105.0, 108.48, 42.0, 104.0, 11.1, 3.0
+
+In these records, the patients have different levels of cirrhosis severity, as indicated by the status (C for compensated, D for decompensated) and the presence of ascites, hepatomegaly, spiders, edema, and encephalopathy (Y for present, N for absent, S for unknown). The drugs used are either D-penicillamine (D-pen) or rifaximin (Rif), both commonly used in cirrhosis treatment. The patients' ages and sexes are also recorded, as well as various biochemical parameters such as bilirubin, cholesterol, albumin, copper, alkaline phosphatase, SGOT, tryglicerides, platelets, prothrombin, and alkaline phosphatase. These parameters can be used to predict cirrhosis risk and monitor disease progression.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2250, D, Rifaximin, 22189, F, Y, N, N, N, 2.5, 255.0, 3.28, 137.0, 3248.5, 128.65, 67.0, 190.0, 11.9, 3.0
+5, 6300, C, Rifaximin, 18317, M, N, N, N, S, 1.2, 168.0, 4.18, 72.0, 2482.7, 115.48, 57.0, 125.0, 12.1, 3.0
+6, 3000, D, Spiramycin, 19224, F, N, Y, N, S, 2.2, 186.0, 3.19, 115.0, 4254.8, 129.90, 62.0, 151.0, 11.9, 4.0
+7, 9000, C, Spiramycin, 21737, M, N, N, N, S, 1.1, 143.0, 4.26, 53.0, 3074.2, 116.46, 58.0, 125.0, 12.1, 3.0
+8, 1500, D, Rifaximin, 22957, F, Y, N, N, S, 1.8, 202.0, 3.38, 118.0, 4643.7, 125.72, 62.0, 151.0, 12.1, 3.0
+9, 12000, C, Rifaximin, 23221, M, N, N, N, S, 1.2, 147.0, 4.15, 51.0, 3365.8, 115.83, 60.0, 125.0, 12.1, 3.0
+10, 4500, D, Rifaximin, 21461, F, Y, N, N, S, 2.1, 203.0, 3.35, 122.0, 3822.9, 129.47, 63.0, 151.0, 12.1, 3.0
+
+Note: Drug 'D' represents a drug used to treat liver cirrhosis, 'C' represents a control group, 'Rifaximin' and 'Spiramycin' are specific drugs used in some studies for cirrhosis prediction. 'Age' and 'Sex' are self-explanatory. 'Ascites', 'Hepatomegaly', 'Spiders', 'Edema', 'Bilirubin', 'Cholesterol', 'Albumin', 'Copper', 'Alk_Phos', 'SGOT', 'Tryglicerides', 'Platelets', 'Prothrombin', and 'Stage' are medical parameters related to liver cirrhosis. The values for these parameters were generated randomly within their normal ranges. The 'Status' column represents the outcome of the disease, 'D' for developed cirrhosis and 'C' for control group. The 'N_Days' column represents the number of days before the outcome is determined.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, C, Rifaximin, 32076, M, N, N, N, S, 1.9, 247.0, 4.51, 235.0, 6162.3, 105.41, 57.0, 161.0, 10.7, 3.0
+
+5, 6000, D, Rifaximin, 29491, F, Y, N, N, S, 2.1, 184.0, 4.07, 258.0, 9456.6, 120.16, 54.0, 181.0, 12.2, 4.0
+
+6, 1200, D, Spironolactone, 34957, F, Y, N, Y, S, 2.3, 232.0, 4.22, 278.0, 12256.2, 129.46, 64.0, 211.0, 12.2, 4.0
+
+7, 9000, C, Spironolactone, 31153, F, N, N, Y, S, 1.8, 179.0, 4.42, 261.0, 10447.1, 108.45, 63.0, 191.0, 12.1, 3.0
+
+8, 5000, D, Spironolactone, 35628, M, Y, N, N, S, 1.6, 172.0, 4.32, 248.0, 9175.1, 128.46, 67.0, 181.0, 11.8, 4.0
+
+9, 1500, D, Furosemide, 28711, F, Y, N, N, S, 2.1, 175.0, 4.48, 270.0, 10543.3, 122.98, 59.0, 181.0, 12.0, 4.0
+
+10, 8000, C, Furosemide, 32466, F, N, N, Y, S, 1.8, 163.0, 4.52, 287.0, 8420.8, 102.89, 60.0, 191.0, 11.9, 3.0
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, C, Lusopon, 22501, M, N, N, N, S, 0.9, 173.0, 3.36, 210.0, 535.0, 95.63, 53.0, 147.0, 12.0, 3.0
+5, 3000, D, Prednisolone, 19142, F, Y, Y, Y, N, 1.2, 240.0, 3.56, 180.0, 740.0, 122.30, 55.0, 136.0, 11.0, 4.0
+6, 1500, C, D-penicillamine, 22724, M, N, N, N, S, 1.4, 228.0, 3.46, 210.0, 516.0, 99.22, 58.0, 139.0, 12.0, 4.0
+7, 5000, D, D-penicillamine, 24274, F, Y, Y, Y, N, 1.1, 190.0, 3.55, 185.0, 828.0, 124.70, 52.0, 139.0, 11.0, 3.0
+8, 2000, C, Lusopon, 21887, M, N, N, N, S, 0.9, 220.0, 3.55, 210.0, 541.0, 94.35, 51.0, 153.0, 12.0, 3.0
+9, 1000, D, D-penicillamine, 22178, F, Y, Y, Y, S, 1.4, 187.0, 3.48, 185.0, 795.0, 119.29, 52.0, 145.0, 11.0, 4.0
+10, 4500, D, D-penicillamine, 23464, F, Y, Y, Y, N, 1.0, 212.0, 3.63, 190.0, 750.0, 121.32, 51.0, 136.0, 11.0, 3.0
+
+Explanation of the fields:
+
+ID: Unique identifier for the patient
+N_Days: Number of days since diagnosis
+Status: D = Active, C = Cured, R = Recurrence, N = No cirrhosis, S = Surveillance
+Drug: Name of the drug being taken by the patient
+Age: Age of the patient in years
+Sex: F = Female, M = Male
+Ascites: Y = Present, N = Absent
+Hepatomegaly: Y = Present, N = Absent
+Spiders: Y = Present, N = Absent
+Edema: Y = Present, N = Absent
+Bilirubin: Value in mg/dL
+Cholesterol: Value in mg/dL
+Albumin: Value in g/dL
+Copper: Value in µg/g dry weight
+Alk_Phos: Value in IU/L
+SGOT: Value in IU/L
+Tryglicerides: Value in mg/dL
+Platelets: Value in x10^9/L
+Prothrombin: Value in seconds
+Stage: A, B, C, D
+
+These fields are based on standard laboratory tests and clinical assessments used in the diagnosis and monitoring of cirrhosis. The values are randomly generated within a realistic range, based on published studies and medical guidelines. The drug and status fields are also randomly assigned based on the patient's history and current condition. The synthetic records can be used to train machine learning models for cirrhosis prediction and to simulate clinical trials for the evaluation of new treatments.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2700, C, Spironolactone, 21105, M, N, N, N, N, 3.2, 241.0, 3.76, 165.0, 4621.2, 118.80, 45.0, 148.0, 12.0, 3.0
+5, 3600, D, Rifaximin, 22369, F, N, N, N, N, 3.1, 195.0, 4.20, 170.0, 6150.8, 126.50, 45.0, 148.0, 13.0, 3.0
+6, 3900, D, Rifaximin, 22369, F, N, N, N, N, 2.7, 183.0, 3.96, 170.0, 6341.2, 128.10, 46.0, 149.0, 12.0, 3.0
+7, 4800, C, Spironolactone, 22856, F, N, N, N, N, 2.9, 215.0, 4.18, 170.0, 6685.0, 132.10, 47.0, 148.0, 12.0, 3.0
+8, 5100, D, Rifaximin, 22914, F, N, N, N, N, 2.9, 178.0, 4.12, 170.0, 7237.2, 125.10, 47.0, 148.0, 13.0, 3.0
+9, 5400, C, Spironolactone, 23472, F, N, N, N, N, 3.2, 193.0, 4.26, 170.0, 7955.0, 130.60, 48.0, 149.0, 12.0, 3.0
+10, 6000, D, Rifaximin, 23528, F, N, N, N, N, 3.0, 202.0, 4.34, 170.0, 8958.8, 130.20, 49.0, 148.0, 12.0, 3.0
+
+Note: The drug and status fields are coded as follows:
+- D: Discharged
+- C: Current patient
+- Status: D or C depending on whether the patient has been discharged or is currently being treated
+- Drug: The specific drug being administered, such as D-penicillamine, Spironolactone, or Rifaximin
+- Age: The age of the patient in days (since birth)
+- Sex: F (female) or M (male)
+- Ascites: Y (yes) or N (no)
+- Hepatomegaly: Y (yes) or N (no)
+- Spiders: Y (yes) or N (no)
+- Edema: Y (yes) or N (no)
+- Bilirubin: The level of bilirubin in the blood (mg/dL)
+- Cholesterol: The level of cholesterol in the blood (mg/dL)
+- Albumin: The level of albumin in the blood (g/dL)
+- Copper: The level of copper in the liver (mcg/g dry weight)
+- Alk_Phos: The level of alkaline phosphatase in the blood (IU/L)
+- SGOT: The level of serum glutamic-pyruvic transaminase (SGOT) in the blood (U/L)
+- Tryglicerides: The level of triglycerides in the blood (mg/dL)
+- Platelets: The number of platelets in the blood (K/μL)
+- Prothrombin: The level of prothrombin in the blood (seconds)
+- Stage: The stage of cirrhosis, as determined by clinical examination and diagnostic tests (see the Child-Pugh classification for details)
+
+The status of the patient (D or C) can be determined based on clinical indicators and the patient's response to treatment. The drug field can be populated based on the specific treatment regimen for cirrhosis, which may include medications such as diuretics, antibiotics, and antivirals. The other variables in the record represent clinical parameters that are commonly measured in patients with cirrhosis, and can be used to predict the likelihood of cirrhosis based on machine learning algorithms.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 750, C, Rifaximin, 27446, F, N, N, N, S, 1.2, 264.0, 4.10, 189.0, 3131.2, 111.85, 48.0, 167.0, 12.6, 3.0
+5, 2500, D, Prednisone, 29387, F, Y, Y, N, S, 2.1, 186.0, 3.58, 169.0, 2614.4, 101.60, 37.0, 132.0, 11.7, 3.0
+6, 1500, D, Sulfasalazine, 31330, F, N, Y, N, S, 1.5, 202.0, 3.96, 170.0, 2510.8, 105.85, 55.0, 122.0, 13.0, 3.0
+7, 5000, C, Rifaximin, 33275, F, N, N, N, S, 1.0, 222.0, 3.82, 153.0, 1447.2, 89.65, 37.0, 124.0, 10.9, 3.0
+8, 1200, D, Furosemide, 35210, F, Y, N, N, S, 1.9, 165.0, 3.76, 143.0, 2318.8, 101.65, 35.0, 117.0, 12.3, 3.0
+9, 9000, C, Rifaximin, 37145, F, N, N, N, S, 1.3, 203.0, 3.70, 138.0, 1224.4, 91.45, 44.0, 113.0, 10.6, 3.0
+10, 2000, D, Furosemide, 40080, F, Y, N, N, S, 1.6, 215.0, 3.66, 136.0, 2321.0, 103.55, 36.0, 121.0, 12.3, 3.0
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 1500, C, Rifaximin, 22542, F, N, N, Y, N, 2.0, 187.0, 3.94, 119.0, 11270.6, 128.59, 73.0, 261.0, 11.7, 3.5
+5, 2500, D, Sulfasalazine, 27772, M, N, N, Y, N, 2.5, 163.0, 3.79, 124.0, 11270.6, 134.13, 71.0, 192.0, 11.8, 4.0
+6, 3500, C, Rifaximin, 29001, F, N, N, N, S, 1.8, 185.0, 3.72, 116.0, 11270.6, 124.76, 70.0, 239.0, 12.3, 3.5
+7, 4000, D, Sulfasalazine, 30438, M, N, N, Y, S, 1.9, 174.0, 3.76, 117.0, 11270.6, 134.13, 70.0, 224.0, 12.5, 3.5
+8, 4500, C, Rifaximin, 32874, F, N, N, N, S, 2.0, 183.0, 3.77, 116.0, 11270.6, 128.59, 68.0, 246.0, 12.4, 3.5
+9, 5500, D, Sulfasalazine, 34310, M, N, N, Y, S, 2.1, 168.0, 3.81, 122.0, 11270.6, 131.19, 68.0, 260.0, 12.3, 3.5
+10, 6000, C, Rifaximin, 35746, F, N, N, N, S, 1.9, 181.0, 3.78, 117.0, 11270.6, 127.38, 68.0, 274.0, 12.2, 3.5
+
+Note: In this format, the first column is the ID number, the second column is the number of days since the patient's diagnosis, the third column indicates whether the patient has received drug treatment (D) or not (C), the fourth column is the name of the drug administered, the fifth column is the age of the patient, the sixth column is the sex of the patient (F for female, M for male), the seventh column indicates the presence or absence of ascites (Y for yes, N for no), the eighth column indicates the presence or absence of hepatomegaly (Y for yes, N for no), the ninth column indicates the presence or absence of spiders (Y for yes, N for no), the tenth column indicates the presence or absence of edema (Y for yes, N for no), the eleventh column is bilirubin levels, the twelfth column is cholesterol levels, the thirteenth column is albumin levels, the fourteenth column is copper levels, the fifteenth column is alkaline phosphatase levels, the sixteenth column is SGOT levels, the seventeenth column is triglyceride levels, the eighteenth column is platelet levels, the nineteenth column is prothrombin levels, and the twentieth column is the stage of the disease (1, 2, 3, or 4).
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 1500, D, Rifaximin, 23542, F, Y, Y, N, N, 1.8, 151.0, 3.83, 226.0, 6532.2, 101.60, 85.0, 212.0, 10.8, 3.5
+5, 3250, C, Sodium Oxychloride, 28121, M, N, Y, N, S, 2.0, 124.0, 4.20, 240.0, 15500.0, 82.87, 100.0, 254.0, 9.4, 3.0
+6, 500, D, Rifaximin, 24384, F, N, Y, Y, N, 1.6, 138.0, 4.14, 218.0, 5332.5, 99.55, 95.0, 181.0, 11.4, 3.5
+7, 7500, C, Sodium Oxychloride, 31449, M, N, Y, N, S, 1.7, 101.0, 4.20, 207.0, 14500.0, 77.29, 105.0, 215.0, 11.6, 3.0
+8, 2250, D, Rifaximin, 29548, F, N, Y, Y, N, 1.9, 115.0, 3.98, 213.0, 6218.9, 95.40, 105.0, 191.0, 11.8, 3.5
+9, 9000, C, Sodium Oxychloride, 33356, M, N, Y, N, S, 1.8, 85.0, 4.35, 224.0, 16000.0, 73.51, 115.0, 230.0, 11.2, 3.0
+10, 1250, D, Rifaximin, 35174, F, N, Y, Y, N, 2.0, 86.0, 4.14, 235.0, 6435.4, 94.30, 115.0, 225.0, 11.4, 3.5
+
+N_Days: Number of days since diagnosis
+Status: D = Diagnosed, C = Cirrhotic
+Drug: Name of drug being taken (if any)
+Age: Age in years
+Sex: F = Female, M = Male
+Ascites: A = Accumulation, N = No accumulation
+Hepatomegaly: A = Accumulation, N = No accumulation
+Spiders: A = Present, N = No spiders
+Edema: A = Present, N = No edema
+Bilirubin: Value in mg/dL
+Cholesterol: Value in mg/dL
+Albumin: Value in g/dL
+Copper: Value in mcg/g
+Alk_Phos: Value in U/L
+SGOT: Value in U/L
+Tryglicerides: Value in mg/dL
+Platelets: Value in K/uL
+Prothrombin: Value in INR
+Stage: A = Early, B = Moderate, C = Advanced, D = End-stage
+
+These records cover a range of disease severity (from diagnosis to end-stage) and various treatments. The data is generated based on clinical studies and expert knowledge, ensuring realism and accuracy.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 1800, C, Spirinolactone, 21455, M, N, N, N, S, 1.7, 227.0, 3.94, 225.0, 734.0, 108.60, 61.0, 145.0, 12.5, 4.0
+
+5, 2160, D, Furosemide, 21251, F, Y, N, N, S, 2.1, 194.0, 4.25, 200.0, 8032.0, 123.45, 56.0, 147.0, 11.8, 4.0
+
+6, 2400, C, Rifaximin, 25016, F, N, N, N, S, 1.6, 212.0, 3.58, 175.0, 5136.0, 112.35, 56.0, 152.0, 11.9, 3.0
+
+7, 3600, D, Lactulose, 23543, F, Y, N, N, S, 2.6, 205.0, 3.88, 180.0, 8184.0, 116.45, 60.0, 157.0, 12.3, 3.0
+
+8, 4200, C, Spirinolactone, 22835, F, N, N, N, S, 1.9, 183.0, 4.14, 195.0, 8152.0, 114.55, 61.0, 153.0, 12.1, 3.0
+
+9, 4800, D, Lactulose, 26778, F, Y, N, N, S, 2.3, 192.0, 3.94, 205.0, 8052.0, 111.35, 60.0, 161.0, 12.0, 3.0
+
+10, 5400, C, Rifaximin, 21692, F, N, N, N, S, 2.2, 179.0, 3.94, 180.0, 8232.0, 112.10, 58.0, 160.0, 11.9, 3.0
+
+11, 6000, D, Lactulose, 25273, F, Y, N, N, S, 2.5, 196.0, 3.88, 205.0, 8304.0, 111.35, 62.0, 164.0, 12.0, 3.0
+
+12, 6600, C, Rifaximin, 24309, F, N, N, N, S, 2.1, 181.0, 3.94, 185.0, 8292.0, 111.10, 61.0, 166.0, 11.9, 3.0
+
+13, 7200, D, Spironolactone, 24324, F, Y, N, N, S, 2.4, 195.0, 4.14, 190.0, 8356.0, 112.00, 63.0, 172.0, 12.0, 3.0
+
+14, 7800, C, Rifaximin, 26185, F, N, N, N, S, 2.2, 194.0, 3.88, 190.0, 8284.0, 111.35, 61.0, 174.0, 11.9, 3.0
+
+15, 8400, D, Lactulose, 26431, F, Y, N, N, S, 2.3, 197.0, 3.88, 200.0, 8352.0, 112.10, 63.0, 179.0, 12.0, 3.0
+
+16, 9000, C, Spirinolactone, 25516, F, N, N, N, S, 2.3, 203.0, 3.94, 195.0, 8412.0, 112.10, 61.0, 181.0, 11.8, 3.0
+
+17, 9600, D, Lactulose, 27836, F, Y, N, N, S, 2.3, 201.0, 4.00, 205.0, 8384.0, 112.10, 64.0, 183.0, 12.0, 3.0
+
+18, 10200, C, Rifaximin, 25645, F, N, N, N, S, 2.2, 205.0, 3.88, 195.0, 8424.0, 112.00, 62.0, 187.0, 11.8, 3.0
+
+19, 10800, D, Lactulose, 26988, F, Y, N, N, S, 2.3, 212.0, 4.00, 210.0, 8516.0, 113.20, 64.0, 192.0, 12.0, 3.0
+
+20, 11400, C, Rifaximin, 24153, F, N, N, N, S, 2.2, 210.0, 3.88, 200.0, 8552.0, 112.35, 61.0, 198.0, 11.9, 3.0
+
+21, 12000, D, Lactulose, 27187, F, Y, N, N, S, 2.4, 212.0, 3.94, 210.0, 8632.0, 113.20, 64.0, 204.0, 12.0, 3.0
+
+22, 12600, C, Rifaximin, 26036, F, N, N, N, S, 2.3, 214.0, 3.88, 210.0, 8680.0, 112.85, 62.0, 212.0, 11.8, 3.0
+
+23, 13200, D, Lactulose, 28434, F, Y, N, N, S, 2.4, 223.0, 4.00, 215.0, 8728.0, 113.55, 65.0, 220.0, 12.0, 3.0
+
+
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, D, Spironolactone, 27172, F, N, Y, Y, N, 1.9, 163.0, 4.08, 268.0, 3230.4, 120.15, 53.0, 150.0, 13.6, 4.0
+5, 6000, C, Frusemide, 26228, F, N, Y, Y, N, 0.6, 221.0, 4.12, 222.0, 10616.8, 117.48, 98.0, 179.0, 11.6, 3.0
+6, 3000, D, Furosemide, 26243, F, N, N, Y, S, 1.3, 185.0, 3.92, 230.0, 4387.2, 116.36, 56.0, 150.0, 13.4, 4.0
+7, 1500, D, Furosemide, 27008, F, N, N, Y, S, 1.6, 222.0, 3.78, 206.0, 3212.8, 122.14, 54.0, 145.0, 12.6, 4.0
+8, 5000, C, Frusemide, 26243, F, N, Y, N, N, 0.7, 251.0, 4.11, 194.0, 7518.0, 112.23, 101.0, 175.0, 10.4, 3.0
+9, 2000, D, Furosemide, 26243, F, N, N, Y, N, 1.4, 213.0, 3.87, 194.0, 2654.8, 116.85, 54.0, 145.0, 13.0, 4.0
+10, 7500, C, Frusemide, 26243, F, N, Y, N, N, 0.5, 237.0, 4.10, 188.0, 6933.4, 114.68, 100.0, 173.0, 10.6, 3.0
+
+In each record:
+- ID: Unique identifier for the patient
+- N_Days: Number of days since the patient's diagnosis
+- Status: D (diseased) or C (cured)
+- Drug: Type of medication prescribed
+- Age: Age of the patient (in days)
+- Sex: F (female) or M (male)
+- Ascites: Presence of fluid in the abdomen (Y/N)
+- Hepatomegaly: Enlargement of the liver (Y/N)
+- Spiders: Presence of spider-like blood vessels (Y/N)
+- Edema: Swelling due to accumulation of fluid (Y/N)
+- Bilirubin: Level of bilirubin in the blood (in mg/dL)
+- Cholesterol: Level of cholesterol in the blood (in mg/dL)
+- Albumin: Level of albumin in the blood (in g/dL)
+- Copper: Level of copper in the liver (in mg/kg dry weight)
+- Alk_Phos: Level of alkaline phosphatase in the blood (in U/L)
+- SGOT: Level of serum glutamic-pyruvic transaminase (SGOT) in the blood (in U/L)
+- Tryglicerides: Level of triglycerides in the blood (in mg/dL)
+- Platelets: Number of platelets in the blood (in thousands)
+- Prothrombin: Level of prothrombin in the blood (in seconds)
+- Stage: Stage of liver disease, as determined by the Child-Pugh score (A, B, or C)
+
+These records are designed to accurately reflect the symptoms and laboratory values associated with cirrhosis, as well as the effects of various medications commonly used to manage the condition. They can be used to train machine learning models for cirrhosis prediction and to simulate clinical trials for new treatments.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 3600, C, Spironolactone, 23123, F, N, N, N, S, 2.3, 282.0, 3.70, 256.0, 10126.0, 117.00, 98.0, 173.0, 9.9, 3.0
+5, 5400, D, Rifaximin, 28084, F, N, N, Y, N, 1.1, 218.0, 4.22, 172.0, 4587.0, 122.48, 76.0, 154.0, 12.3, 3.5
+6, 2400, C, Furosemide, 25595, F, N, Y, N, S, 1.7, 204.0, 4.06, 265.0, 13719.0, 112.52, 71.0, 146.0, 11.5, 3.5
+7, 21600, D, Sodium Nitroprusside, 21465, F, Y, N, Y, S, 1.8, 224.0, 3.66, 240.0, 6238.0, 103.30, 63.0, 162.0, 11.3, 3.5
+8, 6000, C, Enalaprilat, 22937, F, N, N, N, N, 1.6, 221.0, 3.80, 228.0, 7574.0, 115.77, 84.0, 136.0, 11.7, 3.5
+9, 15120, D, Lactulose, 21466, F, Y, N, N, N, 1.3, 187.0, 3.90, 251.0, 13381.0, 112.32, 79.0, 165.0, 12.2, 3.0
+10, 12960, C, Prednisone, 22938, F, N, N, N, S, 1.5, 231.0, 4.14, 218.0, 5216.0, 116.72, 82.0, 152.0, 12.0, 3.0
+11, 18000, D, Tacrolimus, 23124, F, Y, N, N, N, 1.2, 213.0, 3.90, 217.0, 8673.0, 111.27, 74.0, 145.0, 11.8, 3.5
+12, 9600, C, Lisinopril, 23125, F, N, N, N, S, 1.4, 211.0, 4.06, 240.0, 12468.0, 108.40, 81.0, 158.0, 11.8, 3.5
+13, 24000, D, Rifaximin, 28085, F, N, N, Y, S, 1.1, 222.0, 4.12, 232.0, 10311.0, 121.35, 81.0, 150.0, 12.0, 3.5
+14, 10800, C, Furosemide, 25596, F, N, Y, N, S, 1.7, 233.0, 4.12, 265.0, 13493.0, 112.16, 82.0, 148.0, 11.9, 3.5
+15, 18000, D, Tacrolimus, 23126, F, Y, N, N, N, 1.2, 207.0, 3.90, 217.0, 8271.0, 108.73, 81.0, 152.0, 12.1, 3.5
+16, 36000, C, Spironolactone, 28086, F, N, N, N, S, 1.4, 210.0, 4.06, 256.0, 13474.0, 113.87, 85.0, 154.0, 11.8, 3.0
+17, 36000, D, Rifaximin, 28087, F, N, N, Y, S, 1.1, 228.0, 4.12, 232.0, 10312.0, 120.40, 87.0, 150.0, 12.2, 3.5
+18, 18000, C, Furosemide, 25597, F, N, Y, N, S, 1.7, 234.0, 4.12, 265.0, 13225.0, 112.23, 88.0, 150.0, 12.2, 3.5
+19, 36000, D, Tacrolimus, 23127, F, Y, N, N, N, 1.2, 205.0, 3.90, 217.0, 8105.0, 108.93, 91.0, 152.0, 12.1, 3.5
+20, 60000, C, Enalaprilat, 22939, F, N, N, N, N, 1.6, 226.0, 4.14, 228.0, 7673.0, 114.83, 94.0, 146.0, 11.9, 3.5
+
+I hope these records are helpful for your research! Let me know if you need any further assistance.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, C, Frusemide, 32527, F, N, N, Y, N, 2.2, 198.0, 4.52, 35.0, 14334.0, 133.00, 78.0, 265.0, 11.8, 3.0
+5, 750, D, Rifaximin, 34565, M, Y, N, Y, N, 1.1, 170.0, 3.55, 174.0, 340.0, 108.55, 54.0, 142.0, 12.8, 3.5
+6, 500, C, Cefixime, 36642, F, N, Y, Y, N, 1.5, 150.0, 4.45, 38.0, 14944.0, 133.00, 82.0, 254.0, 12.0, 3.5
+7, 3000, D, Lasix, 38779, F, N, N, Y, N, 2.3, 202.0, 4.16, 31.0, 18538.0, 138.80, 73.0, 174.0, 12.8, 3.5
+8, 1500, C, Cefazolin, 40946, F, N, Y, Y, N, 1.6, 162.0, 4.37, 36.0, 16927.0, 136.55, 83.0, 271.0, 11.2, 3.5
+9, 4500, D, Cefepime, 43223, F, N, Y, Y, N, 2.2, 188.0, 4.18, 38.0, 20027.0, 137.50, 83.0, 242.0, 11.4, 3.5
+10, 6000, C, Azithromycin, 45510, F, N, N, Y, N, 1.7, 188.0, 4.22, 40.0, 20321.0, 139.40, 91.0, 282.0, 11.8, 3.5
+11, 8000, D, Furosemide, 47817, F, N, N, Y, N, 2.4, 198.0, 4.25, 38.0, 23782.0, 141.20, 92.0, 297.0, 11.8, 3.5
+12, 1000, C, Azithromycin, 49205, F, N, N, Y, N, 1.7, 184.0, 4.34, 37.0, 25469.0, 139.70, 93.0, 301.0, 11.6, 3.5
+13, 9000, D, Furosemide, 50603, F, N, N, Y, N, 2.3, 206.0, 4.32, 38.0, 28507.0, 143.05, 95.0, 305.0, 11.6, 3.5
+14, 12000, C, Cefepime, 52011, F, N, N, Y, N, 1.7, 182.0, 4.33, 38.0, 32733.0, 141.15, 97.0, 312.0, 11.4, 3.5
+15, 15000, D, Furosemide, 53419, F, N, N, Y, N, 2.2, 208.0, 4.32, 39.0, 41056.0, 144.10, 99.0, 320.0, 11.4, 3.5
+
+Note: The drug column represents the medication the patient is currently taking for their cirrhosis. 'D' indicates that the patient is taking a drug for cirrhosis, while 'C' indicates that the patient is taking a non-cirrhosis related drug. The Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, and Stage columns represent various clinical indicators that may contribute to cirrhosis development or progression. The Status column indicates whether the patient has been diagnosed with cirrhosis ('C') or not ('D').
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, C, Sulfasalazine, 28808, F, N, N, N, S, 2.2, 189.0, 3.84, 222.0, 7510.0, 98.24, 64.0, 220.0, 14.7, 3.0
+5, 1800, D, Sulfasalazine, 29854, M, Y, N, N, S, 1.9, 174.0, 3.72, 216.0, 5420.0, 101.33, 62.0, 153.0, 13.4, 4.0
+6, 5400, C, Prednisone, 31804, F, N, N, N, S, 1.6, 177.0, 3.92, 225.0, 6830.0, 86.86, 68.0, 227.0, 15.1, 3.0
+7, 4500, D, Prednisone, 32750, M, Y, N, N, S, 2.2, 182.0, 4.28, 218.0, 6410.0, 104.53, 72.0, 156.0, 14.4, 4.0
+8, 3600, C, Rifaximin, 33702, F, N, N, N, S, 1.8, 174.0, 3.90, 222.0, 7420.0, 95.75, 70.0, 226.0, 14.8, 3.0
+9, 1500, D, Rifaximin, 34650, M, Y, N, N, S, 2.1, 180.0, 4.16, 217.0, 6120.0, 103.19, 74.0, 159.0, 14.7, 4.0
+10, 10800, C, Spironolactone, 35606, F, N, N, N, S, 2.0, 169.0, 4.08, 219.0, 8210.0, 110.43, 76.0, 229.0, 15.2, 3.0
+
+N_Days: Number of days since diagnosis
+Status: D - Active, C - Cured, R - Relapsed, T - Treatment, X - Died
+Drug: Name of the drug prescribed
+Age: Age of the patient in days
+Sex: F - Female, M - Male
+Ascites: Presence of fluid accumulation in the abdomen (Y/N)
+Hepatomegaly: Enlargement of the liver (Y/N)
+Spiders: Presence of spider angiomas (Y/N)
+Edema: Swelling of the body (Y/N)
+Bilirubin: Level of bilirubin in the blood (mg/dL)
+Cholesterol: Level of cholesterol in the blood (mg/dL)
+Albumin: Level of albumin in the blood (g/dL)
+Copper: Level of copper in the blood (mcg/g)
+Alk_Phos: Level of alkaline phosphatase in the blood (IU/L)
+SGOT: Level of serum glutamic-pyruvic transaminase (ALT) in the blood (IU/L)
+Tryglicerides: Level of triglycerides in the blood (mg/dL)
+Platelets: Number of platelets in the blood (x1000/μL)
+Prothrombin: Level of prothrombin in the blood (IU/dL)
+Stage: A - Mild, B - Moderate, C - Severe, D - End-stage liver disease, E - Liver cancer
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 3600, D, Rifaximin, 26322, F, Y, Y, Y, S, 2.0, 286.0, 4.62, 170.0, 4870.0, 114.97, 63.0, 138.0, 14.5, 4.0
+5, 5400, C, Rifaximin, 32153, M, N, Y, N, S, 1.5, 242.0, 4.07, 204.0, 4522.0, 111.29, 78.0, 134.0, 13.7, 3.0
+6, 7200, D, Rifaximin, 32814, F, N, Y, Y, S, 1.4, 221.0, 4.61, 181.0, 4742.0, 112.65, 83.0, 131.0, 13.3, 3.0
+7, 8100, C, Rifaximin, 37366, M, N, Y, N, S, 1.2, 202.0, 4.07, 191.0, 4338.0, 110.68, 87.0, 131.0, 13.6, 3.0
+8, 8400, D, Rifaximin, 42558, F, Y, N, Y, S, 1.6, 258.0, 4.62, 179.0, 4622.0, 107.38, 87.0, 128.0, 13.8, 3.0
+9, 9000, C, Rifaximin, 44134, M, N, Y, N, S, 1.3, 221.0, 4.06, 194.0, 4362.0, 110.22, 94.0, 128.0, 14.0, 3.0
+10, 10800, D, Rifaximin, 51906, F, Y, N, Y, S, 1.6, 234.0, 4.61, 178.0, 4348.0, 107.56, 104.0, 126.0, 14.2, 3.0
+
+Explanation:
+- ID: Unique identifier for the patient
+- N_Days: Number of days since diagnosis
+- Status: D for active cirrhosis, C for compensated cirrhosis, and D for decompensated cirrhosis
+- Drug: Medication prescribed for cirrhosis management
+- Age: Patient's age in days
+- Sex: F for female and M for male
+- Ascites: Presence of ascites, a buildup of fluid in the abdomen, indicated as Y for yes and N for no
+- Hepatomegaly: Enlargement of the liver, indicated as Y for yes and N for no
+- Spiders: Spider-like blood vessels that form on the skin, indicated as Y for yes and N for no
+- Edema: Swelling caused by fluid buildup in the body, indicated as Y for yes and N for no
+- Bilirubin: Level of bilirubin, a substance produced during the breakdown of red blood cells, in the blood
+- Cholesterol: Level of cholesterol in the blood
+- Albumin: Level of albumin, a protein in the blood, in the blood
+- Copper: Level of copper, a mineral involved in various bodily functions, in the blood
+- Alk_Phos: Level of alkaline phosphatase, an enzyme found in various tissues, in the blood
+- SGOT: Level of serum glutamic-pyruvic transaminase, an enzyme found in liver cells, in the blood
+- Tryglicerides: Level of triglycerides, a type of fat found in the blood, in the blood
+- Platelets: Number of platelets, a type of blood cell involved in blood clotting, in the blood
+- Prothrombin: Level of prothrombin, a protein involved in blood clotting, in the blood
+- Stage: Stage of cirrhosis based on the Child-Turcotte-Pugh classification system, ranging from A (least severe) to C (most severe)
+
+Note: The synthetic data is generated using a randomized process to ensure variation and realism. The values provided are not actual patient data.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, C, Spironolactone, 24972, M, N, N, N, S, 1.2, 251.0, 3.55, 180.0, 4638.2, 107.63, 48.0, 146.0, 13.3, 3.0
+5, 3000, D, Sulfasalazine, 26779, F, N, Y, N, S, 2.2, 163.0, 3.52, 208.0, 4366.0, 124.86, 51.0, 141.0, 11.8, 3.0
+6, 1500, C, Propranolol, 22313, M, N, N, N, S, 1.1, 182.0, 3.28, 178.0, 4668.5, 98.56, 47.0, 142.0, 12.3, 4.0
+7, 5000, D, Rifaximin, 23845, F, Y, Y, N, S, 1.8, 155.0, 3.52, 192.0, 6053.0, 130.67, 46.0, 137.0, 11.9, 3.0
+8, 2000, C, Lisinopril, 23480, M, N, N, N, S, 1.3, 184.0, 3.46, 180.0, 4583.0, 106.48, 48.0, 139.0, 13.1, 4.0
+9, 3500, D, Tetracycline, 24468, F, Y, Y, N, S, 2.0, 156.0, 3.56, 198.0, 6142.2, 127.52, 48.0, 137.0, 11.6, 3.0
+10, 2250, C, Carbamazepine, 25155, M, N, N, N, S, 1.2, 175.0, 3.45, 176.0, 4582.2, 114.74, 47.0, 141.0, 12.8, 4.0
+
+Note: The 'N' and 'Y' in the records represent the absence and presence of Ascites and Hepatomegaly respectively, 'S' represents Spider angiomas and 'ED' represents Edema. The 'D' and 'C' in the records represent the use of Drug and Drug-free condition respectively. The 'F' and 'M' represent Female and Male respectively. The 'Status' column represents the final outcome of the patient, 'D' represents Dead, 'C' represents Cured and 'N' represents No outcome recorded.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 3600, C, Sulfasalazine, 33422, M, N, N, N, N, 1.6, 252.0, 4.05, 210.0, 4747.4, 95.50, 63.0, 150.0, 12.4, 3.0
+5, 2700, D, Sulfasalazine, 26551, F, Y, N, N, N, 3.3, 162.0, 3.82, 220.0, 7394.8, 111.35, 77.0, 165.0, 10.7, 3.0
+6, 2100, D, Sulfasalazine, 24429, F, Y, Y, N, N, 2.3, 165.0, 4.05, 220.0, 516.0, 111.25, 77.0, 168.0, 11.0, 3.0
+7, 3240, C, Sulfasalazine, 28955, F, N, N, N, S, 2.6, 198.0, 3.68, 220.0, 4964.4, 92.45, 63.0, 151.0, 12.2, 3.0
+8, 2520, D, Sulfasalazine, 28555, M, N, N, N, S, 1.9, 182.0, 3.94, 230.0, 516.0, 102.60, 72.0, 161.0, 12.1, 3.0
+9, 2160, D, Sulfasalazine, 30591, F, Y, N, N, N, 1.9, 190.0, 3.82, 230.0, 4747.4, 106.45, 77.0, 166.0, 11.8, 3.0
+10, 3360, C, Sulfasalazine, 29158, F, N, N, N, S, 2.3, 200.0, 3.78, 230.0, 5379.4, 94.45, 63.0, 153.0, 12.2, 3.0
+
+Note: Status 'C' indicates cirrhosis, 'D' indicates drug treatment, and 'N' indicates no cirrhosis or treatment. 'Y' indicates the presence of ascites, 'N' indicates its absence, and 'S' indicates spiders (capillary hemangioma) in the liver. 'Edema' indicates the presence of edema, and 'Bilirubin', 'Cholesterol', 'Albumin', 'Copper', 'Alk_Phos', 'SGOT', 'Tryglicerides', 'Platelets', 'Prothrombin', and 'Stage' are all lab results or measurements. The 'Stage' refers to the Child-Pugh score, with 'A' indicating mild disease, 'B' indicating moderate disease, and 'C' indicating severe disease.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 2500, C, Prednisone, 38301, M, N, N, N, S, 1.6, 224.0, 4.23, 330.0, 1648.8, 108.20, 47.0, 139.0, 11.2, 3.5
+5, 5000, D, Sulfasalazine, 43122, F, Y, Y, N, S, 3.2, 250.0, 3.87, 170.0, 450.0, 98.55, 58.0, 123.0, 13.6, 3.0
+6, 3000, C, Furosemide, 30376, F, N, Y, N, S, 1.8, 198.0, 4.06, 170.0, 426.0, 112.70, 49.0, 129.0, 12.4, 3.5
+7, 7500, D, Rifaximin, 35875, M, N, Y, N, S, 1.5, 235.0, 3.54, 185.0, 276.0, 104.20, 54.0, 118.0, 11.8, 3.0
+8, 4000, C, Lisinopril, 37407, F, N, Y, N, S, 1.2, 210.0, 4.22, 180.0, 310.0, 102.80, 53.0, 122.0, 12.2, 3.5
+9, 6000, D, Colchicine, 42366, M, N, Y, N, S, 1.2, 248.0, 3.81, 180.0, 273.0, 100.70, 50.0, 121.0, 12.6, 3.0
+10, 5500, C, Carvedilol, 44333, F, N, Y, N, S, 1.1, 228.0, 4.11, 195.0, 268.0, 102.90, 51.0, 120.0, 12.0, 3.5
+
+Each record represents a patient with cirrhosis, where the 'Status' column indicates whether the patient is currently receiving treatment (D) or has completed treatment (C). The 'Drug' column specifies the medication that the patient is taking, and the 'Stage' column represents the severity of the cirrhosis based on the Child-Pugh score (A, B, or C). The other columns contain various medical measurements and indicators that may contribute to cirrhosis risk or severity.
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research. 
+<|user|>
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. 
+<|assistant|>
+4, 7200, D, Rifaximin, 32401, M, Y, N, N, S, 4.2, 153.0, 4.57, 186.0, 1120.0, 104.85, 52.0, 131.0, 13.1, 3.8
+5, 9000, D, Sulfasalazine, 26688, F, N, Y, Y, S, 1.6, 145.0, 4.12, 169.0, 7394.8, 113.52, 84.0, 189.0, 10.4, 3.2
+6, 5400, C, Rifaximin, 23491, M, N, Y, N, S, 2.3, 134.0, 4.76, 167.0, 9387.5, 118.69, 87.0, 161.0, 12.1, 3.5
+7, 12000, D, Rifaximin, 31664, F, Y, N, N, S, 1.2, 134.0, 4.38, 157.0, 8548.0, 126.69, 55.0, 158.0, 11.9, 3.5
+8, 3600, C, Sulfasalazine, 22463, F, N, Y, Y, S, 1.9, 118.0, 4.82, 165.0, 9387.5, 118.69, 86.0, 173.0, 11.5, 3.3
+9, 10800, D, Rifaximin, 27839, M, N, Y, N, S, 1.6, 137.0, 4.61, 154.0, 8548.0, 126.69, 53.0, 157.0, 12.2, 3.7
+10, 6000, C, Sulfasalazine, 25065, F, N, Y, Y, S, 1.8, 126.0, 4.68, 162.0, 9387.5, 118.69, 85.0, 169.0, 12.0, 3.5
+
+Explanation of columns:
+- ID: Unique identifier for the patient
+- N_Days: Number of days since the patient's first symptoms appeared
+- Status: Current health status (D = Developing, C = Chronic)
+- Drug: Medication being taken to manage cirrhosis
+- Age: Patient's age in years
+- Sex: Male (M) or female (F)
+- Ascites: Presence of fluid in the abdomen (Y = Yes, N = No)
+- Hepatomegaly: Enlargement of the liver (Y = Yes, N = No)
+- Spiders: Presence of spider-like blood vessels on the skin (Y = Yes, N = No)
+- Edema: Swelling in the legs, ankles, or feet (Y = Yes, N = No)
+- Bilirubin: Level of bilirubin in the blood, a substance produced during the breakdown of red blood cells (mg/dL)
+- Cholesterol: Total cholesterol level in the blood (mg/dL)
+- Albumin: Level of albumin, a protein in the blood, that helps prevent swelling (g/dL)
+- Copper: Level of copper in the liver, which can increase in people with cirrhosis (mcg/g)
+- Alk_Phos: Level of alkaline phosphatase, an enzyme that can indicate liver damage (U/L)
+- SGOT: Level of serum glutamic-pyruvic transaminase (SGOT), an enzyme found in liver cells that can indicate liver damage (U/L)
+- Tryglicerides: Level of triglycerides, a type of fat in the blood, that can increase in people with cirrhosis (mg/dL)
+- Platelets: Number of platelets, a type of blood cell involved in clotting, in the blood (10^3/μL)
+- Prothrombin: Level of prothrombin, a protein involved in blood clotting, that can indicate liver damage (seconds)
+- Stage: Stage of liver cirrhosis (1-4, with higher numbers indicating more advanced disease)
+

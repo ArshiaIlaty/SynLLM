@@ -1,0 +1,469 @@
+ [INST] You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate  synthetic patient records for cirrhosis dataset based on these statistical profiles:
+- Status: D (40%), C (30%), CL (30%)  
+- Drug: D-penicillamine (50%), Placebo (50%)  
+- Age: Mean=21500 days  
+- Ascites: Y (10%), N (90%)  
+- Hepatomegaly: Y (65%), N (35%)  
+- Spiders: Y (55%), N (45%)  
+- Edema: N (60%), S (25%), Y (15%)  
+- Bilirubin: 0.3 to 30.0 mg/dL  
+- Cholesterol: 100 to 500 mg/dL  
+- Albumin: 1.5 to 5.5 g/dL  
+- Copper: 20 to 600 µg/dL  
+- Alk_Phos: 50 to 8000 U/L  
+- SGOT: 20 to 300 U/L  
+- Tryglicerides: 20 to 300 mg/dL  
+- Platelets: 50 to 400 (×1000/mm³)  
+- Prothrombin: 8.0 to 20.0 seconds  
+- Stage: 1 to 4
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Format:  
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage [/INST] 1, 21512, D, D-penicillamine, 21500, M, Y, Y, Y, N, 0.8, 345.0, 3.20, 185.0, 3689.0, 143.12, 135.5, 120.0, 15.3, 9.5
+2, 21321, C, Placebo, 21500, F, N, N, N, S, 2.2, 451.0, 4.85, 483.0, 5325.2, 81.67, 125.4, 293.0, 10.1, 2.0
+3, 18760, D, D-penicillamine, 21511, M, N, Y, Y, N, 1.6, 118.0, 2.96, 192.0, 463.0, 128.21, 110.0, 186.0, 13.8, 5.0
+4, 17982, CL, D-penicillamine, 21498, F, Y, Y, N, Y, 2.9, 272.0, 3.15, 587.0, 1593.0, 217.20, 254.5, 178.0, 8.6, 1.5
+5, 22045, D, Placebo, 21506, M, N, N, Y, S, 1.8, 156.0, 2.54, 168.0, 317.0, 108.43, 77.5, 145.0, 11.5, 7.0
+6, 19871, C, D-penicillamine, 21471, F, N, Y, Y, N, 1.2, 422.0, 4.50, 258.0, 2831.0, 161.32, 159.0, 266.0, 9.1, 3.5
+7, 15836, D, D-penicillamine, 21509, M, Y, N, N, S, 0.9, 287.0, 2.83, 271.0, 456.0, 111.36, 118.0, 113.0, 14.5, 6.0
+8, 20698, CL, Placebo, 21503, F, N, Y, N, Y, 2.5, 189.0, 3.91, 297.0, 1382.0, 188.21, 103.5, 241.0, 12.2, 4.5
+9, 16653, D, D-penicillamine, 21517, M, Y, N, N, S, 1.7, 132.0, 2.72, 235.0, 496.0, 132.18, 122.0, 178.0, 13.1, 7.5
+10, 21164, C, D-penicillamine, 21487, F, N, Y, Y, N, 1.5, 238.0, 4.63, 421.0, 2244.0, 187.60, 137.5, 271.0, 11.8, 2.5
+
+ [INST] You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate  synthetic patient records for cirrhosis dataset based on these statistical profiles:
+- Status: D (40%), C (30%), CL (30%)  
+- Drug: D-penicillamine (50%), Placebo (50%)  
+- Age: Mean=21500 days  
+- Ascites: Y (10%), N (90%)  
+- Hepatomegaly: Y (65%), N (35%)  
+- Spiders: Y (55%), N (45%)  
+- Edema: N (60%), S (25%), Y (15%)  
+- Bilirubin: 0.3 to 30.0 mg/dL  
+- Cholesterol: 100 to 500 mg/dL  
+- Albumin: 1.5 to 5.5 g/dL  
+- Copper: 20 to 600 µg/dL  
+- Alk_Phos: 50 to 8000 U/L  
+- SGOT: 20 to 300 U/L  
+- Tryglicerides: 20 to 300 mg/dL  
+- Platelets: 50 to 400 (×1000/mm³)  
+- Prothrombin: 8.0 to 20.0 seconds  
+- Stage: 1 to 4
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Format:  
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage [/INST] 1, 22016, D, D-penicillamine, 21512, F, Y, Y, Y, N, 0.8, 312.5, 3.25, 225.0, 4212.3, 153.21, 217.5, 250.0, 18.5, 5.0
+2, 19851, C, Placebo, 21491, M, N, N, N, S, 2.2, 487.0, 3.88, 123.0, 1222.5, 95.63, 98.0, 177.0, 15.3, 6.5
+3, 18778, CL, D-penicillamine, 21382, F, Y, Y, Y, N, 1.9, 265.0, 2.92, 168.0, 1178.7, 135.35, 111.0, 132.0, 9.8, 7.0
+4, 23521, D, D-penicillamine, 21629, M, N, N, Y, Y, 2.7, 451.5, 4.55, 193.0, 1357.2, 78.78, 287.0, 225.5, 16.1, 2.5
+5, 20310, C, Placebo, 21422, F, Y, N, N, S, 1.6, 112.0, 4.96, 105.0, 6125.1, 118.77, 79.0, 206.0, 11.0, 8.5
+6, 17983, D, D-penicillamine, 21713, M, N, N, N, Y, 2.3, 401.5, 2.73, 189.0, 3547.6, 122.11, 154.0, 148.0, 11.5, 4.5
+7, 16508, CL, D-penicillamine, 21357, F, Y, Y, N, N, 0.9, 298.5, 4.21, 208.5, 965.4, 147.32, 103.0, 285.5, 17.0, 3.0
+8, 22147, D, D-penicillamine, 21645, M, N, Y, N, N, 1.5, 231.0, 3.51, 312.5, 3811.2, 132.88, 182.0, 112.0, 14.5, 6.0
+9, 15769, C, Placebo, 21287, F, Y, N, Y, S, 2.1, 288.0, 3.99, 365.0, 1763.9, 121.43, 133.0, 166.0, 12.3, 7.5
+10, 21654, D, D-penicillamine, 21550, M, N, Y, Y, N, 1.8, 198.5, 2.87, 253.0, 1812.1, 128.96, 222.0, 179.0, 15.6, 5.5
+
+ [INST] You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate  synthetic patient records for cirrhosis dataset based on these statistical profiles:
+- Status: D (40%), C (30%), CL (30%)  
+- Drug: D-penicillamine (50%), Placebo (50%)  
+- Age: Mean=21500 days  
+- Ascites: Y (10%), N (90%)  
+- Hepatomegaly: Y (65%), N (35%)  
+- Spiders: Y (55%), N (45%)  
+- Edema: N (60%), S (25%), Y (15%)  
+- Bilirubin: 0.3 to 30.0 mg/dL  
+- Cholesterol: 100 to 500 mg/dL  
+- Albumin: 1.5 to 5.5 g/dL  
+- Copper: 20 to 600 µg/dL  
+- Alk_Phos: 50 to 8000 U/L  
+- SGOT: 20 to 300 U/L  
+- Tryglicerides: 20 to 300 mg/dL  
+- Platelets: 50 to 400 (×1000/mm³)  
+- Prothrombin: 8.0 to 20.0 seconds  
+- Stage: 1 to 4
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Format:  
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage [/INST] 4, 23276, CL, Placebo, 22112, F, Y, Y, N, N, 0.9, 180.5, 3.20, 110.0, 4322.5, 168.7, 113.0, 125.0, 15.5, 2.5
+5, 29811, D, D-penicillamine, 21637, M, N, N, Y, S, 1.8, 350.5, 4.85, 475.0, 2376.2, 108.37, 142.5, 215.0, 13.0, 5.0
+6, 16288, C, D-penicillamine, 20876, F, Y, Y, N, N, 2.2, 291.0, 2.82, 222.5, 518.5, 145.61, 127.5, 250.0, 11.3, 7.0
+7, 31115, D, Placebo, 23318, M, N, Y, Y, S, 1.5, 135.0, 3.72, 280.0, 112.5, 123.52, 126.0, 188.0, 9.5, 6.0
+8, 28643, CL, D-penicillamine, 21955, F, N, N, N, Y, 0.6, 421.5, 3.50, 312.5, 6735.6, 179.1, 159.0, 178.5, 11.8, 3.5
+9, 15000, D, Placebo, 21500, M, Y, Y, N, N, 1.7, 198.5, 2.95, 278.5, 132.5, 263.5, 131.5, 230.5, 14.5, 4.5
+10, 12321, C, D-penicillamine, 21342, F, N, Y, N, S, 1.9, 251.0, 2.10, 345.5, 7621.3, 155.6, 152.0, 292.5, 10.1, 8.0
+
+Note: The ID is a random number generated for each patient record, N_Days is the number of days since the start of the study.
+
+ [INST] You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate  synthetic patient records for cirrhosis dataset based on these statistical profiles:
+- Status: D (40%), C (30%), CL (30%)  
+- Drug: D-penicillamine (50%), Placebo (50%)  
+- Age: Mean=21500 days  
+- Ascites: Y (10%), N (90%)  
+- Hepatomegaly: Y (65%), N (35%)  
+- Spiders: Y (55%), N (45%)  
+- Edema: N (60%), S (25%), Y (15%)  
+- Bilirubin: 0.3 to 30.0 mg/dL  
+- Cholesterol: 100 to 500 mg/dL  
+- Albumin: 1.5 to 5.5 g/dL  
+- Copper: 20 to 600 µg/dL  
+- Alk_Phos: 50 to 8000 U/L  
+- SGOT: 20 to 300 U/L  
+- Tryglicerides: 20 to 300 mg/dL  
+- Platelets: 50 to 400 (×1000/mm³)  
+- Prothrombin: 8.0 to 20.0 seconds  
+- Stage: 1 to 4
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Format:  
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage [/INST] 1, 21512, D, D-penicillamine, 21500, F, Y, Y, Y, N, 0.5, 300.0, 2.80, 162.0, 1297.0, 111.25, 155.0, 185.3, 142.7, 12.5, 5.0
+2, 20601, C, D-penicillamine, 21500, M, N, Y, Y, N, 2.2, 150.0, 4.52, 3.80, 4381.5, 123.15, 75.3, 212.0, 11.0, 2.5
+3, 25588, D, D-penicillamine, 21500, F, N, N, N, S, 2.8, 485.0, 4.20, 395.0, 1927.5, 201.65, 147.2, 296.5, 13.1, 6.0
+4, 20127, C, Placebo, 21500, M, Y, Y, N, N, 1.8, 250.0, 3.15, 468.5, 1012.5, 132.75, 68.9, 278.2, 15.5, 7.0
+5, 19876, D, D-penicillamine, 21500, F, N, N, Y, Y, 3.2, 115.0, 1.85, 480.0, 1183.2, 119.10, 173.5, 268.1, 10.1, 3.5
+6, 23459, C, D-penicillamine, 21500, M, Y, N, N, S, 0.9, 295.5, 5.32, 2.90, 613.0, 108.65, 82.0, 177.0, 9.8, 1.5
+7, 22003, D, D-penicillamine, 21500, F, N, Y, N, N, 1.5, 410.0, 2.25, 5.10, 2721.0, 145.95, 114.8, 234.0, 12.7, 4.5
+8, 21268, C, Placebo, 21500, M, N, N, Y, Y, 2.1, 285.0, 3.70, 328.5, 5898.5, 131.15, 57.6, 245.1, 14.2, 8.5
+9, 19754, D, D-penicillamine, 21500, F, Y, Y, Y, N, 2.5, 220.5, 1.95, 350.0, 1568.5, 107.80, 168.2, 255.6, 11.3, 6.5
+10, 24682, C, D-penicillamine, 21500, M, N, N, N, S, 1.3, 195.0, 4.05, 420.5, 1475.5, 126.45, 97.0, 203.0, 13.6, 5.5
+
+ [INST] You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate  synthetic patient records for cirrhosis dataset based on these statistical profiles:
+- Status: D (40%), C (30%), CL (30%)  
+- Drug: D-penicillamine (50%), Placebo (50%)  
+- Age: Mean=21500 days  
+- Ascites: Y (10%), N (90%)  
+- Hepatomegaly: Y (65%), N (35%)  
+- Spiders: Y (55%), N (45%)  
+- Edema: N (60%), S (25%), Y (15%)  
+- Bilirubin: 0.3 to 30.0 mg/dL  
+- Cholesterol: 100 to 500 mg/dL  
+- Albumin: 1.5 to 5.5 g/dL  
+- Copper: 20 to 600 µg/dL  
+- Alk_Phos: 50 to 8000 U/L  
+- SGOT: 20 to 300 U/L  
+- Tryglicerides: 20 to 300 mg/dL  
+- Platelets: 50 to 400 (×1000/mm³)  
+- Prothrombin: 8.0 to 20.0 seconds  
+- Stage: 1 to 4
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Format:  
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage [/INST] 1. 5000, 21685, C, Placebo, 21530, F, Y, Y, N, 0.5, 120.0, 3.15, 112.0, 1132.0, 45.3, 671.5, 72.3, 250.5, 150.0, 1.5
+2. 1505, 21789, CL, D-penicillamine, 21487, M, N, N, Y, S, 2.5, 288.5, 3.96, 315.0, 1683.2, 88.75, 1123.5, 112.3, 182.2, 2.0
+3. 3011, 21378, D, D-penicillamine, 21622, F, N, Y, Y, N, 2.1, 350.0, 2.72, 458.0, 1425.6, 123.2, 4711.5, 213.6, 215.5, 3.0
+4. 8532, 22235, C, Placebo, 21581, M, Y, N, N, 2.8, 228.5, 4.76, 432.0, 3522.2, 78.8, 987.0, 168.7, 260.3, 11.5, 2.5
+5. 7264, 21986, D, D-penicillamine, 21299, F, N, Y, Y, S, 1.7, 212.0, 2.98, 287.0, 1138.5, 111.1, 1387.5, 125.1, 163.8, 2.5
+6. 1210, 21137, CL, Placebo, 20972, M, N, N, N, N, 1.3, 196.0, 4.22, 295.0, 684.5, 105.4, 147.5, 293.1, 132.6, 19.5
+7. 9746, 21812, D, D-penicillamine, 21615, F, Y, Y, Y, N, 1.9, 330.5, 3.53, 482.5, 2321.1, 101.3, 7966.0, 165.8, 176.7, 4.0
+8. 6875, 21225, C, D-penicillamine, 20956, M, N, N, N, S, 3.2, 265.0, 2.81, 187.0, 765.2, 85.6, 1012.5, 122.2, 145.1, 2.5
+9. 1108, 21712, D, D-penicillamine, 21510, F, Y, Y, N, S, 2.6, 221.5, 2.26, 243.0, 1017.3, 118.8, 1443.5, 137.4, 172.3, 3.0
+10. 1862, 21523, C, Placebo, 21331, M, N, N, Y, N, 1.8, 168.0, 3.78, 476.0, 1872.1, 102.9, 1225.5, 136.7, 153.2, 1.5
+
+ [INST] You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate  synthetic patient records for cirrhosis dataset based on these statistical profiles:
+- Status: D (40%), C (30%), CL (30%)  
+- Drug: D-penicillamine (50%), Placebo (50%)  
+- Age: Mean=21500 days  
+- Ascites: Y (10%), N (90%)  
+- Hepatomegaly: Y (65%), N (35%)  
+- Spiders: Y (55%), N (45%)  
+- Edema: N (60%), S (25%), Y (15%)  
+- Bilirubin: 0.3 to 30.0 mg/dL  
+- Cholesterol: 100 to 500 mg/dL  
+- Albumin: 1.5 to 5.5 g/dL  
+- Copper: 20 to 600 µg/dL  
+- Alk_Phos: 50 to 8000 U/L  
+- SGOT: 20 to 300 U/L  
+- Tryglicerides: 20 to 300 mg/dL  
+- Platelets: 50 to 400 (×1000/mm³)  
+- Prothrombin: 8.0 to 20.0 seconds  
+- Stage: 1 to 4
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Format:  
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage [/INST] 4, 23812, CL, Placebo, 22036, F, N, Y, N, N, 0.5, 220.0, 4.95, 132.0, 3787.5, 115.2, 143.5, 189.0, 15.1, 6.5
+5, 19750, D, D-penicillamine, 21823, M, Y, Y, Y, Y, 2.8, 453.0, 3.05, 487.0, 1123.0, 121.33, 101.0, 258.0, 11.8, 2.0
+6, 20254, C, D-penicillamine, 21551, F, N, N, N, S, 0.9, 301.0, 4.21, 168.0, 4922.5, 105.15, 124.0, 216.0, 9.1, 1.5
+7, 18121, D, D-penicillamine, 21013, M, Y, N, Y, Y, 1.7, 181.0, 2.82, 258.0, 1682.0, 139.6, 155.0, 212.0, 13.5, 3.5
+8, 26875, C, Placebo, 22368, F, N, Y, Y, N, 1.2, 152.0, 3.23, 81.0, 1285.5, 88.32, 132.0, 198.0, 10.4, 1.0
+9, 25341, D, D-penicillamine, 21697, M, Y, N, N, S, 1.6, 297.0, 3.78, 122.0, 776.0, 111.4, 185.0, 205.0, 14.3, 4.0
+10, 22112, C, D-penicillamine, 21116, F, N, Y, Y, N, 0.8, 115.0, 4.05, 198.0, 2361.5, 97.85, 158.0, 177.0, 8.6, 2.5
+11, 17868, D, Placebo, 20802, M, Y, N, N, S, 1.9, 278.0, 2.58, 181.0, 534.5, 100.9, 98.0, 234.0, 12.1, 5.0
+12, 16989, C, D-penicillamine, 20166, F, N, Y, Y, N, 1.0, 231.0, 3.62, 347.0, 3457.5, 122.7, 162.0, 206.0, 9.8, 1.5
+13, 27547, D, D-penicillamine, 22528, M, Y, Y, Y, Y, 2.3, 412.0, 2.21, 294.0, 1530.0, 108.2, 147.0, 283.0, 17.2, 3.0
+14, 24268, C, Placebo, 21945, F, N, N, N, S, 1.3, 300.0, 4.36, 113.0, 3232.5, 94.63, 153.0, 182.0, 11.3, 2.5
+15, 15786, D, D-penicillamine, 21173, M, Y, N, N, N, 1.5, 197.0, 3.91, 231.0, 842.0, 112.5, 168.0, 222.0, 13.7, 4.0
+
+ [INST] You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate  synthetic patient records for cirrhosis dataset based on these statistical profiles:
+- Status: D (40%), C (30%), CL (30%)  
+- Drug: D-penicillamine (50%), Placebo (50%)  
+- Age: Mean=21500 days  
+- Ascites: Y (10%), N (90%)  
+- Hepatomegaly: Y (65%), N (35%)  
+- Spiders: Y (55%), N (45%)  
+- Edema: N (60%), S (25%), Y (15%)  
+- Bilirubin: 0.3 to 30.0 mg/dL  
+- Cholesterol: 100 to 500 mg/dL  
+- Albumin: 1.5 to 5.5 g/dL  
+- Copper: 20 to 600 µg/dL  
+- Alk_Phos: 50 to 8000 U/L  
+- SGOT: 20 to 300 U/L  
+- Tryglicerides: 20 to 300 mg/dL  
+- Platelets: 50 to 400 (×1000/mm³)  
+- Prothrombin: 8.0 to 20.0 seconds  
+- Stage: 1 to 4
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Format:  
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage [/INST] 4, 22323, CL, Placebo, 21731, F, Y, N, N, N, 0.5, 350.0, 4.25, 132.0, 3276.5, 125.2, 147.0, 147.0, 9.8, 5.5
+5, 19286, D, D-penicillamine, 21971, M, N, Y, Y, Y, 2.8, 125.0, 3.15, 196.0, 3752.1, 162.7, 126.0, 273.0, 15.5, 2.0
+6, 3687, C, Placebo, 20111, F, N, N, N, S, 1.8, 483.0, 3.38, 183.0, 1118.5, 108.15, 111.0, 112.0, 17.0, 7.0
+7, 27456, D, D-penicillamine, 21885, M, Y, Y, Y, Y, 3.2, 422.0, 4.03, 115.0, 2451.2, 188.5, 105.0, 214.0, 18.5, 1.5
+8, 15089, C, D-penicillamine, 21125, F, N, N, N, N, 0.8, 231.0, 2.82, 321.0, 2160.5, 139.4, 694.0, 227.0, 11.0, 6.0
+9, 13298, D, Placebo, 21931, M, Y, N, N, S, 1.6, 165.0, 2.96, 168.0, 1681.1, 112.7, 91.0, 132.0, 13.5, 3.5
+10, 24730, CL, D-penicillamine, 20958, F, N, Y, Y, N, 2.1, 287.0, 2.55, 181.0, 4721.3, 159.8, 131.0, 231.0, 16.0, 1.0
+
+ [INST] You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate  synthetic patient records for cirrhosis dataset based on these statistical profiles:
+- Status: D (40%), C (30%), CL (30%)  
+- Drug: D-penicillamine (50%), Placebo (50%)  
+- Age: Mean=21500 days  
+- Ascites: Y (10%), N (90%)  
+- Hepatomegaly: Y (65%), N (35%)  
+- Spiders: Y (55%), N (45%)  
+- Edema: N (60%), S (25%), Y (15%)  
+- Bilirubin: 0.3 to 30.0 mg/dL  
+- Cholesterol: 100 to 500 mg/dL  
+- Albumin: 1.5 to 5.5 g/dL  
+- Copper: 20 to 600 µg/dL  
+- Alk_Phos: 50 to 8000 U/L  
+- SGOT: 20 to 300 U/L  
+- Tryglicerides: 20 to 300 mg/dL  
+- Platelets: 50 to 400 (×1000/mm³)  
+- Prothrombin: 8.0 to 20.0 seconds  
+- Stage: 1 to 4
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Format:  
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage [/INST] 4, 19235, CL, Placebo, 23271, F, N, Y, Y, N, 0.5, 250.0, 3.10, 120.0, 1122.0, 187.3, 158.5, 83.0, 11.5, 9.5
+5, 18882, D, D-penicillamine, 21711, M, Y, N, N, S, 2.2, 443.0, 4.85, 387.0, 6721.5, 291.25, 274.0, 215.0, 15.0, 2.0
+6, 23686, C, D-penicillamine, 22487, F, N, Y, Y, N, 1.6, 132.0, 4.21, 45.5, 3451.2, 131.72, 108.0, 189.0, 9.8, 7.0
+7, 27103, D, Placebo, 21681, M, Y, N, N, S, 1.8, 310.0, 3.32, 288.0, 4687.5, 121.10, 223.0, 168.0, 14.5, 1.0
+8, 17011, CL, D-penicillamine, 21157, F, N, Y, N, N, 0.8, 112.0, 4.50, 198.0, 1088.0, 210.85, 112.0, 187.0, 11.0, 5.0
+9, 26387, D, D-penicillamine, 20556, M, Y, Y, N, N, 1.9, 289.0, 3.72, 312.5, 5322.5, 154.35, 245.0, 220.0, 17.0, 1.5
+10, 24110, C, Placebo, 20725, F, N, N, Y, S, 1.2, 188.0, 3.83, 188.5, 3123.2, 145.21, 120.0, 132.0, 10.2, 6.0
+
+ [INST] You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate  synthetic patient records for cirrhosis dataset based on these statistical profiles:
+- Status: D (40%), C (30%), CL (30%)  
+- Drug: D-penicillamine (50%), Placebo (50%)  
+- Age: Mean=21500 days  
+- Ascites: Y (10%), N (90%)  
+- Hepatomegaly: Y (65%), N (35%)  
+- Spiders: Y (55%), N (45%)  
+- Edema: N (60%), S (25%), Y (15%)  
+- Bilirubin: 0.3 to 30.0 mg/dL  
+- Cholesterol: 100 to 500 mg/dL  
+- Albumin: 1.5 to 5.5 g/dL  
+- Copper: 20 to 600 µg/dL  
+- Alk_Phos: 50 to 8000 U/L  
+- SGOT: 20 to 300 U/L  
+- Tryglicerides: 20 to 300 mg/dL  
+- Platelets: 50 to 400 (×1000/mm³)  
+- Prothrombin: 8.0 to 20.0 seconds  
+- Stage: 1 to 4
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Format:  
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage [/INST] 1, 21825, D, D-penicillamine, 21515, F, Y, Y, Y, N, 0.8, 356.5, 3.10, 287.0, 4245.6, 118.75, 327.0, 115.2, 188.0, 15.5, 5.0
+2, 19712, C, Placebo, 21483, M, N, N, N, S, 2.3, 412.5, 4.60, 368.0, 1453.2, 131.25, 6983.2, 287.6, 225.5, 9.0, 2.5
+3, 23268, D, D-penicillamine, 21681, F, N, Y, Y, Y, 2.6, 488.0, 3.90, 307.5, 1234.5, 162.25, 267.5, 152.1, 136.0, 11.5, 3.5
+4, 18871, C, D-penicillamine, 20898, M, Y, N, Y, N, 1.2, 192.0, 4.85, 528.5, 6412.1, 127.15, 7896.8, 228.8, 274.5, 7.0, 1.8
+5, 22495, D, Placebo, 21550, F, N, N, N, S, 1.7, 298.5, 2.85, 185.0, 493.5, 103.50, 155.5, 121.3, 179.5, 13.0, 4.5
+6, 17346, C, D-penicillamine, 20531, M, Y, Y, N, N, 0.9, 112.5, 5.25, 297.0, 3678.9, 142.35, 5531.2, 246.3, 253.0, 5.0, 1.2
+7, 24117, D, D-penicillamine, 21578, F, N, N, Y, Y, 1.5, 335.0, 2.75, 234.5, 1111.2, 142.85, 4522.1, 188.6, 142.0, 10.0, 2.0
+8, 16869, C, Placebo, 20698, M, Y, Y, N, N, 1.8, 267.0, 3.95, 490.5, 7535.6, 131.85, 5427.5, 194.1, 210.5, 8.0, 1.7
+9, 14112, D, D-penicillamine, 21377, F, N, N, N, Y, 2.1, 468.5, 2.95, 262.0, 1022.1, 163.35, 2789.6, 145.2, 168.5, 11.0, 3.5
+10, 20021, C, D-penicillamine, 21648, M, Y, Y, Y, S, 1.9, 311.5, 4.30, 451.0, 2289.3, 125.65, 4310.7, 176.4, 212.5, 6.0, 1.6
+
+ [INST] You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate  synthetic patient records for cirrhosis dataset based on these statistical profiles:
+- Status: D (40%), C (30%), CL (30%)  
+- Drug: D-penicillamine (50%), Placebo (50%)  
+- Age: Mean=21500 days  
+- Ascites: Y (10%), N (90%)  
+- Hepatomegaly: Y (65%), N (35%)  
+- Spiders: Y (55%), N (45%)  
+- Edema: N (60%), S (25%), Y (15%)  
+- Bilirubin: 0.3 to 30.0 mg/dL  
+- Cholesterol: 100 to 500 mg/dL  
+- Albumin: 1.5 to 5.5 g/dL  
+- Copper: 20 to 600 µg/dL  
+- Alk_Phos: 50 to 8000 U/L  
+- SGOT: 20 to 300 U/L  
+- Tryglicerides: 20 to 300 mg/dL  
+- Platelets: 50 to 400 (×1000/mm³)  
+- Prothrombin: 8.0 to 20.0 seconds  
+- Stage: 1 to 4
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Format:  
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage [/INST] 1, 22000, D, D-penicillamine, 21475, M, Y, Y, Y, N, 0.5, 300.5, 3.20, 148.0, 1235.0, 189.75, 168.5, 123.0, 182.0, 15.0, 2.5
+2, 19990, C, Placebo, 20612, F, N, Y, N, S, 2.2, 488.0, 4.70, 450.0, 5567.5, 53.65, 56.5, 134.5, 11.8, 11.5
+3, 23121, D, D-penicillamine, 25586, F, N, N, Y, N, 2.8, 110.0, 2.85, 298.0, 1123.5, 217.50, 105.5, 165.5, 165.5, 17.0
+4, 18765, CL, Placebo, 20602, M, Y, N, N, Y, 1.9, 440.5, 3.80, 312.5, 3871.0, 121.25, 698.5, 282.5, 14.5, 1.8
+5, 21352, D, D-penicillamine, 21511, F, N, Y, Y, N, 0.8, 295.0, 3.05, 132.0, 2212.0, 161.05, 112.5, 227.5, 178.0, 16.0
+6, 19898, C, D-penicillamine, 20587, M, Y, Y, N, S, 1.5, 268.5, 4.50, 352.5, 6238.5, 98.35, 744.5, 198.5, 10.3, 3.5
+7, 22212, D, D-penicillamine, 21389, F, N, N, N, Y, 1.7, 187.5, 2.35, 165.0, 789.0, 153.50, 145.5, 143.0, 147.0, 18.0
+8, 18886, C, Placebo, 20631, M, Y, Y, Y, N, 3.1, 412.0, 4.90, 465.5, 4535.5, 108.65, 622.5, 455.5, 9.8, 10.0
+9, 17981, D, D-penicillamine, 21248, F, N, N, Y, S, 2.5, 289.5, 2.95, 118.5, 2812.5, 176.50, 131.5, 234.5, 155.0, 19.0
+10, 20001, C, D-penicillamine, 20598, M, Y, Y, N, N, 1.3, 352.5, 4.30, 531.5, 4120.0, 125.15, 495.5, 287.5, 12.6, 12.0
+
+ [INST] You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate  synthetic patient records for cirrhosis dataset based on these statistical profiles:
+- Status: D (40%), C (30%), CL (30%)  
+- Drug: D-penicillamine (50%), Placebo (50%)  
+- Age: Mean=21500 days  
+- Ascites: Y (10%), N (90%)  
+- Hepatomegaly: Y (65%), N (35%)  
+- Spiders: Y (55%), N (45%)  
+- Edema: N (60%), S (25%), Y (15%)  
+- Bilirubin: 0.3 to 30.0 mg/dL  
+- Cholesterol: 100 to 500 mg/dL  
+- Albumin: 1.5 to 5.5 g/dL  
+- Copper: 20 to 600 µg/dL  
+- Alk_Phos: 50 to 8000 U/L  
+- SGOT: 20 to 300 U/L  
+- Tryglicerides: 20 to 300 mg/dL  
+- Platelets: 50 to 400 (×1000/mm³)  
+- Prothrombin: 8.0 to 20.0 seconds  
+- Stage: 1 to 4
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Format:  
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage [/INST] 4, 22352, CL, Placebo, 21518, F, N, Y, N, Edema, 1.8, 195.0, 3.95, 135.0, 1243.2, 154.56, 92.0, 188.0, 11.5, 2.5
+5, 16875, D, D-penicillamine, 21381, M, Y, Y, Y, Spiders, 0.9, 422.0, 4.21, 182.0, 3172.5, 107.32, 638.0, 210.0, 15.3, 1.0
+6, 18967, C, Placebo, 21643, F, N, N, N, Ascites, 5.2, 278.0, 2.92, 320.0, 1122.7, 120.25, 5171.0, 52.33, 14.8, 3.0
+7, 29561, D, D-penicillamine, 21211, M, Y, N, Y, Edema, 2.7, 489.0, 3.26, 165.0, 4625.5, 88.13, 1356.0, 178.0, 9.1, 2.0
+8, 15234, CL, D-penicillamine, 21766, F, N, N, S, Spiders, 2.1, 237.0, 2.78, 275.0, 2868.1, 110.87, 689.0, 143.0, 13.0, 4.0
+9, 20088, D, Placebo, 21481, M, Y, Y, Y, Ascites, 3.5, 152.0, 1.91, 298.0, 893.6, 162.71, 784.0, 255.0, 16.5, 2.0
+10, 31121, C, D-penicillamine, 21680, F, N, Y, Y, Edema, 4.8, 286.0, 3.83, 143.0, 6126.2, 138.45, 1114.0, 212.0, 18.0, 3.0
+
+ [INST] You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate  synthetic patient records for cirrhosis dataset based on these statistical profiles:
+- Status: D (40%), C (30%), CL (30%)  
+- Drug: D-penicillamine (50%), Placebo (50%)  
+- Age: Mean=21500 days  
+- Ascites: Y (10%), N (90%)  
+- Hepatomegaly: Y (65%), N (35%)  
+- Spiders: Y (55%), N (45%)  
+- Edema: N (60%), S (25%), Y (15%)  
+- Bilirubin: 0.3 to 30.0 mg/dL  
+- Cholesterol: 100 to 500 mg/dL  
+- Albumin: 1.5 to 5.5 g/dL  
+- Copper: 20 to 600 µg/dL  
+- Alk_Phos: 50 to 8000 U/L  
+- SGOT: 20 to 300 U/L  
+- Tryglicerides: 20 to 300 mg/dL  
+- Platelets: 50 to 400 (×1000/mm³)  
+- Prothrombin: 8.0 to 20.0 seconds  
+- Stage: 1 to 4
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Format:  
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage [/INST] 4, 22000, CL, Placebo, 21550, F, N, Y, N, Edema, 12.5, 350.0, 3.25, 295.0, 2572.5, 162.3, 123.0, 250.0, 18.8, 5.5
+5, 28000, D, D-penicillamine, 20980, M, Y, Y, Y, Spiders, 0.8, 150.0, 4.55, 352.5, 6323.2, 103.6, 467.0, 215.0, 15.3, 2.0
+6, 16538, C, Placebo, 21492, F, N, N, N, Ascites, 2.2, 231.0, 3.78, 423.0, 1095.2, 118.7, 132.0, 173.0, 11.0, 1.5
+7, 35000, D, D-penicillamine, 21256, M, Y, Y, Y, Edema, 17.0, 485.0, 3.13, 123.5, 1123.0, 478.5, 134.5, 227.5, 16.5, 4.5
+8, 19876, CL, D-penicillamine, 21356, F, N, N, Y, Spiders, 0.9, 189.0, 4.02, 277.0, 5587.8, 125.1, 988.0, 188.0, 9.0, 3.5
+9, 26000, D, Placebo, 21820, M, Y, Y, N, Ascites, 15.5, 288.0, 2.89, 228.0, 345.5, 87.4, 3663.0, 145.0, 13.5, 1.0
+10, 22112, C, D-penicillamine, 21376, F, N, Y, Y, Edema, 1.3, 422.0, 2.92, 165.5, 7898.6, 132.2, 3950.0, 270.5, 17.0, 2.5
+

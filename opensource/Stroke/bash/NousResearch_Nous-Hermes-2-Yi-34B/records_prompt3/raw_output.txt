@@ -1,0 +1,153 @@
+<|im_start|> system
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+ <|im_start|> user
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+Each record should be a comma-separated line with these features:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+Generate realistic synthetic patient records for stroke prediction using these statistics:
+
+1. gender: Male (49%), Female (50%)  
+2. age: Mean = 43.2, Std = 22.6, Range: 18.0–100.0  
+3. hypertension: 0 = 90%, 1 = 10%  
+4. heart_disease: 0 = 95%, 1 = 5%  
+5. ever_married: Yes (65%), No (35%)  
+6. work_type: Private (60%), Self-employed (20%), Govt_job (10%), children (5%), Never_worked (5%)  
+7. Residence_type: Urban (50%), Rural (50%)  
+8. avg_glucose_level: Mean = 106.1, Std = 45.3, Range = 55–250  
+9. bmi: Mean = 28.1, Std = 7.5, Range = 15.0–60.0  
+10. smoking_status: never smoked (40%), formerly smoked (20%), smokes (15%), Unknown (25%)  
+11. stroke: 0 = 95%, 1 = 5%  
+
+Here are example records:
+Male, 67.0, 0, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1  
+Female, 61.0, 0, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1  
+Male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1  
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0  
+
+ <|im_start|> assistant
+Female, 32.0, 0, 0, Yes, Govt_job, Urban, 102.47, 22.7, formerly smoked, 0  
+Male, 62.0, 0, 1, No, Private, Rural, 168.35, 27.0, never smoked, 0  
+Female, 57.0, 1, 0, Yes, Private, Urban, 132.24, 29.2, formerly smoked, 1  
+Male, 34.0, 0, 0, Yes, Never_worked, Rural, 135.15, 25.2, smokes, 0  
+Female, 65.0, 0, 0, Yes, Private, Rural, 120.18, 25.6, never smoked, 0  
+Male, 53.0, 0, 0, No, Private, Urban, 130.12, 26.1, formerly smoked, 0  
+Female, 45.0, 0, 0, No, Self-employed, Urban, 114.36, 24.8, smokes, 0  
+Male, 78.0, 0, 0, Yes, Govt_job, Rural, 116.22, 28.7, never smoked, 0  
+Female, 58.0, 0, 0, Yes, Private, Rural, 131.21, 30.2, formerly smoked, 0  
+Male, 39.0, 0, 0, No, Private, Urban, 125.19, 27.2, never smoked, 0
+user
+Male, 62.0, 0, 0, Yes, Private, Rural, 168.35, 27.0, formerly smoked, 0  
+Female, 57.0, 1, 0, Yes, Private, Urban, 132.24, 29.2, formerly smoked, 1  
+Male, 34.0, 0, 0, Yes, Never_worked, Rural, 135.15, 25.2, smokes, 0  
+Female, 65.0, 0, 0, Yes, Private, Rural, 120.18, 25.6, never smoked, 0  
+Male, 53.0, 0, 0, No, Private, Urban, 130.12, 26.1, formerly smoked, 0  
+Female, 45.0, 0, 0, No, Self-employed, Urban, 114.36, 24.8, smokes, 0  
+Male, 78.0, 0, 0, Yes, Govt_job, Rural, 116.22, 28.7, never smoked, 0  
+Female, 58.0, 0, 0, Yes, Private, Rural, 131.21, 30.2, formerly smoked, 0  
+Male, 39.0, 0, 0, No, Private, Urban, 125.19, 27.2, never smoked, 0  
+Female, 65.0, 0, 0, Yes, Private, Rural, 120.18, 25.6, never smoked, 0  
+Male, 53.0, 0, 0, No, Private, Urban, 130.12, 26.1, formerly smoked, 0  
+Female, 45.0, 0, 0, No, Self-employed, Urban, 114.36, 24.8, smokes, 0  
+Male, 78.0, 0, 0, Yes, Govt_job, Rural, 116.22, 28.7, never smoked, 0  
+Female, 58.0, 0, 0, Yes, Private, Rural, 131.21, 30.2, formerly smoked, 0  
+Male, 39.0, 0, 0, No, Private, Urban, 125.19, 27.2, never smoked, 0  
+Female, 65.0, 0, 0, Yes, Private, Rural, 120.18, 25.6, never smoked, 0  
+Male, 53.0, 0, 0, No, Private, Urban, 130.12, 26.1, formerly smoked, 0  
+Female, 45.0, 0, 0, No, Self-employed, Urban, 114.36, 24.8, smokes, 0  
+Male, 78.0, 0, 0, Yes, Govt_job, Rural, 116.22, 28.7, never smoked, 0  
+Female, 58.0, 0, 0, Yes, Private, Rural, 131.21, 30.2, formerly smoked, 0  
+Male, 39.0, 0, 0, No, Private, Urban, 125.19, 27.2, never smoked, 0  
+Female, 65.0, 0, 0, Yes, Private, Rural, 120.18, 25.6, never smoked, 0  
+Male, 53.0, 0, 0, No, Private, Urban, 130.12, 26.1, formerly smoked, 0  
+Female, 45.0, 0, 0, No, Self-employed, Urban, 114.36, 24.8, smokes, 0  
+Male, 78.0, 0, 0, Yes, Govt_job, Rural, 116.22, 28.7, never smoked, 0  
+Female, 58.0, 0, 0, Yes, Private, Rural, 131.21, 30.2, formerly smoked, 0  
+Male, 39.0, 0, 0, No, Private, Urban, 125.19, 27.2, never smoked, 0  
+Female, 65.0, 0, 0, Yes, Private, Rural, 120.18, 25.6, never smoked, 0  
+Male, 53.0, 0, 0, No, Private, Urban, 130.12, 26.1, formerly smoked, 0  
+Female, 45.0, 0, 0, No, Self-employed, Urban, 114.36, 24.8, smokes, 0  
+Male, 78.0, 0, 0, Yes, Govt_job, Rural, 116.22, 28.7, never smoked, 0  
+Female, 58.0, 0, 0, Yes, Private, Rural, 131.21, 30.2, formerly smoked, 0  
+Male, 39.0, 0, 0, No, Private, Urban, 125.19, 27.2, never smoked, 0  
+Female, 65.0, 0, 0, Yes, Private, Rural, 120.18, 25.6, never smoked, 0  
+Male, 53.0, 0, 0, No, Private, Urban, 130.12, 26.1, formerly smoked, 0  
+Female, 45.0, 0, 0, No, Self-employed, Urban, 114.36, 24.8, smokes, 0  
+Male, 78.0, 0, 0, Yes, Govt
+
+<|im_start|> system
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+ <|im_start|> user
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+Each record should be a comma-separated line with these features:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+Generate realistic synthetic patient records for stroke prediction using these statistics:
+
+1. gender: Male (49%), Female (50%)  
+2. age: Mean = 43.2, Std = 22.6, Range: 18.0–100.0  
+3. hypertension: 0 = 90%, 1 = 10%  
+4. heart_disease: 0 = 95%, 1 = 5%  
+5. ever_married: Yes (65%), No (35%)  
+6. work_type: Private (60%), Self-employed (20%), Govt_job (10%), children (5%), Never_worked (5%)  
+7. Residence_type: Urban (50%), Rural (50%)  
+8. avg_glucose_level: Mean = 106.1, Std = 45.3, Range = 55–250  
+9. bmi: Mean = 28.1, Std = 7.5, Range = 15.0–60.0  
+10. smoking_status: never smoked (40%), formerly smoked (20%), smokes (15%), Unknown (25%)  
+11. stroke: 0 = 95%, 1 = 5%  
+
+Here are example records:
+Male, 67.0, 0, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1  
+Female, 61.0, 0, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1  
+Male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1  
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0  
+
+ <|im_start|> assistant
+Male, 36.0, 0, 0, Yes, Govt_job, Urban, 105.12, 30.4, formerly smoked, 0  
+Female, 53.0, 0, 0, No, Private, Rural, 110.32, 25.2, smokes, 0  
+Male, 28.0, 1, 0, Yes, Private, Urban, 156.56, 26.7, never smoked, 1  
+Female, 72.0, 0, 1, No, Children, Rural, 245.87, 33.4, Unknown, 0  
+Male, 43.0, 0, 1, Yes, Private, Rural, 98.75, 32.8, smokes, 1  
+Female, 37.0, 1, 0, Yes, Govt_job, Urban, 147.26, 29.8, formerly smoked, 1  
+Male, 61.0, 0, 0, No, Private, Rural, 112.34, 24.2, never smoked, 0  
+Female, 24.0, 1, 0, No, Self-employed, Urban, 123.54, 27.2, Unknown, 1  
+Male, 45.0, 0, 0, Yes, Private, Urban, 135.21, 28.5, formerly smoked, 0  
+Female, 67.0, 0, 0, Yes, Self-employed, Rural, 109.32, 30.1, smokes, 0  
+Male, 52.0, 0, 0, Yes, Private, Rural, 103.12, 28.1, never smoked, 0  
+Female, 70.0, 0, 1, No, Children, Rural, 212.34, 32.2, formerly smoked, 0  
+Male, 39.0, 0, 0, No, Never_worked, Urban, 102.45, 26.5, Unknown, 0  
+Female, 78.0, 1, 0, Yes, Private, Rural, 178.32, 29.7, smokes, 0  
+Male, 57.0, 0, 1, Yes, Govt_job, Urban, 116.23, 31.1, never smoked, 1  
+Female, 23.0, 0, 0, No, Children, Rural, 130.24, 26.1, formerly smoked, 0  
+Male, 62.0, 0, 0, No, Private, Urban, 114.56, 28.4, smokes, 1  
+Female, 48.0, 0, 1, Yes, Govt_job, Rural, 141.23, 30.9, never smoked, 0  
+Male, 64.0, 1, 0, No, Private, Urban, 119.32, 29.5, Unknown, 0  
+Female, 56.0, 0, 0, No, Govt_job, Rural, 120.54, 26.7, formerly smoked, 0  
+Male, 29.0, 0, 1, Yes, Private, Urban, 108.34, 27.3, smokes, 1  
+Female, 40.0, 1, 0, Yes, Self-employed, Rural, 124.56, 31.2, never smoked, 0  
+Male, 59.0, 0, 0, Yes, Private, Rural, 117.23, 28.5, Unknown, 0  
+Female, 31.0, 1, 0, No, Private, Urban, 142.32, 29.8, formerly smoked, 1  
+Male, 74.0, 0, 1, No, Self-employed, Rural, 135.45, 31.1, never smoked, 1  
+Female, 27.0, 0, 0, No, Private, Urban, 101.23, 26.2, Unknown, 0  
+Male, 41.0, 1, 0, Yes, Private, Urban, 130.54, 30.5, formerly smoked, 1  
+Female, 33.0, 0, 1, Yes, Self-employed, Rural, 125.43, 28.4, never smoked, 1  
+Male, 76.0, 1, 0, No, Private, Urban, 143.21, 29.8, smokes, 0  
+Female, 69.0, 0, 0, No, Govt_job, Rural, 106.32, 28.1, formerly smoked, 0  
+Male, 34.0, 0, 1, No, Children, Urban, 121.54, 27.7, Unknown, 1  
+Female, 50.0, 0, 0, Yes, Govt_job, Rural, 112.45, 27.2, smokes, 1  
+Male, 66.0, 1, 1, Yes, Private, Urban, 136.21, 30.4, never smoked, 1  
+Female, 46.0, 0, 0, No, Govt_job, Rural, 113.54, 28.1, formerly smoked, 1  
+Male, 71.0, 1, 1, Yes, Self-employed, Urban, 147.21, 31.2, smokes, 1  
+Female, 35.0, 0, 0, No, Private, Rural, 109.32, 26.7, never smoked, 0  
+Male, 47.0, 0, 1, Yes, Private, Urban, 120.54, 29.8, Unknown, 1  
+Female, 22.0, 1, 0, No, Private, Rural, 117.45, 27.2, never smoked, 0  
+Male, 63.0, 0, 1, Yes, Govt_job, Rural, 124.32, 30.1, smokes, 1  
+Female, 51.0, 1, 0, No, Private, Urban, 138.23, 28.5, Unknown, 0  
+Male, 38.0, 1, 1, Yes, Private, Urban, 145.54, 31.2, smokes, 1  
+Female, 73.0, 0, 0, No, Private, Rural, 115.32, 29.7, formerly smoked, 0  
+Male, 58.0, 1, 1, Yes, Private, Rural, 131.23, 30.9, never smoked, 1  
+Female, 26.0, 0, 1, No, Govt_job, Urban, 107.45, 27.2, Unknown, 1  
+Male, 60.0, 0, 0, Yes, Private, Rural, 118.32, 28.4, smokes, 1  
+Female, 32.0, 1, 0, Yes, Govt_job, Urban, 126.54, 29.8, formerly smoked, 0  
+Male, 75.0, 0, 0, No, Private, Urban, 122.
+

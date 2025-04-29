@@ -1,0 +1,353 @@
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate synthetic patient records for cirrhosis dataset. Use the following fields:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+Assistant: 4, 1500, C, Placebo, 18322, M, Y, N, N, S, 1.7, 239.0, 3.60, 185.0, 449.0, 135.50, 80.0, 171.0, 9.8, 3.0  
+5, 1200, D, Placebo, 22004, F, Y, Y, Y, Y, 1.2, 312.0, 3.80, 170.0, 388.0, 102.50, 53.0, 190.0, 13.0, 4.0  
+6, 3000, C, D-penicillamine, 27101, M, N, N, Y, N, 1.9, 258.0, 4.20, 195.0, 450.0, 98.10, 50.0, 121.0, 14.0, 3.0  
+7, 2800, D, Placebo, 17964, F, Y, Y, Y, Y, 1.5, 290.0, 3.70, 180.0, 312.0, 100.50, 62.0, 181.0, 15.0, 4.0  
+8, 3500, C, D-penicillamine, 26202, M, N, N, Y, N, 1.8, 273.0, 3.90, 200.0, 222.0, 106.10, 45.0, 131.0, 16.0, 3.0  
+9, 2200, D, Placebo, 19854, F, Y, Y, Y, Y, 1.3, 245.0, 4.10, 165.0, 232.0, 90.50, 58.0, 141.0, 17.0, 4.0  
+10, 1800, C, D-penicillamine, 21300, M, N, Y, Y, Y, 1.7, 229.0, 3.50, 170.0, 334.0, 94.10, 30.0, 111.0, 18.0, 3.0  
+11, 1600, D, Placebo, 23680, F, Y, Y, Y, Y, 1.2, 280.0, 4.00, 190.0, 216.0, 88.50, 60.0, 161.0, 19.0, 4.0  
+12, 1700, C, D-penicillamine, 24000, M, N, N, Y, N, 1.9, 260.0, 4.20, 205.0, 200.0, 102.10, 40.0, 121.0, 17.0, 3.0  
+13, 2000, D, Placebo, 25000, F, Y, Y, Y, Y, 1.4, 250.0, 4.30, 180.0, 284.0, 86.50, 55.0, 181.0, 16.0, 4.0  
+14, 1900, C, D-penicillamine, 22500, M, Y, Y, Y, N, 1.8, 245.0, 3.80, 165.0, 270.0, 100.10, 25.0, 111.0, 18.0, 3.0  
+15, 2100, D, Placebo, 26000, F, Y, Y, Y, Y, 1.3, 225.0, 3.90, 195.0, 230.0, 82.50, 58.0, 141.0, 19.0, 4.0  
+16, 2200, C, D-penicillamine, 27000, M, N, N, Y, Y, 1.7, 230.0, 4.10, 170.0, 212.0, 96.10, 30.0, 121.0, 17.0, 3.0  
+17, 2000, D, Placebo, 28000, F, Y, Y, Y, Y, 1.2, 200.0, 4.00, 180.0, 258.0, 88.50, 55.0, 161.0, 19.0, 4.0  
+18, 1900, C, D-penicillamine, 29000, M, N, Y, Y, N, 1.9, 215.0, 3.80, 175.0, 240.0, 94.10, 25.0, 111.0, 18.0, 3.0  
+19, 1800, D, Placebo, 30000, F, Y, Y, Y, Y, 1.4, 195.0, 3.90, 165.0, 262.0, 82.50, 58.0, 141.0, 19.0, 4.0  
+20, 1700, C, D-penicillamine, 31000, M, Y, Y, Y, N, 1.8, 190.0, 4.20, 160.0, 234.0, 100.10, 20.0, 121.0, 17.0, 3.0  
+
+Note: The generated records are for illustrative purposes only and do not represent real patient data. The values are randomly generated and may not be accurate or reliable for any research or medical purposes. Please consult a healthcare professional for any medical-related inquiries.
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate synthetic patient records for cirrhosis dataset. Use the following fields:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+Assistant: 4, 2500, CL, D-penicillamine, 23520, M, N, Y, Y, N, 2.3, 297.0, 3.89, 162.0, 619.0, 132.60, 65.0, 181.0, 13.2, 4.0  
+5, 6500, D, Placebo, 27634, F, Y, Y, Y, Y, 1.9, 145.0, 4.23, 230.0, 765.0, 128.30, 89.0, 221.0, 12.4, 4.0  
+6, 3000, C, Placebo, 26920, M, Y, N, N, S, 1.6, 240.0, 4.09, 200.0, 719.0, 109.20, 75.0, 152.0, 12.6, 4.0  
+7, 1800, D, D-penicillamine, 25240, F, N, Y, Y, N, 1.2, 250.0, 3.65, 220.0, 652.0, 114.30, 90.0, 182.0, 13.8, 4.0  
+8, 3500, C, Placebo, 28210, M, Y, N, N, S, 1.7, 190.0, 3.92, 180.0, 605.0, 107.60, 70.0, 153.0, 13.2, 4.0  
+9, 7500, D, D-penicillamine, 29820, F, Y, Y, Y, Y, 1.5, 210.0, 3.71, 190.0, 590.0, 108.40, 85.0, 183.0, 13.6, 4.0  
+10, 4000, C, Placebo, 27560, M, N, N, N, S, 1.8, 220.0, 4.08, 170.0, 570.0, 110.50, 65.0, 154.0, 13.4, 4.0  
+11, 2500, D, D-penicillamine, 24200, F, Y, Y, Y, Y, 1.3, 230.0, 3.55, 180.0, 580.0, 100.80, 70.0, 184.0, 14.2, 4.0  
+12, 6000, C, Placebo, 28000, M, Y, N, N, S, 1.7, 200.0, 3.95, 160.0, 550.0, 105.60, 55.0, 155.0, 13.8, 4.0  
+13, 5000, D, D-penicillamine, 29000, F, N, Y, Y, Y, 1.2, 190.0, 3.69, 170.0, 560.0, 96.20, 60.0, 186.0, 14.6, 4.0  
+14, 8000, C, Placebo, 26000, M, Y, N, N, S, 1.9, 180.0, 4.06, 150.0, 530.0, 98.30, 50.0, 157.0, 13.2, 4.0  
+15, 4500, D, D-penicillamine, 25500, F, Y, Y, Y, Y, 1.4, 210.0, 3.72, 160.0, 570.0, 104.30, 75.0, 185.0, 14.8, 4.0  
+16, 3000, C, Placebo, 27000, M, N, N, N, S, 1.8, 170.0, 3.94, 140.0, 510.0, 95.10, 55.0, 158.0, 13.6, 4.0  
+17, 7000, D, D-penicillamine, 28000, F, Y, Y, Y, Y, 1.6, 180.0, 3.81, 150.0, 540.0, 94.40, 60.0, 187.0, 14.2, 4.0  
+18, 2000, C, Placebo, 23000, M, N, N, N, S, 1.7, 160.0, 4.05, 130.0, 500.0, 93.20, 50.0, 159.0, 13.4, 4.0  
+19, 9000, D, D-penicillamine, 27500, F, Y, Y, Y, Y, 1.3, 170.0, 3.68, 140.0, 520.0, 89.30, 65.0, 188.0, 14.6, 4.0  
+20, 5500, C, Placebo, 26500, M, Y, N, N, S, 1.8, 150.0, 3.93, 120.0, 470.0, 87.60, 55.0, 156.0, 13.2, 4.0  
+21, 6000, D, D-penicillamine, 28500, F, N, Y, Y, Y, 1.2, 160.0, 3.74, 130.0, 510.0, 88.20, 60.0, 189.0, 14.8, 4.0  
+22, 4500, C, Placebo, 27000, M, Y, N, N, S, 1.7, 140.0, 3.99, 110.0, 460.0, 85.40, 50.0, 157.0, 13.6, 4.0  
+23, 8000, D, D-penicillamine, 28000, F, Y, Y, Y, Y, 1.5, 150.0, 3.67, 120.0, 480.0, 87.80, 65.0, 188.0, 14.2, 4.0  
+24, 3000, C, Placebo, 26000, M, Y, N, N, S, 1.8, 130.0, 4.02, 100.0
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate synthetic patient records for cirrhosis dataset. Use the following fields:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+Assistant: Here are additional records:
+
+4, 1400, C, Placebo, 18854, M, Y, Y, Y, Y, 1.5, 238.0, 3.67, 122.0, 529.0, 133.38, 101.0, 111.0, 12.0, 3.0
+5, 1200, D, D-penicillamine, 17456, F, N, N, Y, S, 1.2, 294.0, 3.56, 190.0, 620.0, 110.85, 65.0, 129.0, 11.0, 4.0
+6, 3000, C, Placebo, 22617, M, Y, N, N, N, 1.3, 148.0, 3.94, 104.0, 653.0, 114.38, 75.0, 161.0, 12.0, 4.0
+7, 1800, D, D-penicillamine, 13842, F, Y, Y, Y, Y, 1.7, 188.0, 3.68, 108.0, 580.0, 105.10, 70.0, 142.0, 11.0, 4.0
+8, 1000, C, Placebo, 21594, M, N, N, Y, S, 1.1, 250.0, 3.40, 110.0, 550.0, 108.75, 85.0, 179.0, 11.0, 3.0
+9, 3500, D, D-penicillamine, 19808, F, Y, Y, Y, Y, 1.6, 206.0, 3.51, 132.0, 600.0, 100.45, 60.0, 181.0, 12.0, 4.0
+10, 2000, C, Placebo, 24794, M, N, N, N, N, 1.2, 224.0, 3.72, 102.0, 530.0, 92.20, 90.0, 169.0, 11.0, 4.0
+
+Please note that these records are generated synthetically and may not accurately represent real patient data.
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate synthetic patient records for cirrhosis dataset. Use the following fields:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+Assistant: Here are more records in the same format:
+
+4, 2000, C, Placebo, 19889, M, N, Y, N, N, 1.5, 205.0, 4.12, 130.0, 345.0, 121.35, 95.0, 191.0, 11.4, 3.0
+
+5, 5000, D, Placebo, 17931, F, Y, Y, N, S, 1.2, 271.0, 3.46, 140.0, 657.0, 104.75, 90.0, 132.0, 12.0, 3.0
+
+6, 3000, C, D-penicillamine, 14875, M, Y, N, Y, N, 1.6, 138.0, 3.60, 180.0, 223.0, 78.50, 65.0, 112.0, 12.0, 4.0
+
+7, 1500, D, Placebo, 22914, F, N, Y, Y, S, 1.3, 286.0, 3.68, 120.0, 76.0, 85.10, 70.0, 143.0, 12.0, 3.0
+
+8, 6000, C, D-penicillamine, 16678, M, Y, Y, N, N, 1.1, 216.0, 4.20, 200.0, 242.0, 114.20, 55.0, 121.0, 12.0, 3.0
+
+9, 4000, D, Placebo, 17019, F, N, Y, N, S, 1.2, 298.0, 3.44, 150.0, 103.0, 78.0, 115.0, 142.0, 12.0, 3.0
+
+10, 2500, C, D-penicillamine, 18124, M, Y, Y, N, N, 1.7, 164.0, 3.50, 160.0, 226.0, 110.10, 65.0, 123.0, 12.0, 4.0
+
+11, 1200, D, Placebo, 16391, F, Y, Y, Y, N, 1.3, 172.0, 3.42, 110.0, 135.0, 108.10, 80.0, 144.0, 12.0, 3.0
+
+12, 3000, C, D-penicillamine, 19234, M, N, Y, Y, S, 1.4, 130.0, 3.60, 170.0, 168.0, 110.20, 60.0, 121.0, 12.0, 3.0
+
+13, 4500, D, Placebo, 15624, F, N, Y, Y, S, 1.2, 221.0, 3.30, 100.0, 104.0, 93.10, 90.0, 151.0, 12.0, 3.0
+
+14, 2000, C, D-penicillamine, 18700, M, Y, N, N, N, 1.5, 184.0, 3.50, 140.0, 235.0, 111.10, 55.0, 132.0, 12.0, 3.0
+
+15, 5000, D, Placebo, 14857, F, Y, Y, Y, S, 1.1, 190.0, 3.42, 120.0, 220.0, 83.10, 70.0, 143.0, 12.0, 3.0
+
+16, 1000, D, D-penicillamine, 16978, M, N, Y, Y, N, 1.6, 156.0, 3.60, 190.0, 208.0, 108.20, 60.0, 112.0, 12.0, 3.0
+
+17, 5500, C, Placebo, 17511, F, N, Y, Y, S, 1.3, 205.0, 3.46, 110.0, 280.0, 100.10, 90.0, 151.0, 12.0, 3.0
+
+18, 2500, D, D-penicillamine, 18212, M, Y, N, N, N, 1.1, 140.0, 3.50, 180.0, 186.0, 108.20, 55.0, 121.0, 12.0, 3.0
+
+19, 1000, C, Placebo, 15793, F, Y, Y, Y, S, 1.2, 216.0, 3.42, 100.0, 195.0, 93.10, 70.0, 144.0, 12.0, 3.0
+
+20, 4000, D, D-penicillamine, 19424, M, N, Y, Y, N, 1.7, 164.0, 3.60, 170.0, 180.0, 108.20, 60.0, 123.0, 12.0, 3.0
+
+21, 3000, C, Placebo, 17039, F, N, Y, Y, S, 1.3, 298.0, 3.44, 110.0, 270.0, 92.10, 80.0, 142.0, 12.0, 3.0
+
+22, 1500, D, D-penicillamine, 16814, M, Y, N, N, N, 1.6, 138.0, 3.50, 160.0, 180.0, 108.10, 55.0, 112.0, 12.0, 3.0
+
+23, 5000, C, Placebo, 14977, F, Y, Y, Y, S, 1.2, 221.0, 3.30, 100.0, 170.0, 90.10, 70.0, 143.0, 12.0, 3.0
+
+24, 2000, D, D-penicillamine, 18148, M, Y, N, N, N, 1.5, 184.0, 
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate synthetic patient records for cirrhosis dataset. Use the following fields:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+Assistant: 
+4, 2100, C, Placebo, 23197, M, Y, Y, Y, N, 12.9, 250.0, 2.94, 240.0, 4458.0, 123.15, 104.0, 200.0, 9.5, 3.0
+5, 5130, D, D-penicillamine, 19504, F, N, N, N, S, 13.1, 210.0, 3.12, 250.0, 3388.0, 117.20, 114.0, 175.0, 12.0, 4.0
+6, 1200, D, Placebo, 22174, M, Y, Y, Y, Y, 13.8, 175.0, 3.28, 280.0, 6758.0, 131.20, 114.0, 188.0, 11.0, 4.0
+7, 3600, C, D-penicillamine, 21361, F, Y, Y, Y, Y, 11.5, 200.0, 3.04, 210.0, 4998.0, 114.10, 98.0, 191.0, 10.0, 3.0
+8, 6500, D, Placebo, 22573, M, N, N, N, S, 10.9, 180.0, 2.96, 270.0, 5088.0, 116.20, 118.0, 169.0, 10.0, 3.0
+9, 1500, D, D-penicillamine, 20164, F, Y, Y, Y, Y, 12.4, 160.0, 2.84, 220.0, 7198.0, 121.35, 106.0, 180.0, 10.0, 4.0
+10, 7000, C, Placebo, 18843, M, N, N, N, S, 11.6, 150.0, 2.82, 230.0, 4348.0, 117.40, 118.0, 171.0, 10.0, 4.0
+11, 4500, D, D-penicillamine, 23174, F, Y, Y, Y, Y, 13.2, 170.0, 2.98, 240.0, 4568.0, 121.10, 96.0, 188.0, 10.0, 3.0
+12, 3000, C, Placebo, 19600, M, N, N, N, S, 11.7, 160.0, 2.86, 220.0, 4708.0, 115.90, 104.0, 175.0, 10.0, 3.0
+13, 5000, D, D-penicillamine, 17900, F, Y, Y, Y, Y, 12.3, 150.0, 2.92, 210.0, 4298.0, 118.10, 100.0, 170.0, 10.0, 3.0
+14, 2500, C, Placebo, 18300, M, N, N, N, S, 10.8, 140.0, 2.90, 200.0, 5208.0, 116.50, 112.0, 160.0, 10.0, 3.0
+15, 8000, D, D-penicillamine, 19200, F, Y, Y, Y, Y, 12.1, 140.0, 2.96, 230.0, 4408.0, 118.20, 108.0, 168.0, 10.0, 3.0
+16, 4000, C, Placebo, 20800, M, N, N, N, S, 10.9, 150.0, 2.94, 220.0, 4908.0, 115.70, 116.0, 159.0, 10.0, 3.0
+17, 6000, D, D-penicillamine, 22000, F, Y, Y, Y, Y, 12.5, 130.0, 2.98, 210.0, 4508.0, 118.30, 110.0, 165.0, 10.0, 3.0
+18, 3000, C, Placebo, 19000, M, N, N, N, S, 10.7, 140.0, 2.92, 200.0, 5308.0, 115.80, 118.0, 158.0, 10.0, 3.0
+19, 7000, D, D-penicillamine, 18400, F, Y, Y, Y, Y, 12.2, 130.0, 2.96, 230.0, 4408.0, 118.10, 112.0, 167.0, 10.0, 3.0
+20, 5000, C, Placebo, 19800, M, N, N, N, S, 10.6, 150.0, 2.94, 220.0, 4708.0, 116.00, 114.0, 157.0, 10.0, 3.0
+
+The above records are generated using a normal distribution for the continuous variables, and the categorical variables are chosen randomly with the given probabilities. The records are generated with the same format as the given examples.
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+Human: You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate synthetic patient records for cirrhosis dataset. Use the following fields:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+Assistant: 4, 1000, D, D-penicillamine, 20848, F, N, Y, Y, Y, 1.6, 198.0, 4.32, 142.0, 7592.0, 147.55, 108.0, 210.0, 10.8, 3.0
+
+5, 1500, C, D-penicillamine, 22513, M, Y, Y, N, N, 1.7, 154.0, 3.70, 120.0, 638.0, 124.30, 81.0, 192.0, 12.0, 3.0
+
+6, 1017, D, D-penicillamine, 21898, F, Y, Y, Y, N, 1.5, 164.0, 4.26, 206.0, 556.0, 152.30, 86.0, 183.0, 11.6, 4.0
+
+7, 1050, D, D-penicillamine, 20487, M, Y, Y, Y, Y, 1.3, 134.0, 3.90, 178.0, 119.0, 149.90, 80.0, 195.0, 12.0, 4.0
+
+8, 1025, D, D-penicillamine, 21537, F, N, N, Y, Y, 1.8, 146.0, 4.00, 194.0, 504.0, 151.00, 92.0, 179.0, 11.6, 3.0
+
+9, 2000, C, Placebo, 23465, M, Y, Y, Y, Y, 1.9, 188.0, 4.10, 212.0, 540.0, 145.20, 84.0, 200.0, 12.0, 3.0
+
+10, 2010, D, Placebo, 21548, F, N, N, N, N, 1.2, 170.0, 3.70, 208.0, 118.0, 129.00, 88.0, 172.0, 11.6, 3.0
+
+11, 1000, D, Placebo, 20858, M, Y, Y, Y, Y, 1.7, 192.0, 4.20, 200.0, 514.0, 138.30, 86.0, 180.0, 11.6, 3.0
+
+12, 2000, C, Placebo, 21548, F, N, N, N, N, 1.8, 184.0, 3.60, 220.0, 115.0, 144.00, 90.0, 211.0, 11.6, 3.0
+
+13, 1000, D, Placebo, 20858, M, Y, Y, Y, Y, 1.5, 176.0, 4.10, 196.0, 119.0, 140.00, 82.0, 188.0, 11.6, 3.0
+
+14, 2000, C, Placebo, 21548, F, N, N, N, N, 1.9, 160.0, 3.90, 204.0, 113.0, 136.00, 94.0, 217.0, 11.6, 3.0
+
+15, 1000, D, Placebo, 20858, M, Y, Y, Y, Y, 1.6, 182.0, 3.80, 202.0, 117.0, 130.00, 80.0, 193.0, 11.6, 3.0
+
+16, 2000, C, Placebo, 21548, F, N, N, N, N, 1.7, 168.0, 4.00, 210.0, 114.0, 141.00, 88.0, 204.0, 11.6, 3.0
+
+17, 1000, D, Placebo, 20858, M, Y, Y, Y, Y, 1.8, 178.0, 4.10, 208.0, 120.0, 130.00, 86.0, 196.0, 11.6, 3.0
+
+18, 2000, C, Placebo, 21548, F, N, N, N, N, 1.9, 164.0, 3.70, 206.0, 119.0, 120.00, 94.0, 200.0, 11.6, 3.0
+
+19, 1000, D, Placebo, 20858, M, Y, Y, Y, Y, 1.5, 170.0, 4.00, 198.0, 121.0, 133.00, 80.0, 193.0, 11.6, 3.0
+
+20, 2000, C, Placebo, 21548, F, N, N, N, N, 1.8, 166.0, 3.80, 212.0, 117.0, 130.00, 92.0, 208.0, 11.6, 3.0
+
+21, 1000, D, Placebo, 20858, M, Y, Y, Y, Y, 1.7, 174.0, 3.90, 204.0, 123.0, 130.00, 88.0, 195.0, 11.6, 3.0
+
+22, 2000, C, Placebo, 21548, F, N, N, N, N, 1.9, 170.0, 4.10, 208.0, 121.0, 120.00, 94.0, 200.0, 11.6, 3.0
+
+23, 1000, D, Placebo, 20858, M, Y, Y, Y, Y, 1.6, 172.0, 3.80, 202.0, 122.0, 130.00, 80.0, 194.0, 11.6, 3.0
+
+24, 2000, C, Placebo, 21548, F, N, N, N, N, 1.8, 162.0, 3.70, 210.0, 118.0,
+

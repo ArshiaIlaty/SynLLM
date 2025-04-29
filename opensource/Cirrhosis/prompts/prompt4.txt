@@ -1,0 +1,33 @@
+You are a synthetic medical data generator. Please generate realistic cirrhosis patient records following these medical rules:
+
+1. Patients with higher Bilirubin (>10.0) or lower Albumin (<2.5) often have advanced disease (Stage 3 or 4)
+2. Stage 4 patients usually have Ascites=Y or Edema=Y
+3. Low Platelets (<150) and high SGOT (>100) often co-occur
+4. Drug is either D-penicillamine or Placebo
+5. Ensure values fall within medically reasonable ranges
+
+Features:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Please generate records in this exact format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage

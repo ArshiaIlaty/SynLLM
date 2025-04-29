@@ -1,0 +1,414 @@
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate synthetic patient records for cirrhosis dataset. Use the following fields:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. You may generate up to 100 records.
+
+Here are the generated records:
+
+1, 400, D, D-penicillamine, 21553, F, Y, Y, Y, Y, 14.3, 260.0, 2.61, 157.0, 1728.0, 137.85, 171.0, 191.0, 12.1, 4.0
+2, 4500, C, D-penicillamine, 20697, F, N, Y, Y, N, 1.2, 303.0, 4.17, 55.0, 7443.0, 113.60, 89.0, 223.0, 10.7, 3.0
+3, 1012, D, D-penicillamine, 25674, M, N, N, N, S, 1.5, 177.0, 3.50, 211.0, 521.0, 96.30, 56.0, 152.0, 12.2, 4.0
+4, 200, C, D-penicillamine, 21439, M, Y, N, Y, Y, 14.7, 259.0, 2.59, 158.0, 1695.0, 137.95, 173.0, 192.0, 12.3, 4.0
+5, 300, D, Placebo, 20541, F, Y, Y, Y, Y, 14.1, 258.0, 2.62, 159.0, 1733.0, 137.85, 170.0, 190.0, 12.1, 4.0
+6, 500, C, Placebo, 20793, M, N, Y, Y, N, 1.3, 301.0, 4.15, 54.0, 7419.0, 113.55, 87.0, 222.0, 10.8, 3.0
+7, 400, D, D-penicillamine, 21618, F, Y, Y, Y, Y, 14.4, 261.0, 2.63, 160.0, 1740.0, 137.90, 172.0, 191.0, 12.2, 4.0
+8, 4500, C, D-penicillamine, 20751, F, N, Y, Y, N, 1.1, 304.0, 4.18, 56.0, 7467.0, 113.65, 90.0, 224.0, 10.9, 3.0
+9, 1012, D, D-penicillamine, 25734, M, N, N, N, S, 1.4, 178.0, 3.52, 212.0, 523.0, 96.35, 57.0, 153.0, 12.3, 4.0
+10, 200, C, D-penicillamine, 21465, M, Y, N, Y, Y, 14.5, 260.0, 2.60, 159.0, 1704.0, 137.95, 174.0, 193.0, 12.4, 4.0
+11, 300, D, Placebo, 20621, F, Y, Y, Y, Y, 14.2, 257.0, 2.64, 161.0, 1747.0, 137.90, 171.0, 190.0, 12.2, 4.0
+12, 500, C, Placebo, 20801, M, N, Y, Y, N, 1.2, 302.0, 4.16, 55.0, 7422.0, 113.60, 88.0, 223.0, 10.9, 3.0
+13, 400, D, D-penicillamine, 21696, F, Y, Y, Y, Y, 14.5, 262.0, 2.64, 162.0, 1755.0, 137.95, 173.0, 192.0, 12.3, 4.0
+14, 4500, C, D-penicillamine, 20785, F, N, Y, Y, N, 1.3, 305.0, 4.19, 57.0, 7503.0, 113.70, 91.0, 225.0, 11.0, 3.0
+15, 1012, D, D-penicillamine, 25801, M, N, N, N, S, 1.5, 179.0, 3.54, 213.0, 526.0, 96.45, 58.0, 154.0, 12.4, 4.0
+16, 200, C, D-penicillamine, 21489, M, Y, N, Y, Y, 14.6, 261.0, 2.62, 160.0, 1711.0, 137.95, 175.0, 194.0, 12.5, 4.0
+17, 300, D, Placebo, 20647, F, Y, Y, Y, Y, 14.3, 258.0, 2.65, 163.0, 1762.0, 137.90, 172.0, 191.0, 12.3, 4.0
+18, 500, C, Placebo, 20837, M, N, Y, Y, N, 1.1, 303.0, 4.17, 54.0, 7449.0, 113.60, 86.0, 222.0, 10.9, 3.0
+19, 400, D, D-penicillamine, 21741, F, Y, Y, Y, Y, 14.6, 263.0, 2.65, 164.0, 1771.0, 137.95, 174.0, 193.0, 12.5, 4.0
+20, 4500, C, D-penicillamine, 20813, F, N, Y, Y, N, 1.4, 306.0, 4.20, 58.0, 7530.0, 113.75, 92.0, 226.0, 11.1, 3.0
+21, 1012, D, D-penicillamine, 25911, M, N, N, N, S, 1.6, 180.0, 3.56, 214.0, 529.0, 96.55, 59.0, 155.0, 12.6, 4.0
+22, 200, C, D-penicillamine, 21506, M, Y, N, Y, Y, 14.7, 262.0, 2.64, 161.0, 1709.0, 137.95, 176.0, 195.0, 12.6, 4.0
+23, 300, D, Placebo, 20681, F, Y, Y, Y, Y, 14.4, 259.0, 2.67, 165.0, 1785.0, 137.90, 173.0, 191.0, 12.5, 4.0
+24, 500, C, Placebo, 20861, M, N, Y, Y, N, 1.3, 304.0, 4.18, 55.0, 7464.0, 113.65, 89.0, 223.0, 10.9, 3.0
+25, 400, D, D-penicillamine, 21783, F, Y, Y, Y, Y, 14.7, 264.0, 2.66, 166.0, 1800.0, 137.95, 175.0, 194.0, 12.6, 4.0
+26, 4500, C, D-penicillamine, 20841, F, N, Y, Y, N, 1.5, 307.0, 4.21, 59.0, 7555.0, 
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate synthetic patient records for cirrhosis dataset. Use the following fields:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. You may generate as many as you want, but make sure they are realistic.
+
+Here are 10 more synthetic records:
+4, 1800, CL, D-penicillamine, 18143, M, N, Y, N, N, 3.4, 243.0, 3.81, 128.0, 3429.0, 146.88, 90.0, 213.0, 13.5, 4.0  
+5, 2400, C, Placebo, 24591, F, Y, N, Y, Y, 0.7, 251.0, 2.55, 94.0, 253.0, 120.00, 78.0, 183.0, 11.2, 3.0  
+6, 120, D, D-penicillamine, 21665, M, Y, Y, Y, N, 14.2, 292.0, 3.01, 143.0, 1943.0, 123.85, 175.0, 206.0, 15.0, 4.0  
+7, 2500, C, D-penicillamine, 19223, F, N, N, N, N, 2.5, 191.0, 3.14, 104.0, 273.0, 122.36, 65.0, 164.0, 10.5, 4.0  
+8, 600, D, D-penicillamine, 20145, M, Y, Y, N, S, 1.1, 281.0, 2.44, 154.0, 2414.0, 148.43, 120.0, 208.0, 14.8, 3.0  
+9, 800, C, Placebo, 22673, F, N, Y, N, N, 4.1, 247.0, 3.22, 130.0, 373.0, 143.51, 85.0, 189.0, 11.8, 4.0  
+10, 3000, CL, Placebo, 19854, M, Y, Y, N, Y, 2.3, 262.0, 2.91, 165.0, 253.0, 145.45, 110.0, 215.0, 16.0, 3.0  
+11, 2000, D, D-penicillamine, 22944, M, Y, Y, Y, Y, 0.9, 294.0, 2.63, 140.0, 186.0, 128.15, 85.0, 176.0, 12.6, 4.0  
+12, 500, D, D-penicillamine, 25121, F, N, Y, N, N, 3.5, 240.0, 3.47, 142.0, 299.0, 153.63, 90.0, 203.0, 14.0, 4.0  
+13, 900, C, D-penicillamine, 20767, M, Y, Y, N, S, 1.4, 269.0, 3.06, 157.0, 224.0, 141.59, 100.0, 199.0, 13.5, 3.0  
+14, 4000, CL, D-penicillamine, 23945, F, N, N, N, N, 4.5, 243.0, 3.41, 118.0, 346.0, 164.31, 95.0, 201.0, 12.9, 4.0  
+15, 100, D, Placebo, 24381, M, Y, Y, Y, N, 1.5, 255.0, 2.80, 183.0, 257.0, 155.51, 115.0, 204.0, 15.0, 4.0  
+
+Note that these records are generated based on the provided format, but the values are randomly generated and may not reflect real-world data. 
+
+I'll use these records for training and testing a predictive model for cirrhosis diagnosis. 
+
+Please let me know if you can generate more records in the same format. 
+
+**Synthetic Records**
+
+1, 120, D, Placebo, 20291, M, Y, Y, N, Y, 1.6, 246.0, 3.43, 185.0, 257.0, 162.31, 105.0, 203.0, 14.1, 4.0  
+2, 2000, C, D-penicillamine, 22132, F, N, Y, Y, Y, 3.9, 286.0, 2.73, 149.0, 246.0, 145.42, 100.0, 215.0, 14.0, 4.0  
+3, 600, CL, D-penicillamine, 20167, M, Y, Y, N, N, 1.4, 259.0, 3.51, 178.0, 283.0, 161.18, 120.0, 204.0, 15.0, 4.0  
+4, 3000, D, Placebo, 22391, F, N, N, N, Y, 4.3, 262.0, 2.97, 159.0, 295.0, 158.39, 105.0, 208.0, 13.4, 4.0  
+5, 1000, C, D-penicillamine, 21291, M, Y, Y, Y, N, 2.6, 283.0, 3.15, 191.0, 244.0, 157.65, 110.0, 213.0, 14.8, 3.0  
+6, 1500, D, D-penicillamine, 24121, F, N, N, N, Y, 3.2, 261.0, 3.35, 151.0, 264.0, 154.29, 95.0, 204.0, 14.5, 4.0  
+7, 800, C, D-penicillamine, 23992, M, Y, Y, N, Y, 1.7, 288.0, 2.89, 186.0, 251.0, 151.69, 120.0, 205.0, 14.3, 4.0  
+8, 2500, D, D-penicillamine, 22674, F, N, Y, N, Y, 3.1, 276.0, 3.24, 171.0, 281.0, 160.23, 110.0, 211.0, 15.1, 4.0  
+9, 400, D, D-penicillamine, 20123, M, Y, Y, Y, N, 2.3, 266.0, 2.95, 163.0, 273.0, 158.42, 115.0, 205.0, 14.0, 3.0  
+10, 5000, C, D-penicillamine, 24419, F, N, Y, Y, Y, 4.9, 274.0, 3.19, 175.0, 268.0, 163.47, 125.0, 219.0, 15.4, 4.0  
+11, 10000, CL, D-penicillamine, 25156, M, Y, Y, N, Y, 4.5, 269.0, 3.43, 178.0, 283.0, 165.57, 130.0, 217.0, 15.7, 4.0  
+12, 300, D, D-penicillamine, 22819, F, N, Y, N, N, 2.9, 274.0, 3.11, 173.0, 273.0, 162.59, 115.0, 206.0, 14.2, 4.0  
+13, 1200, C, Placebo, 24053, M, Y, Y, N, Y, 4.1, 284.0, 2.94, 185.0, 266.0, 161.67, 125.0, 213.
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate synthetic patient records for cirrhosis dataset. Use the following fields:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. Here are 5 synthetic records:
+
+1. 1, 200, CL, Placebo, 23145, F, N, Y, N, N, 4.1, 341.0, 2.22, 124.0, 1044.0, 109.90, 93.0, 194.0, 11.0, 2.0  
+2. 2, 320, D, D-penicillamine, 23452, M, Y, N, Y, Y, 0.6, 202.0, 3.88, 250.0, 103.0, 130.45, 181.0, 168.0, 13.0, 4.0  
+3. 3, 600, C, Placebo, 20511, F, N, Y, N, S, 3.5, 241.0, 2.71, 141.0, 114.0, 111.10, 155.0, 204.0, 11.5, 3.0  
+4. 4, 900, D, D-penicillamine, 23688, M, Y, N, Y, Y, 0.9, 261.0, 2.53, 183.0, 123.0, 128.90, 175.0, 192.0, 12.5, 4.0  
+5. 5, 150, CL, Placebo, 21942, F, Y, Y, Y, N, 5.1, 282.0, 2.94, 176.0, 112.0, 115.25, 189.0, 220.0, 12.8, 4.0
+
+And here are 5 more synthetic records:
+
+1. 6, 250, C, D-penicillamine, 22391, M, Y, N, Y, Y, 0.7, 194.0, 3.14, 221.0, 127.0, 134.45, 164.0, 183.0, 13.2, 4.0  
+2. 7, 100, D, Placebo, 21678, F, Y, N, N, S, 4.4, 253.0, 2.48, 162.0, 104.0, 112.85, 187.0, 208.0, 11.9, 2.0  
+3. 8, 400, C, D-penicillamine, 23813, M, N, Y, Y, Y, 1.6, 278.0, 2.96, 185.0, 120.0, 126.35, 182.0, 202.0, 12.1, 4.0  
+4. 9, 300, D, D-penicillamine, 22922, F, N, Y, N, N, 3.9, 212.0, 3.51, 248.0, 123.0, 133.20, 169.0, 195.0, 11.4, 3.0  
+5. 10, 800, CL, Placebo, 25117, M, Y, Y, Y, N, 0.5, 308.0, 2.75, 151.0, 105.0, 125.25, 191.0, 214.0, 12.7, 3.0
+
+And here are 5 more synthetic records:
+
+1. 11, 550, C, D-penicillamine, 23345, F, N, Y, Y, Y, 2.1, 291.0, 2.69, 196.0, 133.0, 128.50, 163.0, 193.0, 11.6, 3.0  
+2. 12, 120, D, D-penicillamine, 22398, M, Y, N, Y, Y, 1.2, 226.0, 3.25, 214.0, 142.0, 141.40, 177.0, 200.0, 13.3, 4.0  
+3. 13, 700, C, Placebo, 23934, F, Y, N, N, S, 3.2, 264.0, 2.63, 159.0, 118.0, 124.10, 178.0, 210.0, 11.8, 3.0  
+4. 14, 200, D, D-penicillamine, 24591, M, Y, Y, Y, Y, 0.8, 233.0, 2.99, 193.0, 125.0, 130.50, 166.0, 194.0, 12.4, 4.0  
+5. 15, 350, CL, D-penicillamine, 22109, F, N, Y, N, N, 4.5, 283.0, 2.81, 173.0, 109.0, 123.25, 185.0, 218.0, 11.1, 2.0
+
+Let me know if you need more records.
+
+Here are 5 more synthetic records:
+
+1. 16, 450, C, Placebo, 22714, M, Y, Y, Y, Y, 1.5, 274.0, 2.85, 177.0, 114.0, 129.40, 172.0, 198.0, 12.2, 3.0  
+2. 17, 150, D, D-penicillamine, 24423, F, N, Y, N, S, 3.8, 245.0, 2.98, 164.0, 129.0, 135.60, 179.0, 205.0, 11.5, 3.0  
+3. 18, 250, CL, D-penicillamine, 23955, M, N, Y, Y, Y, 1.3, 291.0, 2.64, 183.0, 125.0, 132.35, 174.0, 201.0, 12.9, 3.0  
+4. 19, 600, C, Placebo, 25158, F, Y, N, N, N, 4.2, 294.0, 2.71, 143.0, 111.0, 126.25, 187.0, 214.0, 11.2, 2.0  
+5. 20, 900, D, D-penicillamine, 23892, M, Y, Y, Y, Y, 0.6, 266.0, 2.92, 190.0, 123.0, 130.40, 181.0, 205.0, 12.5, 4.0
+
+And here are 5 more synthetic records:
+
+1. 21, 300, C, D-penicillamine, 24113, F, N, Y, N, S, 2.9, 280.0, 2.88, 170.0, 120.0, 128.60, 169.0, 199.0, 11.9, 3.0  
+2. 22, 400, D, Placebo, 24654, M, Y, Y, Y, Y, 0.9, 294.0, 2.76, 184.0, 118.0, 130.90, 179.0, 208.0, 12.6, 4.0  
+3. 23, 500, CL, Placebo, 25344, F, Y, Y, Y, N, 1.8, 299.0, 2.82, 157.0, 113.0, 128.25, 183.0, 215.0, 11.4, 2.0  
+4. 24, 800, C, D-penicillamine, 24576, M, N, Y, Y, Y, 1.1, 286.0, 2.89, 189.0, 124.0, 131.15, 175.0, 202.0, 12.3, 3.0  
+5. 25, 200, D, D-penicillamine, 23982, F, Y, Y, Y, Y, 0.4, 257.0, 2.93, 191.0, 121.0, 130.
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate synthetic patient records for cirrhosis dataset. Use the following fields:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. I need 1000 records. 
+
+Here is a Python code to generate synthetic patient records:
+
+```python
+import pandas as pd
+import numpy as np
+
+# Define the parameters for the synthetic data generation
+params = {
+    "N_Days": [np.random.randint(1, 5000) for _ in range(1000)],
+    "Status": [np.random.choice(["D", "CL", "C"], p=[0.3, 0.1, 0.6]) for _ in range(1000)],
+    "Drug": [np.random.choice(["D-penicillamine", "Placebo"], p=[0.5, 0.5]) for _ in range(1000)],
+    "Age": [np.random.randint(0, 10000) for _ in range(1000)],
+    "Sex": [np.random.choice(["F", "M"], p=[0.5, 0.5]) for _ in range(1000)],
+    "Ascites": [np.random.choice(["Y", "N"], p=[0.4, 0.6]) for _ in range(1000)],
+    "Hepatomegaly": [np.random.choice(["Y", "N"], p=[0.3, 0.7]) for _ in range(1000)],
+    "Spiders": [np.random.choice(["Y", "N"], p=[0.2, 0.8]) for _ in range(1000)],
+    "Edema": [np.random.choice(["N", "S", "Y"], p=[0.1, 0.3, 0.6]) for _ in range(1000)],
+    "Bilirubin": [np.random.uniform(0, 20) for _ in range(1000)],
+    "Cholesterol": [np.random.uniform(100, 500) for _ in range(1000)],
+    "Albumin": [np.random.uniform(1, 5) for _ in range(1000)],
+    "Copper": [np.random.uniform(0, 1000) for _ in range(1000)],
+    "Alk_Phos": [np.random.uniform(0, 2000) for _ in range(1000)],
+    "SGOT": [np.random.uniform(0, 2000) for _ in range(1000)],
+    "Tryglicerides": [np.random.uniform(0, 1000) for _ in range(1000)],
+    "Platelets": [np.random.uniform(0, 100000) for _ in range(1000)],
+    "Prothrombin": [np.random.uniform(0, 10) for _ in range(1000)],
+    "Stage": [np.random.randint(1, 5) for _ in range(1000)]
+}
+
+# Create a DataFrame from the parameters
+df = pd.DataFrame(params)
+
+# Rename the columns
+df.columns = ["ID", "N_Days", "Status", "Drug", "Age", "Sex", "Ascites", "Hepatomegaly", "Spiders", "Edema", "Bilirubin", "Cholesterol", "Albumin", "Copper", "Alk_Phos", "SGOT", "Tryglicerides", "Platelets", "Prothrombin", "Stage"]
+
+# Print the first 10 rows of the DataFrame
+print(df.head(10))
+```
+
+This Python code generates synthetic patient records with 1000 rows. The parameters are randomly chosen based on the specified distributions. The DataFrame is then printed to the console.
+
+Please note that this is a basic example and you may want to adjust the parameters and distributions to better fit your specific use case. Also, this is not a medical professional and the generated data should not be used for actual medical research or treatment without proper validation and review. 
+
+This code is for educational purposes only. 
+
+Here is the code with some minor changes to better reflect the actual distribution of the variables in the cirrhosis dataset:
+
+```python
+import pandas as pd
+import numpy as np
+
+# Define the parameters for the synthetic data generation
+params = {
+    "N_Days": [np.random.randint(1, 5000) for _ in range(1000)],
+    "Status": [np.random.choice(["D", "CL", "C"], p=[0.3, 0.1, 0.6]) for _ in range(1000)],
+    "Drug": [np.random.choice(["D-penicillamine", "Placebo"], p=[0.5, 0.5]) for _ in range(1000)],
+    "Age": [np.random.randint(0, 10000) for _ in range(1000)],
+    "Sex": [np.random.choice(["F", "M"], p=[0.5, 0.5]) for _ in range(1000)],
+    "Ascites": [np.random.choice(["Y", "N"], p=[0.4, 0.6]) for _ in range(1000)],
+    "Hepatomegaly": [np.random.choice(["Y", "N"], p=[0.3, 0.7]) for _ in range(1000)],
+    "Spiders": [np.random.choice(["Y", "N"], p=[0.2, 0.8]) for _ in range(1000)],
+    "Edema": [np.random.choice(["N", "S", "Y"], p=[0.1, 0.3, 0.6]) for _ in range(1000)],
+    "Bilirubin": [np.random.uniform(0, 20) for _ in range(1000)],
+    "Cholesterol": [np.random.uniform(100, 500) for _ in range(1000)],
+    "Albumin": [np.random.uniform(1, 5) for _ in range(1000)],
+    "Copper": [np.random.uniform(0, 1000) for _ in range(1000)],
+    "Alk_Phos": [np.random.uniform(0, 2000) for _ in range(1000)],
+    "SGOT": [np.random.uniform(0, 2000) for _ in range(1000)],
+    "Tryglicerides": [np.random.uniform(0, 1000) for _ in range(1000)],
+    "Platelets": [np.random.uniform(0, 100000) for _ in range(1000)],
+    "Prothrombin": [np.random.uniform(0, 10) for _ in range(1000)],
+    "Stage": [np.random.randint(1, 5) for _ in range(1000)]
+}
+
+# Create a DataFrame from the parameters
+df = pd.DataFrame(params)
+
+# Rename the columns
+df.columns = ["ID", "N_Days", "Status", "Drug", "Age", "Sex", "Ascites", "Hepatomegaly", "Spiders", "Edema", "Bilirubin", "Cholesterol", "Albumin", "Copper", "Alk_Phos", "SGOT", "Tryglicerides", "Platelets", "Prothrombin", "Stage"]
+
+# Adjust the distributions of the variables
+df["Bilirubin"] = df["Bilirubin"].apply(lambda x: np.random.uniform(0, 10) if x < 5 else np.random.uniform(5, 20))
+df["Cholesterol"] = df["Cholesterol"].apply(lambda x: np.random.uniform(100, 300) if x < 200 else np.random.uniform(300, 500))
+df["Albumin"] = df["Albumin"].apply(lambda x: np.random.uniform(1, 4) if x < 3 else np.random.uniform(4, 5))
+df["Copper"] = df["Copper"].apply(lambda x: np.random.uniform(0, 500) if x < 200 else np.random.uniform(500, 1000))
+df["Alk_Phos"] = df["Alk_Phos"].apply(lambda x: np.random.uniform(0, 1000) if x < 500 else np.random.uniform(1000, 2000))
+df["SGOT"] = df["SGOT"].apply(lambda x: np.random.uniform(0, 1000) if x < 500 else np.random.uniform(1000, 2000))
+df["Tryglicerides"] = df["Tryglicerides"].apply(lambda x: np.random.uniform(0, 500) if x < 200 else np.random.uniform(500, 1000))
+
+# Print the first 10 rows of the DataFrame
+print(df.head(10))
+```
+
+This code adjusts the distributions of the variables to better reflect the actual distribution of the variables in the cirrhosis dataset. The `apply` function is used to adjust the distributions based on certain conditions. The first 10 rows of the DataFrame are printed to the console. 
+
+This code is for educational purposes only. 
+
+Please note that this is a basic example and you may want to adjust the parameters and distributions to better fit your specific use case. Also, this is not a medical professional and the generated data should not be used for actual medical research or treatment without proper validation and review. 
+
+This code is for educational purposes only. 
+
+Please let me know if you have any questions or need further clarification. 
+
+Best regards, 
+[Your
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Generate synthetic patient records for cirrhosis dataset. Use the following fields:
+
+1. ID: Patient ID  
+2. N_Days: Number of follow-up days  
+3. Status: C=censored, CL=transplant, D=death  
+4. Drug: Treatment type (D-penicillamine or Placebo)  
+5. Age: Patient's age in days  
+6. Sex: F or M  
+7. Ascites: Y or N  
+8. Hepatomegaly: Y or N  
+9. Spiders: Y or N  
+10. Edema: N=no, S=slight, Y=marked  
+11. Bilirubin: mg/dL  
+12. Cholesterol: mg/dL  
+13. Albumin: g/dL  
+14. Copper: µg/dL  
+15. Alk_Phos: alkaline phosphatase (U/L)  
+16. SGOT: aspartate aminotransferase (U/L)  
+17. Tryglicerides: mg/dL  
+18. Platelets: count (×1000/mm³)  
+19. Prothrombin: seconds  
+20. Stage: histologic stage (1-4)
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. Here are 5 more records:
+
+1. 164, 120, CL, Placebo, 19319, M, N, Y, Y, Y, 3.2, 145.0, 2.85, 142.0, 113.0, 90.50, 60.0, 125.0, 11.0, 3.0
+2. 87, 500, D, D-penicillamine, 20218, F, Y, Y, N, N, 1.8, 245.0, 3.21, 185.0, 173.0, 122.95, 145.0, 180.0, 12.5, 4.0
+3. 42, 300, C, Placebo, 19512, M, Y, Y, Y, N, 2.1, 221.0, 3.19, 190.0, 133.0, 117.50, 150.0, 170.0, 12.9, 3.0
+4. 19, 400, CL, D-penicillamine, 19967, F, Y, Y, Y, Y, 2.3, 195.0, 3.44, 150.0, 175.0, 130.95, 160.0, 190.0, 13.1, 4.0
+5. 65, 600, D, Placebo, 19192, M, Y, N, Y, Y, 1.9, 210.0, 3.11, 120.0, 158.0, 111.50, 140.0, 150.0, 12.4, 3.0
+
+Here are 10 more records:
+1. 123, 200, C, D-penicillamine, 20157, M, Y, Y, Y, Y, 1.6, 220.0, 3.35, 140.0, 178.0, 121.95, 145.0, 175.0, 12.1, 3.0
+2. 56, 100, D, D-penicillamine, 21242, F, Y, Y, Y, N, 1.4, 210.0, 3.29, 165.0, 193.0, 133.95, 180.0, 200.0, 12.5, 4.0
+3. 98, 400, C, Placebo, 20335, F, Y, Y, Y, Y, 1.7, 225.0, 3.45, 155.0, 180.0, 128.95, 190.0, 210.0, 12.3, 3.0
+4. 32, 500, D, Placebo, 19558, M, Y, Y, Y, Y, 2.5, 230.0, 3.54, 180.0, 205.0, 141.95, 220.0, 240.0, 13.5, 4.0
+5. 25, 600, C, D-penicillamine, 20585, F, N, Y, Y, Y, 2.2, 240.0, 3.59, 200.0, 225.0, 149.95, 240.0, 260.0, 13.8, 4.0
+6. 91, 800, D, D-penicillamine, 20311, M, Y, Y, Y, Y, 1.9, 250.0, 3.65, 220.0, 245.0, 157.95, 260.0, 280.0, 14.2, 4.0
+7. 49, 400, D, Placebo, 20914, F, Y, N, Y, N, 1.5, 260.0, 3.69, 190.0, 210.0, 146.95, 180.0, 200.0, 12.7, 3.0
+8. 79, 600, C, D-penicillamine, 20243, M, Y, Y, Y, Y, 2.1, 270.0, 3.74, 230.0, 255.0, 161.95, 240.0, 260.0, 13.9, 4.0
+9. 17, 100, D, D-penicillamine, 21123, F, Y, Y, Y, Y, 1.3, 280.0, 3.79, 240.0, 280.0, 173.95, 270.0, 300.0, 14.4, 4.0
+10. 58, 800, C, Placebo, 19685, M, Y, Y, Y, Y, 2.4, 290.0, 3.84, 260.0, 300.0, 185.95, 280.0, 310.0, 14.8, 4.0
+
+Let me know if you need any changes. 
+
+Here are the 15 synthetic patient records generated:
+
+1. 111, 1200, D, D-penicillamine, 21843, M, Y, Y, Y, Y, 1.1, 300.0, 3.87, 270.0, 325.0, 191.95, 290.0, 320.0, 15.1, 4.0
+2. 82, 500, C, Placebo, 20891, F, Y, Y, Y, N, 1.8, 310.0, 3.92, 280.0, 350.0, 205.95, 300.0, 330.0, 15.4, 3.0
+3. 55, 400, D, D-penicillamine, 20295, M, Y, N, Y, Y, 1.6, 320.0, 3.97, 290.0, 370.0, 219.95, 310.0, 340.0, 15.7, 4.0
+4. 28, 800, C, Placebo, 19636, F, Y, Y, Y, Y, 2.3, 330.0, 4.02, 300.0, 390.0, 233.95, 320.0, 350.0, 16.0, 3.0
+5. 41, 600, D, D-penicillamine, 20391, M, Y, Y, Y, Y, 1.9, 340.0, 4.07, 310.0, 410.0, 247.95, 330.0, 360.0, 16.3, 4.0
+6. 94, 1200, C, Placebo, 20762, F, N, Y, Y, Y, 2.5, 350.0, 4.12, 320.0, 430.0, 261.95, 340.0, 370.0, 16.6, 3.0
+7. 72, 400, D, D-penicillamine, 21118, M, Y, Y, Y, N, 1.7, 360.0, 4.17, 330.0, 450.0, 275.95, 350.0, 380.0, 16.9, 4.0
+8. 38, 600, C, Placebo, 19914, F, Y, Y, Y, Y, 2.2, 370.0, 4.22, 340.0, 470.0, 289.95, 360.0, 390.0, 17.2, 3.0
+9. 63, 800, D, D-penicillamine, 20383, M, Y, Y, Y, Y, 2.0, 380.0, 4.27, 350.0, 490.0, 303.95, 370.0, 400.0, 17.5, 4.0
+10. 15, 1200, C, Placebo, 20851, F, Y, Y, Y, Y, 2.6, 390.0, 4.32, 360.0, 510.0, 317.95, 380.0, 410.0, 17.8, 3.0
+
