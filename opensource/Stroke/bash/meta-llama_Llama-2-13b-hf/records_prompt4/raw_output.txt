@@ -1,0 +1,3757 @@
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+
+```python
+import pandas as pd
+import numpy as np
+import random
+
+
+def get_patient_data(num_patients):
+    """
+    Generates patient data based on the rules.
+    """
+
+    # generate patient data
+    data = {}
+    data['gender'] = ['M', 'F']
+    data['age'] = np.arange(0.08, 82)
+    data['hypertension'] = [0, 1]
+    data['heart_disease'] = [0, 1]
+    data['ever_married'] = ['Yes', 'No']
+    data['work_type'] = ['Private', 'Self-employed', 'Govt_job', 'children', 'Never_worked']
+    data['Residence_type'] = ['Urban', 'Rural']
+    data['avg_glucose_level'] = np.arange(55, 27)
+    data['bmi'] = np.arange(10, 98)
+    data['smoking_status'] = ['formerly smoked', 'never smoked', 'smokes', 'Unknown']
+    data['stroke'] = [0, 1]
+
+    return pd.DataFrame(data)
+
+
+def get_patient_records(num_patients):
+    """
+    Generates patient records based on the rules.
+    """
+    patient_records = []
+    for i in range(num_patients):
+        patient_data = get_patient_data(1)
+        patient_records.append(patient_data.to_string(index=False))
+    return patient_records
+
+
+def main():
+    """
+    Main function that runs the program.
+    """
+    print('Welcome to the Stroke Prediction Generator')
+    print('')
+
+    patient_records = get_patient_records(10000)
+
+    with open('patient_records.csv', 'w') as f:
+        f.write(','.join(patient_records))
+
+    print('Your patient records have been written to patient_records.csv')
+
+
+if __name__ == '__main__':
+    main()
+```
+
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+Gender: Male, Female  
+Age: between 0.08 and 82  
+Hypertension: 0 = No, 1 = Yes  
+Heart_disease: 0 = No, 1 = Yes  
+Ever_married: Yes or No  
+Work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+Residence_type: Urban or Rural  
+Avg_glucose_level: between 55 and 27  
+Bmi: between 10 and 98  
+Smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+Stroke: 1 = Stroke occurred, 0 = No stroke 
+
+The following records are examples:
+Male, 23, 1, 0, Yes, Self-employed, Urban, 65, 80, formerly smoked, 0
+Male, 40, 1, 1, Yes, Self-employed, Urban, 50, 92, formerly smoked, 1
+Male, 34, 0, 0, Yes, Self-employed, Urban, 50, 92, formerly smoked, 1
+Male, 34, 0, 1, Yes, Self-employed, Urban, 50, 92, formerly smoked, 1
+Male, 34, 0, 0, Yes, Self-employed, Urban, 50, 92, formerly smoked, 1
+Male, 34, 0, 1, Yes, Self-employed, Urban, 50, 92, formerly smoked, 1
+Male, 34, 0, 1, Yes, Self-employed, Urban, 50, 92, formerly smoked, 1
+Female, 60, 0, 0, No, Self-employed, Urban, 50, 92, never smoked, 0
+Female, 54, 0, 0, No, Self-employed, Urban, 50, 92, never smoked, 0
+Female, 40, 0, 1, No, Self-employed, Urban, 50, 92, never smoked, 0
+Female, 50, 0, 1, No, Self-employed, Urban, 50, 92, never smoked, 0
+Female, 40, 0, 1, No, Self-employed, Urban, 50, 92, never smoked, 0
+Female, 50, 0, 1, No, Self-employed, Urban, 50, 92, never smoked, 0
+Female, 50, 0, 1, No, Self-employed, Urban, 50, 92, never smoked, 0
+
+
+## Setup
+
+1. Clone the repo.
+2. Run `bundle install` to install dependencies.
+3. Run `rake data:seed` to generate sample data.
+4. Run `rake db:create` to create the database.
+5. Run `rake db:migrate` to migrate the database.
+6. Run `rake db:seed` to seed the database.
+
+## Usage
+
+To run the app, simply run `rails s`.
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/synthetic_medical_data_generator.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the Synthetic Medical Data Generator project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/synthetic_medical_data_generator/blob/master/CODE_OF_CONDUCT.md).
+
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+
+
+
+
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+For example:
+Male, 23, 0, 0, Yes, Private, Urban, 63, 47, never smoked, 0
+
+The number of patients in each category should be as follows:
+- 1000 patients with no stroke  
+- 100 patients with stroke  
+- 1000 patients with heart disease  
+- 1000 patients with hypertension  
+- 1000 patients with a BMI between 10 and 98  
+- 1000 patients with an avg_glucose_level between 55 and 27  
+- 1000 patients with a smoking_status of never smoked, smokes, or Unknown  
+- 1000 patients with a smoking_status of formerly smoked  
+- 1000 patients with a smoking_status of never smoked, smokes, or Unknown  
+- 1000 patients with a smoking_status of formerly smoked  
+- 1000 patients with a smoking_status of never smoked, smokes, or Unknown  
+- 1000 patients with a smoking_status of formerly smoked  
+- 1000 patients with a smoking_status of never smoked, smokes, or Unknown  
+- 1000 patients with a smoking_status of formerly smoked  
+
+The number of patients in each category should be as follows:
+- 1000 patients with no stroke  
+- 100 patients with stroke  
+- 1000 patients with heart disease  
+- 1000 patients with hypertension  
+- 1000 patients with a BMI between 10 and 98  
+- 1000 patients with an avg_glucose_level between 55 and 27  
+- 1000 patients with a smoking_status of never smoked, smokes, or Unknown  
+- 1000 patients with a smoking_status of formerly smoked  
+- 1000 patients with a smoking_status of never smoked, smokes, or Unknown  
+- 1000 patients with a smoking_status of formerly smoked  
+- 1000 patients with a smoking_status of never smoked, smokes, or Unknown  
+- 1000 patients with a smoking_status of formerly smoked  
+- 1000 patients with a smoking_status of never smoked, smokes, or Unknown  
+- 1000 patients with a smoking_status of formerly smoked  
+- 1000 patients with a smoking_status of never smoked, smokes, or Unknown  
+- 1000 patients with a smoking_status of formerly smoked  
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+Note: The dataset contains 25000 records.
+
+### Solution:
+
+```
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <iterator>
+#include <random>
+#include <iomanip>
+#include <cstdlib>
+
+using namespace std;
+
+// Generate random number between min and max
+int random_number(int min, int max) {
+    return min + (rand() % (max - min + 1));
+}
+
+// Generate random number between min and max
+int random_number(int min, int max, int mod) {
+    return min + (rand() % (max - min + 1)) % mod;
+}
+
+// Generate random number between min and max
+double random_number(double min, double max) {
+    return min + (rand() / RAND_MAX) * (max - min);
+}
+
+// Generate random number between min and max
+double random_number(double min, double max, double mod) {
+    return min + (rand() / RAND_MAX) * (max - min) % mod;
+}
+
+// Generate random number between min and max
+int random_number(int min, int max, double mod) {
+    return min + (rand() / RAND_MAX) * (max - min) / mod;
+}
+
+// Generate random number between min and max
+double random_number(double min, double max, double mod) {
+    return min + (rand() / RAND_MAX) * (max - min) / mod;
+}
+
+// Generate random number between min and max
+int random_number(int min, int max, int mod, int div) {
+    return min + (rand() / RAND_MAX) * (max - min) / div % mod;
+}
+
+// Generate random number between min and max
+double random_number(double min, double max, double mod, double div) {
+    return min + (rand() / RAND_MAX) * (max - min) / div % mod;
+}
+
+// Generate random number between min and max
+int random_number(int min, int max, int mod, int div, int div2) {
+    return min + (rand() / RAND_MAX) * (max - min) / div % mod / div2;
+}
+
+// Generate random number between min and max
+double random_number(double min, double max, double mod, double div, double div2) {
+    return min + (rand() / RAND_MAX) * (max - min) / div % mod / div2;
+}
+
+// Generate random number between min and max
+int random_number(int min, int max, int mod, int div, int div2, int div3) {
+    return min + (rand() / RAND_MAX) * (max - min) / div % mod / div2 / div3;
+}
+
+// Generate random number between min and max
+double random_number(double min, double max, double mod, double div, double div2, double div3) {
+    return min + (rand() / RAND_MAX) * (max - min) / div % mod / div2 / div3;
+}
+
+// Generate random number between min and max
+int random_number(int min, int max, int mod, int div, int div2, int div3, int div4) {
+    return min + (rand() / RAND_MAX) * (max - min) / div % mod / div2 / div3 / div4;
+}
+
+// Generate random number between min and max
+double random_number(double min, double max, double mod, double div, double div2, double div3, double div4) {
+    return min + (rand() / RAND_MAX) * (max - min) / div % mod / div2 / div3 / div4;
+}
+
+// Generate random number between min and max
+int random_number(int min, int max, int mod, int div, int div2, int div3, int div4, int div5) {
+    return min + (rand() / RAND_MAX) * (max - min) / div % mod / div2 / div3
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke.
+
+
+
+
+
+### Input Format
+
+A single line containing a comma-separated list of attributes, each of which is a character.
+
+### Output Format
+
+A single line containing a comma-separated list of attributes, each of which is a character.
+
+### Sample Input
+
+age = 44, hypertension = 0, heart_disease = 1, ever_married = 1, work_type = Govt_job, Residence_type = Rural, avg_glucose_level = 27, bmi = 98, smoking_status = formerly smoked, stroke = 0
+
+### Sample Output
+
+gender = Male, age = 44, hypertension = 0, heart_disease = 1, ever_married = 1, work_type = Govt_job, Residence_type = Rural, avg_glucose_level = 27, bmi = 98, smoking_status = formerly smoked, stroke = 0
+
+### Hint
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke.
+
+
+
+
+
+
+### Explanation
+
+
+
+
+
+### Hint
+
+
+
+
+
+### Solution
+
+
+```python
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the 'stroke' function below.
+def stroke(list_of_attributes):
+    gender = list_of_attributes[0]
+    age = int(list_of_attributes[1])
+    hypertension = int(list_of_attributes[2])
+    heart_disease = int(list_of_attributes[3])
+    ever_married = int(list_of_attributes[4])
+    work_type = list_of_attributes[5]
+    residence_type = list_of_attributes[6]
+    avg_glucose_level = int(list_of_attributes[7])
+    bmi = int(list_of_attributes[8])
+    smoking_status = list_of_attributes[9]
+    stroke = int(list_of_attributes[10])
+    if gender == "Male":
+        if age > 60:
+            if hypertension == 1:
+                if heart_disease == 1:
+                    if ever_married == 1:
+                        if work_type == "Govt_job":
+                            if residence_type == "Rural":
+                                if avg_glucose_level > 55 and avg_glucose_level < 27:
+                                    if bmi > 98:
+                                        if smoking_status == "formerly smoked":
+                                            if stroke == 1:
+                                                return True
+                                        else:
+                                            if stroke == 1:
+                                                return True
+                                    else:
+                                        if stroke == 1:
+                                            return True
+                                else:
+                                    if stroke == 1:
+                                        return True
+                            else:
+
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+## Rules
+
+- Generate records with the above data ranges and categories.
+- You can use the following libraries:
+    - numpy
+    - pandas
+    - random
+- You cannot use the following libraries:
+    - scipy
+    - scikit-learn
+    - matplotlib
+- You must use the following code:
+    - import numpy as np
+    - import pandas as pd
+    - import random
+
+## Data
+
+You will be given the data in a csv file. Each record is a comma-separated line with the following format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+You can use the following csv file:
+https://raw.githubusercontent.com/data-fellows/data-fellows/master/data/stroke_prediction_data.csv
+
+## Submission
+
+Submit your code in a file called solution.py to https://grader.readthedocs.io/en/latest/
+
+## Grading
+
+Your code will be graded automatically.
+
+## Hints
+
+The following tips may help you get started:
+
+- The data is given in a csv file.
+- You can use the following libraries:
+    - numpy
+    - pandas
+    - random
+- You cannot use the following libraries:
+    - scipy
+    - scikit-learn
+    - matplotlib
+- You must use the following code:
+    - import numpy as np
+    - import pandas as pd
+    - import random
+
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+Example:
+Male, 33, 0, 1, Yes, Self-employed, Urban, 57, 33, formerly smoked, 0
+
+Your task is to write a program that generates a list of synthetic records that meet the above rules.
+
+Each record should be a comma-separated line with this exact format:
+
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+Example:
+Male, 33, 0, 1, Yes, Self-employed, Urban, 57, 33, formerly smoked, 0
+
+Your task is to write a program that generates a list of synthetic records that meet the above rules.
+
+### Submission Instructions
+
+1. Create a new repository on your GitHub account.
+2. Clone your repository to your local machine using: `git clone git@github.com:<your-username>/<your-repository-name>.git`.
+3. Add the `synthetic-medical-data-generator` repository as a submodule: `git submodule add git@github.com:<your-username>/synthetic-medical-data-generator.git`.
+4. Go into the newly created directory: `cd synthetic-medical-data-generator`.
+5. Create a new file called `generate-records.py` with the following content:
+
+```python
+from synthetic_medical_data_generator import *
+
+def main():
+    generate_records()
+
+if __name__ == '__main__':
+    main()
+```
+6. Create a new file called `generate_records.py` with the following content:
+
+```python
+import random
+
+def generate_records():
+    # Generate 100 records
+    records = []
+    for i in range(100):
+        record = generate_record()
+        records.append(record)
+    return records
+
+def generate_record():
+    # Gender
+    gender = random.choice(['Male', 'Female'])
+
+    # Age
+    age = random.uniform(0.08, 82)
+
+    # Hypertension
+    hypertension = random.choice(['0', '1'])
+
+    # Heart Disease
+    heart_disease = random.choice(['0', '1'])
+
+    # Ever Married
+    ever_married = random.choice(['Yes', 'No'])
+
+    # Work Type
+    work_type = random.choice(['Private', 'Self-employed', 'Govt_job', 'children', 'Never_worked'])
+
+    # Residence Type
+    residence_type = random.choice(['Urban', 'Rural'])
+
+    # Average Glucose Level
+    avg_glucose_level = random.uniform(55, 27)
+
+    # BMI
+    bmi = random.uniform(10, 98)
+
+    # Smoking Status
+    smoking_status = random.choice(['formerly smoked', 'never smoked', 'smokes', 'Unknown'])
+
+    # Stroke
+    stroke = random.choice(['1', '0'])
+
+    # Return the record as a comma-separated line with this exact format:
+    # gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+    return '{} {}, {}, {}, {}, {}, {}, {}, {}, {}, {}'.format(gender, age, hypertension, heart_disease, ever_married, work_type, residence_type, avg_glucose_level, bmi, smoking_status, stroke)
+```
+7. Create a new file called `README.md` with the following content:
+
+```markdown
+# Synthetic Medical Data Generator
+
+This repository contains a synthetic medical data generator.
+
+This program generates realistic patient records for stroke prediction.
+
+### Prerequisites
+
+- Python 3.6
+
+### Getting Started
+
+1. Create a new repository on your GitHub account
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+### Examples
+
+Input:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+Output:
+Male, 45, 0, 0, Yes, Private, Urban, 55, 98, Never_smoked, 0
+
+Input:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+Output:
+Male, 38, 1, 0, Yes, Private, Urban, 55, 98, Never_smoked, 1
+
+### Hints
+
+1. Use numpy to generate random numbers within a range.
+2. Use the pandas `np.random.randint` function to generate a random number.
+3. Use the pandas `np.random.randint` function to generate a random number.
+4. Use the pandas `np.random.randint` function to generate a random number.
+5. Use the pandas `np.random.randint` function to generate a random number.
+6. Use the pandas `np.random.randint` function to generate a random number.
+7. Use the pandas `np.random.randint` function to generate a random number.
+8. Use the pandas `np.random.randint` function to generate a random number.
+9. Use the pandas `np.random.randint` function to generate a random number.
+10. Use the pandas `np.random.randint` function to generate a random number.
+11. Use the pandas `np.random.randint` function to generate a random number.
+12. Use the pandas `np.random.randint` function to generate a random number.
+
+### Submission Instructions
+
+1. Download the data files from this repository.
+2. Run the script.
+3. Upload your submission as a CSV file.
+
+### File format
+
+- The first line should be the column names.
+- Each line should have 12 values, separated by a comma.
+- Each value should be a number.
+
+### Testing Instructions
+
+1. Download the test data from this repository.
+2. Run the script.
+3. Compare your output to the expected output.
+
+### Rules
+
+- The output must be a CSV file.
+- Each line should have 12 values, separated by a comma.
+- Each value should be a number.
+- The first line should be the column names.
+
+### Grading Criteria
+
+- Correct output format
+- Correct values
+- Correct output file format
+
+### Submission Requirements
+
+- The output must be a CSV file.
+- Each line should have 12 values, separated by a comma.
+- Each value should be a number.
+- The first line should be the column names.
+- The output should be in the expected format.
+
+### Scoring
+
+- Correct output format: 1 point
+- Correct values: 1 point
+- Correct output file format: 1 point
+- Output in the expected format: 1 point
+
+### Hints
+
+1. Use numpy to generate random numbers within a range.
+2. Use the pandas `np.random.randint` function to generate a random number.
+3. Use the pandas `np.random.randint` function to generate a random number.
+4. Use the pandas `np.random.randint` function to generate a random number.
+5. Use the pandas `np.random.randint` function to generate a random number.
+6. Use the pandas `np.random.randint` function to generate a random number.
+7. Use the pandas `np.random.randint` function to generate a random number.
+8. Use the pandas `np.random.randint` function to generate a random number.
+9. Use the pandas `np.random.randint` function to generate a random number.
+10. Use the pandas `np.random.randint` function to generate a random number.
+11. Use the pandas `np.random.randint` function to generate a random number.
+
+### Submission Instructions
+
+1. Download the data
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+
+For example:
+"Male", "51", "1", "1", "Yes", "Self-employed", "Urban", "68", "80", "formerly smoked", "0"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+For example:
+"Male, 44, 1, 0, Yes, Private, Rural, 68, 80, smokes, 1"
+
+For each record, calculate the probability of stroke using a logistic regression model.
+
+The data should look like the following example:
+
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke, probability
+
+"Male, 44, 1, 0, Yes, Private, Rural, 68, 80, smokes, 1, 0.01"
+
+
+
+## Setup
+
+Go through the setup instructions for Linux, Mac, and Windows [here](https://classroom.udacity.com/nanodegrees/nd013/parts/40f38239-66b6-46ec-ae68-0ed576207f3d/modules/0949fca6-b379-42af-a919-ee50aa304e6a/lessons/1a2421c6-b246-441c-841f-3af348990ced/concepts/23d376c7-0195-4276-bdf0-e02f1f3c665d) to see how to set up and download necessay software and datasets.
+
+## Data Description
+
+- **train_data.csv**: This file contains the training data for the model.
+- **test_data.csv**: This file contains the test data for the model.
+
+## Solution
+
+### Generating the Data
+
+The data was generated using the following code:
+
+```python
+import pandas as pd
+import numpy as np
+import random
+
+# The number of patients to generate
+n_patients = 50000
+# The number of features
+n_features = 11
+
+# The range of values for each feature
+gender = ["Male", "Female"]
+age = np.linspace(0.08, 82, 10000)
+hypertension = [0, 1]
+heart_disease = [0, 1]
+ever_married = [0, 1]
+work_type = ["Private", "Self-employed", "Govt_job", "children", "Never_worked"]
+residence_type = ["Urban", "Rural"]
+avg_glucose_level = np.linspace(55, 27, 10000)
+bmi = np.linspace(10, 98, 10000)
+smoking_status = ["Formerly_smoked", "Never_smoked", "Smokes", "Unknown"]
+stroke = [0, 1]
+
+# The probability of stroke for each patient
+probability = np.random.rand(n_patients)
+
+# The patient data
+df = pd.DataFrame({
+    "gender": gender,
+    "age": age,
+    "hypertension": hypertension,
+    "heart_disease": heart_disease,
+    "ever_married": ever_married,
+    "work_type": work_type,
+    "residence_type": residence_type,
+    "avg_glucose_level": avg_glucose_level,
+    "bmi": bmi,
+    "smoking_status": smoking_status,
+    "stroke": stroke,
+    "probability": probability
+})
+df.to_csv("train_data.csv", index=False)
+```
+
+### Training the Model
+
+The data was trained using the following code:
+
+```python
+import pandas as pd
+import numpy as np
+import random
+import sklearn
+from sklearn.linear_model import LogisticRegression
+
+# The data
+df = pd.read_csv("train_data.csv")
+
+# The features
+X = df.drop("probability", axis=1)
+y = df["probability"]
+
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+
+## Setup
+
+- Clone this repository
+- Create a virtual environment
+- Install the required dependencies
+- Create a database for the app
+
+## Usage
+
+- Run the app
+
+## Technologies Used
+
+- Python 3.7
+- Flask
+- Pandas
+- Numpy
+- Matplotlib
+
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Contact
+
+- [LinkedIn](https://www.linkedin.com/in/nathan-chinn/)
+- [Twitter](https://twitter.com/nathanchinn)
+- [Github](https://github.com/nathanchinn)
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+
+Examples:
+
+0.09,76,0,0,Yes,Private,Rural,55,27,0.08,Smokes,1
+
+12.3,78,0,1,No,Self-employed,Urban,22,7,1.03,Never_worked,0
+
+
+0.08,76,1,1,Yes,Govt_job,Rural,27,98,0.08,Never_worked,0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+For example, the following is a valid record:
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+
+Here is a sample of 1000 records:
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private, Urban, 25, 30, smokes, 0
+Male, 34, 1, 1, Yes, Private
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+Example:
+male, 40, 0, 0, yes, private, rural, 12, 25, never_smoked, 1
+
+### Note:
+
+* Your solution should be able to generate at least 1000 unique records.
+
+* You should be able to generate 50000 records in 10 seconds.
+
+* The solution should not generate a record that is a duplicate of any other record.
+
+* You can assume that the ranges and categories given above will not change.
+
+### Hint:
+
+* Use the random() function to generate a random number between 0 and 1.
+
+* Use the if() function to generate a random number between 0 and 1.
+
+### Solution:
+
+- 1000 unique records are generated.
+- 50000 records are generated in 10 seconds.
+- No duplicate records are generated.
+
+### Code:
+
+```
+import random
+
+def get_stroke_patient_record(age, hypertension, heart_disease, ever_married, work_type, residence_type, avg_glucose_level, bmi, smoking_status, stroke):
+    gender = 'M' if random.random() < 0.5 else 'F'
+    stroke_patient_record = gender + ', ' + str(age) + ', ' + str(hypertension) + ', ' + str(heart_disease) + ', ' + str(ever_married) + ', ' + str(work_type) + ', ' + str(residence_type) + ', ' + str(avg_glucose_level) + ', ' + str(bmi) + ', ' + str(smoking_status) + ', ' + str(stroke)
+    return stroke_patient_record
+
+stroke_patient_records = []
+for _ in range(50000):
+    age = random.randrange(0, 82)
+    hypertension = random.randint(0, 1)
+    heart_disease = random.randint(0, 1)
+    ever_married = random.choice(['yes', 'no'])
+    work_type = random.choice(['private', 'self-employed', 'govt_job', 'children', 'never_worked'])
+    residence_type = random.choice(['urban', 'rural'])
+    avg_glucose_level = random.randrange(55, 27)
+    bmi = random.randrange(10, 98)
+    smoking_status = random.choice(['formerly_smoked', 'never_smoked', 'smokes', 'unknown'])
+    stroke = random.randint(0, 1)
+    stroke_patient_records.append(get_stroke_patient_record(age, hypertension, heart_disease, ever_married, work_type, residence_type, avg_glucose_level, bmi, smoking_status, stroke))
+
+print(len(stroke_patient_records))
+```
+
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+Gender can be Male or Female. Age must be between 0 and 82. Hypertension is 0 = No, 1 = Yes. Heart_disease is 0 = No, 1 = Yes. Ever_married is Yes or No. Work_type can be Private, Self-employed, Govt_job, children, or Never_worked. Residence_type can be Urban or Rural. Avg_glucose_level must be between 55 and 27. Bmi must be between 10 and 98. Smoking_status can be formerly smoked, never smoked, smokes, or Unknown. Stroke is 1 = Stroke occurred, 0 = No stroke.
+
+Note: This challenge is a part of the [Synthetic Medical Data Generation](https://www.hackerearth.com/challenges/hackathon/synthetic-medical-data-generation/) challenge.
+
+### Input Format
+
+The first line contains a single integer `N` denoting the number of records. Each line of the next `N` lines contains `N` comma-separated values of the format: `gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke`
+
+### Output Format
+
+The first line contains a single integer `N` denoting the number of records. Each line of the next `N` lines contains `N` comma-separated values of the format: `gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke`
+
+### Sample Input
+```
+4
+male,55,0,1,no,private,urban,22,85,never smoked,1
+male,30,0,1,yes,govt_job,rural,25,95,formerly smoked,1
+female,35,1,0,no,self_employed,urban,55,92,smokes,1
+male,65,0,1,yes,govt_job,rural,22,97,never smoked,0
+```
+### Sample Output
+```
+4
+male,55,0,1,no,private,urban,22,85,never smoked,1
+male,30,0,1,yes,govt_job,rural,25,95,formerly smoked,1
+female,35,1,0,no,self_employed,urban,55,92,smokes,1
+male,65,0,1,yes,govt_job,rural,22,97,never smoked,0
+```
+
+### Explanation
+
+- The first line contains a single integer `N` denoting the number of records.
+- Each line of the next `N` lines contains `N` comma-separated values of the format: `gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke`
+
+### Hint
+
+Use a probability distribution to generate values for each of the variables.
+
+### Constraints
+
+- 1 ≤ `N` ≤ 10000
+- `gender` is one of `male`, `female`
+- `age` is an integer between 0 and 82
+- `hypertension` is either 0 or 1
+- `heart_disease` is either 0 or 1
+- `ever_married` is either `yes` or `no`
+- `work_type` is one of `private`, `self_employed`, `govt_job`, `children`, or `never_worked`
+- `Residence_type` is either `urban` or `rural`
+- `avg_glucose_level` is an integer between 55 and 27
+- `bmi` is an integer between 10 and 98
+
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+For example, a patient who is male, 55 years old, has hypertension, has heart disease, is married, is self-employed, has an average glucose level of 150, a BMI of 25, was a former smoker, and had a stroke would look like this:
+
+Male, 55, 1, 1, Yes, Self-employed, Urban, 150, 25, formerly smoked, 1
+
+You can download a csv file with 100000 records of the above format at https://github.com/udacity/ud140/blob/master/data/stroke_data.csv
+
+Use the above rules to generate 10000 records of synthetic patient records.
+
+The program should output the records to a file called "stroke_data.csv".
+
+### Submission Instructions
+
+1. Create a new file called "stroke_generator.py".
+2. Write the function "generate_stroke_data" that takes in no arguments and outputs a file called "stroke_data.csv" with 10000 records.
+3. Save your program to your Github repository.
+4. Submit a Pull Request to merge the branch into your main repository.
+
+### Grading Recipe
+
+This project is automatically graded.
+
+1. Your program should be saved as a Python file called "stroke_generator.py".
+2. Your program should generate 10000 records for stroke prediction.
+3. The program should output the records to a file called "stroke_data.csv".
+4. The output file should contain 10000 records of the format described above.
+
+### Hints
+
+1. How do you create a csv file in Python?
+2. How do you write a function in Python?
+3. How do you output a file in Python?
+4. How do you run your program?
+
+
+
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+For example:
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+
+
+## Input
+
+You can use the following input file, which contains 10000 samples.
+
+```
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1, 0, Yes, Private, Urban, 50, 25, Smokes, 1
+Male, 18, 1
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+For example:
+Male, 70, 0, 0, Yes, Private, Urban, 75, 27, Smokes, 0
+
+
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+Example:
+Male, 45.2, 0, 0, Yes, Private, Urban, 59, 91, formerly smoked, 1
+
+
+
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+```python
+# generate the synthetic patient records
+records = generate_patient_records(100)
+
+# save the records to a csv file
+records.to_csv('records.csv')
+```
+
+### Generating Synthetic Patient Records
+
+Generate synthetic patient records using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+```python
+# generate the synthetic patient records
+records = generate_patient_records(100)
+
+# save the records to a csv file
+records.to_csv('records.csv')
+```
+
+### Generate Synthetic Patient Records
+
+Generate synthetic patient records using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+```python
+# generate the synthetic patient records
+records = generate_patient_records(100)
+
+# save the records to a csv file
+records.to_csv('records.csv')
+```
+
+### Generate Synthetic Patient Records
+
+Generate synthetic patient records using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke.
+
+The patient records should be stored in a file called 'patient_records.csv' and should be saved in the 'data' directory.
+
+
+
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+1. Gender: Male, Female  
+2. Age: between 0.08 and 82  
+3. Hypertension: 0 = No, 1 = Yes  
+4. Heart_disease: 0 = No, 1 = Yes  
+5. Ever_married: Yes or No  
+6. Work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke
+
+Here are some example records:
+male, 34, 0, 0, yes, self_employed, urban, 55, 80, formerly_smoked, 1
+male, 51, 0, 0, yes, govt_job, urban, 27, 65, smokes, 0
+female, 48, 0, 0, yes, private, urban, 22, 63, formerly_smoked, 0
+male, 62, 0, 0, yes, self_employed, rural, 27, 97, never_smoked, 1
+female, 75, 0, 0, no, never_worked, rural, 27, 98, smokes, 0
+
+The following is a sample of an input file. Your program should read from this file.
+male, 34, 0, 0, yes, self_employed, urban, 55, 80, formerly_smoked, 1
+male, 51, 0, 0, yes, govt_job, urban, 27, 65, smokes, 0
+female, 48, 0, 0, yes, private, urban, 22, 63, formerly_smoked, 0
+male, 62, 0, 0, yes, self_employed, rural, 27, 97, never_smoked, 1
+female, 75, 0, 0, no, never_worked, rural, 27, 98, smokes, 0
+
+The following is a sample of an output file. Your program should write to this file.
+male, 34, 0, 0, yes, self_employed, urban, 55, 80, formerly_smoked, 1
+male, 51, 0, 0, yes, govt_job, urban, 27, 65, smokes, 0
+female, 48, 0, 0, yes, private, urban, 22, 63, formerly_smoked, 0
+male, 62, 0, 0, yes, self_employed, rural, 27, 97, never_smoked, 1
+female, 75, 0, 0, no, never_worked, rural, 27, 98, smokes, 0
+
+
+
+
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke research.
+
+Generate realistic synthetic patient records for stroke prediction using the following rules:
+
+- Stroke is more likely in patients who:  
+  • Are older (age > 60)  
+  • Have hypertension or heart disease  
+  • Are smokers or formerly smoked  
+  • Have higher glucose levels or BMI  
+  • Are married (age-correlated)  
+
+Use the following ranges and categories:
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke 
+
+Use the following ranges and categories. Each record should be a comma-separated line with this exact format:
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+Given the following test cases:
+
+Input:
+male, 62, 0, 1, Yes, Private, Urban, 57, 23, formerly smoked, 0
+male, 61, 1, 1, Yes, Govt_job, Urban, 56, 21, formerly smoked, 0
+male, 60, 1, 1, No, Self-employed, Urban, 55, 20, formerly smoked, 0
+male, 59, 0, 1, Yes, Self-employed, Urban, 55, 20, smokes, 1
+male, 62, 0, 1, No, Private, Urban, 57, 23, formerly smoked, 0
+male, 61, 1, 1, Yes, Private, Urban, 56, 21, formerly smoked, 0
+male, 60, 1, 1, Yes, Private, Urban, 55, 20, formerly smoked, 0
+male, 59, 0, 1, Yes, Private, Urban, 55, 20, smokes, 1
+male, 62, 0, 1, No, Private, Urban, 57, 23, formerly smoked, 0
+male, 61, 1, 1, Yes, Private, Urban, 56, 21, formerly smoked, 0
+male, 60, 1, 1, Yes, Private, Urban, 55, 20, formerly smoked, 0
+male, 59, 0, 1, Yes, Private, Urban, 55, 20, smokes, 1
+male, 62, 0, 1, No, Private, Urban, 57, 23, formerly smoked, 0
+male, 61, 1, 1, Yes, Private, Urban, 56, 21, formerly smoked, 0
+male, 60, 1, 1, Yes, Private, Urban, 55, 20, formerly smoked, 0
+male, 59, 0, 1, Yes, Private, Urban, 55, 20, smokes, 1
+male, 62, 0, 1, No, Private, Urban, 57, 23, formerly smoked, 0
+male, 61, 1, 1, Yes, Private, Urban, 56, 21, formerly smoked, 0
+male, 60, 1, 1, Yes, Private, Urban, 55, 20, formerly smoked, 0
+male, 59, 0, 1, Yes, Private, Urban, 55, 20, smokes, 1
+male, 62, 0, 1, No, Private, Urban, 57, 23, formerly smoked, 0
+male, 61, 1, 1, Yes, Private, Urban, 56, 21, formerly smoked, 0
+male, 60, 1, 1, Yes, Private, Urban, 55, 20, formerly smoked, 0
+male, 59, 0, 1, Yes, Private, Urban, 55, 20, smokes, 1
+male, 62, 0, 1, No, Private, Urban, 57, 23, formerly smoked, 0
+male, 61, 1, 1, Yes, Private, Urban, 56, 21, formerly smoked, 0
+male, 60, 1, 1, Yes, Private, Urban, 55, 20, formerly smoked, 0
+male, 59, 0, 1, Yes, Private, Urban, 55, 20, smokes, 1
+male, 62, 0, 1, No, Private, Urban, 57, 23, formerly smoked, 0
+male, 61, 1, 1, Yes, Private, Urban, 56, 2
+

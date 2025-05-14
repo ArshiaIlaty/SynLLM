@@ -26,6 +26,8 @@ NUM_RECORDS = 100
 # Chat style mappings
 MODELS=(
   "openai-community/gpt2"
+  "openai-community/gpt2-medium"
+  "openai-community/gpt2-large"
   "mistralai/Mistral-7B-Instruct-v0.2"
   "mistralai/Mixtral-8x7B-Instruct-v0.1"
   "meta-llama/Llama-2-7b-chat-hf"
@@ -42,6 +44,17 @@ MODELS=(
   "mosaicml/mpt-7b-instruct"
   "openchat/openchat_3.5"
   "TheBloke/openchat_3.5-GPTQ"
+  "lmsys/vicuna-13b-v1.5"
+  "Expert68/llama2_13b_instructed_version2"
+  # "meta-llama/Llama-2-70b-chat-hf"
+  "meta-llama/Llama-2-13b"
+  "meta-llama/Llama-2-13b-hf"
+  "meta-llama/Llama-2-13b-chat"
+  "meta-llama/Llama-2-13b-chat-hf"
+  "meta-llama/Llama-4-Maverick-17B-128E-Instruct"
+  "meta-llama/Meta-Llama-3-8B"
+  "NousResearch/Nous-Hermes-2-Mistral-7B-DPO"
+  # "Xenova/gpt-3.5-turbo-16k"
 )
 
 CHAT_STYLE_MODELS = {
@@ -242,9 +255,10 @@ def main():
         config = AutoConfig.from_pretrained(model_name, trust_remote_code=True)
         
         if "llama" in model_name.lower() and hasattr(config, "rope_scaling"):
+            current_scaling = config.rope_scaling or {}
             config.rope_scaling = {
                 "name": "dynamic",
-                "factor": config.rope_scaling.get("factor", 8.0)
+                "factor": current_scaling.get("factor", 8.0)
             }
 
         model = AutoModelForCausalLM.from_pretrained(

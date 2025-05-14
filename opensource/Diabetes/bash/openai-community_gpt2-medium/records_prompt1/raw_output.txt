@@ -1,0 +1,186 @@
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,9.0,0,0,1,27.55,5.5,150,0
+Male,0.0,0,0,0,29.13,4.0,150,0
+Male,1.0,0,0,1,27.51,5.5,160,0
+Male,0.0,0,0,0,29.12,4.0,150,0
+Male,1.0,0,0,1,27.50,5.5,160,0
+Male,0.0,0,0,0,29.12,4.0,150,0
+Male,0.0,0,0,0,29.11,4.0,150,0
+Male,1.0,0,0,1,27.49,5.5,160,0
+Female,38.9,0,0,1,never,28.5,6.2,140,0
+Female,38.9,0,0,1,former,32.1,7.1,185,1
+Female,38.9,0,0,1,current,24.3,5.8,130,0
+Female,38.9,0,0,1,never,25.77,4.0,145,0
+Female,38.9,0,0,1,current,25.77,4.0,145,0
+Female,38.9,0,0,1,1,27.51,5.5,160,0
+Male,58.0,0,0,0,never,25.77,4.0,150,0
+Male,9.0,0,0,1,27.51,5.5,160,0
+Male,0.0,0,0,0,29.13,4.0,150,0
+Male,1.0,0,0,1,27.51,5.5,160,0
+Male,1.0,0,0,1,27.51,5.5,160,0
+Female,38.9,0,0,1,never,28.5,6.2,140,0
+Female,38.9,0,0,1,former,32.1,7.1,185,1
+Female,38.9,0,0,1,current,24.3,5.8,130,0
+Female,38.9,0,0,1,1,27.51,5.5,160,0
+Male,58.0,0,0,0,never,25.77,4.0,150,0
+Male,9.0,0,0,1,27.51,5.5,
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,35.5,0,0,Current Info,30.72,5.8,150,0
+Female,22.0,1,0,never,28.5,6.2,140,0
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,1,0,former,32.1,7.1,185,1
+Female,18.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,35.5,0,0,Current Info,30.72,5.8,150,0
+Female,22.0,1,0,never,28.5,6.2,140,0
+Male,38.9,0,0,current,24.3,5.8,130,0
+Male,18.0,1,0,former,32.1,7.1,185,1
+Male,19.0,0,0,No Info,27.59,6.6,100,0
+Male,35.5,0,0,Current Info,30.72,5.8,150,0
+Male,18.0,1,0,former,32.1,7.1,185,1
+Male,19.0,1,0,former,32.1,7.1,185,1
+Female,37.1,0,0,former,36.53,5.8,160,0
+Female,42.0,0,0,current,29.72,5.8,170,0
+Male,49.1,0,0,never,31.42,4.0,170,0
+Male,55.0,0,0,former,31.42,4.0,170,0
+Female,38.9,0,0,current,26.73,4.0,150,0
+Female,39.1,0,0,former,29.72,4.0,150,0
+Male,56.0,0,0,current,29.72,4.0,150,0
+Male,42.0,1,0,never,28.5,6.2,140,0
+Male,54.0,1,0,former,28.5,6.2,140,0
+Female,44.0,0,0,current,28.5,6.2,150,0
+Female,45.1,0,0,former,28.5
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,18.5,0,0,current,24.55,5.0,140,0
+Male,6.5,0,0,never,23.53,4.0,100,0
+Male,5.5,0,0,current,24.33,4.0,120,0
+Male,4.5,0,0,never,23.29,4.0,150,0
+Male,4.5,0,0,current,22.55,4.0,120,0
+Male,4.0,0,0,never,22.17,4.0,150,0
+Male,4.0,0,0,current,21.67,4.0,140,0
+Female,3.7,0,0,never,20.69,4.0,150,0
+Male,3.7,0,0,current,20.33,4.0,150,0
+Male,3.7,0,0,never,19.85,4.0,150,0
+Male,3.7,0,0,current,19.42,4.0,140,0
+Female,3.4,0,0,never,18.50,4.0,150,0
+Male,3.4,0,0,current,17.45,4.0,150,0
+Female,3.4,0,0,never,17.40,4.0,150,0
+Male,3.4,0,0,current,17.35,4.0,150,0
+Male,3.4,0,0,never,17.28,4.0,150,0
+Female,3.2,0,0,never,16.80,4.0,150,0
+Male,3.2,0,0,current,16.60,4.0,140,0
+Male,3.2,0,0,no info,16.55,4.0,150,0
+Male,3.2,0,0,current,16.51,4.0,150,0
+Male,3.2,0,0,never,16.46,4.0,150,0
+Male,3.2,0,0,current,16.38,4.0,150,0
+Male,3.2,0,0,no info,16.34,4.0,150,0
+Male,3.2,0,0,no info,15.95,4.0,150,0
+Male,3.1,0,0,never,15.70,4.0,150,0
+Male,3.1,0,0,current,15.65,4
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,13.0,0,0,current,26.35,5.3,140,0
+Male,10.0,0,0,No Info,26.20,6.5,100,0
+Male,9.0,0,0,No Info,25.68,5.3,150,0
+Male,9.0,0,0,No Info,25.50,5.3,150,0
+Female,8.9,0,0,never,24.32,5.3,140,0
+Female,8.8,0,0,former,23.82,5.2,150,0
+Female,8.7,0,0,no info,23.61,5.1,100,0
+Male,8.6,0,0,No Info,22.58,5.1,100,0
+Male,8.5,0,0,No Info,21.40,5.1,100,0
+Female,8.3,0,0,no info,21.37,5.1,150,0
+Female,8.3,0,0,no info,21.36,5.1,150,0
+Male,8.2,0,0,No Info,20.69,5.1,100,0
+Female,8.1,0,0,No Info,20.55,5.1,100,0
+Male,8.1,0,0,No Info,20.42,5.1,150,0
+Male,8.0,0,0,No Info,19.90,5.1,150,0
+Female,8.0,0,0,no info,19.77,5.1,150,0
+Male,7.8,0,0,no info,19.61,5.1,150,0
+Female,7.8,0,0,No Info,19.58,5.1,150,0
+Female,7.7,0,0,no info,19.54,5.1,150,0
+Female,7.7,0,0,No Info,19.51,5.1,150,0
+Male,7.6,0,0,No Info,19.49,5.1,150,0
+Male,7.6,0,0,No Info,19.48,5.1,150,0
+Male,7.5,0,0,No Info,19.46,5.1,150,0
+Female,7.5,0,0,No Info,19.43,5.1,150,0
+Male,7.4,0,0,No Info,19.40,5.1,150,
+

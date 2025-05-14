@@ -26,6 +26,8 @@ NUM_RECORDS = 100
 # Chat style mappings
 MODELS=(
   "openai-community/gpt2"
+  "openai-community/gpt2-medium"
+  "openai-community/gpt2-large"
   "mistralai/Mistral-7B-Instruct-v0.2"
   # "mistralai/Mixtral-8x7B-Instruct-v0.1"
   "meta-llama/Llama-2-7b-chat-hf"
@@ -33,15 +35,22 @@ MODELS=(
   "google/gemma-7b-it"
   "01-ai/Yi-6B-Chat"
   "HuggingFaceH4/zephyr-7b-beta"
-  "Qwen/Qwen-7B-Chat"
+  #"Qwen/Qwen-7B-Chat"
   "Qwen/Qwen2-7B-Instruct"
   "internlm/internlm2_5-7b-chat"
   "stabilityai/StableBeluga-7B"
   "openchat/openchat-3.5-0106"
   "NousResearch/Nous-Hermes-2-Yi-34B"
-  "mosaicml/mpt-7b-instruct"
+  #"mosaicml/mpt-7b-instruct"
   "openchat/openchat_3.5"
   "TheBloke/openchat_3.5-GPTQ"
+  # "meta-llama/Llama-2-13b"
+  "meta-llama/Llama-2-13b-hf"
+  "meta-llama/Llama-2-13b-chat"
+  "meta-llama/Llama-2-13b-chat-hf"
+  "meta-llama/Llama-4-Maverick-17B-128E-Instruct"
+  "meta-llama/Meta-Llama-3-8B"
+  "NousResearch/Nous-Hermes-2-Mistral-7B-DPO"
 )
 
 CHAT_STYLE_MODELS = {
@@ -85,8 +94,8 @@ def build_prompt(model_name, system_prompt, user_prompt, tokenizer):
         return tokenizer(f"<s>[INST] {system_prompt}\n{user_prompt} [/INST]", return_tensors="pt")
     elif style == "chatml":
         messages = [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}]
-        prompt_str = tokenizer.apply_chat_template(messages, tokenize=False)
-        return tokenizer(prompt_str, return_tensors="pt")
+        prompt_str = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        return tokenizer(prompt_str, return_tensors="pt", padding=True, truncation=True)
     elif style == "openai":
         messages = [{"role": "user", "content": f"{system_prompt}\n\n{user_prompt}"}]
         prompt_str = tokenizer.apply_chat_template(messages, tokenize=False)
@@ -364,26 +373,15 @@ def main():
         needed = min(batch_size, NUM_RECORDS - len(all_records))
         print(f"Generating batch of {needed} records... ({len(all_records)}/{NUM_RECORDS} total)")
 
-        if torch.cuda.is_available(): torch.cuda.empty_cache()
+        torch.cuda.empty_cache()
         gc.collect()
 
         chat_input = build_prompt(model_name, SYSTEM_PROMPT, user_prompt, tokenizer).to(DEVICE)
 
-
-        # Add this to your batch processing logic
-        if chat_input["input_ids"].max() >= tokenizer.vocab_size:
-            print(f"Warning: input_ids contains invalid token IDs >= {tokenizer.vocab_size}")
-            # Fix by clamping values
-            chat_input["input_ids"] = torch.clamp(chat_input["input_ids"], 0, tokenizer.vocab_size-1)
-        
         try:
-            # Safe token limit based on model type and prompt complexity
-            if model_name.lower() == "gpt2":
-                max_tokens = 100  # GPT-2 has a 1024-token context limit
-            elif "prompt4" in prompt_name.lower():
-                max_tokens = 800  # Prompt 4 is large — lower to avoid OOM
-            else:
-                max_tokens = 2000
+            max_context = tokenizer.model_max_length
+            max_tokens = min(1000, max_context - chat_input["input_ids"].shape[-1] - 10)
+
             outputs = model.generate(
                 input_ids=chat_input["input_ids"],
                 attention_mask=chat_input.get("attention_mask"),
@@ -392,11 +390,10 @@ def main():
                 temperature=0.7,
                 top_p=0.9,
                 pad_token_id=tokenizer.eos_token_id,
+                eos_token_id=tokenizer.eos_token_id
             )
-            generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-            if "gender" in generated_text.lower() and "age" in generated_text.lower():
-                print("[DEBUG] Model likely returned schema, not data.")
+            generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
             with open(output_dir / "raw_output.txt", "a") as f:
                 f.write(generated_text + "\n\n")
@@ -405,14 +402,72 @@ def main():
             print(f"Found {len(new_records)} valid records in this batch")
             all_records.extend(new_records)
             time.sleep(2)
+
         except Exception as e:
             log_generation_error(model_name, prompt_name, e)
+            print(f"⚠️ Error during generation: {e}")
             continue
 
     end_time = time.time()
     log_system_metrics(model_name, prompt_name, start_time, end_time)
 
     all_records = all_records[:NUM_RECORDS]
+    
+    # print("Starting generation...")
+
+    # while len(all_records) < NUM_RECORDS:
+    #     needed = min(batch_size, NUM_RECORDS - len(all_records))
+    #     print(f"Generating batch of {needed} records... ({len(all_records)}/{NUM_RECORDS} total)")
+
+    #     if torch.cuda.is_available(): torch.cuda.empty_cache()
+    #     gc.collect()
+
+    #     chat_input = build_prompt(model_name, SYSTEM_PROMPT, user_prompt, tokenizer)
+        
+    #     # Clamp BEFORE sending to GPU
+    #     if chat_input["input_ids"].max() >= tokenizer.vocab_size:
+    #         print(f"Warning: input_ids contains invalid token IDs >= {tokenizer.vocab_size}")
+    #         chat_input["input_ids"] = torch.clamp(chat_input["input_ids"], 0, tokenizer.vocab_size - 1)
+        
+    #     chat_input = chat_input.to(DEVICE)
+        
+    #     try:
+    #         # Safe token limit based on model type and prompt complexity
+    #         if model_name.lower() == "gpt2":
+    #             max_tokens = 100  # GPT-2 has a 1024-token context limit
+    #         elif "prompt4" in prompt_name.lower():
+    #             max_tokens = 800  # Prompt 4 is large — lower to avoid OOM
+    #         else:
+    #             max_tokens = 2000
+    #         outputs = model.generate(
+    #             input_ids=chat_input["input_ids"],
+    #             attention_mask=chat_input.get("attention_mask"),
+    #             max_new_tokens=max_tokens,
+    #             do_sample=True,
+    #             temperature=0.7,
+    #             top_p=0.9,
+    #             pad_token_id=tokenizer.eos_token_id,
+    #         )
+    #         generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+    #         if "gender" in generated_text.lower() and "age" in generated_text.lower():
+    #             print("[DEBUG] Model likely returned schema, not data.")
+
+    #         with open(output_dir / "raw_output.txt", "a") as f:
+    #             f.write(generated_text + "\n\n")
+
+    #         new_records = extract_records(generated_text)
+    #         print(f"Found {len(new_records)} valid records in this batch")
+    #         all_records.extend(new_records)
+    #         time.sleep(2)
+    #     except Exception as e:
+    #         log_generation_error(model_name, prompt_name, e)
+    #         continue
+
+    # end_time = time.time()
+    # log_system_metrics(model_name, prompt_name, start_time, end_time)
+
+    # all_records = all_records[:NUM_RECORDS]
 
     if all_records:
         # Define columns based on stroke dataset

@@ -1,0 +1,742 @@
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+
+## How to use
+
+This is a synthetic data generator. You can generate realistic patient records for diabetes prediction.
+
+### Generate
+
+```python
+from diabetes_data import generate
+
+# Generate 100000 records
+generate(100000)
+
+# Generate 1000 records
+generate(1000)
+
+# Generate 1000 records with random seed 123
+generate(1000, seed=123)
+```
+
+### Display
+
+```python
+from diabetes_data import display
+
+# Display all 100000 records
+display(100000)
+
+# Display the first 10 records
+display(10)
+
+# Display the first 10 records with random seed 123
+display(10, seed=123)
+```
+
+### Save
+
+```python
+from diabetes_data import save
+
+# Save 1000 records in 'diabetes_data.csv'
+save(1000, 'diabetes_data.csv')
+
+# Save 1000 records in 'diabetes_data_1.csv'
+save(1000, 'diabetes_data_1.csv', seed=123)
+```
+
+### Load
+
+```python
+from diabetes_data import load
+
+# Load 1000 records from 'diabetes_data.csv'
+load(1000, 'diabetes_data.csv')
+
+# Load 1000 records from 'diabetes_data_1.csv'
+load(1000, 'diabetes_data_1.csv', seed=123)
+```
+
+## Statistics
+
+### Generate
+
+- Generate 100000 records in 2.83s
+- Generate 1000 records in 0.02s
+- Generate 1000 records with random seed 123 in 0.02s
+
+### Display
+
+- Display 100000 records in 0.02s
+- Display the first 10 records in 0.01s
+- Display the first 10 records with random seed 123 in 0.01s
+
+### Save
+
+- Save 1000 records in 'diabetes_data.csv' in 0.02s
+- Save 1000 records in 'diabetes_data_1.csv' in 0.02s
+
+### Load
+
+- Load 1000 records from 'diabetes_data.csv' in 0.02s
+- Load 1000 records from 'diabetes_data_1.csv' in 0.02s
+
+## Contact
+
+If you have any questions, please contact me at:
+
+[GitHub](https://github.com/ShawnDing0828)
+
+[Email](mailto:shawn.ding.0828@gmail.com)
+
+[LinkedIn](https://www.linkedin.com/in/shawn-ding-b3539b104/)
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Female,57.3,1,0,former,25.8,5.6,150,0
+Male,22.0,1,1,current,26.1,5.9,125,1
+Male,45.2,0,1,current,25.5,5.7,120,1
+Male,22.0,0,1,current,26.1,5.8,120,1
+Male,38.9,0,0,current,24.3,5.6,140,0
+Male,15.0,0,1,current,24.5,5.8,110,1
+Male,58.0,0,0,current,36.5,6.4,160,0
+Male,11.0,1,0,current,27.5,6.3,100,0
+Female,22.0,1,0,current,26.1,5.8,120,0
+Female,38.9,0,1,current,24.3,5.6,140,0
+Female,22.0,1,0,current,26.1,5.8,120,0
+Female,38.9,0,0,current,24.3,5.6,140,0
+Male,22.0,1,0,current,26.1,5.8,120,0
+Male,38.9,0,0,current,24.3,5.6,140,0
+Male,22.0,1,0,current,26.1,5.8,120,0
+Female,38.9,0,0,current,24.3,5.6,140,0
+Male,22.0,1,0,current,26.1,5.8,120,0
+Male,38.9,0,0,current,24.3,5.6,140,0
+Male,22.0,1,0,current,26.1,5.8,120,0
+Male,38.9,0,0,current,24.3,5.6,140,0
+Male,22.0,1,0,current,26.1,5.8,120,0
+Male,38.9,0,0,current,24.3,5.6,140,0
+Male,22.0,1,0,current,26.1,5.8,120,0
+Male,38.9,0,0,current,24.3,5.6,140,0
+Male,22.0,1,0,current,26.1,5.8,120,0
+Male,38.9,0,0,current,24.3,5.6,140,0
+Male,22.0,1,0,current,26.1,5.8,120,0
+Male,38.9,0,0,current,24.3,5.6,140,0
+Male,22.0,1,0,current,26.1,5.8,120,0
+Male,38.9,0,0,current,24.3,5.6,140,0
+Male,22.0,1,0,current,26.1,5.8,120,0
+Male,38.9,0,0,current,24.3,5.6,140,0
+Male,22.0,1,0,current,26.1,5.8,120,0
+Male,38.9,0,0,current,24.3,5.6,140,0
+Male,22.0
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,35.5,0,0,current,23.3,4.8,135,1
+Male,30.0,0,0,current,29.2,6.7,170,0
+Female,42.3,1,1,current,26.7,4.5,150,0
+Male,64.0,0,0,former,34.3,7.4,175,1
+Male,22.0,0,0,No Info,24.6,5.2,110,0
+Female,48.0,0,0,current,29.8,6.7,120,1
+Male,15.0,0,0,No Info,29.8,6.7,130,0
+Male,50.0,0,0,current,25.2,4.9,120,1
+Male,50.0,0,0,current,24.8,5.8,125,1
+Female,25.0,1,1,current,27.8,6.8,110,0
+
+
+### Generate new data
+
+Generate new data:
+```
+python generate_data.py
+```
+
+
+### Save generated data to csv
+
+Save generated data to csv:
+```
+python generate_data.py --save
+```
+
+
+### Generate data with custom distribution
+
+Generate data with custom distribution:
+```
+python generate_data.py --distribution
+```
+
+
+### Generate data with custom distribution and save to csv
+
+Generate data with custom distribution and save to csv:
+```
+python generate_data.py --distribution --save
+```
+
+
+### Generate data with custom distribution and save to csv with custom seed
+
+Generate data with custom distribution and save to csv with custom seed:
+```
+python generate_data.py --distribution --seed 123456 --save
+```
+
+
+### Generate data with custom distribution and save to csv with custom seed and custom data
+
+Generate data with custom distribution and save to csv with custom seed and custom data:
+```
+python generate_data.py --distribution --seed 123456 --data {male: 1, female: 0} --save
+```
+
+
+### Generate data with custom distribution and save to csv with custom seed and custom data and custom save path
+
+Generate data with custom distribution and save to csv with custom seed and custom data and custom save path:
+```
+python generate_data.py --distribution --seed 123456 --data {male: 1, female: 0} --save_path /path/to/file
+```
+
+
+### Generate data with custom distribution and save to csv with custom seed and custom data and custom save path and custom filename
+
+Generate data with custom distribution and save to csv with custom seed and custom data and custom save path and custom filename:
+```
+python generate_data.py --distribution --seed 123456 --data {male: 1, female: 0} --save_path /path/to/file --filename data.csv
+```
+
+
+### Generate data with custom distribution and save to csv with custom seed and custom data and custom save path and custom filename and custom seed
+
+Generate data with custom distribution and save to csv with custom seed and custom data and custom save path and custom filename and custom seed:
+```
+python generate_data.py --distribution --seed 123456 --data {male: 1, female: 0} --save_path /path/to/file --filename data.csv --seed 123456
+```
+
+
+### Generate data with custom distribution and save to csv with custom seed and custom data and custom save path and custom filename and custom seed and custom data
+
+Generate data with custom distribution and save to csv with custom seed and custom data and custom save path and custom filename and custom seed and custom data:
+```
+python generate_data.py --distribution --seed 123456 --data {male: 1, female: 0} --save_path /path/to/file --filename data.csv --seed 123
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Female,50.3,0,0,never,26.9,4.7,150,0
+Male,50.9,0,0,never,28.0,5.3,170,1
+Male,39.0,0,0,current,28.1,5.4,160,1
+Male,29.9,0,0,No Info,25.7,4.5,125,1
+Female,56.3,1,1,current,33.6,6.1,190,1
+
+
+## Usage
+
+```python
+from diabetes_predictor import DiabetesPredictor
+model = DiabetesPredictor()
+
+# Generate a synthetic patient record
+patient_record = model.generate_patient_record()
+
+# Or generate a batch of patient records
+patient_records = model.generate_patient_records(batch_size=100)
+
+# Or generate a batch of patient records, with a probability of diabetes
+patient_records = model.generate_patient_records_with_probability(batch_size=100, probability=0.8)
+
+# Or generate a batch of patient records, with a probability of diabetes and a probability of being male
+patient_records = model.generate_patient_records_with_probability(batch_size=100, probability=0.8, probability_male=0.6)
+```
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Female,48.4,1,1,not current,32.59,6.9,140,1
+Male,44.4,1,0,former,32.59,7.2,125,0
+Male,49.3,1,0,current,31.43,7.5,120,1
+
+## Installation
+
+```
+conda create -n synthetic_data_diabetes python=3.7
+conda activate synthetic_data_diabetes
+conda install -c conda-forge pandas
+pip install mlxtend
+```
+
+## Usage
+
+```
+python generate_diabetes.py
+```
+
+## Example
+
+![alt text](https://raw.githubusercontent.com/ml6/ml6/master/docs/images/diabetes.png)
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,50.0,0,0,No Info,32.00,6.3,130,0
+Female,26.0,0,0,No Info,27.75,4.8,145,0
+
+The data was collected from the UCI Machine Learning Repository, available at https://archive.ics.uci.edu/ml/datasets/Diabetes
+
+The dataset is in the UCI format.
+
+The data was collected by the University of California, Irvine, Machine Learning Repository.
+
+If you use this dataset in your research, please cite the following paper:
+
+[1] Y. Zhang, X. Zhang, Y. Liu, G. Zhang, and T. Li, "Deep Learning for Medical Diagnosis and Prediction: A Survey," IEEE Access, vol. 7, pp. 41467-41485, 2019.
+
+DOI: 10.1109/ACCESS.2019.2903961
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,23.9,1,0,current,27.59,5.5,145,0
+Male,32.7,0,0,never,26.92,4.2,120,0
+Male,30.8,1,1,current,36.53,7.2,180,0
+Male,15.2,0,0,current,25.77,5.0,135,0
+Male,55.4,1,1,current,32.1,5.2,170,0
+Male,44.2,0,0,current,31.74,5.2,125,0
+Female,47.0,0,0,current,25.77,6.2,130,0
+Male,28.5,1,0,current,32.1,5.8,145,0
+Female,55.4,0,0,current,27.59,6.2,125,0
+Female,28.5,1,1,current,31.74,5.6,130,0
+Female,31.7,1,0,current,36.53,6.8,170,0
+Male,36.5,0,0,current,32.1,5.8,155,0
+Male,26.9,1,0,current,31.74,5.6,135,0
+Female,31.7,0,0,current,36.53,6.4,155,0
+Male,34.2,0,0,current,31.74,5.6,125,0
+Female,42.1,1,1,current,36.53,5.6,145,0
+Female,22.0,1,0,current,31.74,5.8,135,0
+Female,43.5,0,0,current,36.53,6.4,135,0
+Male,32.7,0,0,current,31.74,5.8,135,0
+Female,23.9,0,0,current,36.53,6.2,130,0
+Female,32.7,0,0,current,31.74,5.8,135,0
+Male,27.5,0,0,current,36.53,5.4,145,0
+Female,40.2,0,0,current,36.53,6.2,135,0
+Male,24.3,0,0,current,31.74,5.2,130,0
+Male,26.9,1,0,current,36.53,5.8,135,0
+Female,58.0,0,0,current,36.53,6.2,150,0
+Female,38.9,1,0,current,36.53,6.2,135,0
+Female,22.0,0,0,current,31.74,5.4,130,0
+Male,36.5,0,0,current,36.53,5.6,130,0
+Male,26.9,0,0,current,36.53,5.8,135,0
+Male,22.0,0,0,current,36.53,5.4,130,0
+Male,28.5,1,0,current,36.53,5.6,145,0
+Female,36.5,0,0,current,36.53,6.2,15
+

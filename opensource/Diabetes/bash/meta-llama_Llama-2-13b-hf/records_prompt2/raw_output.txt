@@ -1,0 +1,1298 @@
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Female,47.0,0,0,never,25.2,4.9,140,0
+Female,40.1,0,1,current,24.9,5.8,140,1
+
+You can see the features in the code.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,15.0,1,0,never,25.5,4.9,110,1
+Female,67.0,1,1,current,29.9,5.3,190,0
+Female,40.2,1,1,current,30.4,5.4,195,0
+
+
+# Usage:
+python generate_diabetes_patient.py
+
+# Author:
+Zhiyu Zhang
+
+# License:
+Apache License 2.0
+
+
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,10.0,0,0,never,31.47,6.2,115,0
+Male,38.7,1,0,current,31.47,6.2,145,0
+Male,22.2,1,0,current,24.56,5.8,140,0
+Male,23.3,0,0,current,26.27,5.8,160,1
+Male,23.3,0,0,current,26.27,5.8,160,1
+Female,22.0,1,0,current,24.3,5.8,130,0
+Male,23.3,1,0,current,26.27,5.8,160,1
+Female,22.0,1,0,current,24.3,5.8,130,0
+Male,23.3,0,0,current,26.27,5.8,160,1
+Male,23.3,0,0,current,26.27,5.8,160,1
+Male,23.3,1,0,current,26.27,5.8,160,1
+Male,23.3,1,0,current,26.27,5.8,160,1
+Male,23.3,1,0,current,26.27,5.8,160,1
+Male,23.3,0,0,current,26.27,5.8,160,1
+Male,23.3,0,0,current,26.27,5.8,160,1
+Male,23.3,1,0,current,26.27,5.8,160,1
+Male,23.3,1,0,current,26.27,5.8,160,1
+Male,23.3,0,0,current,26.27,5.8,160,1
+Male,23.3,0,0,current,26.27,5.8,160,1
+Male,23.3,1,0,current,26.27,5.8,160,1
+Male,23.3,0,0,current,26.27,5.8,160,1
+Male,23.3,0,0,current,26.27,5.8,160,1
+Male,23.3,1,0,current,26.27,5.8,160,1
+Male,23.3,1,0,current,26.27,5.8,160,1
+Male,23.3,1,0,current,26.27,5.8,160,1
+Male,23.3,1,0,current,26.27,5.8,160,1
+Male,23.3,1,0,current,26.27,5.8,160,1
+Male,23.3,1,0,current,26.27,5.8,160,1
+Male,23.3,1,0,current,26.27,5.8,160,1
+Male,23.3,1,0,current,26.27,5.8,160,1
+Male,23.3,1,0,current,26.27,5.8,160,1
+Male,23.3,1,0,current,26.27,5.8,160,1
+Male,23.3,1,0,current,26.27,5.8,160,1
+Male,23.3,
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Female,67.8,0,0,No Info,26.0,4.0,140,0
+Male,50.0,0,0,current,27.0,4.5,145,0
+Male,34.5,0,1,current,24.4,5.8,110,0
+Female,35.7,0,0,No Info,25.5,5.0,125,0
+Female,29.0,0,0,current,26.0,5.8,110,0
+Male,72.5,1,0,No Info,26.0,4.0,115,0
+Male,23.0,1,1,former,27.5,5.0,140,0
+
+## Requirements
+
+Python 3.6
+
+## Run the program
+
+1. Download and install the [synthetic-data-generator](https://github.com/souravghosh12/synthetic-data-generator) library.
+
+2. Run the following command in the terminal:
+
+    ```
+    python3 main.py --dataset diabetes --output-dir output --seed 1234 --num-samples 10000 --num-features 9
+    ```
+
+3. Export the data to a csv file.
+
+    ```
+    python3 main.py --dataset diabetes --output-dir output --seed 1234 --num-samples 10000 --num-features 9 --export
+    ```
+
+## Output
+
+The output will be a folder named 'output' in the same directory as the python file. It will contain a csv file named 'diabetes.csv' containing 10000 records.
+
+## Credits
+
+This is a modified version of the code from [synthetic-data-generator](https://github.com/souravghosh12/synthetic-data-generator) by [Sourav Ghosh](https://github.com/souravghosh12).
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Female,42.0,1,1,current,29.15,5.8,180,1
+Female,47.0,1,0,former,24.3,5.8,125,0
+
+**How to run:**
+
+**Requirements:**
+
+- [Python 3.6 or above](https://www.python.org/downloads/)
+- [Pytorch 1.1 or above](https://pytorch.org/get-started/locally/)
+- [Jupyter Notebook](https://jupyter.org/install)
+
+**Run:**
+
+```
+python3 main.py
+```
+
+**References:**
+
+- [Data and metadata](https://www.kaggle.com/c/diabetes-prediction-challenge/data)
+- [Synthetic Data Generator](https://github.com/deepmind/synthetic-data-generator)
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,57.5,1,1,current,25.8,5.6,155,0
+Male,27.0,0,1,current,25.2,5.0,100,0
+
+You should generate 1000 records.
+
+**Note:** You need to generate realistic patient records for diabetes prediction. You may generate records using Python or other programming languages. You need to write code to generate patient records.
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,22.0,1,0,not current,25.0,5.6,115,0
+Male,34.0,0,1,former,35.6,6.1,170,1
+Male,10.0,0,0,not current,26.2,5.4,125,1
+
+
+### 1. Define the features
+
+The features are defined in `src/features.py`. You can change the definitions of features and the feature names.
+
+### 2. Define the distribution
+
+The distribution is defined in `src/distribution.py`. The distribution is a function that takes a feature name as input and returns a distribution of the feature. You can change the distributions.
+
+### 3. Train the model
+
+The model is trained in `src/train.py`. You can change the training parameters and the model.
+
+### 4. Run the generator
+
+The generator is run in `src/main.py`. You can change the parameters and the model.
+
+### 5. Evaluate the generator
+
+The generator is evaluated in `src/evaluate.py`. You can change the parameters and the model.
+
+### 6. Visualize the generator
+
+The generator is visualized in `src/visualize.py`. You can change the parameters and the model.
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+
+The goal is to generate a patient record that matches the distribution of the real patient records.
+
+Note that some features are not present in all records.
+
+### Evaluation
+
+Evaluation is done by comparing the generated records to the real records using a chi-squared test. The chi-squared test is used to determine whether there is a significant difference between the distributions of the two datasets. The test is a statistical test used to determine whether there is a significant difference between the distributions of two datasets. It is a non-parametric test that does not require the data to be normally distributed.
+
+The chi-squared test compares the observed frequencies in the two datasets to the expected frequencies based on the distributions of the two datasets. The observed frequencies are the actual frequencies of the values in the two datasets. The expected frequencies are the frequencies that would be expected if the distributions of the two datasets were the same.
+
+The chi-squared test calculates a chi-squared statistic, which is a measure of how well the observed frequencies match the expected frequencies. If the chi-squared statistic is greater than the critical value, then the null hypothesis (that the distributions of the two datasets are the same) is rejected.
+
+The chi-squared test is used to determine whether there is a significant difference between the distributions of the two datasets. If the test is significant, then it indicates that there is a difference between the distributions of the two datasets.
+
+The chi-squared test is a statistical test used to determine whether there is a significant difference between the distributions of the two datasets. It is a non-parametric test that does not require the data to be normally distributed.
+
+The chi-squared test compares the observed frequencies in the two datasets to the expected frequencies based on the distributions of the two datasets. The observed frequencies are the actual frequencies of the values in the two datasets. The expected frequencies are the frequencies that would be expected if the distributions of the two datasets were the same.
+
+The chi-squared test calculates a chi-squared statistic, which is a measure of how well the observed frequencies match the expected frequencies. If the chi-squared statistic is greater than the critical value, then the null hypothesis (that the distributions of the two datasets are the same) is rejected.
+
+The chi-squared test is used to determine whether there is a significant difference between the distributions of the two datasets. If the test is significant, then it indicates that there is a difference between the distributions of the two datasets.
+
+The chi-squared test is a statistical test used to determine whether there is a significant difference between the distributions of the two datasets. It is a non-parametric test that does not require the data to be normally distributed.
+
+The chi-squared test compares the observed frequencies in the two datasets to the expected frequencies based on the distributions of the two datasets. The observed frequencies are the actual frequencies of the values in the two datasets. The expected frequencies are the frequencies that would be expected if the distributions of the two datasets were the same.
+
+The chi-squared test calculates a chi-squared statistic, which is a measure of how well the observed frequencies match the expected frequencies. If the chi-squared statistic is greater than the critical value, then the null hypothesis (that the distributions of the two datasets are the same) is rejected.
+
+The chi-squared test is used to determine whether there is a significant difference between the distributions of the two datasets. If the test is significant, then it indicates that there is a difference between the distributions of the two datasets.
+
+The chi-squared test is a statistical test used to determine whether there is a significant difference between the distributions of the two datasets. It is a non-parametric test that does not require the data to be normally distributed.
+
+The chi-squared test compares the observed frequencies in the two datasets to the expected frequencies based on the distributions of the two datasets. The observed frequencies are the actual frequencies of the values in the two datasets. The expected frequencies are the frequencies that would be expected if the distributions of the two datasets were the same.
+
+The chi-squared test calculates a chi-squared statistic, which is a measure of how well the observed frequencies match the expected frequencies. If the chi-squared statistic is greater than the critical value, then the null hypothesis (that the distributions of the two datasets are the same) is rejected.
+
+The chi-squared test is used to determine whether there is a significant difference between the distributions of the two datasets. If the test is significant, then it indicates that there is a difference between the distributions of the two datasets
+

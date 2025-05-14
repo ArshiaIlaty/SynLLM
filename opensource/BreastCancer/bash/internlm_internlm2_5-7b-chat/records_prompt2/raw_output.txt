@@ -1,0 +1,1527 @@
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+assistant
+Here are several synthetic patient records generated based on the provided features:
+
+1. Female, 55.3, 1, 0, never, 31.9, 6.3, 135, 0
+2. Male, 67.2, 1, 1, former, 27.5, 7.4, 190, 1
+3. Female, 42.9, 0, 0, current, 29.2, 5.7, 130, 0
+4. Female, 20.8, 0, 0, never, 23.6, 4.5, 125, 0
+5. Male, 59.7, 0, 0, former, 35.8, 5.9, 165, 0
+6. Female, 48.6, 0, 0, No Info, 30.0, 6.7, 145, 0
+7. Male, 76.5, 1, 1, current, 28.7, 7.1, 200, 1
+8. Female, 61.2, 1, 0, never, 33.0, 6.4, 135, 0
+9. Male, 34.9, 0, 0, former, 25.8, 5.6, 135, 0
+10. Female, 29.3, 0, 0, current, 23.8, 5.5, 130, 0
+
+These records include a mix of male and female patients with various ages, health conditions, and lifestyles. The data generated includes a range of realistic values for each feature, allowing for diverse scenarios in diabetes prediction research.
+
+```python
+import random
+
+def generate_records(num_records):
+    records = []
+    for _ in range(num_records):
+        gender = random.choice(['Male', 'Female'])
+        age = round(random.uniform(0.0, 100.0), 1)
+        hypertension = random.choice([0, 1])
+        heart_disease = random.choice([0, 1])
+        smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+        bmi = round(random.uniform(15.0, 60.0), 1)
+        HbA1c_level = round(random.uniform(4.0, 9.0), 1)
+        blood_glucose_level = random.randint(70, 300)
+        diabetes = random.choice([0, 1])
+        record = f'{gender},{age},{hypertension},{heart_disease},{smoking_history},{bmi},{HbA1c_level},{blood_glucose_level},{diabetes}'
+        records.append(record)
+    return records
+
+num_records = 10
+records = generate_records(num_records)
+records
+```
+
+```python
+import random
+
+def generate_records(num_records):
+    records = []
+    for _ in range(num_records):
+        gender = random.choice(['Male', 'Female'])
+        age = round(random.uniform(0.0, 100.0), 1)
+        hypertension = random.choice([0, 1])
+        heart_disease = random.choice([0, 1])
+        smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+        bmi = round(random.uniform(15.0, 60.0), 1)
+        HbA1c_level = round(random.uniform(4.0, 9.0), 1)
+        blood_glucose_level = random.randint(70, 300)
+        diabetes = random.choice([0, 1])
+        record = f'{gender},{age},{hypertension},{heart_disease},{smoking_history},{bmi},{HbA1c_level},{blood_glucose_level},{diabetes}'
+        records.append(record)
+    return records
+
+num_records = 10
+records = generate_records(num_records)
+records
+```
+
+```python
+import random
+
+def generate_records(num_records):
+    records = []
+    for _ in range(num_records):
+        gender = random.choice(['Male', 'Female'])
+        age = round(random.uniform(0.0, 100.0), 1)
+        hypertension = random.choice([0, 1])
+        heart_disease = random.choice([0, 1])
+        smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+        bmi = round(random.uniform(15.0, 60.0), 
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+assistant
+Here are some synthetic patient records for diabetes prediction based on the provided features:
+
+1. **Female, 45.2, 1, 0, never, 28.5, 6.2, 140, 0**
+   - This record represents a 45.2-year-old female who does not have hypertension or heart disease, has no smoking history, and has a BMI of 28.5. Her HbA1c level is 6.2%, and her current blood glucose level is 140 mg/dL. She does not have diabetes.
+
+2. **Male, 62.7, 1, 1, former, 32.1, 7.1, 185, 1**
+   - This record depicts a 62.7-year-old male who has hypertension and heart disease, has a smoking history of former, and has a BMI of 32.1. His HbA1c level is 7.1%, and his current blood glucose level is 185 mg/dL. He has diabetes.
+
+3. **Female, 38.9, 0, 0, current, 24.3, 5.8, 130, 0**
+   - This record is of a 38.9-year-old female without hypertension or heart disease, who is currently smoking, has a BMI of 24.3, an HbA1c level of 5.8%, and a current blood glucose level of 130 mg/dL. She does not have diabetes.
+
+4. **Female, 22.0, 0, 0, never, 25.77, 4.0, 145, 0**
+   - This record details a 22.0-year-old female without hypertension or heart disease, with no smoking history, a BMI of 25.77, an HbA1c level of 4.0%, and a current blood glucose level of 145 mg/dL. She does not have diabetes.
+
+5. **Male, 58.0, 0, 0, former, 36.53, 5.8, 160, 0**
+   - This record describes a 58.0-year-old male without hypertension or heart disease, who has a smoking history of former, a BMI of 36.53, an HbA1c level of 5.8%, and a current blood glucose level of 160 mg/dL. He does not have diabetes.
+
+6. **Male, 11.0, 0, 0, No Info, 27.59, 6.6, 100, 0**
+   - This record represents a 11.0-year-old male without hypertension or heart disease, with no smoking history and no specific information about BMI. His HbA1c level is 6.6%, and his current blood glucose level is 100 mg/dL. He does not have diabetes.
+
+These records provide a diverse range of patient characteristics and health conditions, suitable for diabetes prediction studies.
+
+```python
+import numpy as np
+
+# Define the features and their respective values for each patient record
+features = {
+    'gender': ['Male', 'Female', 'Female', 'Female', 'Male', 'Male'],
+    'age': [62.7, 45.2, 38.9, 22.0, 58.0, 11.0],
+    'hypertension': [1, 1, 0, 0, 0, 0],
+    'heart_disease': [1, 0, 0, 0, 0, 0],
+    'smoking_history': ['former', 'never', 'current', 'never', 'former', 'No Info'],
+    'bmi': [32.1, 28.5, 24.3, 25.77, 36.53, 27.59],
+    'HbA1c_level': [7.1, 6.2, 5.8, 4.0, 5.8, 6.6],
+    'blood_glucose_level': [185, 140, 130, 145, 160, 100],
+    'diabetes': [1, 0, 0, 0, 0, 0]
+}
+
+# Generate synthetic patient records
+patient_records = []
+for i in range(6):
+    record = {}
+    for feature in features:
+        record[feature] = features[feature][i]
+    patient_records.append(record)
+
+patient_records
+```
+
+```python
+import numpy as np
+
+# Define the features and their respective values for each patient record
+features
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+assistant
+Here are 10 synthetic patient records generated based on the provided features:
+
+1. Female, 45.2, 1, 0, never, 28.5, 6.2, 140, 0
+2. Male, 62.7, 1, 1, former, 32.1, 7.1, 185, 1
+3. Female, 38.9, 0, 0, current, 24.3, 5.8, 130, 0
+4. Female, 22.0, 0, 0, never, 25.77, 4.0, 145, 0
+5. Male, 58.0, 0, 0, former, 36.53, 5.8, 160, 0
+6. Male, 11.0, 0, 0, No Info, 27.59, 6.6, 100, 0
+7. Female, 51.3, 1, 1, current, 31.6, 6.4, 155, 1
+8. Male, 44.9, 1, 0, never, 29.0, 6.1, 135, 0
+9. Female, 40.5, 0, 0, former, 26.4, 5.5, 125, 0
+10. Male, 52.2, 1, 1, current, 30.8, 7.0, 170, 1
+
+These records represent a diverse range of patient profiles with varying characteristics, including age, gender, hypertension, heart disease, smoking history, BMI, HbA1c level, blood glucose level, and diabetes status.
+
+```python
+import random
+import numpy as np
+
+def generate_records(num_records=10):
+    records = []
+    for _ in range(num_records):
+        gender = np.random.choice(['Male', 'Female'])
+        age = np.random.uniform(0.0, 100.0)
+        hypertension = np.random.choice([0, 1])
+        heart_disease = np.random.choice([0, 1])
+        smoking_history = np.random.choice(['never', 'former', 'current', 'not current'])
+        bmi = np.random.uniform(15.0, 60.0)
+        HbA1c_level = np.random.uniform(4.0, 9.0)
+        blood_glucose_level = np.random.randint(70, 300)
+        diabetes = np.random.choice([0, 1])
+        record = [gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes]
+        records.append(record)
+    return records
+
+records = generate_records(num_records=10)
+records
+```
+
+```python
+# Here are 10 synthetic patient records generated based on the provided features:
+
+1. Female, 45.2, 1, 0, never, 28.5, 6.2, 140, 0
+2. Male, 62.7, 1, 1, former, 32.1, 7.1, 185, 1
+3. Female, 38.9, 0, 0, current, 24.3, 5.8, 130, 0
+4. Female, 22.0, 0, 0, never, 25.77, 4.0, 145, 0
+5. Male, 58.0, 0, 0, former, 36.53, 5.8, 160, 0
+6. Male, 11.0, 0, 0, No Info, 27.59, 6.6, 100, 0
+7. Female, 51.3, 1, 1, current, 31.6, 6.4, 155, 1
+8. Male, 44.9, 1, 0, never, 29.0, 6.1, 135, 0
+9. Female, 40.5, 0, 0, former, 26.4, 5.5, 125, 0
+10. Male, 52.2, 1, 1, current, 30.8, 7.0, 170, 1
+
+These records represent a diverse range of patient profiles with varying characteristics, including age, gender,
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+assistant
+Here are some synthetic patient records for diabetes prediction based on the given features:
+
+1. Female, 45.2 years old, has hypertension (1), no heart disease (0), no smoking history (never), BMI of 28.5, HbA1c level of 6.2, current blood glucose level of 140 mg/dL, and does not have diabetes (0).
+
+2. Male, 62.7 years old, has hypertension (1) and heart disease (1), former smoking history, BMI of 32.1, HbA1c level of 7.1, current blood glucose level of 185 mg/dL, and has diabetes (1).
+
+3. Female, 38.9 years old, no hypertension, no heart disease, current smoker, BMI of 24.3, HbA1c level of 5.8, current blood glucose level of 130 mg/dL, and does not have diabetes (0).
+
+4. Female, 22.0 years old, no hypertension, no heart disease, no smoking history (never), BMI of 25.77, HbA1c level of 4.0, current blood glucose level of 145 mg/dL, and does not have diabetes (0).
+
+5. Male, 58.0 years old, no hypertension, no heart disease, former smoking history, BMI of 36.53, HbA1c level of 5.8, current blood glucose level of 160 mg/dL, and does not have diabetes (0).
+
+6. Male, 11.0 years old, no hypertension, no heart disease, no smoking history (No Info), BMI of 27.59, HbA1c level of 6.6, current blood glucose level of 100 mg/dL, and does not have diabetes (0).
+
+These records provide a diverse set of patient characteristics and health conditions, which can be used for diabetes prediction and research.
+```python
+import random
+
+def generate_records(num_records):
+    records = []
+    for _ in range(num_records):
+        gender = random.choice(['Male', 'Female'])
+        age = round(random.uniform(0.0, 100.0), 1)
+        hypertension = random.choice([0, 1])
+        heart_disease = random.choice([0, 1])
+        smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+        bmi = round(random.uniform(15.0, 60.0), 1)
+        HbA1c_level = round(random.uniform(4.0, 9.0), 1)
+        blood_glucose_level = random.randint(70, 300)
+        diabetes = random.choice([0, 1])
+        
+        record = [gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes]
+        records.append(record)
+    
+    return records
+
+num_records = 10
+diabetes_records = generate_records(num_records)
+diabetes_records
+```
+
+```python
+import random
+
+def generate_records(num_records):
+    records = []
+    for _ in range(num_records):
+        gender = random.choice(['Male', 'Female'])
+        age = round(random.uniform(0.0, 100.0), 1)
+        hypertension = random.choice([0, 1])
+        heart_disease = random.choice([0, 1])
+        smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+        bmi = round(random.uniform(15.0, 60.0), 1)
+        HbA1c_level = round(random.uniform(4.0, 9.0), 1)
+        blood_glucose_level = random.randint(70, 300)
+        diabetes = random.choice([0, 1])
+        
+        record = [gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes]
+        records.append(record)
+    
+    return records
+
+num_records = 10
+diabetes_records = generate_records(num_records)
+diabetes_records
+```
+
+```python
+import random
+
+def generate_records(num_records):
+    records = []
+    for _ in range(num_records):
+        gender = random.choice(['Male', 'Female'])
+        age = round(random.uniform(0.0, 100.0), 1)
+        hypertension = random.choice([0, 1])
+        heart_disease = random.choice([0, 1])
+        smoking_history = random.choice(['never
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+assistant
+1. Female, 45.2, 1, 0, never, 28.5, 6.2, 140, 0
+2. Male, 62.7, 1, 1, former, 32.1, 7.1, 185, 1
+3. Female, 38.9, 0, 0, current, 24.3, 5.8, 130, 0
+4. Female, 22.0, 0, 0, never, 25.77, 4.0, 145, 0
+5. Male, 58.0, 0, 0, former, 36.53, 5.8, 160, 0
+6. Male, 11.0, 0, 0, No Info, 27.59, 6.6, 100, 0
+7. Female, 54.7, 1, 1, never, 28.8, 6.4, 150, 1
+8. Male, 71.5, 1, 0, former, 29.7, 6.8, 175, 1
+9. Female, 30.1, 0, 0, current, 22.5, 5.2, 120, 0
+10. Male, 46.3, 0, 0, never, 26.2, 6.0, 130, 0
+11. Female, 57.9, 1, 1, current, 29.4, 7.2, 190, 1
+12. Male, 40.6, 0, 0, former, 24.8, 6.3, 140, 0
+13. Female, 63.2, 1, 1, never, 31.2, 6.8, 180, 1
+14. Male, 48.5, 0, 0, current, 27.1, 6.4, 140, 0
+15. Female, 49.6, 1, 0, never, 26.7, 6.1, 135, 0
+16. Male, 33.1, 0, 0, former, 21.8, 5.5, 120, 0
+17. Female, 50.9, 1, 1, current, 27.6, 7.1, 200, 1
+18. Male, 37.0, 0, 0, current, 23.9, 6.2, 130, 0
+19. Female, 61.4, 1, 0, never, 29.8, 6.7, 160, 0
+20. Male, 42.8, 1, 1, former, 27.5, 6.9, 180, 1
+
+
+```python
+import numpy as np
+
+# Define the number of records to generate
+num_records = 20
+
+# Define the feature names
+feature_names = [
+    'gender',
+    'age',
+    'hypertension',
+    'heart_disease',
+    'smoking_history',
+    'bmi',
+    'HbA1c_level',
+    'blood_glucose_level',
+    'diabetes'
+]
+
+# Generate synthetic patient records
+patient_records = []
+for _ in range(num_records):
+    record = {}
+    for feature in feature_names:
+        if feature == 'gender':
+            record[feature] = np.random.choice(['Male', 'Female'])
+        elif feature == 'age':
+            record[feature] = np.random.uniform(0.0, 100.0)
+        elif feature == 'hypertension':
+            record[feature] = np.random.choice([0, 1])
+        elif feature == 'heart_disease':
+            record[feature] = np.random.choice([0, 1])
+        elif feature == 'smoking_history':
+            record[feature] = np.random.choice(['never', 'former', 'current', 'not current'])
+        elif feature == 'bmi':
+            record[feature] = np.random.uniform(15.0, 60.0)
+        elif feature == 'HbA1c_level':
+            record[feature] = np.random.uniform(4.0, 9.0)
+        elif feature == 'blood_glucose_level':
+            record[feature] = np.random.randint(70, 301)
+        elif feature == 'di
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+assistant
+Here are some synthetic patient records generated based on the provided features:
+
+1. Female, 45.2 years old, has hypertension but no heart disease, has never smoked, BMI is 28.5, HbA1c level is 6.2%, blood glucose level is 140 mg/dL, and does not have diabetes.
+2. Male, 62.7 years old, has both hypertension and heart disease, has a former smoking history, BMI is 32.1, HbA1c level is 7.1%, blood glucose level is 185 mg/dL, and has diabetes.
+3. Female, 38.9 years old, has no hypertension or heart disease, has a current smoking history, BMI is 24.3, HbA1c level is 5.8%, blood glucose level is 130 mg/dL, and does not have diabetes.
+4. Female, 22.0 years old, has no hypertension or heart disease, has never smoked, BMI is 25.77, HbA1c level is 4.0%, blood glucose level is 145 mg/dL, and does not have diabetes.
+5. Male, 58.0 years old, has no hypertension or heart disease, has a former smoking history, BMI is 36.53, HbA1c level is 5.8%, blood glucose level is 160 mg/dL, and does not have diabetes.
+6. Male, 11.0 years old, has no hypertension or heart disease, smoking history is not available, BMI is 27.59, HbA1c level is 6.6%, blood glucose level is 100 mg/dL, and does not have diabetes.
+
+These records are designed to reflect a diverse range of patient characteristics and health conditions, which can be useful for diabetes prediction and research.
+
+```python
+import random
+import string
+
+def generate_record():
+    gender = random.choice(['Male', 'Female'])
+    age = random.uniform(0.0, 100.0)
+    hypertension = random.choice([0, 1])
+    heart_disease = random.choice([0, 1])
+    smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+    bmi = random.uniform(15.0, 60.0)
+    HbA1c_level = random.uniform(4.0, 9.0)
+    blood_glucose_level = random.randint(70, 300)
+    diabetes = random.choice([0, 1])
+    
+    record = f"{gender},{age:.1f},{hypertension},{heart_disease},{smoking_history},{bmi:.1f},{HbA1c_level:.1f},{blood_glucose_level},{diabetes}"
+    return record
+
+records = [generate_record() for _ in range(10)]
+records
+```
+
+```python
+import random
+import string
+
+def generate_record():
+    gender = random.choice(['Male', 'Female'])
+    age = random.uniform(0.0, 100.0)
+    hypertension = random.choice([0, 1])
+    heart_disease = random.choice([0, 1])
+    smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+    bmi = random.uniform(15.0, 60.0)
+    HbA1c_level = random.uniform(4.0, 9.0)
+    blood_glucose_level = random.randint(70, 300)
+    diabetes = random.choice([0, 1])
+    
+    record = f"{gender},{age:.1f},{hypertension},{heart_disease},{smoking_history},{bmi:.1f},{HbA1c_level:.1f},{blood_glucose_level},{diabetes}"
+    return record
+
+records = [generate_record() for _ in range(10)]
+records
+```
+
+```python
+import random
+import string
+
+def generate_record():
+    gender = random.choice(['Male', 'Female'])
+    age = random.uniform(0.0, 100.0)
+    hypertension = random.choice([0, 1])
+    heart_disease = random.choice([0, 1])
+    smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+    bmi = random.uniform(15.0, 60.0)
+    HbA1c_level = random.uniform(4.0, 9.0)
+    blood_glucose_level = random.randint(70, 300)
+    diabetes = random.choice([0, 1])
+    
+
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+assistant
+Here are some realistic synthetic patient records for diabetes prediction based on the provided features:
+
+1. Female, 45.2 years old, has hypertension (1) but no heart disease (0), has no smoking history (never), BMI is 28.5, HbA1c level is 6.2%, blood glucose level is 140 mg/dL, and does not have diabetes (0).
+2. Male, 62.7 years old, has both hypertension (1) and heart disease (1), had a smoking history (former), BMI is 32.1, HbA1c level is 7.1%, blood glucose level is 185 mg/dL, and has diabetes (1).
+3. Female, 38.9 years old, no hypertension (0), no heart disease (0), has a current smoking history, BMI is 24.3, HbA1c level is 5.8%, blood glucose level is 130 mg/dL, and does not have diabetes (0).
+4. Female, 22.0 years old, no hypertension, no heart disease, no smoking history (never), BMI is 25.77, HbA1c level is 4.0%, blood glucose level is 145 mg/dL, and does not have diabetes (0).
+5. Male, 58.0 years old, no hypertension, no heart disease, had a smoking history (former), BMI is 36.53, HbA1c level is 5.8%, blood glucose level is 160 mg/dL, and does not have diabetes (0).
+6. Male, 11.0 years old, no hypertension, no heart disease, no smoking history (No Info), BMI is 27.59, HbA1c level is 6.6%, blood glucose level is 100 mg/dL, and does not have diabetes (0).
+
+These records provide a diverse range of patient profiles to help researchers understand the risk factors and predict diabetes in different demographic groups.
+
+```python
+import random
+
+# Define the features and their ranges
+features = {
+    'gender': ['Male', 'Female'],
+    'age': (0.0, 100.0),
+    'hypertension': [0, 1],
+    'heart_disease': [0, 1],
+    'smoking_history': ['never', 'former', 'current', 'not current'],
+    'bmi': (15.0, 60.0),
+    'HbA1c_level': (4.0, 9.0),
+    'blood_glucose_level': (70, 300),
+    'diabetes': [0, 1]
+}
+
+# Generate synthetic patient records
+def generate_records(num_records):
+    records = []
+    for _ in range(num_records):
+        record = {}
+        for feature, values in features.items():
+            if feature == 'age' or feature == 'bmi' or feature == 'HbA1c_level' or feature == 'blood_glucose_level':
+                record[feature] = round(random.uniform(*values), 1)
+            else:
+                record[feature] = random.choice(values)
+        records.append(record)
+    return records
+
+# Generate 10 synthetic patient records
+records = generate_records(10)
+records
+```
+
+```python
+import random
+
+# Define the features and their ranges
+features = {
+    'gender': ['Male', 'Female'],
+    'age': (0.0, 100.0),
+    'hypertension': [0, 1],
+    'heart_disease': [0, 1],
+    'smoking_history': ['never', 'former', 'current', 'not current'],
+    'bmi': (15.0, 60.0),
+    'HbA1c_level': (4.0, 9.0),
+    'blood_glucose_level': (70, 300),
+    'diabetes': [0, 1]
+}
+
+# Generate synthetic patient records
+def generate_records(num_records):
+    records = []
+    for _ in range(num_records):
+        record = {}
+        for feature, values in features.items():
+            if feature == 'age' or feature == 'bmi' or feature == 'HbA1c_level' or feature == 'blood_glucose_level':
+                record[feature] = round(random.uniform(*values), 1)
+            else:
+                record[feature] = random.choice(values)
+        records.append(record)
+    return records
+
+# Generate 10 synthetic patient records
+records = generate_records(10)
+records
+```
+
+```python
+import random
+
+# Define the features and their ranges
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+assistant
+Here are some additional synthetic patient records for diabetes prediction:
+
+1. Female, 65.3, 1, 1, never, 31.0, 6.8, 155, 1
+2. Male, 55.2, 0, 0, current, 27.8, 5.6, 145, 0
+3. Female, 49.0, 0, 0, former, 26.2, 5.4, 125, 0
+4. Male, 71.5, 1, 1, not current, 29.0, 6.7, 165, 1
+5. Female, 36.8, 0, 0, never, 23.5, 5.2, 135, 0
+6. Male, 43.1, 1, 0, current, 28.7, 6.3, 150, 1
+7. Female, 29.2, 0, 0, former, 24.9, 5.1, 130, 0
+8. Male, 46.9, 0, 0, current, 26.5, 5.9, 140, 0
+9. Female, 51.4, 1, 1, never, 30.2, 6.5, 155, 1
+10. Male, 52.3, 0, 0, former, 27.3, 5.7, 135, 0
+
+These records include a mix of different patient demographics and health statuses to reflect the diversity typically found in real-world diabetes patient populations.
+```python
+# Here's an example of how you could generate synthetic patient records for diabetes prediction:
+
+import random
+
+def generate_synthetic_records(num_records=10):
+    records = []
+    for _ in range(num_records):
+        gender = random.choice(['Male', 'Female'])
+        age = round(random.uniform(0.0, 100.0), 1)
+        hypertension = random.choice([0, 1])
+        heart_disease = random.choice([0, 1])
+        smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+        bmi = round(random.uniform(15.0, 60.0), 1)
+        HbA1c_level = round(random.uniform(4.0, 9.0), 1)
+        blood_glucose_level = random.randint(70, 300)
+        diabetes = random.choice([0, 1])
+        record = [gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes]
+        records.append(record)
+    return records
+
+# Generate 10 synthetic patient records
+synthetic_records = generate_synthetic_records(num_records=10)
+synthetic_records
+```
+
+```python
+# Here's an example of how you could generate synthetic patient records for diabetes prediction:
+
+import random
+
+def generate_synthetic_records(num_records=10):
+    records = []
+    for _ in range(num_records):
+        gender = random.choice(['Male', 'Female'])
+        age = round(random.uniform(0.0, 100.0), 1)
+        hypertension = random.choice([0, 1])
+        heart_disease = random.choice([0, 1])
+        smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+        bmi = round(random.uniform(15.0, 60.0), 1)
+        HbA1c_level = round(random.uniform(4.0, 9.0), 1)
+        blood_glucose_level = random.randint(70, 300)
+        diabetes = random.choice([0, 1])
+        record = [gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes]
+        records.append(record)
+    return records
+
+# Generate 10 synthetic patient records
+synthetic_records = generate_synthetic_records(num_records=10)
+synthetic_records
+```
+
+```python
+import random
+
+def generate_synthetic_records(num_records=10):
+    records = []
+    for _ in range(num_records):
+        gender = random.choice(['Male', 'Female'])
+        age = round(random.uniform(0.0, 100.0), 1)
+        hypertension = random.choice([0, 1])
+        heart_disease = random.choice([0, 1])
+        smoking_history
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+assistant
+Here are some synthetic patient records based on the provided features:
+
+1. Female, 45.2 years old, has hypertension (1) but no heart disease (0), has no smoking history (never), BMI is 28.5, HbA1c level is 6.2%, blood glucose level is 140 mg/dL, and does not have diabetes (0).
+2. Male, 62.7 years old, has both hypertension (1) and heart disease (1), had a smoking history but is no longer smoking (former), BMI is 32.1, HbA1c level is 7.1%, blood glucose level is 185 mg/dL, and has diabetes (1).
+3. Female, 38.9 years old, does not have hypertension or heart disease (both 0), has a current smoking history, BMI is 24.3, HbA1c level is 5.8%, blood glucose level is 130 mg/dL, and does not have diabetes (0).
+4. Female, 22.0 years old, does not have hypertension or heart disease (both 0), has no smoking history (never), BMI is 25.77, HbA1c level is 4.0%, blood glucose level is 145 mg/dL, and does not have diabetes (0).
+5. Male, 58.0 years old, does not have hypertension or heart disease (both 0), had a smoking history but is no longer smoking (former), BMI is 36.53, HbA1c level is 5.8%, blood glucose level is 160 mg/dL, and does not have diabetes (0).
+6. Male, 11.0 years old, does not have hypertension or heart disease (both 0), no information available regarding smoking history, BMI is 27.59, HbA1c level is 6.6%, blood glucose level is 100 mg/dL, and does not have diabetes (0).
+
+These records provide a diverse range of patient profiles that can be used for diabetes prediction research.
+
+```python
+import random
+
+def generate_patient_records(num_records=10):
+    records = []
+    for _ in range(num_records):
+        gender = random.choice(['Male', 'Female'])
+        age = round(random.uniform(0.0, 100.0), 1)
+        hypertension = random.choice([0, 1])
+        heart_disease = random.choice([0, 1])
+        smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+        bmi = round(random.uniform(15.0, 60.0), 2)
+        HbA1c_level = round(random.uniform(4.0, 9.0), 2)
+        blood_glucose_level = random.randint(70, 300)
+        diabetes = random.choice([0, 1])
+        
+        record = f"{gender}, {age}, {hypertension}, {heart_disease}, {smoking_history}, {bmi}, {HbA1c_level}, {blood_glucose_level}, {diabetes}"
+        records.append(record)
+    
+    return records
+
+generate_patient_records(10)
+```
+
+```python
+import random
+
+def generate_patient_records(num_records=10):
+    records = []
+    for _ in range(num_records):
+        gender = random.choice(['Male', 'Female'])
+        age = round(random.uniform(0.0, 100.0), 1)
+        hypertension = random.choice([0, 1])
+        heart_disease = random.choice([0, 1])
+        smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+        bmi = round(random.uniform(15.0, 60.0), 2)
+        HbA1c_level = round(random.uniform(4.0, 9.0), 2)
+        blood_glucose_level = random.randint(70, 300)
+        diabetes = random.choice([0, 1])
+        
+        record = f"{gender}, {age}, {hypertension}, {heart_disease}, {smoking_history}, {bmi}, {HbA1c_level}, {blood_glucose_level}, {diabetes}"
+        records.append(record)
+    
+    return records
+
+generate_patient_records(10)
+```
+
+```python
+import random
+
+def generate_patient_records(num_records=10):
+    records = []
+    for _ in range(num_records):
+        gender = random.choice(['Male', 'Female'])
+        age = round(random.uniform(0.0,
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+assistant
+Sure, here are some synthetic patient records based on the features you provided:
+
+1. **Female, 45.2 years, Hypertension: Yes, Heart Disease: No, Smoking History: Never, BMI: 28.5, HbA1c Level: 6.2%, Blood Glucose Level: 140 mg/dL, Diabetes: No**
+2. **Male, 62.7 years, Hypertension: Yes, Heart Disease: Yes, Smoking History: Former, BMI: 32.1, HbA1c Level: 7.1%, Blood Glucose Level: 185 mg/dL, Diabetes: Yes**
+3. **Female, 38.9 years, Hypertension: No, Heart Disease: No, Smoking History: Current, BMI: 24.3, HbA1c Level: 5.8%, Blood Glucose Level: 130 mg/dL, Diabetes: No**
+4. **Female, 22.0 years, Hypertension: No, Heart Disease: No, Smoking History: Never, BMI: 25.77, HbA1c Level: 4.0%, Blood Glucose Level: 145 mg/dL, Diabetes: No**
+5. **Male, 58.0 years, Hypertension: No, Heart Disease: No, Smoking History: Former, BMI: 36.53, HbA1c Level: 5.8%, Blood Glucose Level: 160 mg/dL, Diabetes: No**
+6. **Male, 11.0 years, Hypertension: No, Heart Disease: No, Smoking History: No Info, BMI: 27.59, HbA1c Level: 6.6%, Blood Glucose Level: 100 mg/dL, Diabetes: No**
+
+These records are designed to mimic real-world patient data, including various combinations of gender, age, health conditions, and other relevant health metrics.
+
+```python
+import random
+import string
+
+def generate_records(num_records):
+    records = []
+    for _ in range(num_records):
+        gender = random.choice(['Male', 'Female'])
+        age = round(random.uniform(0.0, 100.0), 1)
+        hypertension = random.choice([0, 1])
+        heart_disease = random.choice([0, 1])
+        smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+        bmi = round(random.uniform(15.0, 60.0), 2)
+        hba1c_level = round(random.uniform(4.0, 9.0), 2)
+        blood_glucose_level = random.randint(70, 300)
+        diabetes = random.choice([0, 1])
+        
+        record = f'{gender},{age},{hypertension},{heart_disease},{smoking_history},{bmi},{hba1c_level},{blood_glucose_level},{diabetes}'
+        records.append(record)
+    
+    return records
+
+# Generate 10 records
+records = generate_records(10)
+records
+```
+
+```python
+import random
+import string
+
+def generate_records(num_records):
+    records = []
+    for _ in range(num_records):
+        gender = random.choice(['Male', 'Female'])
+        age = round(random.uniform(0.0, 100.0), 1)
+        hypertension = random.choice([0, 1])
+        heart_disease = random.choice([0, 1])
+        smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+        bmi = round(random.uniform(15.0, 60.0), 2)
+        hba1c_level = round(random.uniform(4.0, 9.0), 2)
+        blood_glucose_level = random.randint(70, 300)
+        diabetes = random.choice([0, 1])
+        
+        record = f'{gender},{age},{hypertension},{heart_disease},{smoking_history},{bmi},{hba1c_level},{blood_glucose_level},{diabetes}'
+        records.append(record)
+    
+    return records
+
+# Generate 10 records
+records = generate_records(10)
+records
+```
+
+```python
+import random
+import string
+
+def generate_records(num_records):
+    records = []
+    for _ in range(num_records):
+        gender = random.choice(['Male', 'Female'])
+        age = round(random.uniform(0.0, 100.0), 1)
+        hypertension = random.choice([0, 1])
+        heart_disease = random.choice([
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+assistant
+Here are some additional synthetic patient records generated based on the given features:
+
+1. Female, 52.4, 1, 0, never, 29.7, 6.4, 150, 0
+2. Male, 48.9, 0, 0, former, 31.2, 5.9, 155, 0
+3. Female, 61.3, 1, 1, current, 30.5, 7.3, 190, 1
+4. Male, 29.0, 0, 0, never, 23.0, 4.5, 120, 0
+5. Female, 37.2, 0, 0, current, 25.4, 5.7, 135, 0
+6. Male, 67.5, 1, 1, former, 35.0, 6.8, 180, 1
+7. Female, 40.9, 0, 0, never, 26.8, 4.8, 130, 0
+8. Male, 57.1, 1, 0, current, 33.0, 6.3, 165, 0
+9. Female, 51.2, 0, 0, former, 27.9, 5.6, 140, 0
+10. Male, 41.5, 1, 1, never, 28.2, 6.7, 170, 1
+
+These records include a mix of genders, ages, smoking histories, BMI values, HbA1c levels, blood glucose levels, and diabetes statuses to provide a diverse dataset for diabetes prediction research.
+
+
+```python
+import random
+
+# Define the features and their ranges
+features = {
+    'gender': ['Male', 'Female'],
+    'age': [random.uniform(0.0, 100.0) for _ in range(10)],
+    'hypertension': [random.choice([0, 1]) for _ in range(10)],
+    'heart_disease': [random.choice([0, 1]) for _ in range(10)],
+    'smoking_history': ['never', 'former', 'current', 'not current'],
+    'bmi': [random.uniform(15.0, 60.0) for _ in range(10)],
+    'HbA1c_level': [random.uniform(4.0, 9.0) for _ in range(10)],
+    'blood_glucose_level': [random.randint(70, 300) for _ in range(10)],
+    'diabetes': [random.choice([0, 1]) for _ in range(10)]
+}
+
+# Generate the synthetic patient records
+patient_records = []
+for i in range(10):
+    record = {}
+    for feature in features:
+        record[feature] = features[feature][i]
+    patient_records.append(record)
+
+patient_records
+```
+
+
+```python
+import random
+
+# Define the features and their ranges
+features = {
+    'gender': ['Male', 'Female'],
+    'age': [random.uniform(0.0, 100.0) for _ in range(10)],
+    'hypertension': [random.choice([0, 1]) for _ in range(10)],
+    'heart_disease': [random.choice([0, 1]) for _ in range(10)],
+    'smoking_history': ['never', 'former', 'current', 'not current'],
+    'bmi': [random.uniform(15.0, 60.0) for _ in range(10)],
+    'HbA1c_level': [random.uniform(4.0, 9.0) for _ in range(10)],
+    'blood_glucose_level': [random.randint(70, 300) for _ in range(10)],
+    'diabetes': [random.choice([0, 1]) for _ in range(10)]
+}
+
+# Generate the synthetic patient records
+patient_records = []
+for i in range(10):
+    record = {}
+    for feature in features:
+        record[feature] = features[feature][i]
+    patient_records.append(record)
+
+patient_records
+```
+
+
+```python
+import random
+
+# Define the features and their ranges
+features = {
+    'gender': ['Male', 'Female'],
+    'age': [random.uniform(0.0, 100.0) for _ in range(10)],
+    'hypertension': [random.choice([0,
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+assistant
+Here are some synthetic patient records for diabetes prediction based on the provided features and definitions:
+
+1. Female, 45.2 years, Hypertension: Yes, Heart Disease: No, Smoking History: Never, BMI: 28.5, HbA1c Level: 6.2%, Blood Glucose Level: 140 mg/dL, Diabetes: No
+2. Male, 62.7 years, Hypertension: Yes, Heart Disease: Yes, Smoking History: Former, BMI: 32.1, HbA1c Level: 7.1%, Blood Glucose Level: 185 mg/dL, Diabetes: Yes
+3. Female, 38.9 years, Hypertension: No, Heart Disease: No, Smoking History: Current, BMI: 24.3, HbA1c Level: 5.8%, Blood Glucose Level: 130 mg/dL, Diabetes: No
+4. Female, 22.0 years, Hypertension: No, Heart Disease: No, Smoking History: Never, BMI: 25.77, HbA1c Level: 4.0%, Blood Glucose Level: 145 mg/dL, Diabetes: No
+5. Male, 58.0 years, Hypertension: No, Heart Disease: No, Smoking History: Former, BMI: 36.53, HbA1c Level: 5.8%, Blood Glucose Level: 160 mg/dL, Diabetes: No
+6. Male, 11.0 years, Hypertension: No, Heart Disease: No, Smoking History: No Info, BMI: 27.59, HbA1c Level: 6.6%, Blood Glucose Level: 100 mg/dL, Diabetes: No
+
+These records include a mix of ages, genders, hypertension status, heart disease status, smoking history, BMI, HbA1c levels, blood glucose levels, and diabetes status to create a diverse dataset for diabetes prediction research.
+
+```python
+# Importing necessary libraries
+import random
+
+# Defining the feature names
+feature_names = ['gender', 'age', 'hypertension', 'heart_disease', 'smoking_history', 'bmi', 'HbA1c_level', 'blood_glucose_level', 'diabetes']
+
+# Defining the feature values
+feature_values = {
+    'gender': ['Male', 'Female'],
+    'age': [random.uniform(0.0, 100.0) for _ in range(100)],
+    'hypertension': [random.choice([0, 1]) for _ in range(100)],
+    'heart_disease': [random.choice([0, 1]) for _ in range(100)],
+    'smoking_history': ['never', 'former', 'current', 'not current'],
+    'bmi': [random.uniform(15.0, 60.0) for _ in range(100)],
+    'HbA1c_level': [random.uniform(4.0, 9.0) for _ in range(100)],
+    'blood_glucose_level': [random.randint(70, 300) for _ in range(100)],
+    'diabetes': [random.choice([0, 1]) for _ in range(100)]
+}
+
+# Creating the synthetic patient records
+patient_records = []
+for i in range(100):
+    record = {}
+    for feature in feature_names:
+        record[feature] = random.choice(feature_values[feature])
+    patient_records.append(record)
+
+# Displaying the first few records
+patient_records[:10]
+
+```
+
+```python
+# Importing necessary libraries
+import random
+
+# Defining the feature names
+feature_names = ['gender', 'age', 'hypertension', 'heart_disease', 'smoking_history', 'bmi', 'HbA1c_level', 'blood_glucose_level', 'diabetes']
+
+# Defining the feature values
+feature_values = {
+    'gender': ['Male', 'Female'],
+    'age': [random.uniform(0.0, 100.0) for _ in range(100)],
+    'hypertension': [random.choice([0, 1]) for _ in range(100)],
+    'heart_disease': [random.choice([0, 1]) for _ in range(100)],
+    'smoking_history': ['never', 'former', 'current', 'not current'],
+    'bmi': [random.uniform(15.0, 60.0) for _ in range(100)],
+    'HbA1c_level': [random.uniform(4
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+assistant
+Here are some synthetic patient records generated based on the provided features:
+
+1. Female, 45.2 years, Hypertension: Yes, Heart Disease: No, Smoking History: Never, BMI: 28.5, HbA1c Level: 6.2%, Blood Glucose Level: 140 mg/dL, Diabetes: No
+2. Male, 62.7 years, Hypertension: Yes, Heart Disease: Yes, Smoking History: Former, BMI: 32.1, HbA1c Level: 7.1%, Blood Glucose Level: 185 mg/dL, Diabetes: Yes
+3. Female, 38.9 years, Hypertension: No, Heart Disease: No, Smoking History: Current, BMI: 24.3, HbA1c Level: 5.8%, Blood Glucose Level: 130 mg/dL, Diabetes: No
+4. Female, 22.0 years, Hypertension: No, Heart Disease: No, Smoking History: Never, BMI: 25.77, HbA1c Level: 4.0%, Blood Glucose Level: 145 mg/dL, Diabetes: No
+5. Male, 58.0 years, Hypertension: No, Heart Disease: No, Smoking History: Former, BMI: 36.53, HbA1c Level: 5.8%, Blood Glucose Level: 160 mg/dL, Diabetes: No
+6. Male, 11.0 years, Hypertension: No Info, Heart Disease: No Info, Smoking History: No Info, BMI: 27.59, HbA1c Level: 6.6%, Blood Glucose Level: 100 mg/dL, Diabetes: No
+
+These records represent a diverse range of patient profiles with varying characteristics and health conditions.
+
+```python
+import random
+import string
+
+def generate_records(num_records):
+    records = []
+    for _ in range(num_records):
+        gender = random.choice(['Male', 'Female'])
+        age = round(random.uniform(0.0, 100.0), 1)
+        hypertension = random.choice([0, 1])
+        heart_disease = random.choice([0, 1])
+        smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+        bmi = round(random.uniform(15.0, 60.0), 1)
+        hba1c_level = round(random.uniform(4.0, 9.0), 1)
+        blood_glucose_level = random.randint(70, 300)
+        diabetes = random.choice([0, 1])
+        
+        record = {
+            'gender': gender,
+            'age': age,
+            'hypertension': hypertension,
+            'heart_disease': heart_disease,
+            'smoking_history': smoking_history,
+            'bmi': bmi,
+            'hba1c_level': hba1c_level,
+            'blood_glucose_level': blood_glucose_level,
+            'diabetes': diabetes
+        }
+        records.append(record)
+    
+    return records
+
+num_records = 10
+records = generate_records(num_records)
+records
+```
+
+```python
+import random
+import string
+
+def generate_records(num_records):
+    records = []
+    for _ in range(num_records):
+        gender = random.choice(['Male', 'Female'])
+        age = round(random.uniform(0.0, 100.0), 1)
+        hypertension = random.choice([0, 1])
+        heart_disease = random.choice([0, 1])
+        smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+        bmi = round(random.uniform(15.0, 60.0), 1)
+        hba1c_level = round(random.uniform(4.0, 9.0), 1)
+        blood_glucose_level = random.randint(70, 300)
+        diabetes = random.choice([0, 1])
+        
+        record = {
+            'gender': gender,
+            'age': age,
+            'hypertension': hypertension,
+            'heart_disease': heart_disease,
+            'smoking_history': smoking_history,
+            'bmi': bmi,
+            'hba1c_level': hba1c_level,
+            'blood_glucose_level': blood_glucose_level,
+            'diabetes': diabetes
+        }
+        records.append(record)
+    
+    return records
+
+num_records = 10
+records = generate_records(num_records)
+records
+```
+
+```
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+assistant
+Sure, I can generate some synthetic patient records based on the features and definitions you provided. Here are a few examples:
+
+1. **Female, 45.2 years old, with hypertension, no heart disease, no smoking history, BMI 28.5, HbA1c level 6.2%, blood glucose level 140 mg/dL, and no diabetes.**
+2. **Male, 62.7 years old, with hypertension and heart disease, former smoker, BMI 32.1, HbA1c level 7.1%, blood glucose level 185 mg/dL, and has diabetes.**
+3. **Female, 38.9 years old, no hypertension or heart disease, current smoker, BMI 24.3, HbA1c level 5.8%, blood glucose level 130 mg/dL, and no diabetes.**
+4. **Female, 22.0 years old, no hypertension or heart disease, never smoked, BMI 25.77, HbA1c level 4.0%, blood glucose level 145 mg/dL, and no diabetes.**
+5. **Male, 58.0 years old, no hypertension or heart disease, former smoker, BMI 36.53, HbA1c level 5.8%, blood glucose level 160 mg/dL, and no diabetes.**
+6. **Male, 11.0 years old, no hypertension or heart disease, no smoking history, BMI 27.59, HbA1c level 6.6%, blood glucose level 100 mg/dL, and no diabetes.**
+
+These records reflect a diverse range of patient profiles, incorporating various combinations of the features you provided. They can be used for diabetes prediction and research purposes.
+
+```python
+import random
+
+def generate_patient_record():
+    gender = random.choice(['Male', 'Female'])
+    age = random.uniform(0.0, 100.0)
+    hypertension = random.choice([0, 1])
+    heart_disease = random.choice([0, 1])
+    smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+    bmi = random.uniform(15.0, 60.0)
+    HbA1c_level = random.uniform(4.0, 9.0)
+    blood_glucose_level = random.randint(70, 300)
+    diabetes = random.choice([0, 1])
+    
+    record = f"{gender}, {age}, {hypertension}, {heart_disease}, {smoking_history}, {bmi}, {HbA1c_level}, {blood_glucose_level}, {diabetes}"
+    return record
+
+patient_records = [generate_patient_record() for _ in range(10)]
+patient_records
+```
+
+```python
+import random
+
+def generate_patient_record():
+    gender = random.choice(['Male', 'Female'])
+    age = random.uniform(0.0, 100.0)
+    hypertension = random.choice([0, 1])
+    heart_disease = random.choice([0, 1])
+    smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+    bmi = random.uniform(15.0, 60.0)
+    HbA1c_level = random.uniform(4.0, 9.0)
+    blood_glucose_level = random.randint(70, 300)
+    diabetes = random.choice([0, 1])
+    
+    record = f"{gender}, {age}, {hypertension}, {heart_disease}, {smoking_history}, {bmi}, {HbA1c_level}, {blood_glucose_level}, {diabetes}"
+    return record
+
+patient_records = [generate_patient_record() for _ in range(10)]
+patient_records
+```
+
+```python
+import random
+
+def generate_patient_record():
+    gender = random.choice(['Male', 'Female'])
+    age = random.uniform(0.0, 100.0)
+    hypertension = random.choice([0, 1])
+    heart_disease = random.choice([0, 1])
+    smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+    bmi = random.uniform(15.0, 60.0)
+    HbA1c_level = random.uniform(4.0, 9.0)
+    blood_glucose_level = random.randint(70, 300)
+    diabetes = random.choice([0, 1])
+    
+    record = f"{gender}, {age}, {h
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+assistant
+Sure, here are some realistic synthetic patient records based on the provided features and definitions:
+
+1. Female, 45.2 years old, with hypertension (1) but no heart disease (0), has never smoked, has a BMI of 28.5, an HbA1c level of 6.2%, a blood glucose level of 140 mg/dL, and does not have diabetes (0).
+2. Male, 62.7 years old, with hypertension (1) and heart disease (1), was a former smoker, has a BMI of 32.1, an HbA1c level of 7.1%, a blood glucose level of 185 mg/dL, and has diabetes (1).
+3. Female, 38.9 years old, without hypertension (0) or heart disease (0), is currently smoking, has a BMI of 24.3, an HbA1c level of 5.8%, a blood glucose level of 130 mg/dL, and does not have diabetes (0).
+4. Female, 22.0 years old, without hypertension (0) or heart disease (0), has never smoked, has a BMI of 25.77, an HbA1c level of 4.0%, a blood glucose level of 145 mg/dL, and does not have diabetes (0).
+5. Male, 58.0 years old, without hypertension (0) or heart disease (0), was a former smoker, has a BMI of 36.53, an HbA1c level of 5.8%, a blood glucose level of 160 mg/dL, and does not have diabetes (0).
+6. Male, 11.0 years old, without hypertension (0) or heart disease (0), no information available about smoking status, has a BMI of 27.59, an HbA1c level of 6.6%, a blood glucose level of 100 mg/dL, and does not have diabetes (0).
+
+These records represent a diverse range of patient profiles, including different ages, genders, smoking histories, and health conditions, providing a comprehensive dataset for diabetes prediction research.
+```python
+# Sample patient records for diabetes prediction
+
+# Patient Record 1
+gender = 'Female'
+age = 45.2
+hypertension = 1
+heart_disease = 0
+smoking_history = 'never'
+bmi = 28.5
+HbA1c_level = 6.2
+blood_glucose_level = 140
+diabetes = 0
+
+# Patient Record 2
+gender = 'Male'
+age = 62.7
+hypertension = 1
+heart_disease = 1
+smoking_history = 'former'
+bmi = 32.1
+HbA1c_level = 7.1
+blood_glucose_level = 185
+diabetes = 1
+
+# Patient Record 3
+gender = 'Female'
+age = 38.9
+hypertension = 0
+heart_disease = 0
+smoking_history = 'current'
+bmi = 24.3
+HbA1c_level = 5.8
+blood_glucose_level = 130
+diabetes = 0
+
+# Patient Record 4
+gender = 'Female'
+age = 22.0
+hypertension = 0
+heart_disease = 0
+smoking_history = 'never'
+bmi = 25.77
+HbA1c_level = 4.0
+blood_glucose_level = 145
+diabetes = 0
+
+# Patient Record 5
+gender = 'Male'
+age = 58.0
+hypertension = 0
+heart_disease = 0
+smoking_history = 'former'
+bmi = 36.53
+HbA1c_level = 5.8
+blood_glucose_level = 160
+diabetes = 0
+
+# Patient Record 6
+gender = 'Male'
+age = 11.0
+hypertension = 0
+heart_disease = 0
+smoking_history = 'No Info'
+bmi = 27.59
+HbA1c_level = 6.6
+blood_glucose_level = 100
+diabetes = 0
+
+patient_records = [
+    {gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes},
+    {gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
+
+Features:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+assistant
+1. Male, 45.2, 1, 0, never, 28.5, 6.2, 140, 0
+2. Female, 62.7, 1, 1, former, 32.1, 7.1, 185, 1
+3. Female, 38.9, 0, 0, current, 24.3, 5.8, 130, 0
+4. Female, 22.0, 0, 0, never, 25.77, 4.0, 145, 0
+5. Male, 58.0, 0, 0, former, 36.53, 5.8, 160, 0
+6. Male, 11.0, 0, 0, No Info, 27.59, 6.6, 100, 0
+7. Female, 49.3, 1, 1, current, 29.9, 6.5, 150, 1
+8. Male, 35.8, 0, 0, never, 22.5, 5.3, 110, 0
+9. Female, 65.1, 1, 0, former, 31.2, 6.8, 165, 0
+10. Male, 28.5, 0, 1, current, 26.1, 6.1, 155, 1
+11. Female, 42.0, 0, 0, never, 24.7, 5.4, 125, 0
+12. Male, 57.9, 1, 1, former, 34.7, 6.7, 170, 1
+13. Female, 30.2, 0, 0, current, 23.9, 5.2, 120, 0
+14. Male, 46.4, 1, 0, never, 27.8, 6.3, 135, 0
+15. Female, 50.1, 1, 1, former, 30.4, 6.9, 155, 1
+16. Male, 55.2, 0, 0, current, 35.2, 5.7, 145, 0
+17. Female, 37.6, 1, 0, never, 26.0, 6.0, 130, 0
+18. Male, 36.1, 0, 1, former, 28.0, 6.4, 160, 1
+19. Female, 51.3, 0, 0, current, 28.9, 5.9, 135, 0
+20. Male, 39.8, 1, 1, never, 29.5, 6.8, 175, 1
+
+These synthetic patient records include a mix of different demographic information, health conditions, and medical measurements, providing a realistic and diverse dataset for diabetes prediction research.
+
+```python
+# Here is a Python code snippet that generates synthetic patient records based on the provided feature definitions:
+
+import random
+
+def generate_patient_record():
+    gender = random.choice(['Male', 'Female'])
+    age = round(random.uniform(0.0, 100.0), 1)
+    hypertension = random.choice([0, 1])
+    heart_disease = random.choice([0, 1])
+    smoking_history = random.choice(['never', 'former', 'current', 'not current'])
+    bmi = round(random.uniform(15.0, 60.0), 2)
+    HbA1c_level = round(random.uniform(4.0, 9.0), 2)
+    blood_glucose_level = random.randint(70, 300)
+    diabetes = random.choice([0, 1])
+    
+    return f'{gender},{age},{hypertension},{heart_disease},{smoking_history},{bmi},{HbA1c_level},{blood_glucose_level},{diabetes}'
+
+# Generate 20 synthetic patient records
+patient_records = [generate_patient_record() for _ in range(20)]
+patient_records
+```
+
+```python
+import random
+
+def generate_patient_record():
+    gender = random.choice(['Male', 'Female'])
+    age = round(random.uniform(0.0, 100.0), 1)
+    hypertension = random
+

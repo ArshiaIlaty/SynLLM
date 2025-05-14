@@ -1,0 +1,2031 @@
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+## Hints
+
+- Use the `generate_synthetic_records` function to generate synthetic records.
+- Use the `random_sample` function to generate a random sample of a distribution.
+
+## Source
+
+Jeremy Howard's Fast.ai course [Generating Synthetic Medical Records](https://www.fast.ai/2017/08/08/generate-synthetic-medical-records.html) [view source](https://github.com/fastai/course-v1/blob/master/07_generative/notebooks/03_synthetic_medical_data.ipynb)
+
+## Submitting Incomplete Solutions
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+### Hints
+
+* You can use the following helper functions:
+    * [make_id](https://github.com/Microsoft/Synthetic-Medical-Data-Generator/blob/master/src/make_id.py)
+    * [make_record](https://github.com/Microsoft/Synthetic-Medical-Data-Generator/blob/master/src/make_record.py)
+* You can use the following helper classes:
+    * [DataType](https://github.com/Microsoft/Synthetic-Medical-Data-Generator/blob/master/src/DataType.py)
+    * [Drug](https://github.com/Microsoft/Synthetic-Medical-Data-Generator/blob/master/src/Drug.py)
+    * [Data](https://github.com/Microsoft/Synthetic-Medical-Data-Generator/blob/master/src/Data.py)
+
+### Expected Output
+
+This is an example of the expected output:
+
+```
+1, 10, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 10, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 10, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0  
+```
+
+### Submission Instructions
+
+1. Download the project from Github.
+2. Run `make` to generate the required files.
+3. Run `python3 generate_records.py` to generate the records.
+4. Run `python3 validate_records.py` to validate the generated records.
+5. Submit the results to [Grader](https://autograder.mlh.io/dashboard/submissions/80055)
+
+### Resources
+
+* [Data](https://github.com/Microsoft/Synthetic-Medical-Data-Generator/blob/master/src/Data.py)
+* [Drug](https://github.com/Microsoft/Synthetic-Medical-Data-Generator/blob/master/src/Drug.py)
+* [DataType](https://github.com/Microsoft/Synthetic-Medical-Data-Generator/blob/master/src/DataType.py)
+* [make_record](https://github.com/Microsoft/Synthetic-Medical-Data-Generator/blob/master/src/make_record.py)
+* [make_id](https://github.com/Microsoft/Synthetic-Medical-Data-Generator/blob/master/src/make_id.py)
+* [DataType](https://github.com/Microsoft/Synthetic-Medical-Data-Generator/blob/master/src/DataType.py)
+
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+You must include a sample of 50 records with each submission.
+
+### Examples
+
+#### 50 Records
+```
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+4, 442, D, D-penicillamine, 20723, M, N, Y, Y, Y, 1.4, 314.0, 3.14, 314.0, 544.0, 96.10, 55.0, 151.0, 12.0, 4.0
+5, 4000, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0
+6, 1000, D, D-penicillamine, 21464, F, N, Y, Y, N, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+7, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0
+8, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0
+9, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+10, 442, D, D-penicillamine, 20723, M, N, Y, Y, Y, 1.4, 314.0, 3.14, 314.0, 544.0, 96.10, 55.
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+Your program will be tested by running it on the test data, and checking that the output data matches the expected output data.
+
+The test data is 30 records.
+
+# Input Data Format
+
+Each line in the input data is a patient record, formatted as above.
+
+# Output Data Format
+
+Each line in the output data is a patient record, formatted as above.
+
+# Sample Input Data
+
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0  
+4, 11, D, D-penicillamine, 11111, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+5, 2500, D, D-penicillamine, 12121, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+6, 1000, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0  
+7, 1000, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0  
+8, 1000, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0  
+9, 1000, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0  
+10, 1000, D
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. The number of records you generate must be at least 1000.
+
+Each record must be realistic. Your records must be statistically similar to the real records in the following ways:
+
+1. The distributions of the following fields must be the same:
+    ID
+    N_Days
+    Status
+    Drug
+    Age
+    Sex
+    Ascites
+    Hepatomegaly
+    Spiders
+    Edema
+    Bilirubin
+    Cholesterol
+    Albumin
+    Copper
+    Alk_Phos
+    SGOT
+    Tryglicerides
+    Platelets
+    Prothrombin
+    Stage
+2. The distributions of the following fields must be similar (within 10%):
+    N_Days
+    Stage
+
+
+You have 10 attempts to generate realistic medical records. Each attempt generates 1000 records.
+
+
+
+## Requirements
+
+- Python 3.6 or higher
+- NumPy 1.17.2 or higher
+- Pandas 0.24.2 or higher
+
+
+
+## Examples
+
+The following code generates 1000 records:
+
+```python
+import numpy as np
+import pandas as pd
+from synthetic_medical_data.cirrhosis import cirrhosis
+
+cirrhosis(1000)
+```
+
+
+
+## Reference
+
+- [https://www.kaggle.com/c/synthetic-medical-data-generation-challenge/data](https://www.kaggle.com/c/synthetic-medical-data-generation-challenge/data)
+
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+Your program should be able to handle any number of records.
+
+You can use the following code to generate random values for each column.
+
+```
+import random
+
+values = {
+    "ID": list(range(1, 10000)),
+    "N_Days": [random.randint(200, 5000) for _ in range(10000)],
+    "Status": ["C" for _ in range(10000)],
+    "Drug": ["D-penicillamine" for _ in range(10000)],
+    "Age": [random.randint(20, 90) for _ in range(10000)],
+    "Sex": ["F" for _ in range(5000)],
+    "Ascites": [random.choice([True, False]) for _ in range(10000)],
+    "Hepatomegaly": [random.choice([True, False]) for _ in range(10000)],
+    "Spiders": [random.choice([True, False]) for _ in range(10000)],
+    "Edema": [random.choice([True, False]) for _ in range(10000)],
+    "Bilirubin": [random.randint(1, 10) for _ in range(10000)],
+    "Cholesterol": [random.randint(1, 10) for _ in range(10000)],
+    "Albumin": [random.randint(1, 10) for _ in range(10000)],
+    "Copper": [random.randint(1, 10) for _ in range(10000)],
+    "Asc_Phos": [random.randint(1, 10) for _ in range(10000)],
+    "SGOT": [random.randint(1, 10) for _ in range(10000)],
+    "Tryglicerides": [random.randint(1, 10) for _ in range(10000)],
+    "Platelets": [random.randint(1, 10) for _ in range(10000)],
+    "Prothrombin": [random.randint(1, 10) for _ in range(10000)],
+    "Stage": [random.randint(1, 4) for _ in range(10000)]
+}
+
+for key in values:
+    print(f"{key}:", end="")
+    for value in values[key]:
+        print(f"{value:.2f},", end="")
+    print()
+```
+
+You can use this code to generate the first 10 records.
+
+```
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Asc_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+```
+// Input:
+// 2
+// 10
+// 20
+// 30
+// 40
+// 50
+// 60
+// 70
+// 80
+// 90
+// 100
+// 110
+// 120
+// 130
+// 140
+// 150
+// 160
+// 170
+// 180
+// 190
+// 200
+// 210
+// 220
+// 230
+// 240
+// 250
+// 260
+// 270
+// 280
+// 290
+// 300
+// 310
+// 320
+// 330
+// 340
+// 350
+// 360
+// 370
+// 380
+// 390
+// 400
+// 410
+// 420
+// 430
+// 440
+// 450
+// 460
+// 470
+// 480
+// 490
+// 500
+// 510
+// 520
+// 530
+// 540
+// 550
+// 560
+// 570
+// 580
+// 590
+// 600
+// 610
+// 620
+// 630
+// 640
+// 650
+// 660
+// 670
+// 680
+// 690
+// 700
+// 710
+// 720
+// 730
+// 740
+// 750
+// 760
+// 770
+// 780
+// 790
+// 800
+// 810
+// 820
+// 830
+// 840
+// 850
+// 860
+// 870
+// 880
+// 890
+// 900
+// 910
+// 920
+// 930
+// 940
+// 950
+// 960
+// 970
+// 980
+// 990
+// 1000
+// 1010
+// 1020
+// 1030
+// 1040
+// 1050
+// 1060
+// 1070
+// 1080
+// 1090
+// 1100
+// 1110
+// 1120
+// 1130
+// 1140
+// 1150
+// 1160
+// 1170
+// 1180
+// 1190
+// 1200
+// 1210
+// 1220
+// 1230
+// 1240
+// 1250
+// 1260
+// 1270
+// 1280
+// 1290
+// 1300
+// 1310
+// 1320
+// 1330
+// 1340
+// 1350
+// 1360
+// 1370
+// 1380
+// 1390
+// 1400
+// 1410
+// 1420
+// 1430
+// 1440
+// 1450
+// 1460
+// 1470
+// 1480
+// 1490
+// 1500
+// 1510
+// 1520
+// 1530
+// 1540
+// 1550
+// 1560
+// 15
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+You may generate records based on the given examples, but you should not copy them.
+
+The file you generate must be a .csv file.
+
+Do not include any additional fields.
+
+Do not include any fields that are not in the given examples.
+
+Do not include any fields that are not in the example files.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+Do not include any additional records.
+
+
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a duplicate, your test will fail.
+
+Your records must be unique. If you generate a
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+## Hints
+
+- Each record is an array of 16 elements.
+- The elements are strings.
+- The string values are:
+  - `N_Days`: number of days since patient diagnosis
+  - `Status`: patient status (D for diagnosed, C for cirrhosis, or N for not cirrhosis)
+  - `Drug`: drug name (D-penicillamine, etc.)
+  - `Age`: patient age
+  - `Sex`: patient sex
+  - `Ascites`: ascites (Y for yes, N for no)
+  - `Hepatomegaly`: hepatomegaly (Y for yes, N for no)
+  - `Spiders`: spider angiomas (Y for yes, N for no)
+  - `Edema`: edema (Y for yes, N for no)
+  - `Bilirubin`: bilirubin (in mg/dL)
+  - `Cholesterol`: cholesterol (in mg/dL)
+  - `Albumin`: albumin (in g/dL)
+  - `Copper`: copper (in ug/dL)
+  - `Asc_Phos`: aspartate aminotransferase (in U/L)
+  - `SGOT`: serum glutamic-pyruvic transaminase (in U/L)
+  - `Tryglicerides`: triglycerides (in mg/dL)
+  - `Platelets`: platelets (in thousands)
+  - `Prothrombin`: prothrombin time (in seconds)
+  - `Stage`: stage of cirrhosis (S for severe, M for moderate, or L for mild)
+- The `N_Days` and `Status` elements are the most important.
+
+## Source
+
+Cirrhosis Prediction [https://www.kaggle.com/c/cirrhosis-prediction](https://www.kaggle.com/c/cirrhosis-prediction)
+
+## Submitting Incomplete Solutions
+
+Complete solutions will be accepted and reviewed.
+Incomplete submissions will not be reviewed.
+
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format. Each record must be unique.
+
+There are 10,000 records in the training data and 1,000 records in the testing data.
+
+The testing data can be found at https://raw.githubusercontent.com/UCI-Machine-Learning-Repository/synthetic-cirrhosis/master/testing.csv
+
+The training data can be found at https://raw.githubusercontent.com/UCI-Machine-Learning-Repository/synthetic-cirrhosis/master/training.csv
+
+The data is in the following format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+### Submitting Your Solution
+
+1. Submit your solution as a Python file named cirrhosis.py.
+2. Include your solution as a function called main().
+3. Your solution must be in the same directory as the cirrhosis.py file.
+
+### Sample Submission
+
+```python
+import random
+
+def main():
+    # YOUR CODE HERE
+    for i in range(10000):
+        ID = random.randint(1, 100000)
+        N_Days = random.randint(400, 4500)
+        Status = random.choice(["D", "C"])
+        Drug = random.choice(["D-penicillamine"])
+        Age = random.randint(20000, 100000)
+        Sex = random.choice(["F", "M"])
+        Ascites = random.choice(["Y", "N"])
+        Hepatomegaly = random.choice(["Y", "N"])
+        Spiders = random.choice(["Y", "N"])
+        Edema = random.choice(["Y", "N"])
+        Bilirubin = random.choice(["1.1", "14.5"])
+        Cholesterol = random.choice(["261.0", "176.0"])
+        Albumin = random.choice(["2.60", "3.48"])
+        Copper = random.choice(["156.0", "54.0"])
+        Alk_Phos = random.choice(["1718.0", "516.0"])
+        SGOT = random.choice(["190.0", "151.0"])
+        Tryglicerides = random.choice(["12.2", "10.6"])
+        Platelets = random.choice(["4.0", "3.0"])
+        Prothrombin = random.choice(["4.0", "3.0"])
+        Stage = random.choice(["D", "C"])
+        print(ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage)
+```
+
+### Grading
+
+You will be graded on the correctness of your code.
+
+### Hints
+
+* Use the random module to generate random values for each field.
+* Use the print statement to debug your code.
+* You do not need to submit the testing data.
+
+### Solution
+
+```python
+import random
+
+def main():
+    for i in range(10000):
+        ID = random.randint(1, 100000)
+        N_Days = random.randint(400, 4500)
+        Status = random.choice(["D", "C"])
+        Drug = random.choice(["D-penicillamine"])
+        Age = random.randint(20000, 100000)
+        Sex = random.choice(["F", "M"])
+        Ascites = random
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+**Important**: All the values are real values in the dataset. You must generate new records which have the same distribution.
+
+### Note
+
+- The number of records you generate must be at least 10000.
+- You must generate records with the same distribution as the original data.
+- You must make sure that your records have the same distribution as the original data.
+- Your records must be in the format:
+
+```
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+```
+
+### Hints
+
+- You can use `np.random` to generate random numbers.
+- You can use `np.random` to generate random numbers.
+- You can use `np.random` to generate random numbers.
+
+### Solution
+
+```python
+import numpy as np
+
+# Generate 10000 records
+n = 10000
+data = np.zeros((n, 25))
+
+# Generate ID
+data[:, 0] = np.arange(n)
+
+# Generate N_Days
+data[:, 1] = np.random.randint(1000, 5000, n)
+
+# Generate Status
+data[:, 2] = np.random.choice(['C', 'D'], n, p=[0.5, 0.5])
+
+# Generate Drug
+data[:, 3] = np.random.choice(['D-penicillamine', 'D-penicillamine'], n, p=[0.9, 0.1])
+
+# Generate Age
+data[:, 4] = np.random.randint(20, 60, n)
+
+# Generate Sex
+data[:, 5] = np.random.choice(['F', 'M'], n, p=[0.5, 0.5])
+
+# Generate Ascites
+data[:, 6] = np.random.choice(['Y', 'N'], n, p=[0.5, 0.5])
+
+# Generate Hepatomegaly
+data[:, 7] = np.random.choice(['Y', 'N'], n, p=[0.5, 0.5])
+
+# Generate Spiders
+data[:, 8] = np.random.choice(['Y', 'N'], n, p=[0.5, 0.5])
+
+# Generate Edema
+data[:, 9] = np.random.choice(['Y', 'N'], n, p=[0.5, 0.5])
+
+# Generate Bilirubin
+data[:, 10] = np.random.normal(100, 5, n)
+
+# Generate Cholesterol
+data[:, 11] = np.random.normal(200, 10, n)
+
+# Generate Albumin
+data[:, 12] = np.random.normal(50, 5, n)
+
+# Generate Copper
+data[:, 13] = np.random.normal(200, 20, n)
+
+# Generate Alk_Phos
+data[:, 14] = np.random.normal(100, 10, n)
+
+# Generate SGOT
+data[:, 15] = np.random.normal(50, 10, n)
+
+# Generate Tryglicerides
+data[:, 16] = np.random.normal(100, 5, n)
+
+# Generate Platelets
+data[:, 17] = np.random.normal(200, 20, n)
+
+# Generate Prothrombin
+data[:, 18] = np.random.normal(100, 5, n)
+
+# Generate Stage
+data[:, 19] = np.random.choice(['0', '1'], n, p=[0.5, 0.5])
+
+# Generate Stage
+data[:, 20
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+The records are generated using the following parameters:
+- Number of days
+- Status: 1,2, or 3
+- Drug: D or C
+- Age: 1,2, or 3
+- Sex: M or F
+- Ascites: Y or N
+- Hepatomegaly: Y or N
+- Spiders: Y or N
+- Edema: Y or N
+- Bilirubin: 1.1, 302.0, 14.5, 176.0, 172.0, or 156.0
+- Cholesterol: 261.0, 221.0, 54.0, 7394.8, 1718.0, or 151.0
+- Albumin: 137.95, 96.10, 113.52, 190.0, 172.0, or 55.0
+- Copper: 172.0, 190.0, 113.52, 137.95, 1718.0, or 96.10
+- Alk_Phos: 172.0, 190.0, 113.52, 137.95, 1718.0, or 96.10
+- SGOT: 12.2, 10.6, 12.0, 12.0, 10.6, or 12.0
+- Tryglicerides: 4.0, 3.0, 4.0, 3.0, 4.0, or 3.0
+- Platelets: 12.2, 10.6, 12.0, 12.0, 10.6, or 12.0
+- Prothrombin: 12.2, 10.6, 12.0, 12.0, 10.6, or 12.0
+- Stage: 1,2, or 3
+
+The status can be 1, 2, or 3.
+
+Status 1 is cirrhosis
+Status 2 is advanced cirrhosis
+Status 3 is decompensated cirrhosis
+
+The drug can be D or C.
+
+D is D-penicillamine
+C is chloroquine
+
+The age can be 1, 2, or 3.
+
+1 is less than 40 years old
+2 is 40 to 59 years old
+3 is 60 years old or older
+
+The sex can be M or F.
+
+M is male
+F is female
+
+The ascites can be Y or N.
+
+Y is yes
+N is no
+
+The hepatomegaly can be Y or N.
+
+Y is yes
+N is no
+
+The spiders can be Y or N.
+
+Y is yes
+N is no
+
+The edema can be Y or N.
+
+Y is yes
+N is no
+
+The bilirubin can be 1.1, 302.0, 14.5, 176.0, 172.0, or 156.0.
+
+The cholesterol can be 261.0, 221.0, 54.0, 7394.8, 1718.0, or 151.0.
+
+The albumin can be 137.95, 96.10, 113.52, 190.0, 172.0, or 55.0.
+
+The copper can be 172.0, 190.0, 113.52, 137.95, 1718.0, or 96.10.
+
+The alk_phos can be 172.0, 190.0, 113.52, 137.95, 1718.0, or 
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+### What does your solution look like?
+
+My solution looks like this:
+
+```
+#! /usr/bin/env python3
+
+import random
+import csv
+
+with open('cirrhosis.csv', 'r') as f:
+    reader = csv.reader(f)
+    header = next(reader)
+
+with open('cirrhosis_output.csv', 'w') as output:
+    writer = csv.writer(output)
+    writer.writerow(header)
+
+    while True:
+        row = [random.randint(1, 10000) for i in range(10)]
+        for i in range(10):
+            row[i] = random.choice(list(header[i]))
+        writer.writerow(row)
+```
+
+### What does your code do?
+
+The code creates a new file cirrhosis_output.csv. The file contains 10 records, each record is 10 random values.
+
+### How does it work?
+
+The code is based on the cirrhosis.csv file, which is a sample file that contains 3 records.
+
+The code generates a new file cirrhosis_output.csv, which is a file that contains 10 records.
+
+The code generates a new file cirrhosis_output.csv, which is a file that contains 10 records.
+
+The code generates a new file cirrhosis_output.csv, which is a file that contains 10 records.
+
+### What challenges did you face?
+
+The challenge was to create a new file that contains 10 records.
+
+### What did you learn?
+
+I learned how to use the random module to create random values.
+
+I learned how to use the random module to create random values.
+
+I learned how to use the random module to create random values.
+
+I learned how to use the random module to create random values.
+
+### What's next?
+
+I will continue to work on my code.
+
+I will continue to work on my code.
+
+I will continue to work on my code.
+
+I will continue to work on my code.
+
+### What is your favorite feature of this project?
+
+My favorite feature of this project is that it creates a new file that contains 10 records.
+
+My favorite feature of this project is that it creates a new file that contains 10 records.
+
+My favorite feature of this project is that it creates a new file that contains 10 records.
+
+My favorite feature of this project is that it creates a new file that contains 10 records.
+
+### What is your least favorite feature of this project?
+
+My least favorite feature of this project is that it creates a new file that contains 10 records.
+
+My least favorite feature of this project is that it creates a new file that contains 10 records.
+
+My least favorite feature of this project is that it creates a new file that contains 10 records.
+
+My least favorite feature of this project is that it creates a new file that contains 10 records.
+
+### What is your favorite data type in Python?
+
+My favorite data type in Python is the string.
+
+My favorite data type in Python is the string.
+
+My favorite data type in Python is the string.
+
+My favorite data type in Python is the string.
+
+### What is your least favorite data type in Python?
+
+My least favorite data type in Python is the string.
+
+My least favorite data type in Python is the string.
+
+My least favorite data type in Python is the string.
+
+My least favorite data type in Python is the string.
+
+### What is your favorite data structure in Python?
+
+My favorite data structure in Python is the list.
+
+My favorite data structure in Python is the list.
+
+My favorite data structure in Python is the list.
+
+My favorite data structure in Python is the list.
+
+### What is your least favorite data structure in Python?
+
+My least favorite data structure in Python is the list.
+
+My least favorite data structure in Python is the list.
+
+My least favorite data structure in Python is the list.
+
+My least favorite data structure in Python is the list.
+
+### What is your favorite operator in Python?
+
+My favorite operator in Python is the equality operator.
+
+My favorite operator in Python is the equality operator.
+
+My
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+Note:
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+### Input Format
+
+The first line of input will contain an integer, N, denoting the number of records to be generated.
+
+The next N lines will contain the ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage for each record.
+
+### Output Format
+
+The first line of output should contain an integer, N, denoting the number of records generated.
+
+The next N lines should contain the ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage for each record.
+
+### Sample Input
+
+```
+1
+400
+D
+D-penicillamine
+21464
+F
+Y
+Y
+Y
+Y
+14.5
+261.0
+2.60
+156.0
+1718.0
+137.95
+172.0
+190.0
+12.2
+4.0
+```
+
+### Sample Output
+
+```
+1
+400
+D
+D-penicillamine
+21464
+F
+Y
+Y
+Y
+Y
+14.5
+261.0
+2.60
+156.0
+1718.0
+137.95
+172.0
+190.0
+12.2
+4.0
+```
+
+### Explanation
+
+The ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage of each record are randomized and the output should follow the same format as the input.
+
+### Hints
+
+The ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Ph
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+### Hints
+
+* You can generate the number of days a patient has cirrhosis
+* You can generate the status of the patient (C = cirrhosis, D = death)
+* You can generate the drug the patient is taking
+* You can generate the age of the patient
+* You can generate the sex of the patient (F = female, M = male)
+* You can generate whether or not the patient has ascites, hepatomegaly, spider angiomas, edema, jaundice, and portal hypertension
+* You can generate the patient's bilirubin, cholesterol, albumin, copper, alkaline phosphatase, SGOT, tryglicerides, platelets, prothrombin, and stage
+
+### Resources
+
+* [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/datasets/Cirrhosis+Prediction)
+* [Anaconda Python Distribution](https://www.continuum.io/downloads)
+
+### Submission Instructions
+
+* Your submission must be a text file named `input.txt`
+* Your submission must be a text file named `output.txt`
+* Your submission must be a text file named `output.json`
+* Your submission must be a text file named `output.csv`
+* Your submission must be a text file named `output.zip`
+* Your submission must be a text file named `output.tar.gz`
+
+### Grading
+
+Your submission is graded on how many records you generate that are accepted by the cirrhosis prediction code. 
+
+Your submission is graded on how many records you generate that are accepted by the cirrhosis prediction code. 
+
+Your submission is graded on how many records you generate that are accepted by the cirrhosis prediction code. 
+
+Your submission is graded on how many records you generate that are accepted by the cirrhosis prediction code. 
+
+Your submission is graded on how many records you generate that are accepted by the cirrhosis prediction code. 
+
+Your submission is graded on how many records you generate that are accepted by the cirrhosis prediction code. 
+
+Your submission is graded on how many records you generate that are accepted by the cirrhosis prediction code. 
+
+Your submission is graded on how many records you generate that are accepted by the cirrhosis prediction code. 
+
+### Bonus
+
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5% extra credit if you generate 1000 records
+* 0.5
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+### Rules
+
+- Your output must match the example records.
+- You must generate 1000 records.
+- You can only generate records with a maximum age of 65 years.
+- Your output must be in the format specified above.
+
+### Hint
+
+- The first two numbers in the ID field are random numbers.
+- The N_Days field is a random number between 0 and 40000.
+- The Status field is random.
+- The Drug field is random.
+- The Age field is random.
+- The Sex field is random.
+- The Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage fields are random.
+
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+You can find some example files in the `data/` directory.
+
+## Running the tests
+
+To run the tests, you will need to install the following packages:
+
+- python>=3.8
+- pytest
+
+When you are ready to run the tests, run the following command in your terminal:
+
+```bash
+pytest
+```
+
+### Useful resources
+
+- [Pytest documentation](https://docs.pytest.org/en/latest/)
+
+### Break down into end to end tests
+
+- Test that a sample file is loaded correctly
+- Test that the data is parsed correctly
+- Test that the model is called correctly with the sample files
+
+### Optional features
+
+- Add some unit tests to check that each function is working as expected.
+- Need to improve code style?
+
+## Deployment
+
+To deploy your application, use `heroku create` and `heroku git:remote -a <app-name>`.
+
+## Built With
+
+- [Python](https://www.python.org/) - The programming language used
+- [Jupyter Notebook](https://jupyter.org/) - IDE used
+
+## Authors
+
+- **Kelly Cummins** - *Initial work* - [kellycummins](https://github.com/kellycummins)
+
+See also the list of [contributors](https://github.com/kellycummins/synthetic-data-generator/graphs/contributors) who participated in this project.
+
+## Acknowledgments
+
+- The data is from https://www.kaggle.com/kellycummins/cirrhosis-predictions
+- The data is from https://www.kaggle.com/kellycummins/cirrhosis-predictions
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+The ID must be a random number between 1 and 100000.
+
+The N_Days must be a random number between 0 and 100000.
+
+The Status must be either D (diseased) or C (control).
+
+The Drug must be either D-penicillamine, penicillamine, or sodium phenylbutyrate.
+
+The Age must be between 0 and 1000.
+
+The Sex must be either F (female) or M (male).
+
+The Ascites must be either Y (yes) or N (no).
+
+The Hepatomegaly must be either Y (yes) or N (no).
+
+The Spiders must be either Y (yes) or N (no).
+
+The Edema must be either Y (yes) or N (no).
+
+The Bilirubin must be between 0 and 1000.
+
+The Cholesterol must be between 0 and 1000.
+
+The Albumin must be between 0 and 1000.
+
+The Copper must be between 0 and 1000.
+
+The Alk_Phos must be between 0 and 1000.
+
+The SGOT must be between 0 and 1000.
+
+The Tryglicerides must be between 0 and 1000.
+
+The Platelets must be between 0 and 1000.
+
+The Prothrombin must be between 0 and 1000.
+
+The Stage must be between 0 and 1000.
+
+For each record, the values must be generated randomly with uniform distribution.
+
+For each record, the ID must be unique.
+
+The number of records must be between 5000 and 10000.
+
+The total number of generated records must be stored in a text file named "num_records.txt".
+
+You can find more information about cirrhosis in https://www.medicalnewstoday.com/articles/317934
+
+The data generation program must be called cirrhosis.py.
+
+The data generation program must be written in Python.
+
+The data generation program must be executed using Python 3.6.
+
+The data generation program must be executed on an Ubuntu 18.04 LTS system.
+
+The data generation program must be executed on a system with a 64-bit CPU.
+
+The data generation program must not use any Python libraries.
+
+The data generation program must not use any external programs.
+
+The data generation program must not use any external data sources.
+
+The data generation program must not be dependent on any external files.
+
+The data generation program must not be dependent on any external environment variables.
+
+The data generation program must not use any environment variables.
+
+The data generation program must not use any shell scripts.
+
+The data generation program must not use any system calls.
+
+The data generation program must not use any network connections.
+
+The data generation program must not use any files on the local file system.
+
+The data generation program must not use any files on any remote file systems.
+
+The data generation program must not use any system resources (CPU, memory, disk, etc.)
+
+The data generation program must not use any system resources (CPU, memory, disk, etc.)
+
+The data generation program must not use any system resources (CPU, memory, disk, etc.)
+
+The data generation program must not use any system resources (CPU, memory, disk, etc.)
+
+The data generation program must not use any system resources (CPU, memory, disk, etc.)
+
+The data generation program must not use any system resources (CPU, memory, disk, etc.)
+
+The data generation program must not use any system resources (CPU, memory, disk, etc.)
+
+The data generation program must not use any system resources (CPU, memory, disk, etc.)
+
+The data generation program must not use any system resources (CPU, memory, disk, etc.)
+
+The data generation program must not use any system resources (CPU, memory, disk, etc.)
+
+The data generation program must not use any system resources (CPU, memory, disk, etc.)
+
+The data generation program must not use any system resources (CPU, memory, disk, etc.)
+
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+If you need more examples, check out the file cirrhosis_dataset_sample.csv.
+
+The data will be used for research by the University of Maryland, Baltimore.
+
+
+
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+Your goal is to generate realistic synthetic data with the same statistics as the training data.
+
+The training data is a CSV file named `data/train_cirrhosis.csv`.
+
+Each line of the training data contains a `Status` column.
+
+The `Status` column contains either `D` or `C`.
+
+`D` means that the patient is diagnosed with cirrhosis.
+
+`C` means that the patient is not diagnosed with cirrhosis.
+
+The `Status` column is binary, and the label is the target variable for the ML model.
+
+You will generate 10000 records.
+
+Your program will be tested by comparing the distribution of the `Status` column in the generated records to the distribution of the `Status` column in the training data.
+
+If the distributions are similar, then you will receive 100 points.
+
+If the distributions are different, then you will receive 0 points.
+
+### Setup
+
+This repository uses [Poetry](https://python-poetry.org/) to manage the Python dependencies.
+
+To install the project dependencies, run the following command:
+
+```bash
+poetry install
+```
+
+### Run
+
+To run the tests, run the following command:
+
+```bash
+poetry run pytest
+```
+
+To run the program, run the following command:
+
+```bash
+poetry run python cirrhosis_generate.py
+```
+
+### Notes
+
+- If you don't know how to use Poetry, see the [documentation](https://python-poetry.org/docs/).
+
+- If you don't know how to use PyTest, see the [documentation](https://docs.pytest.org/en/latest/).
+
+- The program will create the `data/test_cirrhosis.csv` file.
+
+- The `data/test_cirrhosis.csv` file is used to test your program.
+
+- Your program will be tested by comparing the distribution of the `Status` column in the generated records to the distribution of the `Status` column in the training data.
+
+- If the distributions are similar, then you will receive 100 points.
+
+- If the distributions are different, then you will receive 0 points.
+
+- The program will create the `data/cirrhosis_test.csv` file.
+
+- The `data/cirrhosis_test.csv` file is used to test your program.
+
+- Your program will be tested by comparing the distribution of the `Status` column in the generated records to the distribution of the `Status` column in the training data.
+
+- If the distributions are similar, then you will receive 100 points.
+
+- If the distributions are different, then you will receive 0 points.
+
+### Hints
+
+- The program will generate the `data/test_cirrhosis.csv` file.
+
+- The `data/test_cirrhosis.csv` file is used to test your program.
+
+- Your program will be tested by comparing the distribution of the `Status` column in the generated records to the distribution of the `Status` column in the training data.
+
+- If the distributions are similar, then you will receive 100 points.
+
+- If the distributions are different, then you will receive 0 points.
+
+- The program will create the `data/cirrhosis_test.csv` file.
+
+- The `data/cirrhosis_test.csv` file is used to test your program.
+
+- Your program will be tested by comparing the distribution of the `Status` column in the generated records to the distribution of the `Status` column in the training data.
+
+- If the distributions are similar, then you will receive 100 points.
+
+- If the distributions are different, then you will receive 0 points.
+
+### Stuck?
+
+- Check out the [project guide](https://drivendata.github.io/cookiecutter-data-science/docs/project_guide/).
+
+- Check out the [discourse forum](https://discourse.drivendata.org/).
+
+### Resources
+
+- [Poetry](https://python-poetry.org/)
+
+- [PyTest](https://docs.pytest.org/en/latest/)
+
+- [Seaborn](https://seaborn.pydata.org
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+Your input is a string of the format 'ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage'.
+
+Your output is a string of the format 'ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage'.
+
+### Submitting Exercises
+
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+
+For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
+
+
+For more detailed information about running tests, code style and linting, please see the [help page](http://exercism.io/languages/csharp).
+
+## Source
+
+The [FakeCirrhosis](http://www.kaggle.com/c/cirrhosis-prediction/data) data set [from Kaggle](http://www.kaggle.com)
+
+## Submitting Incomplete Solutions
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+The data should be realistic and look like it was collected by a medical researcher.
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+### How to run
+
+1. Clone this repository
+2. `cd` into the project directory
+3. `npm i`
+4. `npm run dev`
+
+### How to test
+
+1. `npm run test`
+
+
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+
+**Sample Input**
+```
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+```
+
+**Sample Output**
+```
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+4, 10000, D, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0
+5, 10000, D, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0
+6, 10000, D, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0
+7, 10000, D, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 22
+

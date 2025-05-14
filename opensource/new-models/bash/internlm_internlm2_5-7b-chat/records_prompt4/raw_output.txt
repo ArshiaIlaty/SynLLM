@@ -1,0 +1,1460 @@
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+Here are 20 synthetic patient records based on the provided feature definitions and correlations:
+
+1. Female, 28, 0, 0, Current, 24.0, 4.9, 105.0, 0
+2. Male, 35, 1, 0, Former, 29.5, 5.8, 5.6, 0
+3. Female, 50, 1, 1, Never, 31.2, 6.2, 5.8, 1
+4. Male, 65, 0, 0, Never, 27.8, 7.1, 5.7, 1
+5. Female, 45, 1, 1, Current, 33.0, 6.5, 6.0, 1
+6. Male, 55, 1, 1, Current, 32.5, 6.8, 5.9, 1
+7. Female, 18, 0, 0, Never, 19.0, 4.6, 4.8, 0
+8. Male, 70, 1, 1, Never, 25.5, 6.8, 6.1, 1
+9. Female, 38, 0, 0, Former, 24.5, 5.1, 5.4, 0
+10. Male, 60, 1, 1, Never, 28.2, 6.7, 5.6, 1
+11. Female, 20, 0, 0, Never, 20.0, 4.7, 4.7, 0
+12. Male, 40, 1, 0, Current, 27.0, 6.0, 5.5, 0
+13. Female, 30, 0, 1, Never, 23.5, 5.3, 5.9, 0
+14. Male, 80, 1, 1, Never, 29.0, 6.5, 6.2, 1
+15. Female, 25, 0, 0, Former, 22.0, 4.5, 4.9, 0
+16. Male, 55, 1, 0, Current, 32.0, 6.5, 5.8, 0
+17. Female, 19, 0, 0, Never, 18.5, 4.4, 4.6, 0
+18. Male, 50, 1, 0, Current, 28.5, 6.2, 5.7, 0
+19. Female, 50, 1, 1, Never, 31.0, 6.3, 6.1, 1
+20. Male, 18, 0, 0, Current, 20.5, 4.8, 4.7, 0
+
+These records reflect the provided statistical metadata and correlations, ensuring a diverse and realistic dataset for diabetes prediction.
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+1,-Male, 45, 0, 0, 25.0, 5.2, 120, 0
+2,Female, 55, 1, 1, 1, 33.5, 5.8, 145, 1
+3,Male, 32, 0, 0, 1, 29.0, 5.1, 125, 0
+4,Female, 68, 1, 1, 0, 27.5, 5.9, 155, 1
+5,Female, 42, 0, 0, 1, 23.0, 5.3, 128, 0
+6,Male, 50, 1, 0, 1, 30.5, 5.6, 135, 1
+7,Female, 18, 0, 0, 0, 20.5, 5.0, 110, 0
+8,Male, 60, 1, 1, 0, 28.0, 5.8, 150, 1
+9,Female, 35, 0, 0, 0, 24.0, 5.2, 122, 0
+10,Female, 70, 1, 1, 1, 30.5, 6.1, 160, 1
+11,Male, 45, 1, 0, 1, 28.0, 5.7, 135, 1
+12,Female, 28, 0, 0, 0, 21.5, 5.1, 115, 0
+13,Female, 48, 1, 1, 1, 31.0, 6.0, 165, 1
+14,Female, 65, 1, 1, 0, 28.5, 6.3, 160, 1
+15,Male, 30, 0, 0, 0, 24.0, 5.3, 120, 0
+16,Male, 58, 1, 0, 0, 27.5, 5.9, 140, 1
+17,Female, 50, 0, 0, 0, 25.5, 5.4, 130, 0
+18,Male, 36, 0, 0, 0, 24.5, 5.2, 122, 0
+19,Female, 49, 1, 1, 1, 32.5, 6.2, 170, 1
+20,Male, 19, 0, 0, 0, 22.0, 5.0, 110, 0
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+Here are 20 synthetic patient records following the specified definitions and correlations:
+
+1. Female, 28, 0, 0, never, 22.5, 4.8, 92, 90, 0
+2. Male, 55, 1, 1, former, 29.2, 6.3, 5.9, 150, 1
+3. Female, 40, 0, 0, current, 25.0, 5.1, 5.4, 95, 0
+4. Male, 72, 1, 1, never, 30.0, 7.2, 6.5, 180, 1
+5. Female, 35, 0, 0, never, 24.0, 4.8, 5.2, 85, 0
+6. Male, 65, 1, 1, former, 28.5, 6.5, 6.1, 160, 1
+7. Female, 48, 0, 0, never, 26.0, 5.3, 5.6, 95, 0
+8. Male, 19, 0, 0, never, 20.0, 4.1, 4.9, 80, 0
+9. Female, 60, 1, 1, current, 32.0, 7.5, 6.8, 200, 1
+10. Male, 50, 0, 0, former, 27.0, 5.7, 5.5, 100, 0
+11. Female, 45, 0, 0, never, 23.0, 4.9, 5.4, 85, 0
+12. Male, 70, 1, 1, never, 31.0, 6.8, 6.2, 190, 1
+13. Female, 38, 0, 0, current, 24.5, 5.2, 5.3, 90, 0
+14. Male, 42, 0, 0, never, 28.0, 5.5, 5.6, 100, 0
+15. Female, 49, 1, 1, current, 26.5, 6.3, 6.0, 170, 1
+16. Male, 18, 0, 0, never, 19.0, 4.0, 4.8, 70, 0
+17. Female, 62, 1, 1, never, 33.0, 7.6, 6.9, 210, 1
+18. Male, 63, 1, 1, former, 29.5, 6.7, 6.3, 180, 1
+19. Female, 31, 0, 0, current, 23.5, 4.8, 5.2, 90, 0
+20. Male, 57, 1, 1, never, 30.0, 6.4, 6.1, 175, 1
+
+These records incorporate the specified distributions, means, standard deviations, ranges, and correlations.
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+Sure, I will generate 20 realistic synthetic patient records based on the provided feature definitions and correlations. Here are the records:
+
+1. Male, 28, 0, 0, Current, 22.0, 4.8, 90, 140, 0
+2. Female, 42, 1, 1, Former, 30.0, 5.7, 6.2, 120, 1
+3. Male, 65, 1, 1, Never, 35.0, 6.3, 7.0, 160, 1
+4. Female, 38, 0, 0, Current, 28.0, 4.5, 5.1, 110, 0
+5. Male, 55, 1, 0, Never, 32.0, 6.0, 5.8, 130, 0
+6. Female, 19, 0, 0, Former, 20.0, 4.2, 4.5, 80, 0
+7. Male, 75, 1, 1, Current, 40.0, 7.2, 8.0, 180, 1
+8. Female, 50, 0, 0, Never, 25.0, 4.8, 4.9, 95, 0
+9. Male, 45, 1, 0, Current, 31.0, 6.1, 5.5, 140, 0
+10. Female, 60, 1, 1, Never, 37.0, 6.7, 6.3, 170, 0
+11. Male, 18, 0, 0, Current, 17.0, 4.0, 4.1, 70, 0
+12. Female, 49, 0, 0, Former, 29.0, 4.9, 5.0, 105, 0
+13. Male, 70, 1, 1, Never, 38.0, 6.8, 6.5, 160, 0
+14. Female, 32, 0, 0, Never, 24.0, 4.3, 4.4, 85, 0
+15. Male, 57, 1, 0, Former, 33.0, 5.9, 5.4, 135, 0
+16. Female, 23, 0, 0, Current, 22.0, 4.1, 4.2, 90, 0
+17. Male, 50, 0, 0, Current, 28.0, 4.7, 4.8, 95, 0
+18. Female, 67, 1, 1, Never, 39.0, 6.9, 6.6, 180, 0
+19. Male, 35, 1, 0, Former, 26.0, 5.2, 5.3, 130, 0
+20. Female, 40, 0, 0, Current, 27.0, 4.6, 4.7, 100, 0
+
+These records reflect the provided statistical metadata and correlations, ensuring a realistic representation for diabetes prediction research.
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+1. Female, 35, 0, 0, never, 23.5, 5.2, 120, 0
+2. Male, 65, 1, 1, former, 28.0, 6.1, 6.5, 1
+3. Female, 42, 0, 0, current, 29.8, 5.8, 5.4, 0
+4. Male, 55, 1, 0, never, 32.0, 6.3, 5.6, 0
+5. Female, 50, 0, 0, never, 25.6, 5.5, 5.2, 0
+6. Male, 70, 1, 1, former, 31.2, 6.4, 6.3, 1
+7. Female, 40, 0, 0, current, 27.5, 5.7, 5.5, 0
+8. Male, 60, 1, 1, never, 30.0, 6.1, 6.5, 1
+9. Female, 48, 0, 0, never, 26.8, 5.4, 5.3, 0
+10. Male, 45, 1, 0, current, 32.1, 6.2, 6.1, 0
+11. Female, 52, 0, 0, never, 24.3, 5.2, 5.0, 0
+12. Male, 68, 1, 1, never, 31.5, 6.3, 6.4, 1
+13. Female, 49, 0, 0, never, 27.0, 5.6, 5.5, 0
+14. Male, 37, 0, 0, never, 22.4, 5.1, 5.0, 0
+15. Female, 57, 1, 1, current, 30.8, 6.4, 6.5, 1
+16. Male, 18, 0, 0, never, 20.0, 5.0, 4.8, 0
+17. Female, 28, 0, 0, current, 21.5, 5.2, 5.1, 0
+18. Male, 50, 1, 0, never, 26.9, 5.7, 5.6, 0
+19. Female, 45, 0, 0, current, 29.2, 5.8, 5.7, 0
+20. Male, 19, 0, 0, former, 22.3, 5.1, 5.0, 0
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+1. Female, 30.0, 0, 0, never, 23.0, 5.2, 120.0, 0
+2. Male, 55.0, 1, 1, former, 32.0, 6.1, 6.5, 1
+3. Female, 40.0, 0, 0, never, 28.0, 5.8, 115.0, 0
+4. Male, 65.0, 1, 1, current, 29.0, 7.0, 7.2, 1
+5. Female, 45.0, 0, 0, never, 27.0, 5.5, 118.0, 0
+6. Male, 60.0, 1, 0, never, 31.0, 6.3, 6.1, 0
+7. Female, 50.0, 0, 0, never, 24.0, 5.2, 100.0, 0
+8. Male, 70.0, 1, 1, former, 36.0, 7.0, 7.3, 1
+9. Female, 35.0, 0, 0, never, 25.0, 5.4, 103.0, 0
+10. Male, 50.0, 0, 0, never, 27.0, 5.7, 116.0, 0
+11. Female, 65.0, 1, 0, never, 29.0, 6.5, 6.4, 0
+12. Male, 45.0, 0, 0, never, 28.0, 5.6, 105.0, 0
+13. Female, 18.0, 0, 0, never, 20.0, 4.9, 4.5, 0
+14. Male, 75.0, 1, 1, current, 35.0, 7.0, 7.5, 1
+15. Female, 55.0, 0, 0, never, 32.0, 5.8, 5.9, 0
+16. Male, 40.0, 0, 0, never, 26.0, 5.3, 102.0, 0
+17. Female, 45.0, 0, 0, never, 27.0, 5.6, 113.0, 0
+18. Male, 60.0, 1, 0, never, 30.0, 6.2, 6.3, 0
+19. Female, 50.0, 0, 0, never, 24.0, 5.4, 102.0, 0
+20. Male, 70.0, 1, 0, never, 34.0, 6.8, 6.4, 0
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+Sure, here are 20 synthetic patient records following the provided feature definitions and correlations:
+
+1. M, 35, 0, 0, never, 22.5, 5.4, 120, 0
+2. F, 50, 1, 0, former, 28.7, 6.0, 5.9, 0
+3. M, 65, 1, 1, current, 29.2, 6.5, 6.2, 1
+4. F, 42, 0, 0, never, 24.1, 5.3, 5.1, 0
+5. M, 60, 1, 1, former, 27.8, 6.0, 5.9, 1
+6. F, 45, 0, 0, never, 23.5, 5.2, 5.0, 0
+7. M, 18, 0, 0, never, 20.0, 4.8, 4.6, 0
+8. F, 70, 1, 1, current, 30.2, 6.7, 6.8, 1
+9. M, 55, 1, 1, never, 26.4, 6.3, 6.1, 1
+10. F, 49, 0, 0, former, 25.9, 5.4, 5.3, 0
+11. M, 38, 0, 0, current, 21.8, 5.0, 4.9, 0
+12. F, 19, 0, 0, never, 19.0, 4.7, 4.6, 0
+13. M, 63, 1, 1, never, 27.9, 6.2, 6.0, 1
+14. F, 28, 0, 0, never, 21.3, 4.9, 4.8, 0
+15. M, 32, 0, 0, former, 23.5, 5.2, 5.0, 0
+16. F, 46, 1, 0, never, 24.8, 5.5, 5.4, 0
+17. M, 62, 1, 1, current, 29.1, 6.6, 6.7, 1
+18. F, 51, 0, 0, never, 26.5, 5.9, 5.8, 0
+19. M, 20, 0, 0, never, 19.0, 4.7, 4.6, 0
+20. F, 69, 1, 1, former, 30.5, 6.8, 6.9, 1
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+Sure, here are 20 synthetic patient records based on the provided statistical metadata and correlations:
+
+1. Male, 35, 0, 0, Current, 25.5, 5.8, 120, 1
+2. Female, 50, 1, 1, Never, 30.2, 6.1, 5.5, 1
+3. Male, 60, 1, 0, Former, 32.4, 7.0, 5.9, 1
+4. Female, 45, 0, 0, Current, 28.1, 6.3, 5.6, 0
+5. Male, 70, 1, 1, Never, 29.8, 7.2, 6.2, 1
+6. Female, 55, 0, 1, Current, 26.5, 6.5, 5.8, 1
+7. Male, 65, 1, 0, Former, 31.2, 7.1, 6.0, 0
+8. Female, 48, 1, 0, Never, 27.9, 6.7, 5.7, 0
+9. Male, 18, 0, 0, Current, 20.0, 5.0, 5.0, 0
+10. Female, 80, 1, 1, Former, 36.1, 8.0, 7.5, 1
+11. Male, 55, 0, 0, Never, 24.1, 6.4, 5.6, 0
+12. Female, 32, 0, 1, Never, 23.5, 5.5, 5.4, 0
+13. Male, 40, 1, 0, Current, 26.3, 6.2, 5.9, 0
+14. Female, 28, 0, 0, Current, 22.0, 5.1, 5.1, 0
+15. Male, 30, 1, 1, Former, 24.9, 5.9, 5.7, 1
+16. Female, 75, 0, 1, Current, 29.2, 6.8, 6.3, 1
+17. Male, 50, 0, 0, Current, 27.5, 6.1, 5.6, 0
+18. Female, 38, 1, 0, Never, 26.1, 6.4, 5.7, 0
+19. Male, 45, 1, 0, Current, 28.4, 6.3, 5.8, 1
+20. Female, 65, 0, 1, Current, 33.1, 7.0, 6.5, 1
+
+These records reflect the given distributions, means, standard deviations, and correlations to ensure realistic and diverse patient profiles for diabetes prediction research.
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+Here are 20 synthetic patient records generated based on the provided features and correlations:
+
+1. Male, 34, 0, 0, Current, 28.5, 5.8, 130, 1
+2. Female, 52, 1, 0, Never, 29.2, 6.0, 5.5, 0
+3. Male, 68, 1, 1, Former, 33.0, 6.9, 6.2, 1
+4. Female, 24, 0, 0, Not Current, 21.5, 4.8, 4.9, 0
+5. Male, 65, 1, 1, Current, 31.5, 7.1, 6.3, 1
+6. Female, 38, 0, 0, Never, 27.0, 5.4, 5.6, 0
+7. Male, 50, 1, 0, Never, 26.0, 6.2, 5.8, 0
+8. Female, 45, 0, 1, Former, 30.2, 5.9, 6.1, 0
+9. Male, 40, 1, 1, Current, 27.5, 6.3, 6.2, 1
+10. Female, 55, 0, 0, Never, 25.8, 5.1, 5.4, 0
+11. Male, 35, 1, 0, Never, 24.3, 5.3, 5.7, 0
+12. Female, 60, 0, 1, Current, 32.1, 6.5, 6.5, 1
+13. Male, 18, 0, 0, Never, 19.2, 4.5, 4.6, 0
+14. Female, 46, 0, 0, Not Current, 28.8, 5.7, 5.8, 0
+15. Male, 70, 1, 1, Current, 29.0, 6.8, 6.9, 1
+16. Female, 28, 0, 0, Never, 22.5, 4.9, 5.0, 0
+17. Male, 42, 0, 1, Former, 25.3, 5.6, 5.7, 0
+18. Female, 53, 0, 0, Never, 30.0, 6.0, 5.9, 0
+19. Male, 51, 1, 0, Current, 28.8, 6.1, 6.1, 0
+20. Female, 37, 0, 0, Current, 24.5, 5.2, 5.3, 0
+
+These records reflect the distributions and correlations provided, creating a diverse set of synthetic patients for diabetes research.
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+1, 35, 0, 0, 1, 28.5, 5.4, 120.0, 0
+2, 60, 1, 1, 3, 32.0, 6.2, 150.0, 1
+3, 45, 0, 0, 2, 29.0, 5.8, 135.0, 0
+4, 55, 1, 0, 4, 31.5, 6.1, 155.0, 0
+5, 38, 0, 0, 1, 27.0, 5.5, 125.0, 0
+6, 65, 1, 1, 2, 33.0, 6.3, 160.0, 1
+7, 40, 0, 0, 3, 26.5, 5.6, 130.0, 0
+8, 50, 1, 0, 4, 30.0, 6.0, 145.0, 0
+9, 70, 1, 1, 3, 35.0, 6.4, 165.0, 1
+10, 30, 0, 0, 1, 24.0, 5.2, 115.0, 0
+11, 48, 1, 0, 2, 28.0, 5.9, 140.0, 0
+12, 62, 1, 1, 4, 34.5, 6.5, 170.0, 1
+13, 46, 0, 0, 3, 28.0, 5.8, 135.0, 0
+14, 49, 1, 0, 1, 26.0, 5.7, 130.0, 0
+15, 57, 1, 1, 2, 32.0, 6.2, 155.0, 1
+16, 43, 0, 0, 4, 25.5, 5.4, 125.0, 0
+17, 68, 1, 1, 3, 36.0, 6.6, 175.0, 1
+18, 37, 0, 0, 1, 24.0, 5.1, 115.0, 0
+19, 64, 1, 0, 2, 33.0, 6.1, 160.0, 0
+20, 51, 0, 0, 4, 30.0, 5.9, 145.0, 0
+
+These records are designed to reflect the given statistical metadata and correlations, providing a realistic dataset for diabetes prediction research.
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+1. M, 50, 0, 0, never, 24.5, 5.6, 120, 0
+2. F, 45, 1, 0, former, 28.2, 5.8, 135, 1
+3. M, 60, 1, 1, current, 29.8, 6.2, 6.1, 1
+4. F, 30, 0, 0, never, 21.5, 5.0, 95, 0
+5. M, 65, 1, 1, not current, 34.0, 6.5, 7.0, 1
+6. F, 55, 0, 0, never, 26.8, 5.3, 105, 0
+7. M, 40, 0, 0, never, 27.0, 5.1, 100, 0
+8. F, 70, 1, 1, former, 32.5, 6.8, 7.5, 1
+9. M, 35, 0, 0, never, 23.5, 4.8, 88, 0
+10. F, 18, 0, 0, never, 20.0, 4.5, 78, 0
+11. M, 70, 1, 1, current, 28.0, 6.9, 8.0, 1
+12. F, 50, 0, 0, never, 24.0, 5.5, 99, 0
+13. M, 50, 1, 0, never, 28.5, 6.1, 5.9, 0
+14. F, 45, 0, 0, never, 26.0, 5.4, 95, 0
+15. M, 55, 1, 1, current, 32.5, 6.8, 7.8, 1
+16. F, 20, 0, 0, never, 21.0, 4.8, 84, 0
+17. M, 30, 0, 0, never, 25.0, 5.2, 92, 0
+18. F, 65, 1, 1, former, 29.0, 6.7, 7.1, 1
+19. M, 40, 1, 0, never, 27.0, 6.1, 5.8, 0
+20. F, 35, 0, 0, never, 23.5, 5.0, 90, 0
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+1, 45, 0, 0, 2, 26.5, 5.6, 145.0, 0
+1, 38, 0, 0, 4, 30.2, 5.8, 140.0, 0
+0, 55, 1, 1, 3, 28.9, 6.1, 155.0, 1
+1, 60, 1, 1, 2, 32.1, 6.3, 160.0, 1
+0, 30, 0, 0, 1, 23.4, 5.4, 120.0, 0
+1, 50, 0, 0, 4, 29.8, 5.7, 135.0, 0
+0, 65, 1, 1, 3, 27.5, 6.0, 150.0, 1
+1, 40, 0, 0, 2, 24.9, 5.5, 130.0, 0
+0, 70, 1, 1, 4, 33.2, 6.4, 165.0, 1
+1, 28, 0, 0, 1, 22.0, 5.3, 115.0, 0
+0, 50, 0, 0, 3, 26.7, 5.9, 145.0, 0
+1, 35, 0, 0, 3, 27.8, 5.6, 135.0, 0
+0, 45, 1, 1, 2, 27.3, 6.1, 155.0, 1
+1, 58, 0, 0, 2, 30.5, 5.8, 140.0, 0
+0, 55, 0, 0, 1, 25.1, 5.7, 135.0, 0
+1, 48, 0, 0, 3, 29.0, 5.6, 135.0, 0
+0, 38, 0, 0, 2, 23.5, 5.4, 120.0, 0
+1, 60, 1, 1, 4, 33.2, 6.5, 170.0, 1
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+Here are 20 synthetic patient records based on the provided definitions and correlations:
+
+1. Male, 55, 0, 0, Current, 29.0, 6.2, 5.4, 140, 0
+2. Female, 42, 1, 1, Never, 27.5, 5.8, 5.6, 130, 1
+3. Male, 65, 1, 1, Former, 30.0, 6.5, 6.1, 145, 1
+4. Female, 28, 0, 0, Not Current, 21.0, 5.3, 5.2, 120, 0
+5. Male, 70, 1, 1, Current, 32.0, 7.0, 6.8, 155, 1
+6. Female, 19, 0, 0, Never, 20.5, 4.8, 4.9, 105, 0
+7. Male, 50, 0, 0, Current, 26.0, 5.5, 5.4, 125, 0
+8. Female, 58, 1, 1, Former, 24.5, 6.2, 6.1, 135, 1
+9. Male, 22, 0, 0, Never, 20.0, 5.0, 4.9, 95, 0
+10. Female, 60, 1, 1, Not Current, 31.0, 6.8, 6.7, 145, 1
+11. Male, 45, 0, 0, Never, 23.5, 5.4, 5.3, 115, 0
+12. Female, 37, 1, 0, Never, 26.0, 6.1, 5.9, 125, 0
+13. Male, 18, 0, 0, Not Current, 16.0, 4.5, 4.4, 85, 0
+14. Female, 64, 1, 1, Current, 34.0, 7.2, 7.1, 160, 1
+15. Male, 35, 0, 0, Current, 24.0, 5.6, 5.5, 110, 0
+16. Female, 46, 0, 0, Former, 24.5, 5.7, 5.6, 125, 0
+17. Male, 25, 0, 0, Never, 21.0, 5.1, 5.0, 100, 0
+18. Female, 48, 1, 1, Current, 28.0, 6.3, 6.2, 135, 1
+19. Male, 62, 1, 0, Never, 28.0, 6.6, 6.5, 130, 0
+20. Female, 33, 0, 0, Not Current, 22.0, 5.2, 5.1, 105, 0
+
+These records reflect the given statistical metadata and correlations, creating a diverse and realistic dataset for diabetes prediction.
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+1, 40, 0, 0, 2, 27.5, 5.8, 140, 0
+2, 55, 1, 0, 3, 29.2, 6.1, 155, 1
+3, 38, 0, 1, 1, 25.8, 5.6, 130, 0
+4, 65, 1, 1, 4, 31.5, 6.3, 165, 1
+5, 42, 0, 0, 1, 26.2, 5.7, 135, 0
+6, 48, 0, 0, 2, 28.8, 5.9, 140, 0
+7, 50, 1, 1, 3, 30.0, 6.2, 160, 1
+8, 35, 0, 0, 1, 24.5, 5.5, 125, 0
+9, 57, 1, 1, 4, 33.2, 6.5, 170, 1
+10, 45, 0, 0, 2, 26.0, 5.8, 135, 0
+11, 39, 0, 0, 1, 24.7, 5.6, 130, 0
+12, 62, 1, 1, 4, 32.0, 6.4, 160, 1
+13, 36, 0, 0, 1, 24.3, 5.5, 125, 0
+14, 58, 1, 1, 4, 34.5, 6.7, 175, 1
+15, 47, 0, 0, 2, 26.9, 5.9, 140, 0
+16, 41, 0, 0, 1, 25.1, 5.7, 135, 0
+17, 53, 1, 0, 3, 28.1, 6.0, 150, 1
+18, 49, 0, 1, 1, 26.4, 5.8, 140, 0
+19, 43, 0, 0, 2, 27.0, 5.7, 135, 0
+20, 51, 1, 0, 3, 29.5, 6.2, 155, 1
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+Here are 20 synthetic patient records generated based on the provided feature definitions and correlations:
+
+1. Female, 25, 0, 0, never, 24.0, 5.2, 120.0, 0
+2. Male, 40, 1, 0, former, 28.5, 6.0, 5.8, 0
+3. Female, 55, 1, 1, current, 30.0, 6.7, 6.5, 1
+4. Male, 60, 1, 1, never, 31.5, 7.0, 6.8, 1
+5. Female, 45, 0, 0, never, 24.5, 5.6, 5.2, 0
+6. Male, 65, 1, 1, former, 29.0, 7.5, 6.9, 1
+7. Female, 50, 0, 0, never, 26.0, 5.9, 5.8, 0
+8. Male, 18, 0, 0, never, 20.0, 4.5, 4.6, 0
+9. Female, 70, 1, 1, never, 33.0, 8.0, 7.1, 1
+10. Male, 35, 0, 0, former, 23.5, 5.3, 5.5, 0
+11. Female, 30, 0, 0, current, 24.0, 5.2, 5.2, 0
+12. Male, 55, 1, 1, never, 32.0, 7.0, 6.8, 1
+13. Female, 20, 0, 0, never, 20.0, 4.5, 4.6, 0
+14. Male, 50, 1, 1, never, 28.5, 6.0, 6.5, 1
+15. Female, 45, 0, 0, former, 24.5, 5.6, 5.2, 0
+16. Male, 18, 0, 0, current, 20.0, 4.5, 4.6, 0
+17. Female, 60, 1, 1, never, 31.5, 7.0, 6.8, 1
+18. Male, 65, 0, 0, never, 29.0, 7.5, 6.9, 0
+19. Female, 25, 0, 0, never, 24.0, 5.2, 5.2, 0
+20. Male, 55, 1, 1, former, 28.5, 6.0, 6.5, 1
+
+These records reflect the specified statistical metadata and correlations.
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+Sure, here are 20 synthetic patient records generated based on the provided feature definitions and correlations:
+
+1. Male, 25, 0, 0, never, 20.0, 4.8, 100.0, 0
+2. Female, 32, 0, 0, never, 25.5, 5.5, 90.0, 0
+3. Male, 45, 1, 0, former, 30.0, 6.3, 6.0, 1
+4. Female, 50, 1, 1, current, 32.0, 6.8, 7.5, 1
+5. Male, 60, 1, 1, never, 28.0, 7.2, 8.0, 1
+6. Female, 18, 0, 0, never, 21.0, 4.8, 5.0, 0
+7. Male, 65, 1, 1, former, 27.5, 7.8, 8.5, 1
+8. Female, 40, 0, 0, current, 24.5, 5.5, 5.5, 0
+9. Male, 55, 1, 0, never, 29.0, 6.3, 6.0, 0
+10. Female, 35, 0, 1, never, 23.0, 5.2, 5.8, 0
+11. Male, 70, 1, 1, current, 28.0, 7.8, 9.0, 1
+12. Female, 22, 0, 0, never, 19.5, 4.5, 4.8, 0
+13. Male, 30, 0, 1, never, 24.0, 5.3, 5.9, 0
+14. Female, 45, 1, 0, current, 31.0, 6.8, 6.3, 0
+15. Male, 20, 0, 0, never, 21.0, 4.8, 5.0, 0
+16. Female, 50, 0, 1, never, 28.0, 7.0, 7.2, 0
+17. Male, 50, 1, 1, former, 26.0, 6.0, 6.5, 1
+18. Female, 60, 1, 1, current, 32.5, 6.8, 8.0, 1
+19. Male, 28, 0, 0, current, 23.5, 5.2, 5.5, 0
+20. Female, 65, 1, 1, never, 29.0, 7.0, 8.5, 1
+
+These records reflect the given distributions and correlations, providing a diverse set of synthetic patient data for diabetes prediction research.
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+Sure! Here are 20 realistic synthetic patient records following the provided feature definitions and correlations:
+
+1. M, 30, 0, 0, Never, 23.5, 5.2, 120.0, 0
+2. F, 40, 1, 0, Former, 28.0, 5.6, 124.0, 1
+3. M, 50, 1, 1, Current, 32.0, 6.1, 5.8, 1
+4. F, 55, 1, 1, Never, 33.5, 6.5, 6.1, 1
+5. M, 60, 1, 0, Current, 36.0, 7.2, 5.9, 1
+6. F, 18, 0, 0, Never, 20.5, 4.8, 4.6, 0
+7. M, 65, 1, 1, Former, 35.5, 7.9, 6.3, 1
+8. F, 45, 0, 1, Never, 25.0, 5.4, 5.8, 0
+9. M, 70, 1, 1, Current, 38.0, 8.4, 7.0, 1
+10. F, 20, 0, 0, Never, 22.0, 5.0, 4.7, 0
+11. M, 48, 0, 0, Current, 26.0, 5.7, 5.6, 0
+12. F, 28, 1, 1, Former, 24.5, 5.3, 5.7, 1
+13. M, 35, 1, 0, Never, 27.0, 6.2, 5.9, 0
+14. F, 19, 0, 0, Never, 21.0, 5.1, 4.8, 0
+15. M, 55, 1, 1, Current, 36.0, 7.4, 6.4, 1
+16. F, 49, 0, 0, Former, 29.0, 5.6, 5.5, 0
+17. M, 50, 0, 0, Never, 26.0, 5.7, 5.6, 0
+18. F, 65, 1, 0, Never, 34.5, 6.8, 6.1, 0
+19. M, 23, 0, 0, Current, 24.0, 5.3, 5.5, 0
+20. F, 62, 1, 1, Current, 37.0, 7.8, 7.2, 1
+
+These records reflect the provided statistical metadata and maintain the specified correlations between the features.
+
+system
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+user
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4 
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Important correlations to maintain:
+1. Higher age correlates with increased hypertension and heart disease risk
+2. Higher BMI correlates with increased diabetes risk
+3. HbA1c_level strongly correlates with diabetes status
+4. blood_glucose_level correlates with HbA1c_level and diabetes status
+5. Hypertension and heart_disease are more common in older ages
+
+Now generate 20 realistic synthetic patient records following the above feature definitions and correlations.
+Each record must be a comma-separated line in this exact order:
+
+gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes
+assistant
+1. Female, 55, 0, 0, current, 30.5, 5.6, 130, 0
+2. Male, 42, 1, 1, never, 27.0, 5.8, 145, 0
+3. Female, 65, 0, 1, former, 28.8, 6.2, 140, 0
+4. Male, 38, 0, 0, never, 23.2, 5.5, 120, 0
+5. Female, 68, 1, 0, current, 33.5, 6.4, 155, 1
+6. Male, 48, 0, 0, never, 26.1, 5.7, 130, 0
+7. Female, 36, 0, 0, never, 24.3, 5.3, 110, 0
+8. Male, 60, 1, 1, current, 29.7, 6.1, 150, 1
+9. Female, 50, 0, 0, never, 25.0, 5.6, 125, 0
+10. Male, 45, 0, 0, never, 24.9, 5.5, 120, 0
+11. Female, 37, 0, 0, never, 23.5, 5.4, 115, 0
+12. Male, 62, 1, 1, never, 31.0, 6.3, 160, 1
+13. Female, 46, 0, 0, never, 24.8, 5.5, 125, 0
+14. Male, 34, 0, 0, never, 22.2, 5.4, 105, 0
+15. Female, 58, 1, 0, never, 32.5, 6.2, 135, 0
+16. Male, 52, 0, 0, never, 26.9, 5.7, 130, 0
+17. Female, 35, 0, 0, never, 24.6, 5.5, 115, 0
+18. Male, 70, 1, 1, never, 33.1, 6.4, 165, 1
+19. Female, 43, 0, 0, never, 25.7, 5.6, 125, 0
+20. Male, 40, 0, 0, never, 24.5, 5.4, 105, 0
+

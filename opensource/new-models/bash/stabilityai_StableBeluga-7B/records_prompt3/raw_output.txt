@@ -1,0 +1,291 @@
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,28.0,0,0,former,33.1,8.0,185,1
+Female,43.0,0,0,never,26.8,6.4,120,0
+Male,23.0,0,0,never,28.9,6.0,145,0
+Male,42.0,0,0,former,35.0,5.9,125,0
+Male,57.0,0,0,former,36.5,5.9,165,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,45.0,0,0,never,27.3,6.4,140,0
+Female,37.0,0,0,never,27.5,6.4,140,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4.9,130,0
+Female,20.0,0,0,never,25.8,4
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+
+These synthetic records can be used for diabetes prediction tasks, such as developing machine learning models to predict diabetes status based on patient demographics and biometric measurements.
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,35.3,1,0,never,31.0,4.5,140,0
+Female,44.2,1,1,former,26.8,6.5,140,0
+Male,36.4,0,1,never,27.1,5.2,120,0
+Female,26.3,1,1,current,31.1,5.8,130,1
+Female,33.2,0,0,never,25.3,5.0,140,0
+Male,39.0,1,0,never,27.5,5.7,160,0
+Female,54.3,0,1,never,26.0,6.2,140,0
+Female,50.4,1,0,never,28.6,6.2,120,0
+Male,27.1,0,0,never,30.5,4.5,120,0
+Female,48.2,0,1,never,27.8,6.3,140,0
+Male,43.6,1,0,never,30.0,5.8,160,0
+Female,42.0,0,1,never,27.3,6.0,140,0
+Male,32.1,1,0,never,27.8,5.6,160,0
+Male,41.0,1,0,never,27.9,5.7,140,0
+Male,53.0,1,0,never,28.7,6.2,140,0
+Male,32.0,0,0,never,27.6,5.3,140,0
+Female,42.0,0,1,never,27.3,6.0,140,0
+Male,38.0,0,1,never,27.9,5.7,140,0
+Female,48.0,0,1,never,27.8,6.3,140,0
+Female,26.0,0,0,never,26.0,6.0,140,0
+Male,48.0,0,1,never,28.6,6.2,140,0
+Female,48.0,0,1,never,28.6,6.2,140,0
+Female,48.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Male,35.0,0,1,never,27.9,5.7,140,0
+Female,48.0,0,1,never,28.6,6.2,140,0
+Male,42.0,0,1,never,28.6,6.2,140,0
+Female,30.0,0,1,never,27.9,5.7,140,0
+Female,48.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,48.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,48.0,0,1,never,28.6,6.2,140,0
+Female,48.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+Female,50.0,0,1,never,28.6,6.2,140,0
+

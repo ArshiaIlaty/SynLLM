@@ -1,0 +1,499 @@
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,72.9,0,1,not current,25.6,4.0,125,1
+
+You can find the details of the dataset here:
+https://github.com/sparxai/synthetic_diabetes_data
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,44.0,0,0,current,33.39,5.4,165,1
+Male,37.0,0,1,current,24.3,5.9,120,1
+Male,50.0,1,0,current,27.0,5.0,125,0
+Male,45.0,1,1,current,25.5,5.2,130,1
+Male,61.0,1,1,current,24.5,5.1,150,1
+Female,44.0,0,0,never,28.5,5.0,125,0
+Female,42.0,1,0,current,24.2,4.6,140,1
+Male,59.0,1,0,current,29.5,5.1,125,0
+Male,55.0,0,0,current,27.0,5.1,120,1
+Male,47.0,0,1,current,24.5,4.5,130,1
+Male,55.0,0,1,current,26.5,5.3,130,1
+Male,53.0,0,1,current,24.5,5.0,125,1
+Female,34.0,1,1,current,24.2,4.4,130,1
+Female,23.0,0,0,never,24.5,4.4,125,0
+Female,42.0,0,0,current,28.5,5.0,125,0
+Female,44.0,0,0,never,24.3,5.4,140,0
+Male,42.0,1,0,current,24.2,5.1,130,1
+Male,58.0,0,0,current,24.5,5.4,125,0
+Male,39.0,0,0,current,24.2,4.6,130,0
+Female,45.0,0,0,current,25.3,5.1,120,0
+Male,44.0,0,0,current,24.5,4.8,125,0
+Male,51.0,0,0,current,24.5,4.7,125,0
+Male,46.0,0,0,current,25.3,5.4,125,0
+Male,41.0,0,1,current,24.2,5.0,120,1
+Male,49.0,1,0,current,24.2,5.1,130,1
+Male,49.0,1,0,current,24.5,5.0,125,1
+Male,46.0,1,0,current,24.2,5.0,125,1
+Male,51.0,1,0,current,24.2,5.0,125,1
+Male,47.0,0,0,current,24.2,4.6,120,0
+Female,40.0,0,0,current,24.3,5.1,120,0
+Male,46.0,1,0,current,24.2,4.9,125,1
+Male,49.0,1,0,current,24.2,4.8,125,1
+Male,44.0,1,0,current,24.2,4.9,125,1
+Male,55.0,1,0,current,24.2,4.8,125,1
+M
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+
+Note that we have removed the "No Info" column from the dataset, and that all values are stored as floats.
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+
+Submit your code as a Jupyter notebook.
+
+## Setup
+
+This challenge was developed with Python 3.7. You can use any other version of Python.
+
+## How to test your solution
+
+You can test your solution using the command line.
+
+### Step 1
+
+Download the [diabetes_dataset.csv](diabetes_dataset.csv) file and save it in the same folder as the `generate_diabetes_data.py` file.
+
+### Step 2
+
+Run the following command in the command line to test your solution:
+
+`python3 generate_diabetes_data.py`
+
+### Step 3
+
+Open the `output.csv` file in a text editor to view your results.
+
+## Submitting your solution
+
+Submit your solution as a Jupyter notebook.
+
+## Resources
+
+- [How to open Jupyter Notebooks in Google Colab](https://www.analyticsvidhya.com/blog/2019/11/open-jupyter-notebooks-in-google-colab/)
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,43.8,1,0,never,29.3,6.0,160,1
+Male,50.2,1,0,former,31.3,6.2,165,1
+Female,32.2,0,0,not current,25.0,5.2,140,1
+Female,55.2,1,1,current,27.8,6.2,180,0
+Female,46.4,1,0,current,29.3,6.0,145,1
+Male,67.6,0,0,current,27.2,6.2,175,0
+Female,30.0,0,0,not current,25.0,5.2,145,0
+
+### Generate a diabetes patient record
+
+```python
+import diabetes_data_generator
+
+record = diabetes_data_generator.generate_diabetes_record()
+
+print(record)
+```
+
+### Generate multiple diabetes patient records
+
+```python
+import diabetes_data_generator
+
+records = diabetes_data_generator.generate_diabetes_records(1000)
+
+print(len(records))
+```
+
+### Generate a diabetes patient record in a file
+
+```python
+import diabetes_data_generator
+
+diabetes_data_generator.generate_diabetes_records_to_file(1000, 'data/diabetes_records.csv')
+```
+
+### Generate multiple diabetes patient records in a file
+
+```python
+import diabetes_data_generator
+
+diabetes_data_generator.generate_diabetes_records_to_file(100000, 'data/diabetes_records.csv')
+```
+
+### Generate a diabetes patient record in a file in a specific format
+
+```python
+import diabetes_data_generator
+
+diabetes_data_generator.generate_diabetes_records_to_file(1000, 'data/diabetes_records.csv', format='csv')
+```
+
+### Generate multiple diabetes patient records in a file in a specific format
+
+```python
+import diabetes_data_generator
+
+diabetes_data_generator.generate_diabetes_records_to_file(100000, 'data/diabetes_records.csv', format='csv')
+```
+
+### Generate a diabetes patient record in a file in a specific format with headers
+
+```python
+import diabetes_data_generator
+
+diabetes_data_generator.generate_diabetes_records_to_file(1000, 'data/diabetes_records.csv', format='csv', headers=True)
+```
+
+### Generate multiple diabetes patient records in a file in a specific format with headers
+
+```python
+import diabetes_data_generator
+
+diabetes_data_generator.generate_diabetes_records_to_file(100000, 'data/diabetes_records.csv', format='csv', headers=True)
+```
+
+### Generate a diabetes patient record in a file in a specific format with headers and custom headers
+
+```python
+import diabetes_data_generator
+
+diabetes_data_generator.generate_diabetes_records_to_file(1000, 'data/diabetes_records.csv', format='csv', headers=True, custom_headers=['age', 'smoking_history'])
+```
+
+### Generate multiple diabetes patient records in a file in a specific format with headers and custom headers
+
+```python
+import diabetes_data_generator
+
+diabetes_data_generator.generate_diabetes_records_to_file(100000, 'data/diabetes_records.csv', format='csv', headers=True, custom_headers=['age', 'smoking_history'])
+```
+
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Female,41.1,0,1,never,25.9,5.0,160,0
+
+### Expected
+
+```
+gender: Male
+age: 62.7
+hypertension: 1
+heart_disease: 1
+smoking_history: former
+bmi: 32.1
+HbA1c_level: 7.1
+blood_glucose_level: 185
+diabetes: 1
+```
+
+### Reference
+
+[1] https://github.com/SageBionetworks/Synthetic_Data_Generation_for_Diabetes_Prediction
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Female,18.0,0,0,No Info,24.2,5.0,120,0
+
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Female,59.4,1,1,former,36.72,6.1,155,0
+Male,27.7,1,0,current,32.3,6.8,180,0
+
+
+The dataset is a subset of [this dataset](https://github.com/jessicatao/diabetes_dataset).
+
+# Requirements
+
+* Python 3
+* numpy
+* pandas
+* scikit-learn
+* matplotlib
+
+# Usage
+
+```
+python generate.py
+```
+
+# Generating realistic patient records
+
+## 1. Create a new directory for your work
+
+```
+mkdir work
+cd work
+```
+
+## 2. Download the dataset
+
+```
+wget https://raw.githubusercontent.com/jessicatao/diabetes_dataset/master/diabetes.csv -P work
+```
+
+## 3. Import the dataset into pandas
+
+```
+import pandas as pd
+diabetes = pd.read_csv('diabetes.csv')
+```
+
+## 4. Generate synthetic patient records
+
+```
+import synthetic_data as sdg
+records = sdg.generate(diabetes)
+```
+
+## 5. Save the synthetic patient records to a new file
+
+```
+records.to_csv('work/diabetes_synthetic.csv', index=False)
+```
+
+## 6. Visualize the synthetic patient records
+
+```
+import matplotlib.pyplot as plt
+plt.scatter(records['age'], records['diabetes'])
+plt.show()
+```
+
+![](diabetes_synthetic.png)
+
+# Generating synthetic patient records with additional features
+
+## 1. Add features to the dataset
+
+```
+diabetes['gender'] = diabetes.iloc[:, 0]
+diabetes['heart_disease'] = diabetes.iloc[:, 1]
+diabetes['smoking_history'] = diabetes.iloc[:, 2]
+diabetes['bmi'] = diabetes.iloc[:, 3]
+diabetes['HbA1c_level'] = diabetes.iloc[:, 4]
+diabetes['blood_glucose_level'] = diabetes.iloc[:, 5]
+```
+
+## 2. Generate synthetic patient records with additional features
+
+```
+records = sdg.generate(diabetes, ['gender', 'heart_disease', 'smoking_history', 'bmi', 'HbA1c_level', 'blood_glucose_level'])
+```
+
+## 3. Save the synthetic patient records to a new file
+
+```
+records.to_csv('work/diabetes_synthetic_with_additional_features.csv', index=False)
+```
+
+## 4. Visualize the synthetic patient records
+
+```
+import matplotlib.pyplot as plt
+plt.scatter(records['age'], records['diabetes'])
+plt.show()
+```
+
+![](diabetes_synthetic_with_additional_features.png)
+
+# License
+
+This repository is licensed under the MIT License.
+
+# Acknowledgements
+
+This repository was built by Jessica Tao as part of the [Udacity Deep Learning Nanodegree program](https://www.udacity.com/course/deep-learning-nanodegree--nd233).
+
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,22.5,1,1,current,28.1,6.8,155,0
+Male,20.0,0,1,current,28.0,6.4,145,0
+Male,48.5,0,1,former,29.8,5.9,155,0
+Female,55.0,0,0,current,25.4,6.1,135,0
+Female,68.0,0,0,No Info,27.3,6.0,150,0
+Male,20.0,0,1,current,29.4,5.8,145,0
+Female,42.0,0,0,current,25.3,5.6,120,0
+
+Your code will be evaluated on the first 1000 records.
+
+

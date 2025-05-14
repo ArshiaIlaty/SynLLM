@@ -17,6 +17,9 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.decomposition import PCA
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import f1_score, roc_auc_score, confusion_matrix, classification_report, precision_recall_curve, roc_curve
 
 # Conditionally import umap to handle environments where it might not be available
 try:
@@ -41,72 +44,41 @@ class CirrhosisDataEvaluator:
             "Alk_Phos", "SGOT", "Tryglicerides", "Platelets", 
             "Prothrombin", "N_Days"
         ]
-        
-        # Ensure numerical columns exist in both datasets
+        # Only keep columns present in both datasets
         self.numerical_cols = [col for col in self.numerical_cols 
                               if col in self.real_data.columns and col in self.synthetic_data.columns]
-        
-        # Filter categorical columns to include only those present in both datasets and with non-empty values
-        all_potential_categorical = ["Sex", "Drug", "Ascites", "Hepatomegaly", "Spiders", "Edema", "Status", "Stage"]
-        self.categorical_cols = []
-        
-        for col in all_potential_categorical:
-            # Check if column exists in both datasets
-            if col in self.real_data.columns and col in self.synthetic_data.columns:
-                # Check if column has non-null, non-empty values in both datasets
-                real_valid = self.real_data[col].notna().any() and not (self.real_data[col] == '').all()
-                synth_valid = self.synthetic_data[col].notna().any() and not (self.synthetic_data[col] == '').all()
-                
-                if real_valid and synth_valid:
-                    self.categorical_cols.append(col)
-        
-        print(f"Using categorical columns: {self.categorical_cols}")
-        
-        # Binary columns (to be determined from the categorical columns)
-        # These are categorical columns that have only 2 unique values
-        self.binary_cols = []
-        for col in self.categorical_cols:
-            if col in self.real_data.columns and col in self.synthetic_data.columns:
-                real_unique = self.real_data[col].nunique()
-                synth_unique = self.synthetic_data[col].nunique()
-                if real_unique <= 2 and synth_unique <= 2:
-                    self.binary_cols.append(col)
-                    
-        # Remove binary columns from categorical columns list to avoid duplication
-        self.categorical_cols = [col for col in self.categorical_cols if col not in self.binary_cols]
-        
+
+        # Hardcode binary columns for robustness
+        self.binary_cols = [col for col in ["Sex", "Ascites", "Hepatomegaly", "Spiders"]
+                            if col in self.real_data.columns and col in self.synthetic_data.columns]
+
+        # Categorical columns (excluding binary)
+        all_potential_categorical = ["Drug", "Edema", "Status", "Stage"]
+        self.categorical_cols = [col for col in all_potential_categorical
+                                 if col in self.real_data.columns and col in self.synthetic_data.columns]
+
+        print(f"Using numerical columns: {self.numerical_cols}")
         print(f"Using binary columns: {self.binary_cols}")
+        print(f"Using categorical columns: {self.categorical_cols}")
 
         self._clean_data()
         self.encoders = {}
         self._prepare_encoders()
 
     def _clean_data(self):
-        # First, remove problematic rows from both datasets
+        # Remove rows with obvious junk
         for df in [self.real_data, self.synthetic_data]:
             for col in df.columns:
-                if col in df.columns:  # Make sure column exists
-                    mask = df[col].astype(str).str.contains("generate|format", case=False, na=False)
-                    df.drop(df[mask].index, inplace=True)
+                mask = df[col].astype(str).str.contains("generate|format", case=False, na=False)
+                df.drop(df[mask].index, inplace=True)
 
-        # Convert binary columns to numeric if they contain Yes/No values
+        # Convert binary columns to numeric (Y/N, M/F, etc.)
         for col in self.binary_cols:
             if col in self.real_data.columns:
-                # Handle potential "Yes/No" values
-                if self.real_data[col].dtype == 'object':
-                    self.real_data[col] = self.real_data[col].map({"Yes": 1, "No": 0, 
-                                                                  "Y": 1, "N": 0, 
-                                                                  "yes": 1, "no": 0, 
-                                                                  1: 1, 0: 0})
+                self.real_data[col] = self.real_data[col].map({"Y": 1, "N": 0, "M": 1, "F": 0})
                 self.real_data[col] = pd.to_numeric(self.real_data[col], errors="coerce")
-            
             if col in self.synthetic_data.columns:
-                # Handle potential "Yes/No" values
-                if self.synthetic_data[col].dtype == 'object':
-                    self.synthetic_data[col] = self.synthetic_data[col].map({"Yes": 1, "No": 0, 
-                                                                           "Y": 1, "N": 0, 
-                                                                           "yes": 1, "no": 0, 
-                                                                           1: 1, 0: 0})
+                self.synthetic_data[col] = self.synthetic_data[col].map({"Y": 1, "N": 0, "M": 1, "F": 0})
                 self.synthetic_data[col] = pd.to_numeric(self.synthetic_data[col], errors="coerce")
 
         # Convert numerical columns to numeric
@@ -116,57 +88,38 @@ class CirrhosisDataEvaluator:
             if col in self.synthetic_data.columns:
                 self.synthetic_data[col] = pd.to_numeric(self.synthetic_data[col], errors="coerce")
 
-        # Drop any rows with NA values in critical columns
-        critical_cols = self.numerical_cols + self.binary_cols
-        real_critical_cols = [col for col in critical_cols if col in self.real_data.columns]
-        synth_critical_cols = [col for col in critical_cols if col in self.synthetic_data.columns]
-        
-        if real_critical_cols:
-            self.real_data.dropna(subset=real_critical_cols, inplace=True)
-        if synth_critical_cols:
-            self.synthetic_data.dropna(subset=synth_critical_cols, inplace=True)
-
         # Fill any remaining NA values with mean (for safety)
         self.real_data = self.real_data.fillna(self.real_data.mean(numeric_only=True))
         self.synthetic_data = self.synthetic_data.fillna(self.synthetic_data.mean(numeric_only=True))
 
-        # For remaining categorical NAs, fill with "Unknown" or most common value
+        # For remaining categorical NAs, fill with most common value
         for col in self.categorical_cols:
             if col in self.real_data.columns:
-                # Get most common value, or use "Unknown" if the column is empty
                 most_common = self.real_data[col].value_counts().index[0] if not self.real_data[col].isna().all() else "Unknown"
                 self.real_data[col] = self.real_data[col].fillna(most_common)
-            
             if col in self.synthetic_data.columns:
-                # Get most common value, or use "Unknown" if the column is empty
                 most_common = self.synthetic_data[col].value_counts().index[0] if not self.synthetic_data[col].isna().all() else "Unknown"
                 self.synthetic_data[col] = self.synthetic_data[col].fillna(most_common)
 
-        # Ensure we have valid values in important categorical columns
-        # Handle Sex
-        if 'Sex' in self.categorical_cols:
-            for df in [self.real_data, self.synthetic_data]:
-                if len(df) > 0:
-                    if 'M' not in df['Sex'].values and 'F' not in df['Sex'].values:
-                        # Add basic sex values if missing
-                        if len(df) >= 2:
-                            df.loc[df.index[0], 'Sex'] = 'M'
-                            df.loc[df.index[1], 'Sex'] = 'F'
-                        else:
-                            df.loc[df.index[0], 'Sex'] = 'M'
-                            
-        # Handle Status (C, CL, D)
-        if 'Status' in self.categorical_cols:
-            valid_values = ['C', 'CL', 'D']
-            for df in [self.real_data, self.synthetic_data]:
-                if not any(val in df['Status'].values for val in valid_values):
-                    # Add basic values if all missing
-                    if len(df) >= 3:
-                        df.loc[df.index[0], 'Status'] = 'C'
-                        df.loc[df.index[1], 'Status'] = 'CL'
-                        df.loc[df.index[2], 'Status'] = 'D'
-                    elif len(df) > 0:
-                        df.loc[df.index[0], 'Status'] = 'C'
+        # Print debug info
+        print("[DEBUG] After cleaning:")
+        print("  Real data shape:", self.real_data.shape)
+        print("  Synthetic data shape:", self.synthetic_data.shape)
+        for col in self.binary_cols + self.categorical_cols:
+            if col in self.synthetic_data.columns:
+                print(f"  Unique values in {col} (synthetic):", self.synthetic_data[col].unique())
+            if col in self.real_data.columns:
+                print(f"  Unique values in {col} (real):", self.real_data[col].unique())
+
+        # Only drop rows if all critical columns are NA (should be rare now)
+        critical_cols = self.numerical_cols + self.binary_cols
+        real_critical_cols = [col for col in critical_cols if col in self.real_data.columns]
+        synth_critical_cols = [col for col in critical_cols if col in self.synthetic_data.columns]
+        if real_critical_cols:
+            self.real_data.dropna(subset=real_critical_cols, inplace=True)
+        if synth_critical_cols:
+            self.synthetic_data.dropna(subset=synth_critical_cols, inplace=True)
+        print("  Rows after dropna:", len(self.real_data), len(self.synthetic_data))
 
     def _prepare_encoders(self):
         # Create encoders only for categorical columns that actually exist in both datasets
@@ -240,7 +193,12 @@ class CirrhosisDataEvaluator:
             results["new_metrics"] = self.calculate_new_metrics()
         except Exception as e:
             results["new_metrics"] = {"error": str(e)}
-            
+        
+        try:
+            results["utility_metrics"] = self.calculate_tstr_trts(target_col="Stage")
+        except Exception as e:
+            results["utility_metrics"] = {"error": str(e)}
+        
         return results
     
     def evaluate_flat(self, model_name=None, prompt_name=None):
@@ -862,3 +820,93 @@ class CirrhosisDataEvaluator:
             return metrics
         except Exception as e:
             return {"error": str(e)}
+
+    def calculate_tstr_trts(self, target_col='Stage'):
+        """Train on synthetic, test on real (TSTR), and vice versa (TRTS).
+        Returns accuracy, macro F1, AUC-ROC, confusion matrix, feature importances, and curve data.
+        """
+        results = {}
+        # Only proceed if target_col exists in both datasets
+        if target_col not in self.real_data.columns or target_col not in self.synthetic_data.columns:
+            results['error'] = f"Target column '{target_col}' not found in both datasets."
+            return results
+        # Convert target to numeric and drop NAs
+        for df, name in zip([self.real_data, self.synthetic_data], ["real_data", "synthetic_data"]):
+            if target_col in df.columns:
+                df[target_col] = pd.to_numeric(df[target_col], errors='coerce')
+                df.dropna(subset=[target_col], inplace=True)
+                df[target_col] = df[target_col].astype(int)
+        X_real = self.real_data.drop(columns=[target_col])
+        y_real = self.real_data[target_col]
+        X_synth = self.synthetic_data.drop(columns=[target_col])
+        y_synth = self.synthetic_data[target_col]
+        # Only use columns present in both datasets
+        common_cols = list(set(X_real.columns) & set(X_synth.columns))
+        X_real = X_real[common_cols]
+        X_synth = X_synth[common_cols]
+        # Encode all object-type columns using LabelEncoder
+        for col in X_real.columns:
+            if X_real[col].dtype == 'object' or X_synth[col].dtype == 'object':
+                le = LabelEncoder()
+                all_vals = pd.concat([X_real[col].astype(str), X_synth[col].astype(str)]).unique()
+                le.fit(all_vals)
+                X_real[col] = le.transform(X_real[col].astype(str))
+                X_synth[col] = le.transform(X_synth[col].astype(str))
+        # Fill any remaining NaNs
+        for X in [X_real, X_synth]:
+            for col in X.columns:
+                if X[col].dtype.kind in 'biufc':
+                    X[col] = X[col].fillna(X[col].mean())
+                else:
+                    X[col] = X[col].fillna(X[col].mode().iloc[0] if not X[col].mode().empty else 0)
+        # Helper to compute all metrics
+        def compute_metrics(clf, X_train, y_train, X_test, y_test, label="TSTR"):
+            metrics = {}
+            clf.fit(X_train, y_train)
+            y_pred = clf.predict(X_test)
+            y_proba = clf.predict_proba(X_test)[:, 1] if hasattr(clf, "predict_proba") and len(clf.classes_) > 1 else None
+            metrics[f"{label}_accuracy"] = accuracy_score(y_test, y_pred)
+            metrics[f"{label}_macro_f1"] = f1_score(y_test, y_pred, average="macro")
+            # AUC-ROC (handle single-class edge case)
+            try:
+                metrics[f"{label}_auc_roc"] = roc_auc_score(y_test, y_proba) if y_proba is not None else np.nan
+            except Exception:
+                metrics[f"{label}_auc_roc"] = np.nan
+            # Confusion matrix
+            metrics[f"{label}_confusion_matrix"] = confusion_matrix(y_test, y_pred).tolist()
+            # Classification report (precision, recall, f1 per class)
+            metrics[f"{label}_classification_report"] = classification_report(y_test, y_pred, output_dict=True)
+            # Precision-recall curve
+            if y_proba is not None:
+                prc = precision_recall_curve(y_test, y_proba)
+                metrics[f"{label}_precision_recall_curve"] = {
+                    "precision": prc[0].tolist(),
+                    "recall": prc[1].tolist(),
+                    "thresholds": prc[2].tolist() if len(prc) > 2 else []
+                }
+                # ROC curve
+                fpr, tpr, roc_thresholds = roc_curve(y_test, y_proba)
+                metrics[f"{label}_roc_curve"] = {
+                    "fpr": fpr.tolist(),
+                    "tpr": tpr.tolist(),
+                    "thresholds": roc_thresholds.tolist()
+                }
+            # Feature importances
+            if hasattr(clf, "feature_importances_"):
+                metrics[f"{label}_feature_importances"] = dict(zip(X_train.columns, clf.feature_importances_))
+            return metrics
+        # TSTR: Train on synthetic, test on real
+        try:
+            clf = RandomForestClassifier(n_estimators=50, random_state=42)
+            tstr_metrics = compute_metrics(clf, X_synth, y_synth, X_real, y_real, label="TSTR")
+            results.update(tstr_metrics)
+        except Exception as e:
+            results['TSTR_error'] = str(e)
+        # TRTS: Train on real, test on synthetic
+        try:
+            clf = RandomForestClassifier(n_estimators=50, random_state=42)
+            trts_metrics = compute_metrics(clf, X_real, y_real, X_synth, y_synth, label="TRTS")
+            results.update(trts_metrics)
+        except Exception as e:
+            results['TRTS_error'] = str(e)
+        return results

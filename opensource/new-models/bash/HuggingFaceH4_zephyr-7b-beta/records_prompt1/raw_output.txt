@@ -1,0 +1,158 @@
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research. 
+<|user|>
+Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0 
+<|assistant|>
+Female, 73.5, 0, 0, never, 32.2, 5.9, 175, 0
+Male, 86.3, 1, 0, former, 25.4, 6.4, 220, 1
+Female, 28.3, 0, 0, current, 27.6, 5.6, 155, 0
+Female, 42.7, 0, 0, never, 26.1, 5.2, 135, 0
+Male, 97.5, 0, 0, never, 29.0, 6.1, 105, 0
+Female, 37.1, 0, 0, never, 25.2, 4.9, 140, 0
+Male, 55.5, 0, 0, former, 30.3, 5.9, 190, 0
+Female, 79.2, 1, 0, never, 29.2, 5.8, 165, 0
+Male, 25.2, 0, 0, never, 27.6, 6.3, 105, 0
+Male, 88.1, 0, 1, former, 25.8, 6.7, 215, 1
+Female, 45.1, 0, 0, never, 26.2, 5.3, 130, 0
+Female, 64.8, 0, 0, never, 27.2, 5.7, 160, 0
+Male, 34.5, 0, 0, never, 26.5, 5.7, 120, 0
+Female, 24.3, 0, 0, never, 27.1, 4.9, 125, 0
+Male, 83.7, 0, 1, former, 26.4, 6.4, 225, 1
+Female, 46.3, 0, 0, never, 27.0, 5.6, 135, 0
+Female, 61.7, 0, 0, never, 28.3, 5.8, 160, 0
+Male, 59.5, 0, 0, never, 27.4, 6.4, 195, 0
+Female, 34.1, 0, 0, never, 26.8, 5.3, 125, 0
+Female, 69.4, 0, 0, never, 27.8, 5.7, 160, 0
+Female, 50.5, 0, 0, never, 28.5, 5.7, 150, 0
+Female, 25.1, 0, 0, never, 27.1, 5.4, 110, 0
+Female, 78.8, 0, 0, never, 28.7, 5.9, 165, 0
+Female, 44.1, 0, 0, never, 27.5, 5.6, 135, 0
+Female, 68.6, 0, 0, never, 28.3, 5.8, 160, 0
+Female, 48.7, 0, 0, never, 27.8, 5.7, 140, 0
+Male, 80.4, 0, 0, never, 26.5, 6.1, 215, 0
+Female, 28.9, 0, 0, never, 27.2, 5.4, 125, 0
+Female, 72.4, 0, 0, never, 28.4, 5.8, 165, 0
+Female, 39.5, 0, 0, never, 27.2, 5.5, 130, 0
+Female, 52.9, 0, 0, never, 28.5, 5.8, 155, 0
+Female, 42.8, 0, 0, never, 27.8, 5.6, 130, 0
+Male, 87.3, 0, 0, never, 26.7, 6.3, 220, 0
+Female, 31.6, 0, 0, never, 26.6, 5.2, 115, 0
+Female, 66.9, 0, 0, never, 28.2, 5.8, 165, 0
+Female, 34.3, 0, 0, never, 26.7, 5.5, 120, 0
+Female, 43.8, 0, 0, never, 28.0, 5.7, 140, 0
+Female, 70.6, 0, 0, never, 28.4, 5.8, 165, 0
+Female, 40.8, 0, 0, never, 27.5, 5.7, 135, 0
+Female, 32.6, 0, 0, never, 26.9, 5.4, 115, 0
+Female, 63.9, 0, 0, never, 28.4, 5.9, 160, 0
+Female, 48.2, 0, 0, never, 27.8, 5.7, 145, 0
+Female, 64.5, 0, 0, never, 28.2, 5.8, 165, 0
+Female, 37.4, 0, 0, never, 27.1, 5.6, 125, 0
+Female, 41.2, 0, 0, never, 27.7, 5.7, 135, 0
+Female, 67.1, 0, 0, never, 28.5, 5.8, 165, 0
+Female, 33.7, 0, 0, never, 26.8, 5.5, 115, 0
+Female, 71.3, 0, 0, never, 28.4, 5.9, 170, 0
+Female, 38.7, 0, 0, never, 27.2, 5.5, 125, 0
+Female, 62.9, 0, 0, never, 28.4, 5.8, 165, 0
+Female, 34.5, 0, 0, never, 27.1, 5.6, 120, 0
+Female, 69.3, 0, 0, never, 28.5, 5.9, 165, 0
+Female, 45.0, 0, 0, never, 27.8, 5.7, 140, 0
+Female, 66.5, 0, 0, never, 28.4, 5.8, 165, 0
+Female, 
+
+<|system|>
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research. 
+<|user|>
+Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0 
+<|assistant|>
+Here are some more synthetic patient records for diabetes prediction:
+
+Female, 58.7, 0, 1, never, 32.6, 6.1, 195, 0
+Male, 84.5, 0, 0, never, 26.8, 5.9, 115, 0
+Female, 29.3, 1, 1, former, 27.2, 5.6, 170, 1
+Male, 33.8, 0, 0, current, 29.7, 6.8, 150, 0
+Female, 64.9, 0, 0, never, 25.4, 5.4, 160, 0
+Male, 43.1, 1, 0, former, 28.8, 6.4, 185, 0
+Female, 40.4, 0, 0, never, 23.1, 4.9, 145, 0
+Male, 73.5, 0, 0, never, 27.2, 6.1, 120, 0
+Female, 72.8, 1, 0, current, 27.8, 5.9, 190, 1
+Male, 52.2, 0, 1, never, 26.3, 6.2, 150, 0
+Female, 31.6, 0, 0, never, 23.2, 4.7, 125, 0
+Male, 46.2, 1, 0, former, 28.7, 6.5, 180, 0
+Female, 63.1, 0, 0, never, 25.6, 5.4, 165, 0
+Male, 60.6, 0, 0, never, 27.5, 6.2, 125, 0
+Female, 50.9, 1, 0, former, 27.7, 5.8, 190, 0
+Male, 66.1, 0, 1, never, 26.5, 6.0, 155, 0
+Female, 47.5, 1, 0, former, 28.6, 5.9, 175, 0
+Male, 76.3, 0, 0, never, 27.0, 6.2, 120, 0
+Female, 37.6, 0, 0, never, 23.8, 4.9, 135, 0
+Male, 35.3, 0, 1, never, 27.8, 6.3, 150, 0
+Female, 65.4, 0, 0, never, 25.5, 5.3, 160, 0
+Male, 42.1, 1, 0, former, 29.5, 6.6, 180, 0
+Female, 42.9, 0, 0, never, 23.4, 4.8, 140, 0
+Male, 57.9, 0, 1, never, 27.3, 6.2, 160, 0
+Female, 49.7, 1, 0, former, 28.9, 5.9, 185, 0
+Male, 74.1, 0, 0, never, 27.1, 6.2, 115, 0
+Female, 35.2, 0, 0, never, 22.9, 4.8, 125, 0
+Male, 68.9, 0, 0, never, 27.2, 6.1, 140, 0
+Female, 61.2, 0, 0, never, 25.7, 5.4, 160, 0
+Male, 63.9, 0, 1, never, 26.7, 6.2, 170, 0
+Female, 39.8, 0, 0, never, 23.1, 4.9, 135, 0
+Male, 52.5, 1, 0, never, 28.8, 6.5, 180, 0
+Female, 66.3, 0, 0, never, 25.7, 5.4, 170, 0
+Male, 45.3, 1, 0, former, 29.1, 6.6, 185, 0
+Female, 50.2, 0, 0, never, 25.9, 5.3, 165, 0
+Male, 59.8, 0, 1, never, 27.1, 6.1, 160, 0
+Female, 62.2, 0, 0, never, 25.8, 5.4, 170, 0
+Male, 40.4, 0, 1, never, 28.9, 6.6, 180, 0
+Female, 49.9, 0, 0, never, 23.3, 4.8, 130, 0
+Male, 65.1, 0, 0, never, 27.0, 6.1, 125, 0
+Female, 52.0, 1, 0, former, 29.2, 6.5, 190, 0
+Male, 68.4, 0, 0, never, 27.2, 6.2, 145, 0
+Female, 35.8, 0, 0, never, 22.8, 4.9, 125, 0
+Male, 49.8, 0, 1, never, 27.3, 6.2, 160, 0
+Female, 71.8, 0, 0, never, 26.8, 5.9, 135, 0
+Male, 52.9, 1, 0, never, 28.9, 6.6, 180, 0
+Female, 47.9, 0, 0, never, 25.6, 5.3, 160, 0
+Male, 64.6, 0, 1, never, 27.2, 6.1, 155, 0
+Female, 41.7, 0, 0, never, 23.2, 4.9, 125, 0
+Male, 60.4, 0, 1, never, 27.6, 6.2, 165, 0
+Female, 49.6, 1, 0, former, 28.7, 5.9, 185, 0
+Male, 63.9, 0, 0, never, 27.1, 6.1, 140, 0
+Female, 38.3, 0, 0, never, 22.7, 4.9, 130, 0
+Male, 51.6, 1, 0, never, 28.7, 6.5, 180, 0
+Female, 61.8
+

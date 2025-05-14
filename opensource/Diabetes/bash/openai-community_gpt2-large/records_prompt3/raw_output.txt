@@ -1,0 +1,357 @@
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Female,31.7,0,0,never,28.2,5.8,150,0
+Male,42.8,0,0,never,33.3,5.6,160,0
+Male,59.9,0,0,former,35.8,6.3,175,0
+Male,18.8,0,0,never,26.2,5.2,185,0
+Male,33.4,0,0,never,30.2,5.0,190,0
+Male,60.0,0,0,never,31.8,5.5,195,0
+Male,21.1,0,0,never,33.3,5.8,200,0
+Male,54.4,0,0,never,36.3,5.5,210,0
+Male,68.0,0,0,never,36.3,5.5,220,0
+Male,31.7,0,0,never,33.3,5.5,230,0
+Male,46.9,0,0,never,33.3,5.5,240,0
+Male,51.0,0,0,never,30.2,5.3,245,0
+Male,45.2,0,0,never,26.2,4.8,250,0
+Male,38.9,0,0,never,27.9,4.9,255,0
+Male,42.8,0,0,never,27.8,4.9,260,0
+Male,54.4,0,0,never,30.2,4.9,265,0
+Male,63.3,0,0,never,29.1,4.8,270,0
+Male,43.9,0,0,never,30.0,4.6,275,0
+Male,38
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,26.0,0,0,No Info,26.15,5.3,100,0
+Male,24.0,0,0,No Info,26.55,4.8,100,0
+Male,30.0,0,0,No Info,26.95,5.8,100,0
+Male,21.0,0,0,No Info,27.14,5.7,100,0
+Male,21.0,0,0,No Info,27.23,5.3,100,0
+Male,30.0,0,0,No Info,27.65,5.6,100,0
+Male,22.0,0,0,No Info,27.65,5.3,100,0
+Male,35.0,0,0,No Info,27.65,5.3,100,0
+Male,26.0,0,0,No Info,27.65,5.3,100,0
+Male,22.0,0,0,No Info,27.65,5.3,100,0
+Male,30.0,0,0,No Info,27.65,5.3,100,0
+Male,22.0,0,0,No Info,27.65,5.3,100,0
+Male,30.0,0,0,No Info,27.65,5.3,100,0
+Male,22.0,0,0,No Info,27.65,5.3,100,0
+Male,30.0,0,0,No Info,27.65,5.3,100,0
+Male,22.0,0,0,No Info,27.65,5.3,100,0
+Male,30.0,0,0,No Info,27.65,5.3,100,0
+Male,22.0,0,0,
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,26.0,0,0,Never,21.38,4.8,130,0
+Male,29.0,0,0,Never,21.28,5.3,150,0
+Male,30.0,0,0,Never,21.03,5.4,170,0
+Male,31.0,0,0,Never,21.16,4.6,180,0
+Male,33.0,0,0,Never,21.36,5.3,190,0
+Male,34.0,0,0,Never,21.32,5.4,200,0
+Male,35.0,0,0,Never,21.28,5.4,210,0
+Male,36.0,0,0,Never,21.19,4.6,220,0
+Male,37.0,0,0,Never,21.16,4.6,230,0
+Male,38.0,0,0,Never,21.08,4.7,240,0
+Male,39.0,0,0,Never,21.28,5.2,250,0
+Male,40.0,0,0,Never,21.02,4.6,260,0
+Male,41.0,0,0,Never,20.98,4.7,270,0
+Male,42.0,0,0,Never,20.87,4.6,280,0
+Male,43.0,0,0,Never,20.83,4.6,290,0
+Male,44.0,0,0,Never,20.75,4.6,290,0
+Male,45.0,0,0,Never,20.62,4.6,300,0
+Male,46.0,0,0,Never,20.58,4.6,310,0
+Male,47
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Female,0.5,0,0,No Info,16.27,5.5,180,0
+Female,0.3,0,0,No Info,11.47,5.3,200,0
+Female,0.3,0,0,No Info,9.11,5.3,210,0
+Male,0.3,0,0,No Info,7.63,5.4,230,0
+Male,0.3,0,0,No Info,6.26,5.2,240,0
+Female,0.3,0,0,No Info,5.65,5.3,250,0
+Male,0.3,0,0,No Info,4.45,5.0,260,0
+Female,0.3,0,0,No Info,3.26,5.0,270,0
+Male,0.3,0,0,No Info,2.83,5.1,280,0
+Male,0.3,0,0,No Info,2.35,5.0,290,0
+Male,0.3,0,0,No Info,2.03,5.1,290,0
+Female,0.3,0,0,No Info,1.78,5.1,300,0
+Male,0.3,0,0,No Info,1.48,5.1,300,0
+Female,0.3,0,0,No Info,0.92,5.1,310,0
+Male,0.3,0,0,No Info,0.71,5.1,310,0
+Female,0.3,0,0,No Info,0.64,5.1,310,0
+Male,0.3,0,0,No Info,0.52,5.1,310,0
+Female,0.3,0,0,
+
+You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+
+Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
+
+Features and Statistics:
+1. gender
+   - Distribution: Male: 48%, Female: 52%
+
+2. age
+   - Mean: 41.8, Std: 15.2
+   - Range: 18.0-80.0
+   - Distribution: Slightly right-skewed
+
+3. hypertension
+   - Distribution: No (0): 85%, Yes (1): 15%
+   - Correlates with age and BMI
+
+4. heart_disease
+   - Distribution: No (0): 92%, Yes (1): 8%
+   - Correlates with age and hypertension
+
+5. smoking_history
+   - Categories: never (60%), former (22%), current (15%), not current (3%)
+
+6. bmi
+   - Mean: 27.3, Std: 6.4
+   - Range: 15.0-60.0
+   - Distribution: Right-skewed
+
+7. HbA1c_level
+   - Mean: 5.7, Std: 0.9
+   - Range: 4.0-9.0
+   - Distribution: Right-skewed
+   - Strong correlation with diabetes status
+
+8. blood_glucose_level
+   - Mean: 138.0, Std: 40.5
+   - Range: 70-300
+   - Distribution: Right-skewed
+   - Strong correlation with HbA1c_level
+
+9. diabetes
+   - Distribution: No (0): 88%, Yes (1): 12%
+   - Correlates strongly with HbA1c_level and blood_glucose_level
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Male,21.0,0,0,No Info,22.45,6.3,130,0
+Male,15.0,0,0,No Info,22.46,5.8,160,0
+Male,14.0,0,0,No Info,23.11,5.8,170,0
+Male,12.0,0,0,No Info,22.67,5.6,180,0
+Male,13.0,0,0,No Info,22.76,5.4,190,0
+Male,13.0,0,0,No Info,22.88,5.0,190,0
+Male,12.0,0,0,No Info,22.95,5.8,190,0
+Male,12.0,0,0,No Info,23.12,5.8,190,0
+Male,13.0,0,0,No Info,23.12,6.0,190,0
+Male,12.0,0,0,No Info,22.75,5.8,190,0
+Male,13.0,0,0,No Info,23.12,6.0,190,0
+Male,12.0,0,0,No Info,22.86,6.0,190,0
+Male,12.0,0,0,No Info,23.12,6.0,190,0
+Male,12.0,0,0,No Info,22.86,6.0,190,0
+Male,12.0,0,0,No Info,22.86,6.0,190,0
+Male,12.0,0,0,No Info,22.86,6.0,190,0
+Male,12.0,0,0,No Info,22.86,6.0,190,0
+Male,12.0,0,0,
+

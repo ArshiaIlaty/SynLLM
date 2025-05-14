@@ -1,0 +1,928 @@
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+## Liver Cirrhosis Patient Records
+
+**ID:** Unique identifier for each patient
+**N_Days:** Number of days since hospital admission
+**Status:** Current patient status (D for discharged, C for in-patient)
+**Drug:** Medication prescribed to the patient
+**Age:** Patient's age in years
+**Sex:** Patient's gender (F for female, M for male)
+**Ascites:** Presence of ascites (fluid buildup in the abdomen)
+**Hepatomegaly:** Presence of hepatomegaly (enlarged liver)
+**Spiders:** Presence of spider angiomas (red, thread-like skin lesions)
+**Edema:** Presence of edema (swelling)
+**Bilirubin:** Bilirubin level (yellowish pigment in the blood)
+**Cholesterol:** Cholesterol level
+**Albumin:** Albumin level (a protein in the blood)
+**Copper:** Copper level
+**Alk_Phos:** Alkaline phosphatase level (an enzyme involved in bile acid metabolism)
+**SGOT:** Serum glutamyl transferase level (an enzyme that measures liver function)
+**Tryglicerides:** Triglyceride level (a fat stored in the liver)
+**Platelets:** Platelet count (a measure of blood clotting ability)
+**Prothrombin:** Prothrombin time (a measure of blood clotting ability)
+**Stage:** Stage of cirrhosis based on Child-Pugh score
+
+**Record 4:**
+1, 240, D, Eszopiclone, 22481, F, Y, Y, Y, N, 2.8, 181.0, 3.24, 12.0, 684.0, 102.0, 61.0, 166.0, 11.2, 3.0
+
+**Record 5:**
+2, 1200, C, Lactulose, 21142, M, N, Y, Y, Y, 0.8, 244.0, 4.00, 112.0, 344.0, 80.0, 11.0, 3.0
+
+**Record 6:**
+3, 800, D, Troglitazone, 24861, F, Y, Y, Y, Y, 1.6, 198.0, 2.82, 13.0, 202.0, 122.0, 21.0, 4.0
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+## Synthetic Patient Records for Cirrhosis Research
+
+Here are 5 more records:
+
+**4**, 2100, D, Lactulose, 18482, F, Y, Y, Y, Y, 10.0, 283.0, 3.00, 41.0, 1228.0, 162.0, 102.0, 120.0, 8.8, 3.0  
+**5**, 1400, C, Esomeprazole, 21814, M, N, Y, Y, N, 1.8, 206.0, 4.22, 33.0, 482.0, 106.0, 86.0, 180.0, 10.0, 3.0  
+**6**, 1800, D, N-acetylcysteine, 20423, F, Y, Y, Y, Y, 12.0, 260.0, 3.80, 20.0, 1128.0, 131.0, 102.0, 120.0, 8.8, 3.0  
+**7**, 1200, C, Betaine, 18321, M, N, Y, Y, N, 1.2, 220.0, 4.12, 44.0, 426.0, 114.0, 84.0, 180.0, 10.0, 3.0  
+**8**, 1050, D, Gabapentin, 22114, F, Y, Y, Y, Y, 14.0, 286.0, 3.20, 22.0, 1280.0, 162.0, 102.0, 120.0, 8.8, 3.0
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+## Synthetic Patient Records for Liver Cirrhosis Research
+
+**Record 1:**
+ID: 1
+N_Days: 400
+Status: D
+Drug: D-penicillamine
+Age: 21464
+Sex: F
+Ascites: Y
+Hepatomegaly: Y
+Spiders: Y
+Edema: Y
+Bilirubin: 14.5
+Cholesterol: 261.0
+Albumin: 2.60
+Copper: 156.0
+Alk_Phos: 1718.0
+SGOT: 137.95
+Tryglicerides: 172.0
+Platelets: 190.0
+Prothrombin: 12.2
+Stage: 4
+
+**Record 2:**
+ID: 2
+N_Days: 4500
+Status: C
+Drug: D-penicillamine
+Age: 20617
+Sex: F
+Ascites: N
+Hepatomegaly: Y
+Spiders: Y
+Edema: N
+Bilirubin: 1.1
+Cholesterol: 302.0
+Albumin: 4.14
+Copper: 54.0
+Alk_Phos: 7394.8
+SGOT: 113.52
+Tryglicerides: 88.0
+Platelets: 221.0
+Prothrombin: 10.6
+Stage: 3
+
+**Record 3:**
+ID: 3
+N_Days: 1012
+Status: D
+Drug: D-penicillamine
+Age: 25594
+Sex: M
+Ascites: N
+Hepatomegaly: N
+Spiders: N
+Edema: S
+Bilirubin: 1.4
+Cholesterol: 176.0
+Albumin: 3.48
+Copper: 210.0
+Alk_Phos: 516.0
+SGOT: 96.10
+Tryglicerides: 55.0
+Platelets: 151.0
+Prothrombin: 12.0
+Stage: 4
+
+**Additional Records:**
+
+Please generate more records in the same format as above. You can vary the values for each field to create a more diverse dataset.
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+```
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+```
+
+**Please generate at least 10 records.**
+
+**Note:** The values for each field can be generated randomly within the specified range. The Stage field can be assigned based on the Child-Pugh score.
+
+**Example Output:**
+
+```
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0
+...
+```
+
+**Additional Notes:**
+
+- The data generated should be realistic and mimic the characteristics of actual patient records.
+- The values for each field should be within the specified range.
+- The Stage field should be assigned based on the Child-Pugh score.
+- The data should be formatted in the specified format.
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+```python
+import pandas as pd
+
+# Generate 10 synthetic patient records
+records = pd.DataFrame(
+    {
+        "ID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        "N_Days": [400, 4500, 1012, 1200, 2000, 2400, 2800, 3200, 3600, 4000],
+        "Status": ["D", "C", "D", "D", "C", "D", "C", "D", "C", "D"],
+        "Drug": ["D-penicillamine", "D-penicillamine", "D-penicillamine", "D-penicillamine", "D-penicillamine", "D-penicillamine", "D-penicillamine", "D-penicillamine", "D-penicillamine", "D-penicillamine"],
+        "Age": [21464, 20617, 25594, 3000, 2000, 2400, 2800, 3200, 3600, 4000],
+        "Sex": ["F", "F", "M", "F", "F", "M", "F", "M", "F", "F"],
+        "Ascites": ["Y", "N", "N", "Y", "N", "N", "Y", "N", "N", "Y"],
+        "Hepatomegaly": ["Y", "Y", "N", "Y", "N", "N", "Y", "N", "N", "Y"],
+        "Spiders": ["Y", "Y", "N", "Y", "N", "N", "Y", "N", "N", "Y"],
+        "Edema": ["Y", "N", "N", "Y", "N", "N", "Y", "N", "N", "Y"],
+        "Bilirubin": [14.5, 1.1, 1.4, 14.2, 0.8, 1.3, 1.6, 1.2, 1.0, 1.5],
+        "Cholesterol": [261.0, 302.0, 176.0, 280.0, 210.0, 250.0, 220.0, 200.0, 180.0, 240.0],
+        "Albumin": [2.60, 4.14, 3.48, 2.80, 4.00, 3.20, 3.60, 3.00, 3.80, 3.40],
+        "Copper": [156.0, 54.0, 210.0, 180.0, 210.0, 190.0, 172.0, 160.0, 140.0, 180.0],
+        "Alk_Phos": [1718.0, 7394.8, 516.0, 1000.0, 800.0, 1200.0, 1000.0, 800.0, 600.0, 1000.0],
+        "SGOT": [137.95, 113.52, 96.10, 142.0, 120.0, 110.0, 100.0, 120.0, 100.0, 110.0],
+        "Tryglicerides": [172.0, 88.0, 55.0, 150.0, 60.0, 80.0, 100.0, 80.0, 60.0, 80.0],
+        "Platelets": [190.0, 221.0, 151.0, 180.0, 200.0, 160.0, 172.0, 180.0, 160.0, 180.0],
+        "Prothrombin": [12.2, 10.6, 12.0, 14.0, 10.0, 12.0, 11.0, 12.0, 10.0, 12.0],
+        "Stage": ["D", "C", "D", "D", "C", "D", "C", "D", "C", "D"]
+    }
+)
+
+# Print the generated records
+print(records)
+```
+
+**Note:** The data generated by this script is synthetic and does not represent real medical records. It is intended for research purposes only.
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+## Patient Records
+
+**ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage**
+
+1, 200, D, Esomeprazole, 24623, F, Y, Y, Y, Y, 12.0, 211.0, 3.60, 82.0, 1016.0, 102.0, 128.0, 184.0, 12.0, 4.0  
+2, 1500, C, Esomeprazole, 22118, M, N, Y, Y, N, 0.8, 242.0, 3.14, 22.0, 212.0, 81.62, 64.0, 188.0, 11.0, 3.0  
+3, 600, D, Esomeprazole, 20241, F, N, Y, Y, N, 1.0, 218.0, 2.60, 18.0, 1032.0, 106.0, 101.0, 138.0, 10.0, 4.0  
+4, 1200, C, Esomeprazole, 23124, M, N, Y, Y, N, 0.6, 210.0, 2.80, 12.0, 222.0, 81.62, 64.0, 188.0, 11.0, 3.0  
+5, 100, D, Esomeprazole, 26218, M, N, Y, Y, N, 0.9, 181.0, 2.14, 13.0, 882.0, 116.0, 104.0, 160.0, 12.0, 4.0  
+
+**Please note:**
+
+* The N_Days column indicates the number of days since hospitalization.
+* The Status column indicates the patient's current status (C for compensated, D for decompensated).
+* The Drug column indicates the medication the patient is currently taking.
+* The remaining columns provide various clinical measurements and laboratory values.
+* The Stage column indicates the stage of liver cirrhosis based on the Child-Pugh score.
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+```
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+```
+
+**Please generate at least 10 records.**
+
+**Note:** The values for each field can be realistic or random, as long as they follow the format and are consistent with the context of liver cirrhosis.
+
+**Example Record:**
+```
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0
+```
+
+**This record indicates:**
+- ID: 1
+- N_Days: 400
+- Status: Discharged
+- Drug: D-penicillamine
+- Age: 21464
+- Sex: Female
+- Ascites: Yes
+- Hepatomegaly: Yes
+- Spiders: Yes
+- Edema: Yes
+- Bilirubin: 14.5
+- Cholesterol: 261.0
+- Albumin: 2.60
+- Copper: 156.0
+- Alk_Phos: 1718.0
+- SGOT: 137.95
+- Tryglicerides: 172.0
+- Platelets: 190.0
+- Prothrombin: 12.2
+- Stage: Not specified
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+```python
+import numpy as np
+
+# Generate realistic synthetic patient records for liver cirrhosis research
+num_records = 100
+patient_records = np.arange(num_records)
+
+# Define the format of each record
+record_format = ", ".join(["ID", "N_Days", "Status", "Drug", "Age", "Sex", "Ascites", "Hepatomegaly", "Spiders", "Edema", "Bilirubin", "Cholesterol", "Albumin", "Copper", "Alk_Phos", "SGOT", "Tryglicerides", "Platelets", "Prothrombin", "Stage"])
+
+# Generate the records
+for i in patient_records:
+    # Define the patient's ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, and Stage
+    id = i
+    n_days = np.random.randint(1, 5000)
+    status = np.random.choice(["D", "C", "S"])
+    drug = np.random.choice(["D-penicillamine", "Esomeprazole", "Octreootide"])
+    age = np.random.randint(18, 80)
+    sex = np.random.choice(["F", "M"])
+    ascites = np.random.choice(["Y", "N"])
+    hepatomegaly = np.random.choice(["Y", "N"])
+    spiders = np.random.choice(["Y", "N"])
+    edema = np.random.choice(["Y", "N"])
+    bilirubin = np.random.uniform(0, 20)
+    cholesterol = np.random.randint(100, 500)
+    albumin = np.random.uniform(2.0, 5.0)
+    copper = np.random.uniform(0.0, 10.0)
+    alk_phos = np.random.uniform(100.0, 1500.0)
+    sgot = np.random.randint(10, 200)
+    tryglicerides = np.random.randint(0, 200)
+    platelets = np.random.randint(50, 200)
+    prothrombin = np.random.randint(20, 100)
+    stage = np.random.choice(["A", "B", "C", "D"])
+
+    # Create the patient's record
+    record = ", ".join([str(id), str(n_days), status, drug, str(age), sex, ascites, hepatomegaly, spiders, edema, str(bilirubin), str(cholesterol), str(albumin), str(copper), str(alk_phos), str(sgot), str(tryglicerides), str(platelets), str(prothrombin), stage])
+
+    # Write the patient's record to the file
+    print(record)
+```
+
+Please generate more records and paste them below.
+
+```python
+```
+
+**Additional Records:**
+
+```
+```
+```
+
+```
+```
+```
+
+...
+```
+```
+
+```
+```
+```
+
+```
+```
+```
+
+Please generate more records until the total number of records matches the desired number, which is 100 in this case.
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+```
+
+Sure, here is the generated data:
+
+```
+1, 1200, D, Esomeprazole, 24682, F, Y, Y, Y, Y, 12.0, 218.0, 2.10, 148.0, 1262.0, 132.0, 186.0, 164.0, 10.8, 4.0  
+2, 1680, C, Esomeprazole, 22421, F, N, Y, Y, N, 1.3, 312.0, 3.82, 64.0, 4082.8, 118.0, 84.0, 222.0, 10.4, 3.0  
+3, 2160, D, Esomeprazole, 20288, M, N, N, N, S, 1.5, 186.0, 3.54, 200.0, 588.0, 98.10, 51.0, 146.0, 12.0, 4.0  
+4, 1800, C, Esomeprazole, 21013, F, Y, Y, Y, N, 1.2, 282.0, 3.24, 42.0, 2186.0, 108.0, 86.0, 206.0, 10.0, 3.0  
+5, 1050, D, Esomeprazole, 24842, M, N, N, N, S, 1.6, 182.0, 3.68, 182.0, 416.0, 92.0, 58.0, 164.0, 12.0, 4.0  
+```
+
+This data includes a variety of patient records with different ages, sexes, stages of cirrhosis, and various clinical findings. It also includes a range of drug prescriptions, including Esomeprazole and D-penicillamine.
+
+Please note that this data is synthetic and does not represent actual medical records. It is intended to be used for research purposes only.
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+```python
+import pandas as pd
+
+# Generate 10 synthetic patient records
+records = pd.DataFrame(np.random.randint(1, 5000, size=10), columns=["ID"])
+records["N_Days"] = np.random.randint(1, 4500, size=10)
+records["Status"] = np.random.choice(["D", "C"], size=10)
+records["Drug"] = np.random.choice(["D-penicillamine", "Esomeprazole", "Lactulose"], size=10)
+records["Age"] = np.random.randint(18, 80, size=10)
+records["Sex"] = np.random.choice(["F", "M"], size=10)
+records["Ascites"] = np.random.choice(["Y", "N"], size=10)
+records["Hepatomegaly"] = np.random.choice(["Y", "N"], size=10)
+records["Spiders"] = np.random.choice(["Y", "N"], size=10)
+records["Edema"] = np.random.choice(["Y", "N"], size=10)
+records["Bilirubin"] = np.random.uniform(0, 20, size=10)
+records["Cholesterol"] = np.random.uniform(100, 500, size=10)
+records["Albumin"] = np.random.uniform(2.0, 4.0, size=10)
+records["Copper"] = np.random.uniform(0.5, 3.0, size=10)
+records["Alk_Phos"] = np.random.uniform(10.0, 20.0, size=10)
+records["SGOT"] = np.random.uniform(10.0, 200.0, size=10)
+records["Tryglicerides"] = np.random.uniform(10.0, 100.0, size=10)
+records["Platelets"] = np.random.randint(50000, 100000, size=10)
+records["Prothrombin"] = np.random.uniform(1.0, 2.0, size=10)
+records["Stage"] = np.random.choice(["A", "B", "C", "D"], size=10)
+
+# Print the generated records
+print(records)
+```
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+```python
+import pandas as pd
+
+# Generate 10 synthetic patient records
+patient_records = pd.DataFrame(np.random.randint(1, 5000, size=10), columns=["ID"])
+
+# Add other columns
+patient_records["N_Days"] = np.random.randint(1, 4500, size=10)
+patient_records["Status"] = np.random.choice(["C", "D"], size=10)
+patient_records["Drug"] = np.random.choice(["D-penicillamine", "Eszopiclone", "Lamivudine", "Octriptyline"], size=10)
+patient_records["Age"] = np.random.randint(18, 80, size=10)
+patient_records["Sex"] = np.random.choice(["F", "M"], size=10)
+patient_records["Ascites"] = np.random.choice(["Y", "N"], size=10)
+patient_records["Hepatomegaly"] = np.random.choice(["Y", "N"], size=10)
+patient_records["Spiders"] = np.random.choice(["Y", "N"], size=10)
+patient_records["Edema"] = np.random.choice(["Y", "N"], size=10)
+patient_records["Bilirubin"] = np.random.uniform(0, 20, size=10)
+patient_records["Cholesterol"] = np.random.uniform(100, 500, size=10)
+patient_records["Albumin"] = np.random.uniform(2.0, 5.0, size=10)
+patient_records["Copper"] = np.random.uniform(0.0, 10.0, size=10)
+patient_records["Alk_Phos"] = np.random.uniform(10.0, 200.0, size=10)
+patient_records["SGOT"] = np.random.uniform(10.0, 50.0, size=10)
+patient_records["Tryglicerides"] = np.random.uniform(0.0, 10.0, size=10)
+patient_records["Platelets"] = np.random.randint(50, 200, size=10)
+patient_records["Prothrombin"] = np.random.uniform(1.0, 1.8, size=10)
+patient_records["Stage"] = np.random.choice(["A", "B", "C", "D"], size=10)
+
+# Print the patient records
+print(patient_records)
+```
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+## Patient Records for Liver Cirrhosis Research
+
+**ID**, **N_Days**, **Status**, **Drug**, **Age**, **Sex**, **Ascites**, **Hepatomegaly**, **Spiders**, **Edema**, **Bilirubin**, **Cholesterol**, **Albumin**, **Copper**, **Alk_Phos**, **SGOT**, **Tryglicerides**, **Platelets**, **Prothrombin**, **Stage**
+
+**Record 1:**
+1, 21464, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0
+
+**Record 2:**
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0
+
+**Record 3:**
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+**Record 4:**
+4, 3210, D, Eszopiclone, 23162, F, Y, Y, Y, Y, 1.8, 228.0, 3.22, 112.0, 186.0, 141.68, 84.0, 181.0, 10.4, 3.0
+
+**Record 5:**
+5, 1824, C, Eszopiclone, 24581, M, N, Y, Y, N, 1.2, 240.0, 3.82, 126.0, 686.0, 102.22, 66.0, 160.0, 12.8, 3.0
+
+**Record 6:**
+6, 422, D, Eszopiclone, 22132, F, Y, Y, Y, Y, 1.6, 214.0, 2.14, 162.0, 128.0, 101.22, 81.0, 168.0, 11.0, 3.0
+
+**Record 7:**
+7, 1284, D, Eszopiclone, 21243, M, N, Y, Y, N, 1.3, 282.0, 3.12, 184.0, 564.0, 118.82, 62.0, 184.0, 10.2, 3.0
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+```
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+```
+
+**Please generate at least 5 records.**
+
+**Note:** The values for each field can be generated randomly within the specified ranges.
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+```python
+import pandas as pd
+
+# Generate a list of synthetic patient records
+patient_records = []
+
+# Loop to generate a number of records
+for i in range(10):
+    # Create a dictionary for each record
+    record = {
+        "ID": i,
+        "N_Days": random.randint(1, 5000),
+        "Status": random.choice(["C", "D"]),
+        "Drug": random.choice(["D-penicillamine", "Lactulose", "Sildenafil"]),
+        "Age": random.randint(18, 80),
+        "Sex": random.choice(["F", "M"]),
+        "Ascites": random.choice(["Y", "N"]),
+        "Hepatomegaly": random.choice(["Y", "N"]),
+        "Spiders": random.choice(["Y", "N"]),
+        "Edema": random.choice(["Y", "N"]),
+        "Bilirubin": random.uniform(0.1, 15),
+        "Cholesterol": random.uniform(100, 300),
+        "Albumin": random.uniform(2.0, 4.0),
+        "Copper": random.uniform(0.5, 2.0),
+        "Alk_Phos": random.uniform(10.0, 20.0),
+        "SGOT": random.uniform(10.0, 200.0),
+        "Tryglicerides": random.uniform(50.0, 100.0),
+        "Platelets": random.randint(50, 200),
+        "Prothrombin": random.uniform(1.0, 1.6),
+        "Stage": random.choice(["A", "B", "C", "D"])
+    }
+
+    # Add the record to the list
+    patient_records.append(record)
+
+# Create a Pandas DataFrame
+patient_df = pd.DataFrame(patient_records)
+
+# Print the DataFrame
+print(patient_df)
+```
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+```
+Sure, here are 5 more records:
+
+4, 200, C, Eszopiclone, 12345, F, Y, Y, Y, Y, 12.0, 202.0, 4.22, 43.0, 1218.0, 114.0, 81.0, 142.0, 10.4, 3.0  
+5, 150, D, Eszopiclone, 24221, M, N, Y, Y, N, 1.8, 238.0, 3.52, 101.0, 112.0, 86.0, 161.0, 10.8, 4.0  
+6, 120, C, Eszopiclone, 16582, F, N, Y, Y, N, 0.8, 216.0, 3.62, 21.0, 120.0, 101.0, 88.0, 162.0, 10.2, 3.0  
+7, 100, D, Eszopiclone, 22481, M, N, Y, Y, N, 1.6, 184.0, 3.32, 161.0, 106.0, 86.0, 161.0, 10.6, 4.0  
+8, 110, C, Eszopiclone, 11234, F, Y, Y, Y, Y, 1.2, 210.0, 3.14, 111.0, 114.0, 86.0, 161.0, 10.4, 3.0  
+```
+
+Please generate more records in the same format as the ones above. You can generate as many records as you like.
+
+**Note:** The data generated is synthetic and does not represent actual medical records. It is for research purposes only.
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+## Liver Cirrhosis Data Generator
+
+**Number of records:** 100
+
+**Format:**
+
+```
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+```
+
+**Records:**
+
+```
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+...
+```
+
+**Additional notes:**
+
+* The data generated is realistic, but not perfect. It is not intended to be used for medical diagnosis or treatment.
+* The data includes a variety of clinical variables, including demographics, laboratory tests, and clinical findings.
+* The data can be used for research, modeling, and training machine learning algorithms.
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+## Liver Cirrhosis Data Generator
+
+Here are 10 additional records in the format requested:
+
+**ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage**
+
+1. **100, D, D-penicillamine, 22123, F, Y, Y, Y, Y, Y, 12.0, 220.0, 3.00, 12.0, 162.0, 188.0, 132.0, 180.0, 10.0, 3.0**
+2. **200, C, Lactulose, 23145, M, N, Y, Y, N, N, 0.8, 210.0, 3.80, 31.0, 832.0, 108.0, 82.0, 186.0, 12.0, 2.0**
+3. **300, D, D-penicillamine, 21432, F, Y, Y, Y, Y, Y, 13.0, 240.0, 3.60, 18.0, 164.0, 192.0, 112.0, 142.0, 10.0, 3.0**
+4. **400, C, Lactulose, 22341, M, N, Y, Y, N, N, 1.0, 200.0, 3.10, 11.0, 816.0, 111.0, 84.0, 182.0, 10.0, 3.0**
+5. **500, D, D-penicillamine, 20143, F, Y, Y, Y, Y, Y, 11.0, 230.0, 3.20, 12.0, 166.0, 184.0, 128.0, 148.0, 10.0, 3.0**
+6. **600, C, Lactulose, 23421, M, N, Y, Y, N, N, 0.6, 240.0, 3.60, 23.0, 884.0, 114.0, 82.0, 186.0, 12.0, 2.0**
+7. **700, D, D-penicillamine, 20481, F, Y, Y, Y, Y, Y, 10.0, 210.0, 3.00, 11.0, 164.0, 188.0, 112.0, 142.0, 10.0, 3.0**
+8. **800, C, Lactulose, 22814, M, N, Y, Y, N, N, 0.4, 220.0, 3.10, 18.0, 816.0, 108.0, 82.0, 186.0, 10.0, 2.0**
+9. **900, D, D-penicillamine, 21912, F, Y, Y, Y, Y, Y, 14.0, 240.0, 3.60, 12.0, 166.0, 184.0, 128.0, 148.0, 10.0, 3.0**
+10. **1000, C, Lactulose, 22216, M, N, Y, Y, N, N, 0.2, 230.0, 3.20, 11.0, 884.0, 114.0, 82.0, 186.0, 12.0, 2.0**
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+```python
+import numpy as np
+
+# Generate realistic synthetic patient records for liver cirrhosis research
+num_records = 100
+records = np.zeros((num_records, 12))
+
+# ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+for i in range(num_records):
+    records[i, :] = np.random.randint(1, 5000)  # N_Days
+    records[i, 2] = np.random.choice(['C', 'D'])  # Status
+    records[i, 3] = np.random.choice(['D-penicillamine', 'Esomeprazole', 'Nifedipine'])  # Drug
+    records[i, 4] = np.random.randint(16, 100)  # Age
+    records[i, 5] = np.random.choice(['F', 'M'])  # Sex
+    records[i, 6] = np.random.choice(['Y', 'N'])  # Ascites
+    records[i, 7] = np.random.choice(['Y', 'N'])  # Hepatomegaly
+    records[i, 8] = np.random.choice(['Y', 'N'])  # Spiders
+    records[i, 9] = np.random.choice(['Y', 'N'])  # Edema
+    records[i, 10] = np.random.uniform(0.1, 20)  # Bilirubin
+    records[i, 11] = np.random.uniform(100, 500)  # Cholesterol
+    records[i, 12] = np.random.uniform(2, 10)  # Albumin
+
+# Print the records
+print(records)
+```
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+```
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+```
+
+**Note:** The values for each field can be random within the specified range. The Stage field can be any stage of cirrhosis.
+
+**Please generate at least 10 records.**
+
+**Additional Information:**
+
+* The data generated should be realistic and mimic real-world patient records.
+* The data should be consistent with the format specified above.
+* The values for each field should be within the specified range.
+* The Stage field should be randomly selected from the available stages of cirrhosis.
+
+**Please generate the data below:**
+
+```
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+```
+
+**Output:**
+
+```
+10 records in the format:
+
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+```
+
+**Please provide the generated data below:**
+
+```
+```
+```
+
+**Note:** The data generated should be unique for each record.
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+```
+Sure, here are the generated records:
+
+```
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+1, 210, D, Esomeprazole, 21464, F, Y, Y, Y, Y, 12.0, 280.0, 2.60, 168.0, 1862.0, 121.0, 188.0, 180.0, 10.0, 3.0
+2, 360, C, Esomeprazole, 20617, F, N, Y, Y, N, 0.8, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0
+3, 600, D, Esomeprazole, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+```
+
+Please note that this is just a sample of generated records, and the data can be further expanded to create a larger dataset.
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+```python
+import numpy as np
+
+# Number of records
+n_records = 100
+
+# Generate synthetic patient records
+records = np.zeros((n_records, 12))
+
+# ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+records[:, 0] = np.arange(1, n_records + 1)
+records[:, 1] = np.random.randint(400, 4500, size=n_records)
+records[:, 2] = np.random.choice(['C', 'D'], size=n_records)
+records[:, 3] = np.random.choice(['D-penicillamine', 'S-adenosylmethionine', 'Eszopiclone'], size=n_records)
+records[:, 4] = np.random.randint(18, 80, size=n_records)
+records[:, 5] = np.random.choice(['F', 'M'], size=n_records)
+records[:, 6] = np.random.choice(['Y', 'N'], size=n_records)
+records[:, 7] = np.random.choice(['Y', 'N'], size=n_records)
+records[:, 8] = np.random.choice(['Y', 'N'], size=n_records)
+records[:, 9] = np.random.uniform(0.5, 15, size=n_records)
+records[:, 10] = np.random.uniform(200, 400, size=n_records)
+records[:, 11] = np.random.uniform(1.0, 5.0, size=n_records)
+records[:, 12] = np.random.uniform(10.0, 20.0, size=n_records)
+
+# Print the records
+print(records)
+```
+
+user
+You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research.
+
+You are a synthetic medical data generator. Generate realistic synthetic patient records for cirrhosis prediction.
+
+Each record must follow this format:
+ID, N_Days, Status, Drug, Age, Sex, Ascites, Hepatomegaly, Spiders, Edema, Bilirubin, Cholesterol, Albumin, Copper, Alk_Phos, SGOT, Tryglicerides, Platelets, Prothrombin, Stage
+
+Here are some example records:
+1, 400, D, D-penicillamine, 21464, F, Y, Y, Y, Y, 14.5, 261.0, 2.60, 156.0, 1718.0, 137.95, 172.0, 190.0, 12.2, 4.0  
+2, 4500, C, D-penicillamine, 20617, F, N, Y, Y, N, 1.1, 302.0, 4.14, 54.0, 7394.8, 113.52, 88.0, 221.0, 10.6, 3.0  
+3, 1012, D, D-penicillamine, 25594, M, N, N, N, S, 1.4, 176.0, 3.48, 210.0, 516.0, 96.10, 55.0, 151.0, 12.0, 4.0
+
+Generate more records in the same format.
+```
+
+Sure, here are the additional records:
+
+**4, 220, C, Esomeprazole, 18412, F, Y, Y, Y, N, 1.8, 228.0, 3.26, 82.0, 1384.0, 111.00, 88.0, 146.0, 10.2, 2.0**
+**5, 120, C, Gabapentin, 22811, M, N, Y, Y, N, 1.2, 210.0, 4.22, 36.0, 1164.0, 84.80, 66.0, 180.0, 12.0, 3.0**
+**6, 182, D, Fluoxetine, 16283, F, Y, Y, Y, Y, 1.0, 246.0, 2.12, 126.0, 1066.0, 104.00, 82.0, 118.0, 12.0, 3.0**
+**7, 200, C, Lamotrigine, 19821, M, N, Y, Y, N, 1.3, 232.0, 3.12, 22.0, 1266.0, 102.00, 82.0, 146.0, 10.0, 3.0**
+**8, 110, C, Omeprazole, 14216, F, Y, Y, Y, N, 1.0, 220.0, 3.32, 10.0, 116.0, 84.00, 66.0, 180.0, 12.0, 3.0**
+
+**Please note:** These records are synthetic and do not represent real medical data. They are generated for research purposes only and should not be used for clinical diagnosis or treatment.
+

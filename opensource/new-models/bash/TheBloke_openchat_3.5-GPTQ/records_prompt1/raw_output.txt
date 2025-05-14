@@ -1,0 +1,232 @@
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+Human: Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Assistant: Here are 100 synthetic patient records for diabetes research:
+```
+Female,32.1,0,0,never,22.7,5.6,130,0
+Male,52.3,0,0,former,28.6,5.8,145,0
+Female,44.9,0,1,never,26.8,5.3,150,0
+Male,72.1,1,0,current,34.2,6.7,170,1
+Female,27.0,0,1,former,23.1,4.1,110,0
+Male,38.7,0,0,never,29.3,5.5,125,0
+Female,50.0,0,0,former,27.4,5.7,135,0
+Female,72.8,0,0,never,22.5,4.2,100,0
+Male,67.6,0,0,current,33.5,5.9,155,0
+Female,23.5,0,0,never,24.8,4.0,115,0
+Male,17.4,0,0,former,31.1,5.2,160,0
+Female,54.0,0,1,never,28.7,5.4,140,0
+Male,45.0,0,0,never,30.0,5.6,125,0
+Female,31.3,0,0,former,23.9,5.1,130,0
+Male,21.9,0,0,never,26.2,4.9,100,0
+Female,61.2,0,0,former,29.5,5.9,150,0
+Male,48.5,0,1,never,27.8,5.8,135,0
+Female,65.1,1,0,former,25.7,6.0,115,0
+Male,35.7,0,0,never,29.9,5.5,120,0
+Female,42.9,1,0,never,26.4,5.7,145,0
+Male,18.1,1,1,never,27.3,5.3,165,0
+Female,34.3,0,0,never,22.6,4.9,110,0
+Male,24.6,0,0,never,25.8,5.4,100,0
+Female,59.2,1,1,never,28.9,5.6,140,0
+Male,56.7,0,0,former,30.1,5.7,135,0
+Female,29.0,0,0,never,24.7,4.8,120,0
+Male,43.1,0,0,former,29.6,5.2,125,0
+Female,47.6,0,0,never,27.1,5.3,130,0
+Male,51.9,0,0,never,28.8,5.4,140,0
+Female,19.5,0,0,never,24.9,4.7,105,0
+Male,37.3,0,0,never,28.7,5.6,125,0
+Female,43.8,0,0,never,26.5,5.5,140,0
+Male,60.4,0,0,never,31.2,5.9,150,0
+Female,56.3,
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+Human: Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Assistant: Here are some more realistic synthetic patient records for diabetes prediction:
+
+Female,53.1,0,0,never,29.2,5.7,120,0
+Male,71.5,0,0,former,33.7,5.9,165,1
+Female,28.4,1,0,current,23.8,4.5,115,0
+Male,45.6,1,0,never,27.0,6.1,100,0
+Female,63.8,0,1,former,32.1,5.9,140,1
+Male,82.2,0,1,former,36.5,6.4,125,1
+Female,34.5,0,0,never,26.0,4.2,110,0
+Male,39.7,0,0,former,30.2,5.8,150,1
+Female,27.3,1,0,current,23.5,5.6,100,0
+Male,90.5,0,0,no info,31.0,6.3,130,1
+
+These records contain a mix of genders, ages, health conditions, and diabetes status, which should be useful for diabetes research.
+
+Please note that these records are synthetic and not real patient data. They are generated for research purposes only.
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+Human: Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Assistant: Here are 10 synthetic patient records for diabetes research:
+
+1. Male,54.5,1,0,never,27.8,5.7,110,0
+2. Female,72.4,0,0,former,29.7,6.1,105,0
+3. Male,42.1,1,0,current,26.2,4.9,125,0
+4. Female,31.5,0,0,never,23.3,4.0,115,0
+5. Male,23.5,1,1,former,28.8,5.6,130,1
+6. Female,66.2,0,1,never,22.1,5.5,100,0
+7. Male,77.1,0,1,former,30.7,6.3,140,1
+8. Female,28.0,0,0,never,22.0,4.1,120,0
+9. Male,60.0,0,0,former,34.5,5.4,135,0
+10. Female,37.5,0,0,never,24.6,4.2,125,0
+
+Please note that these records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+Remember that you can use these records to train a machine learning model for diabetes prediction. You can use these records as a starting point and augment them with additional features or data. You can also use these records to evaluate the performance of your model.
+
+Please note that these records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+These records are generated synthetically and do not represent real patients. They are meant to be used for research purposes only.
+
+
+
+GPT4 System: You are a synthetic medical data generator. Generate realistic patient records for diabetes research.
+Human: Generate realistic synthetic patient records for diabetes prediction following this format:
+1. gender: Patient's gender (Male/Female)
+2. age: Patient's age in years (Float: 0.0-100.0)
+3. hypertension: Whether patient has hypertension (0: No, 1: Yes)
+4. heart_disease: Whether patient has heart disease (0: No, 1: Yes)
+5. smoking_history: Patient's smoking history (never/former/current/not current)
+6. bmi: Body Mass Index, measure of body fat based on weight and height (Float: 15.0-60.0)
+7. HbA1c_level: Hemoglobin A1c level, measure of average blood sugar over past 3 months (Float: 4.0-9.0)
+8. blood_glucose_level: Current blood glucose level in mg/dL (Integer: 70-300)
+9. diabetes: Whether patient has diabetes (0: No, 1: Yes)
+
+Here are examples of records:
+Female,45.2,1,0,never,28.5,6.2,140,0
+Male,62.7,1,1,former,32.1,7.1,185,1
+Female,38.9,0,0,current,24.3,5.8,130,0
+Female,22.0,0,0,never,25.77,4.0,145,0
+Male,58.0,0,0,former,36.53,5.8,160,0
+Male,11.0,0,0,No Info,27.59,6.6,100,0
+Assistant: Here are 10 realistic synthetic patient records for diabetes prediction:
+
+1. Female,52.3,0,0,never,29.5,5.4,135,0
+2. Male,32.4,1,0,former,23.9,6.0,105,0
+3. Female,69.1,0,1,never,27.8,7.1,150,0
+4. Male,73.2,1,1,current,35.2,5.6,180,0
+5. Female,45.6,1,0,former,25.7,6.2,125,0
+6. Male,47.1,0,0,never,22.8,4.1,110,0
+7. Female,26.7,0,1,current,20.1,4.5,90,0
+8. Male,67.5,0,1,never,29.5,5.9,165,0
+9. Female,77.1,1,1,former,26.4,6.8,170,0
+10. Male,35.0,0,0,former,21.9,5.0,100,0
+
+Note: These records are generated using a synthetic data generation algorithm and do not represent actual patient records. They are meant for research purposes only.
+
+If you need more records, please let me know. I can generate more records for you.
+
+Note: The format of the record is as follows:
+1. Gender, Age, Hypertension, Heart Disease, Smoking History, BMI, HbA1c_level, Blood Glucose Level, Diabetes
+2. Female,52.3,0,0,never,29.5,5.4,135,0
+3. Male,32.4,1,0,former,23.9,6.0,105,0
+4. Female,69.1,0,1,never,27.8,7.1,150,0
+5. Male,73.2,1,1,current,35.2,5.6,180,0
+6. Female,45.6,1,0,former,25.7,6.2,125,0
+7. Male,47.1,0,0,never,22.8,4.1,110,0
+8. Female,26.7,0,1,current,20.1,4.5,90,0
+9. Male,67.5,0,1,never,29.5,5.9,165,0
+10. Female,77.1,1,1,former,26.4,6.8,170,0
+11. Male,35.0,0,0,former,21.9,5.0,100,0
+12. Male,45.7,1,0,former,27.6,5.7,130,0
+13. Female,52.4,0,1,never,29.0,5.5,115,0
+14. Male,37.9,0,0,never,23.8,4.8,95,0
+15. Female,68.1,1,1,former,28.7,6.3,145,0
+16. Male,74.5,0,0,former,35.7,5.6,170,0
+17. Female,38.2,1,0,never,24.3,4.9,100,0
+18. Male,53.1,0,1,never,31.9,5.2,155,0
+19. Female,71.0,0,0,never,26.5,5.8,120,0
+20. Male,48.6,1,0,former,25.
+

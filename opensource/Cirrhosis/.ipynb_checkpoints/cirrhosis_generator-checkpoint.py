@@ -9,56 +9,39 @@ import psutil
 import subprocess
 import json
 import pandas as pd
+import numpy as np
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+from transformers import AutoModelForSeq2SeqLM, AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from transformers.utils import is_bitsandbytes_available
 
 # Restrict to first MIG instance
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ["CUDA_LAUNCH_BLOCKING"] = "1"  # Added from diabetes code
 
 # Configuration
 DEFAULT_MODEL = "mistralai/Mistral-7B-Instruct-v0.2"
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 NUM_RECORDS = 100
 
-# Chat style mappings
-MODELS=(
-  "openai-community/gpt2"
-  "mistralai/Mistral-7B-Instruct-v0.2"
-  # "mistralai/Mixtral-8x7B-Instruct-v0.1"
-  "meta-llama/Llama-2-7b-chat-hf"
-  "meta-llama/Llama-3.1-8b-Instruct"
-  "google/gemma-7b-it"
-  "01-ai/Yi-6B-Chat"
-  "HuggingFaceH4/zephyr-7b-beta"
-  "Qwen/Qwen-7B-Chat"
-  "Qwen/Qwen2-7B-Instruct"
-  "internlm/internlm2_5-7b-chat"
-  "stabilityai/StableBeluga-7B"
-  "openchat/openchat-3.5-0106"
-  "NousResearch/Nous-Hermes-2-Yi-34B"
-  "mosaicml/mpt-7b-instruct"
-  "openchat/openchat_3.5"
-  "TheBloke/openchat_3.5-GPTQ"
-)
-
+# Chat style mappings - Updated based on diabetes code
 CHAT_STYLE_MODELS = {
     "gpt2": "plain",
     "mistral": "chatml",
-    # "mixtral": "chatml",
+    "mixtral": "chatml",
     "llama2": "llama",
     "llama3": "llama",
     "gemma": "openai",
     "yi": "im_start",
     "zephyr": "zephyr",
     "qwen": "qwen",
-    "qwen2": "qwen2",
+    "qwen2": "chatml",  # Updated to match diabetes code
     "internlm": "internlm",
     "beluga": "beluga",
     "openchat": "openchat",
     "nous": "nous",
-    "mpt": "mpt"
+    "mpt": "mpt",
+    "t5": "t5"  # Added T5 format
 }
 
 SYSTEM_PROMPT = """You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research."""
@@ -70,6 +53,10 @@ EXAMPLE_RECORDS = [
 ]
 
 def detect_chat_style(model_name):
+    # Special case for T5 models
+    if "t5" in model_name.lower():
+        return "t5"
+        
     for key, style in CHAT_STYLE_MODELS.items():
         if key in model_name.lower():
             return style
@@ -78,12 +65,15 @@ def detect_chat_style(model_name):
 def build_prompt(model_name, system_prompt, user_prompt, tokenizer):
     style = detect_chat_style(model_name)
 
-    if style == "llama":
+    if style == "t5":
+        # T5 uses a simple text input format
+        return tokenizer(f"{system_prompt}\n\n{user_prompt}", return_tensors="pt")
+    elif style == "llama":
         return tokenizer(f"<s>[INST] {system_prompt}\n{user_prompt} [/INST]", return_tensors="pt")
     elif style == "chatml":
         messages = [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}]
-        prompt_str = tokenizer.apply_chat_template(messages, tokenize=False)
-        return tokenizer(prompt_str, return_tensors="pt")
+        prompt_str = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        return tokenizer(prompt_str, return_tensors="pt", padding=True, truncation=True)
     elif style == "openai":
         messages = [{"role": "user", "content": f"{system_prompt}\n\n{user_prompt}"}]
         prompt_str = tokenizer.apply_chat_template(messages, tokenize=False)
@@ -237,17 +227,32 @@ def extract_records(text):
         # More flexible numeric field validation
         try:
             # Convert to appropriate types to validate
-            float(n_days)
-            float(age)  # Allow age as float
-            float(bilirubin)
-            float(cholesterol)
-            float(albumin)
-            float(copper)
-            float(alk_phos)
-            float(sgot)
-            float(tryglicerides)
-            float(platelets)
-            float(prothrombin)
+            n_days = float(n_days)
+            
+            # Fix the age issue - ensure it's within realistic bounds
+            try:
+                age_val = float(age)
+                # Cap age to realistic values (18-100)
+                if age_val > 100:
+                    print(f"[WARNING] Unrealistic age value: {age_val}, capping to 100")
+                    age = "100"
+                elif age_val < 18:
+                    print(f"[WARNING] Unrealistic age value: {age_val}, setting to 18")
+                    age = "18"
+            except ValueError:
+                bad_lines.append(f"Invalid age: {line}")
+                skipped += 1
+                continue
+                
+            bilirubin = float(bilirubin)
+            cholesterol = float(cholesterol)
+            albumin = float(albumin)
+            copper = float(copper)
+            alk_phos = float(alk_phos)
+            sgot = float(sgot)
+            tryglicerides = float(tryglicerides)
+            platelets = float(platelets)
+            prothrombin = float(prothrombin)
         except ValueError as e:
             bad_lines.append(f"Non-numeric fields: {line} - {e}")
             skipped += 1
@@ -266,9 +271,10 @@ def extract_records(text):
 
         # Create the record with all processed values
         record = [
-            n_days, status, drug, age, sex, ascites, hepatomegaly, spiders,
-            edema, bilirubin, cholesterol, albumin, copper, alk_phos, sgot,
-            tryglicerides, platelets, prothrombin, stage
+            str(n_days), status, drug, str(age), sex, ascites, hepatomegaly, spiders,
+            edema, str(bilirubin), str(cholesterol), str(albumin), str(copper), 
+            str(alk_phos), str(sgot), str(tryglicerides), str(platelets), 
+            str(prothrombin), stage
         ]
         records.append(record)
 
@@ -283,6 +289,7 @@ def extract_records(text):
     if records:
         print(f"[DEBUG] First few status values: {[r[1] for r in records[:5]]}")
         print(f"[DEBUG] First few drug values: {[r[2] for r in records[:5]]}")
+        print(f"[DEBUG] First few age values: {[r[3] for r in records[:5]]}")  # Debug age values
         print(f"[DEBUG] First few edema values: {[r[8] for r in records[:5]]}")
         print(f"[DEBUG] First few stage values: {[r[18] for r in records[:5]]}")
     
@@ -341,7 +348,7 @@ def main():
     # Special handling for GPT-2
     batch_size = args.batch_size
     if "gpt2" in model_name.lower():
-        batch_size = 5
+        batch_size = 5  # Reduced batch size for GPT-2
         print(f"[INFO] Using reduced batch size {batch_size} for GPT-2 model")
 
     print(f"Loading model {model_name} on {DEVICE}")
@@ -354,22 +361,25 @@ def main():
         total_mem = torch.cuda.get_device_properties(0).total_memory / 1e9
         print(f"Total GPU memory: {total_mem:.2f} GB")
 
-        # Determine attention implementation
+    # Determine attention implementation - same as diabetes code
     if "phi" in model_name.lower() or "gpt2" in model_name.lower():
         attn_backend = "eager"
+    elif "t5" in model_name.lower() or "bart" in model_name.lower():
+        attn_backend = None
     else:
         attn_backend = "flash_attention_2"
 
-    # Start building kwargs
+    # Start building kwargs - same as diabetes code
     model_kwargs = {
         "torch_dtype": torch.float16,
         "device_map": "auto",
         "trust_remote_code": True
     }
     
-    if "mpt" not in model_name.lower():  # MPT does not support this kwarg
+    # MPT does not support this kwarg
+    if attn_backend and "mpt" not in model_name.lower():
         model_kwargs["attn_implementation"] = attn_backend
-    
+        
     try:
         quantization_config = BitsAndBytesConfig(
             load_in_4bit=True,
@@ -382,64 +392,48 @@ def main():
         config = AutoConfig.from_pretrained(model_name, trust_remote_code=True)
         
         if "llama" in model_name.lower() and hasattr(config, "rope_scaling"):
+            current_scaling = config.rope_scaling or {}
             config.rope_scaling = {
                 "name": "dynamic",
-                "factor": config.rope_scaling.get("factor", 8.0)
+                "factor": current_scaling.get("factor", 8.0)
             }
 
-        model = AutoModelForCausalLM.from_pretrained(
-            model_name,
-            config=config,
-            quantization_config=quantization_config,
-            **model_kwargs
-        )
+        # Determine the correct model class based on the model type
+        if "t5" in model_name.lower():
+            model = AutoModelForSeq2SeqLM.from_pretrained(
+                model_name,
+                config=config,
+                quantization_config=quantization_config,
+                **model_kwargs
+            )
+        else:
+            model = AutoModelForCausalLM.from_pretrained(
+                model_name,
+                config=config,
+                quantization_config=quantization_config,
+                **model_kwargs
+            )
     except Exception as e:
         print(f"⚠️ Could not load model with quantization ({e}), falling back to basic loading.")
-        model = AutoModelForCausalLM.from_pretrained(
-            model_name,
-            **model_kwargs
-        )
+        # Determine the correct model class based on the model type
+        if "t5" in model_name.lower():
+            model = AutoModelForSeq2SeqLM.from_pretrained(
+                model_name,
+                **model_kwargs
+            )
+        else:
+            model = AutoModelForCausalLM.from_pretrained(
+                model_name,
+                **model_kwargs
+            )
 
     try:
         from transformers.models.gpt_neox.tokenization_gpt_neox import GPTNeoXTokenizer
     except ImportError:
         print("Could not import GPTNeoXTokenizer explicitly, falling back to AutoTokenizer.")
     
-    # try:
-    #     is_mpt = "mpt" in model_name.lower()
-    
-    #     if is_mpt:
-    #         print("[INFO] Detected MPT model, skipping 4-bit loading for compatibility.")
-    #         model = AutoModelForCausalLM.from_pretrained(
-    #             model_name,
-    #             torch_dtype=torch.float16,
-    #             device_map="auto",
-    #             trust_remote_code=True
-    #         )
-    #     else:
-    #         quantization_config = BitsAndBytesConfig(
-    #             load_in_4bit=True,
-    #             bnb_4bit_quant_type="nf4",
-    #             bnb_4bit_compute_dtype=torch.float16
-    #         )
-    #         model = AutoModelForCausalLM.from_pretrained(
-    #             model_name,
-    #             torch_dtype=torch.float16,
-    #             quantization_config=quantization_config,
-    #             device_map="auto",
-    #             trust_remote_code=True,
-    #             attn_implementation="eager"
-    #         )
-    # except Exception as e:
-    #     print(f"⚠️ Could not load model in 4-bit or custom config: {e}\nFalling back to basic loading.")
-    #     model = AutoModelForCausalLM.from_pretrained(
-    #         model_name,
-    #         torch_dtype=torch.float16,
-    #         device_map="auto",
-    #         trust_remote_code=True
-    #     )
-
-    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, use_fast=False)
+    # Tokenizer setup - same as diabetes code
+    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, use_fast=True)
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
 
@@ -462,24 +456,34 @@ def main():
         chat_input = build_prompt(model_name, SYSTEM_PROMPT, user_prompt, tokenizer).to(DEVICE)
 
         try:
-            # Safe token limit based on model type and prompt complexity
-            if model_name.lower() == "gpt2":
-                max_tokens = 100  # GPT-2 has a 1024-token context limit
-            elif "prompt4" in prompt_name.lower():
-                max_tokens = 800  # Prompt 4 is large — lower to avoid OOM
-            else:
-                max_tokens = 2000
-                
+            # Calculate max tokens based on model context size
+            max_context = getattr(tokenizer, 'model_max_length', 2048)
+            max_tokens = min(1000, max_context - chat_input["input_ids"].shape[-1] - 10)
+            
             print(f"Generating with max_new_tokens={max_tokens}")
-            outputs = model.generate(
-                input_ids=chat_input["input_ids"],
-                attention_mask=chat_input.get("attention_mask"),
-                max_new_tokens=max_tokens,
-                do_sample=True,
-                temperature=0.7,
-                top_p=0.9,
-                pad_token_id=tokenizer.eos_token_id,
-            )
+            
+            # Different generation approach for T5 vs causal models
+            if "t5" in model_name.lower():
+                outputs = model.generate(
+                    input_ids=chat_input["input_ids"],
+                    attention_mask=chat_input.get("attention_mask"),
+                    max_length=max_tokens,
+                    do_sample=True,
+                    temperature=0.7,
+                    top_p=0.9
+                )
+            else:
+                outputs = model.generate(
+                    input_ids=chat_input["input_ids"],
+                    attention_mask=chat_input.get("attention_mask"),
+                    max_new_tokens=max_tokens,
+                    do_sample=True,
+                    temperature=0.7,
+                    top_p=0.9,
+                    pad_token_id=tokenizer.eos_token_id,
+                    eos_token_id=tokenizer.eos_token_id
+                )
+                
             generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
             if "n_days" in generated_text.lower() and "status" in generated_text.lower():
@@ -531,6 +535,14 @@ def main():
         
         for col in numeric_columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
+            
+            # Apply additional validation/normalization
+            if col == "Age":
+                # Ensure age is within realistic bounds
+                df[col] = df[col].clip(18, 100)
+            elif col == "Stage":
+                # Ensure stage is between 1 and 4
+                df[col] = df[col].clip(1, 4)
         
         # Debug output before saving
         print("\nDataFrame head before saving:")

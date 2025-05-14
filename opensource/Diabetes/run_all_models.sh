@@ -1,25 +1,14 @@
 #!/bin/bash
+set -euo pipefail
 
 MODELS=(
-  # "gpt2"
-  "mistralai/Mistral-7B-Instruct-v0.2"
-  "mistralai/Mixtral-8x7B-Instruct-v0.1"
-  "meta-llama/Llama-2-7b-chat-hf"
-  "meta-llama/Llama-3-8b-Instruct"
-  "google/gemma-7b-it"
-  "01-ai/Yi-6B-Chat"
-  "HuggingFaceH4/zephyr-7b-beta"
-  # "microsoft/Phi-3-mini-4k-instruct"
-  "BAAI/Qwen-7B-Chat"
-  "Qwen/Qwen2-7B-Instruct"
-  "internlm/internlm2-7b-chat"
-  "stabilityai/StableBeluga-7B"
-  "openchat/openchat-3.5-0106"
-  "NousResearch/Nous-Hermes-2-Yi-34B"
-  "mosaicml/mpt-7b-instruct"
-  "openchat/openchat-3.5"
-  "TheBloke/openchat_3.5-GPTQ"
-  "lmstudio-ai/Meta-Llama-3-8B-Instruct-GGUF"
+  # "meta-llama/Llama-2-13b"
+  # "meta-llama/Llama-2-13b-hf"
+  # "meta-llama/Llama-2-13b-chat"
+  # "meta-llama/Llama-2-13b-chat-hf"
+  # "meta-llama/Llama-4-Maverick-17B-128E-Instruct"
+  # "meta-llama/Meta-Llama-3-8B"
+  # "NousResearch/Nous-Hermes-2-Mistral-7B-DPO"
 )
 
 PROMPTS=(
@@ -45,11 +34,12 @@ for model in "${MODELS[@]}"; do
     echo "🕒 Starting $mname × $pname"
     start_time=$(date +%s)
 
-    timeout 30m \
+    timeout 60m \
       python solo-prompt.py \
         --model_name "$model" \
         --prompt_file "prompts/$prompt" \
-        > "logs/${mname}_${pname}.log" 2>&1
+        2>&1 | tee "logs/${mname}_${pname}.log"
+        # > "logs/${mname}_${pname}.log" 2>&1
 
     exit_code=$?
     end_time=$(date +%s)
@@ -63,3 +53,6 @@ for model in "${MODELS[@]}"; do
     fi
   done
 done
+
+# chmod +x run_all_models.sh
+#./run_all.sh

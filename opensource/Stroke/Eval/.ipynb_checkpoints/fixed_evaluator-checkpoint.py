@@ -223,6 +223,12 @@ class StrokeDataEvaluator:
         except Exception as e:
             results["new_metrics"] = {"error": str(e)}
             
+        # Add utility metrics (TSTR/TRTS)
+        try:
+            results["utility_metrics"] = self.calculate_tstr_trts(target_col="stroke")
+        except Exception as e:
+            results["utility_metrics"] = {"error": str(e)}
+            
         return results
     
     def evaluate_flat(self, model_name=None, prompt_name=None):
@@ -852,3 +858,87 @@ class StrokeDataEvaluator:
             return metrics
         except Exception as e:
             return {"error": str(e)}
+
+    def calculate_tstr_trts(self, target_col='stroke'):
+        """Train on synthetic, test on real (TSTR), and vice versa (TRTS) for binary classification."""
+        results = {}
+        # Only proceed if target_col exists in both datasets
+        if target_col not in self.real_data.columns or target_col not in self.synthetic_data.columns:
+            results['error'] = f"Target column '{target_col}' not found in both datasets."
+            return results
+        # Convert target to numeric and drop NAs
+        for df, name in zip([self.real_data, self.synthetic_data], ["real_data", "synthetic_data"]):
+            if target_col in df.columns:
+                df[target_col] = pd.to_numeric(df[target_col], errors='coerce')
+                before = len(df)
+                df.dropna(subset=[target_col], inplace=True)
+                after = len(df)
+                df[target_col] = df[target_col].astype(int)
+                print(f"[{name}] Unique values in '{target_col}':", df[target_col].unique())
+                print(f"[{name}] Dropped {before - after} rows with NaN in '{target_col}'")
+        # Now proceed as before
+        X_real = self.real_data.drop(columns=[target_col])
+        y_real = self.real_data[target_col]
+        X_synth = self.synthetic_data.drop(columns=[target_col])
+        y_synth = self.synthetic_data[target_col]
+        # Exclude derived columns like 'age_group'
+        exclude_cols = ['age_group']  # Add any other derived columns here
+        X_real = X_real[[col for col in X_real.columns if col not in exclude_cols]]
+        X_synth = X_synth[[col for col in X_synth.columns if col not in exclude_cols]]
+        # Only use columns present in both datasets
+        common_cols = list(set(X_real.columns) & set(X_synth.columns))
+        X_real = X_real[common_cols]
+        X_synth = X_synth[common_cols]
+        # Encode all object-type columns using LabelEncoder
+        for col in X_real.columns:
+            if X_real[col].dtype == 'object' or X_synth[col].dtype == 'object':
+                le = LabelEncoder()
+                all_vals = pd.concat([X_real[col].astype(str), X_synth[col].astype(str)]).unique()
+                le.fit(all_vals)
+                X_real[col] = le.transform(X_real[col].astype(str))
+                X_synth[col] = le.transform(X_synth[col].astype(str))
+        # Fill any remaining NaNs with column means (for numerics)
+        for X in [X_real, X_synth]:
+            for col in X.columns:
+                if X[col].dtype.kind in 'biufc':
+                    X[col] = X[col].fillna(X[col].mean())
+                else:
+                    X[col] = X[col].fillna(X[col].mode().iloc[0] if not X[col].mode().empty else 0)
+        # Train on synthetic, test on real (TSTR)
+        try:
+            from sklearn.ensemble import RandomForestClassifier
+            from sklearn.metrics import accuracy_score
+            clf = RandomForestClassifier(n_estimators=50, random_state=42)
+            clf.fit(X_synth, y_synth)
+            tstr_acc = accuracy_score(y_real, clf.predict(X_real))
+            results['TSTR_accuracy'] = tstr_acc
+        except Exception as e:
+            results['TSTR_accuracy'] = f"Error: {e}"
+        # Train on real, test on synthetic (TRTS)
+        try:
+            clf = RandomForestClassifier(n_estimators=50, random_state=42)
+            clf.fit(X_real, y_real)
+            trts_acc = accuracy_score(y_synth, clf.predict(X_synth))
+            results['TRTS_accuracy'] = trts_acc
+        except Exception as e:
+            results['TRTS_accuracy'] = f"Error: {e}"
+        # Train on real, test on real (TRTR)
+        try:
+            from sklearn.model_selection import train_test_split
+            X_train, X_test, y_train, y_test = train_test_split(X_real, y_real, test_size=0.3, random_state=42, stratify=y_real)
+            clf = RandomForestClassifier(n_estimators=50, random_state=42)
+            clf.fit(X_train, y_train)
+            trtr_acc = accuracy_score(y_test, clf.predict(X_test))
+            results['TRTR_accuracy'] = trtr_acc
+        except Exception as e:
+            results['TRTR_accuracy'] = f"Error: {e}"
+        # Train on synthetic, test on synthetic (TSTS)
+        try:
+            X_train, X_test, y_train, y_test = train_test_split(X_synth, y_synth, test_size=0.3, random_state=42, stratify=y_synth)
+            clf = RandomForestClassifier(n_estimators=50, random_state=42)
+            clf.fit(X_train, y_train)
+            tsts_acc = accuracy_score(y_test, clf.predict(X_test))
+            results['TSTS_accuracy'] = tsts_acc
+        except Exception as e:
+            results['TSTS_accuracy'] = f"Error: {e}"
+        return results

@@ -17,6 +17,12 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.decomposition import PCA
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import (
+    f1_score, roc_auc_score, confusion_matrix,
+    precision_recall_curve, roc_curve, classification_report
+)
 
 # Conditionally import umap to handle environments where it might not be available
 try:
@@ -215,7 +221,13 @@ class DiabetesDataEvaluator:
             results["new_metrics"] = self.calculate_new_metrics()
         except Exception as e:
             results["new_metrics"] = {"error": str(e)}
-            
+        
+        # Add utility metrics (TSTR/TRTS)
+        try:
+            results["utility_metrics"] = self.calculate_tstr_trts(target_col="diabetes")
+        except Exception as e:
+            results["utility_metrics"] = {"error": str(e)}
+        
         return results
     
     def evaluate_flat(self, model_name=None, prompt_name=None):
@@ -1051,3 +1063,103 @@ class DiabetesDataEvaluator:
             return metrics
         except Exception as e:
             return {"error": str(e)}
+
+    def calculate_tstr_trts(self, target_col='diabetes'):
+        """Train on synthetic, test on real (TSTR), and vice versa (TRTS) for binary classification.
+        Returns accuracy, macro F1, AUC-ROC, confusion matrix, feature importances, and curve data.
+        """
+        results = {}
+        if target_col not in self.real_data.columns or target_col not in self.synthetic_data.columns:
+            results['error'] = f"Target column '{target_col}' not found in both datasets."
+            return results
+
+        # Convert target to numeric and drop NAs
+        for df, name in zip([self.real_data, self.synthetic_data], ["real_data", "synthetic_data"]):
+            if target_col in df.columns:
+                df[target_col] = pd.to_numeric(df[target_col], errors='coerce')
+                df.dropna(subset=[target_col], inplace=True)
+                df[target_col] = df[target_col].astype(int)
+
+        X_real = self.real_data.drop(columns=[target_col])
+        y_real = self.real_data[target_col]
+        X_synth = self.synthetic_data.drop(columns=[target_col])
+        y_synth = self.synthetic_data[target_col]
+
+        # Only use columns present in both datasets
+        common_cols = list(set(X_real.columns) & set(X_synth.columns))
+        X_real = X_real[common_cols]
+        X_synth = X_synth[common_cols]
+
+        # Encode all object-type columns using LabelEncoder
+        for col in X_real.columns:
+            if X_real[col].dtype == 'object' or X_synth[col].dtype == 'object':
+                le = LabelEncoder()
+                all_vals = pd.concat([X_real[col].astype(str), X_synth[col].astype(str)]).unique()
+                le.fit(all_vals)
+                X_real[col] = le.transform(X_real[col].astype(str))
+                X_synth[col] = le.transform(X_synth[col].astype(str))
+
+        # Fill any remaining NaNs
+        for X in [X_real, X_synth]:
+            for col in X.columns:
+                if X[col].dtype.kind in 'biufc':
+                    X[col] = X[col].fillna(X[col].mean())
+                else:
+                    X[col] = X[col].fillna(X[col].mode().iloc[0] if not X[col].mode().empty else 0)
+
+        # Helper to compute all metrics
+        def compute_metrics(clf, X_train, y_train, X_test, y_test, label="TSTR"):
+            metrics = {}
+            clf.fit(X_train, y_train)
+            y_pred = clf.predict(X_test)
+            y_proba = clf.predict_proba(X_test)[:, 1] if hasattr(clf, "predict_proba") else None
+
+            metrics[f"{label}_accuracy"] = accuracy_score(y_test, y_pred)
+            metrics[f"{label}_macro_f1"] = f1_score(y_test, y_pred, average="macro")
+            # AUC-ROC (handle single-class edge case)
+            try:
+                metrics[f"{label}_auc_roc"] = roc_auc_score(y_test, y_proba) if y_proba is not None else np.nan
+            except Exception:
+                metrics[f"{label}_auc_roc"] = np.nan
+
+            # Confusion matrix
+            metrics[f"{label}_confusion_matrix"] = confusion_matrix(y_test, y_pred).tolist()
+            # Classification report (precision, recall, f1 per class)
+            metrics[f"{label}_classification_report"] = classification_report(y_test, y_pred, output_dict=True)
+            # Precision-recall curve
+            if y_proba is not None:
+                prc = precision_recall_curve(y_test, y_proba)
+                metrics[f"{label}_precision_recall_curve"] = {
+                    "precision": prc[0].tolist(),
+                    "recall": prc[1].tolist(),
+                    "thresholds": prc[2].tolist() if len(prc) > 2 else []
+                }
+                # ROC curve
+                fpr, tpr, roc_thresholds = roc_curve(y_test, y_proba)
+                metrics[f"{label}_roc_curve"] = {
+                    "fpr": fpr.tolist(),
+                    "tpr": tpr.tolist(),
+                    "thresholds": roc_thresholds.tolist()
+                }
+            # Feature importances
+            if hasattr(clf, "feature_importances_"):
+                metrics[f"{label}_feature_importances"] = dict(zip(X_train.columns, clf.feature_importances_))
+            return metrics
+
+        # TSTR: Train on synthetic, test on real
+        try:
+            clf = RandomForestClassifier(n_estimators=50, random_state=42)
+            tstr_metrics = compute_metrics(clf, X_synth, y_synth, X_real, y_real, label="TSTR")
+            results.update(tstr_metrics)
+        except Exception as e:
+            results['TSTR_error'] = str(e)
+
+        # TRTS: Train on real, test on synthetic
+        try:
+            clf = RandomForestClassifier(n_estimators=50, random_state=42)
+            trts_metrics = compute_metrics(clf, X_real, y_real, X_synth, y_synth, label="TRTS")
+            results.update(trts_metrics)
+        except Exception as e:
+            results['TRTS_error'] = str(e)
+
+        return results

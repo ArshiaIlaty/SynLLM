@@ -1,0 +1,858 @@
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction.
+Each record should be a comma-separated line with these features:
+
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke  
+
+Here are example records:
+Male, 67.0, 0, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1  
+Female, 61.0, 0, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1  
+Male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1  
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0  
+  
+
+Generate more records in the same format.
+
+For example:
+
+Male, 70.0, 0, 1, Yes, Private, Urban, 195.58, 35.0, formerly smoked, 1  
+
+Female, 66.0, 0, 0, Yes, Self-employed, Urban, 157.79, 28.2, never smoked, 1  
+
+Male, 70.0, 0, 1, Yes, Self-employed, Rural, 198.43, 35.6, never smoked, 1  
+
+Female, 66.0, 0, 0, Yes, Self-employed, Urban, 157.79, 28.2, never smoked, 0  
+
+For more records, enter your query:
+
+select gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+from health_record
+
+where
+
+gender = 'Male'
+
+age = '18-29'
+
+heart_disease = '1'
+
+never_married = '1'
+
+work_type = 'Private'
+
+Residence_type = 'Urban'
+
+avg_glucose_level = '55-27'
+
+bmi = '10'
+
+smoking_status = 'Never_smoked'
+
+stroke = '1'
+
+select age, gender, age, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke from health_record where gender = 'Male' age = '18-29' heart_disease = '1' never_married = '1' work_type = 'Private' Residence_type = 'Urban' avg_glucose_level = '55-27' bmi = '10' smoking_status = 'Never_smoked' stroke = '1'
+
+The generated records should look like this:
+
+Select gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke from health_record where gender = 'Male' age = '18-29' heart_disease = '1' never_married = '1' work_type = 'Private' Residence_type = 'Urban' avg_glucose_level = '55-27' bmi = '10' smoking_status = 'Never_smoked' stroke = '1'
+
+The generated records should look like this:
+
+Select gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type,
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction.
+Each record should be a comma-separated line with these features:
+
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke  
+
+Here are example records:
+Male, 67.0, 0, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1  
+Female, 61.0, 0, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1  
+Male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1  
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0  
+  
+
+Generate more records in the same format.
+
+A. Create a record for each of the above conditions.
+
+A. Create a record for each of the above conditions.
+
+B. Generate a record for each of the above conditions.
+
+C. Generate a record for each of the above conditions.
+
+D. Generate a record for each of the above conditions.
+
+E. Generate a record for each of the above conditions.
+
+The generated records will be in the format below:
+
+Gender Age Heart_disease Ever_married Work_type Residence_type Avg_glucose_level Bmi Smoking_status Stroke Male 69.0 0 1 1 Yes Yes Yes Yes Yes Yes Female 61.0 0 1 0 Yes Yes Yes Yes Yes Yes Male 80.0 1 0 1 Yes Yes Yes Yes Yes Yes Yes Female 49.0 0 1 0 Yes Yes Yes Yes Yes Yes Yes
+
+1. The gender of the patient can be a numeric value or a string.
+
+2. The age of the patient can be a numeric value or a string.
+
+3. The hypertension of the patient can be a numeric value or a string.
+
+4. The heart disease of the patient can be a numeric value or a string.
+
+5. The diabetes of the patient can be a numeric value or a string.
+
+6. The hypertension of the patient can be a numeric value or a string.
+
+7. The heart disease of the patient can be a numeric value or a string.
+
+8. The diabetes of the patient can be a numeric value or a string.
+
+9. The hypertension of the patient can be a numeric value or a string.
+
+10. The heart disease of the patient can be a numeric value or a string.
+
+11. The diabetes of the patient can be a numeric value or a string.
+
+12. The hypertension of the patient can be a numeric value or a string.
+
+13. The heart disease of the patient can be a numeric value or a string.
+
+14. The diabetes of the patient can be a numeric value or a string.
+
+15. The heart disease of the patient can be a numeric value or a string.
+
+16. The diabetes of the patient can be a numeric value or a string.
+
+17. The hypertension of the patient can be a numeric value or a string.
+
+18. The heart disease of the patient can be a numeric value or a string.
+
+19. The diabetes of the patient can be a numeric value or a string.
+
+20. The heart disease of the patient can be a numeric value or a string.
+
+21. The diabetes of the patient can be a numeric value or a string.
+
+22. The heart disease of the patient can be a numeric value or a string.
+
+23. The diabetes of the patient
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction.
+Each record should be a comma-separated line with these features:
+
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke  
+
+Here are example records:
+Male, 67.0, 0, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1  
+Female, 61.0, 0, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1  
+Male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1  
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0  
+  
+
+Generate more records in the same format.
+
+Note: The above features can be used to create records that match a specific patient. For example, to create a record that matches a patient who has a heart condition, use the stroke feature and the heart_disease feature.
+
+Examples:
+
+$ python medical_record.py -m gender -i Male -s age -d hypertension -s heart_disease -d ever_married -s work_type -d Residence_type -d avg_glucose_level -d bmi -d smoking_status -d stroke -d stroke_type
+
+Note: This is a Python 3.x compatible medical record generator.
+
+The above example generates records in the format:
+
+male, 67.0, 0, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1
+
+female, 61.0, 0, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1
+
+This example generates records in the format:
+
+male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1
+
+This example generates records in the format:
+
+male, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0
+
+This example generates records in the format:
+
+male, 80.0, 1, 1, Yes, Self-employed, Rural, 105.92, 32.5, never smoked, 0
+
+This example generates records in the format:
+
+male, 69.0, 0, 0, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1
+
+female, 66.0, 0, 0, Yes, Self-employed, Urban, 202.21, 28.1, never smoked, 1
+
+This example generates records in the format:
+
+female, 50.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0
+
+This example generates records in the format:
+
+female, 47.0, 0, 0, Yes, Self-employed, Urban, 165.11, 25.6, never smoked, 0
+
+This example generates records in the format:
+
+female, 44.0, 0, 0, Yes, Self-employed, Urban, 164.33, 23.7, never smoked, 0
+
+This example generates records in the format:
+
+female, 52.0, 0, 0, Yes, Self-employed, Urban, 164.33, 25.6, never smoked, 0
+
+This example generates records in the format:
+
+female, 42.0, 0, 0, Yes, Self
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction.
+Each record should be a comma-separated line with these features:
+
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke  
+
+Here are example records:
+Male, 67.0, 0, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1  
+Female, 61.0, 0, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1  
+Male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1  
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0  
+  
+
+Generate more records in the same format.
+
+The record type is specified in the first field of the record, and you can also specify the following fields:
+
+gender: Male, Female  
+
+age: between 0.08 and 82  
+
+hypertension: 0 = No, 1 = Yes  
+
+heart_disease: 0 = No, 1 = Yes  
+
+ever_married: Yes or No  
+
+work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+
+residence_type: Urban or Rural  
+
+avg_glucose_level: between 55 and 27  
+
+bmi: between 10 and 98  
+
+smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+
+stroke: 1 = Stroke occurred, 0 = No stroke  
+
+Here is example record:
+
+Male, 67.0, 1, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1  
+
+Female, 61.0, 1, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1  
+
+Male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1  
+
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0  
+
+Here are example records:
+
+Male, 67.0, 1, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1  
+
+Female, 61.0, 1, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1  
+
+Male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1  
+
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0  
+
+Here are example records:
+
+Male, 67.0, 1, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1  
+
+Female, 61.0, 1, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1  
+
+Male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1  
+
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0 
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction.
+Each record should be a comma-separated line with these features:
+
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke  
+
+Here are example records:
+Male, 67.0, 0, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1  
+Female, 61.0, 0, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1  
+Male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1  
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0  
+  
+
+Generate more records in the same format.
+
+Use the same format for every record.
+
+Generate more records in the same format. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same format for every record. Use the same
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction.
+Each record should be a comma-separated line with these features:
+
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke  
+
+Here are example records:
+Male, 67.0, 0, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1  
+Female, 61.0, 0, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1  
+Male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1  
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0  
+  
+
+Generate more records in the same format.
+
+The following features are supported:
+
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+The following features are not supported:
+
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+The following features are supported:
+
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+
+1. gender: Male, Female  
+
+2. age: between 0.08 and 82  
+
+3. hypertension: 0 = No, 1 = Yes  
+
+4. heart_disease: 0 = No, 1 = Yes  
+
+5. ever_married: Yes or No  
+
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+
+7. Residence_type: Urban or Rural  
+
+8. avg_glucose_level: between 55 and 27  
+
+9. bmi: between 10 and 98  
+
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+
+11. stroke: 1 = Stroke occurred, 0 = No stroke  
+
+12. age: 1 = Age at stroke onset, 0 = No age at stroke onset  
+
+13. hypertension: 0 = No, 1 = Yes  
+
+14. heart_disease: 0 = No, 1 = Yes  
+
+15. ever_married: Yes or No  
+
+16. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+
+17. Residence_type: Urban or Rural  
+
+18. avg_glucose_level: between 55 and 27  
+
+19. bmi: between 10 and 98  
+
+20. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+
+21. stroke: 1 = Stroke occurred, 0 = No stroke  
+
+22. age: 1 = Age at stroke onset, 0 = No age at stroke onset  
+
+23. hypertension: 0 = No, 1 = Yes  
+
+24. heart_disease: 0 = No, 1 = Yes  
+
+25. ever_married: Yes or No  
+
+26. work_type: Private, Self-employed, Govt
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction.
+Each record should be a comma-separated line with these features:
+
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke  
+
+Here are example records:
+Male, 67.0, 0, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1  
+Female, 61.0, 0, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1  
+Male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1  
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0  
+  
+
+Generate more records in the same format.
+
+Note: You may need to download the CSV file to use this feature.
+
+In the next step, we will see how to use the feature to generate records with different parameters.
+
+Generate parameters
+
+To generate parameters for your records, open the "Parameters" tab in the Generate Records dialog.
+
+Here is an example of the parameters that can be used to generate records:
+
+1. age: between 0.08 and 82 (this parameter is used to generate records for younger patients)  
+
+2. hypertension: 0 = No, 1 = Yes  
+
+3. heart_disease: 0 = No, 1 = Yes  
+
+4. ever_married: Yes or No  
+
+5. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+
+6. Residence_type: Urban or Rural  
+
+7. avg_glucose_level: between 55 and 27 (this parameter is used to generate records for older patients)  
+
+8. bmi: between 10 and 98 (this parameter is used to generate records for those with a higher BMI)  
+
+9. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+
+10. stroke: 1 = Stroke occurred, 0 = No stroke  
+
+11. stroke_type: Type A, Type B, Type C, Type D  
+
+12. stroke_number: 1 = Stroke occurred, 0 = No stroke  
+
+13. stroke_diagnosis: 1 = Stroke occurred, 0 = No stroke  
+
+14. stroke_score: 1 = Stroke occurred, 0 = No stroke  
+
+15. stroke_progression: 1 = Stroke occurred, 0 = No stroke  
+
+16. stroke_remission: 1 = Stroke occurred, 0 = No stroke  
+
+17. stroke_remission_rate: 1 = Stroke occurred, 0 = No stroke  
+
+18. stroke_remission_rate_min: 1 = Stroke occurred, 0 = No stroke  
+
+19. stroke_remission_rate_max: 1 = Stroke occurred, 0 = No stroke  
+
+20. stroke_mortality: 1 = Stroke occurred, 0 = No stroke  
+
+21. stroke_mortality_min: 1 = Stroke occurred, 0 = No stroke  
+
+22. stroke_mortality_max: 1 = Stroke occurred, 0 = No stroke  
+
+23. stroke_mortality_min_score: 1 = Stroke occurred, 0 = No stroke  
+
+24. stroke_mortality_max_score: 1 = Stroke occurred
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction.
+Each record should be a comma-separated line with these features:
+
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke  
+
+Here are example records:
+Male, 67.0, 0, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1  
+Female, 61.0, 0, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1  
+Male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1  
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0  
+  
+
+Generate more records in the same format.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain multiple fields, but they should be separated by a comma.
+
+A record can contain
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction.
+Each record should be a comma-separated line with these features:
+
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke  
+
+Here are example records:
+Male, 67.0, 0, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1  
+Female, 61.0, 0, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1  
+Male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1  
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0  
+  
+
+Generate more records in the same format.
+
+2. Generate more records in the same format.
+
+To generate records with the same format, you can use the following command:
+
+$ gen_record_format_output.py
+
+For example:
+
+$ gen_record_format_output.py Male Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65 Male 65
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction.
+Each record should be a comma-separated line with these features:
+
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke  
+
+Here are example records:
+Male, 67.0, 0, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1  
+Female, 61.0, 0, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1  
+Male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1  
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0  
+  
+
+Generate more records in the same format.
+
+To generate records that are easier to understand, use the format:
+
+gender: Male, Female  
+
+age: 0.08 to 82  
+
+heart_disease: 0 = No, 1 = Yes  
+
+work_type: Private, Self-employed, Govt_job, Children, or Never_worked  
+
+residence_type: Urban or Rural  
+
+avg_glucose_level: 55 to 27  
+
+bmi: between 10 and 98  
+
+smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+
+stroke: 1 = Stroke occurred, 0 = No stroke  
+
+The following is a sample of records generated with the above format:
+
+Male, 65.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, formerly smoked, 0 
+
+Female, 58.0, 0, 0, Yes, Self-employed, Urban, 166.93, 28.1, never smoked, 1 
+
+Male, 77.0, 1, 1, Yes, Private, Rural, 108.44, 32.5, formerly smoked, 0 
+
+Female, 46.0, 0, 0, Yes, Self-employed, Urban, 158.17, 27.7, never smoked, 0 
+
+Male, 78.0, 1, 1, Yes, Self-employed, Urban, 130.32, 32.5, never smoked, 0 
+
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 174.13, 27.7, never smoked, 0 
+
+Male, 78.0, 1, 1, Yes, Self-employed, Urban, 129.42, 32.5, never smoked, 0 
+
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 174.13, 27.7, never smoked, 0 
+
+To generate more records in the same format, use the format:
+
+gender: Male, Female  
+
+age: 0.08 to 82  
+
+heart_disease: 0 = No, 1 = Yes  
+
+work_type: Private, Self-employed, Govt_job, Children, or Never_worked  
+
+residence_type: Urban or Rural  
+
+avg_glucose_level: 55 to 27  
+
+bmi: between 10 and 98  
+
+smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+
+stroke: 1 = Stroke occurred, 0 = No stroke  
+
+For more examples of records generated using the above format, see the examples.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction.
+Each record should be a comma-separated line with these features:
+
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke  
+
+Here are example records:
+Male, 67.0, 0, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1  
+Female, 61.0, 0, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1  
+Male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1  
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0  
+  
+
+Generate more records in the same format.
+
+Generate more records in the same format.
+
+Here are example records:
+
+Male, 75.0, 0, 0, Yes, Private, Rural, 135.42, 32.3, formerly smoked, 0  
+
+Female, 58.0, 0, 0, Yes, Self-employed, Urban, 146.12, 29.3, never smoked, 0  
+
+Male, 82.0, 1, 1, Yes, Private, Rural, 109.78, 33.3, never smoked, 1  
+
+Female, 52.0, 0, 0, Yes, Self-employed, Urban, 168.47, 29.5, never smoked, 1  
+
+Here is an example of the output:
+
+Male, 67.0, 0, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1 Male, 80.0, 1, 1, Yes, Private, Urban, 105.92, 32.5, smokes, 1 Male, 87.5, 0, 0, Yes, Self-employed, Urban, 120.32, 35.5, never smoked, 1 Male, 93.0, 0, 0, Yes, Self-employed, Urban, 153.18, 30.8, never smoked, 1 Male, 95.0, 0, 0, Yes, Self-employed, Urban, 183.67, 29.3, never smoked, 0 Male, 97.5, 0, 0, Yes, Self-employed, Urban, 187.67, 29.5, never smoked, 1 Male, 99.0, 1, 1, Yes, Private, Urban, 156.23, 32.3, formerly smoked, 0 Male, 100.0, 0, 0, Yes, Self-employed, Urban, 190.47, 29.5, never smoked, 0 Male, 101.0, 0, 0, Yes, Self-employed, Urban, 192.67, 29.5, never smoked, 0 Male, 102.0, 0, 0, Yes, Self-employed, Urban, 201.27, 28.1, formerly smoked, 0 Male, 104.0, 1, 1, Yes, Private, Urban, 174.23, 28.7, formerly smoked, 0 Male, 107.0, 1, 1, Yes, Private, Urban, 187.67, 29.5, formerly smoked, 0 Male, 109.0, 1, 1, Yes, Private, Urban, 195.27, 28.7, formerly smoked, 0 Male, 111.0, 1, 1, Yes, Private, Urban, 200.27, 28.7, formerly smoked, 0 Male, 112.0, 1, 1, Yes, Private, Urban, 203.27, 28.7, formerly smoked, 0 Male, 114.0
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction research.
+
+You are a synthetic medical data generator. Generate realistic patient records for stroke prediction.
+Each record should be a comma-separated line with these features:
+
+gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status, stroke
+1. gender: Male, Female  
+2. age: between 0.08 and 82  
+3. hypertension: 0 = No, 1 = Yes  
+4. heart_disease: 0 = No, 1 = Yes  
+5. ever_married: Yes or No  
+6. work_type: Private, Self-employed, Govt_job, children, or Never_worked  
+7. Residence_type: Urban or Rural  
+8. avg_glucose_level: between 55 and 27  
+9. bmi: between 10 and 98  
+10. smoking_status: formerly smoked, never smoked, smokes, or Unknown  
+11. stroke: 1 = Stroke occurred, 0 = No stroke  
+
+Here are example records:
+Male, 67.0, 0, 1, Yes, Private, Urban, 228.69, 36.6, formerly smoked, 1  
+Female, 61.0, 0, 0, Yes, Self-employed, Rural, 202.21, 28.1, never smoked, 1  
+Male, 80.0, 1, 1, Yes, Private, Rural, 105.92, 32.5, smokes, 1  
+Female, 49.0, 0, 0, Yes, Self-employed, Urban, 171.23, 27.7, never smoked, 0  
+  
+
+Generate more records in the same format.
+
+Here are some sample records:
+
+Male, 65.0, 1, 1, Yes, Private, Urban, 178.61, 31.3, formerly smoked, 0  
+
+Female, 68.0, 1, 1, Yes, Private, Urban, 193.04, 30.9, formerly smoked, 0  
+
+Male, 50.0, 1, 1, Yes, Private, Urban, 157.71, 30.4, formerly smoked, 0  
+
+Female, 58.0, 1, 1, Yes, Private, Urban, 155.69, 30.5, formerly smoked, 0  
+
+Male, 71.0, 1, 1, Yes, Self-employed, Urban, 172.11, 30.9, formerly smoked, 0  
+
+Female, 67.0, 1, 1, Yes, Self-employed, Rural, 187.41, 30.5, formerly smoked, 0  
+
+Male, 78.0, 1, 1, Yes, Self-employed, Urban, 184.91, 30.4, formerly smoked, 0  
+
+Female, 59.0, 1, 1, Yes, Self-employed, Rural, 169.24, 30.4, formerly smoked, 0  
+
+Male, 71.0, 1, 1, Yes, Self-employed, Rural, 175.14, 30.4, formerly smoked, 0  
+
+Female, 60.0, 1, 1, Yes, Self-employed, Rural, 171.33, 30.3, formerly smoked, 0  
+
+Male, 62.0, 1, 1, Yes, Self-employed, Rural, 166.77, 30.4, formerly smoked, 0  
+
+Female, 59.0, 1, 1, Yes, Self-employed, Rural, 164.42, 30.4, formerly smoked, 0  
+
+Male, 62.0, 1, 1, Yes, Self-employed, Rural, 174.41, 30.4, formerly smoked, 0  
+
+Female, 61.0, 1, 1, Yes, Self-employed, Rural, 179.06, 30.4, formerly smoked, 0  
+
+Male, 62.0, 1, 1, Yes, Self-employed, Rural, 169.24, 30.4, formerly smoked, 0  
+
+Female, 60.0, 1, 1, Yes, Self-employed, Rural, 164.42, 30.4, formerly smoked, 0  
+
+Male, 63.0, 1, 1, Yes, Self-employed, Rural, 175.14, 30.4, formerly smoked, 0  
+
+Female, 59.0, 1, 1, Yes, Self-employed, Rural, 157.
+
