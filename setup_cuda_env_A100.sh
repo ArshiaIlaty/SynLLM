@@ -22,7 +22,7 @@ echo -e "${YELLOW}CUDA version:${NC} $CUDA_VERSION"
 # Check if conda is installed and in PATH
 if ! command -v conda &> /dev/null; then
     echo -e "${YELLOW}Conda not found in PATH. Checking common locations...${NC}"
-    
+
     # Check common Conda install locations
     CONDA_PATHS=(
         "$HOME/miniconda3/bin/conda"
@@ -31,7 +31,7 @@ if ! command -v conda &> /dev/null; then
         "/usr/local/anaconda3/bin/conda"
         "/usr/local/miniconda3/bin/conda"
     )
-    
+
     for conda_path in "${CONDA_PATHS[@]}"; do
         if [ -f "$conda_path" ]; then
             echo -e "${GREEN}Found Conda at:${NC} $conda_path"
@@ -40,7 +40,7 @@ if ! command -v conda &> /dev/null; then
             break
         fi
     done
-    
+
     # If still not found, exit with error
     if ! command -v conda &> /dev/null; then
         echo "Error: Conda not found. Please install Conda first."
@@ -71,31 +71,31 @@ fi
 if [ "$ENV_EXISTS" != true ]; then
     echo -e "${YELLOW}Creating new Conda environment...${NC}"
     conda create -y -n "$ENV_NAME" python="$PYTHON_VERSION"
-    
+
     echo -e "${YELLOW}Activating environment...${NC}"
     conda activate "$ENV_NAME"
-    
+
     # Install CUDA Toolkit compatible packages
     echo -e "${YELLOW}Installing CUDA-compatible packages...${NC}"
-    
+
     # Update conda and install base packages
     conda install -y -c conda-forge conda-build numpy scipy pandas matplotlib jupyterlab ipywidgets
-    
+
     # Install PyTorch with CUDA support
     echo -e "${YELLOW}Installing PyTorch with CUDA $CUDA_VERSION support...${NC}"
     conda install -y pytorch torchvision torchaudio pytorch-cuda=$(echo $CUDA_VERSION | cut -d. -f1-2) -c pytorch -c nvidia
-    
+
     # Install TensorFlow with GPU support
     echo -e "${YELLOW}Installing TensorFlow with GPU support...${NC}"
     conda install -y -c conda-forge tensorflow-gpu
-    
+
     # Install useful data science and ML libraries
     echo -e "${YELLOW}Installing additional data science libraries...${NC}"
     conda install -y -c conda-forge scikit-learn scikit-image seaborn plotly tqdm
-    
+
     # Install utilities
     pip install --no-cache-dir nvidia-ml-py3 gputil
-    
+
     # Install CUDA specific utilities
     # Adjust numba version based on Python version if needed
     conda install -y -c nvidia cuda-python

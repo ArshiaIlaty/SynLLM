@@ -35,3 +35,32 @@ SynLLM/
 ├── setup.py
 ├── .gitignore
 └── README.md
+```
+
+## Hardware Requirements
+#### I ran the experiments in two different GPUs
+- GPU: NVIDIA GTX1080
+
+- GPU: NVIDIA A100 or similar (Enterprise)
+- CUDA: 12.1
+- Memory: At least 80GB GPU memory
+
+## Environment Tests
+```
+# env_test.py
+import torch
+import transformers
+import bitsandbytes as bnb
+
+print(f"PyTorch version: {torch.__version__}")
+print(f"CUDA available: {torch.cuda.is_available()}")
+print(f"CUDA version: {torch.version.cuda}")
+print(f"Transformers version: {transformers.__version__}")
+print(f"BitsAndBytes version: {bnb.__version__}")
+
+# Test GPU access
+if torch.cuda.is_available():
+    print(f"Device count: {torch.cuda.device_count()}")
+    print(f"Current device: {torch.cuda.current_device()}")
+    print(f"Device name: {torch.cuda.get_device_name()}")
+```
