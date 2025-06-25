@@ -37,9 +37,19 @@ class CirrhosisDataEvaluator:
         self.synthetic_data = synthetic_data.copy()
 
         # Define column types for cirrhosis data
-        self.numerical_cols = ["Age", "Bilirubin", "Cholesterol", "Albumin", "Copper", 
-                              "Alk_Phos", "SGOT", "Tryglicerides", "Platelets", 
-                              "Prothrombin", "N_Days"]
+        self.numerical_cols = [
+            "Age",
+            "Bilirubin",
+            "Cholesterol",
+            "Albumin",
+            "Copper",
+            "Alk_Phos",
+            "SGOT",
+            "Tryglicerides",
+            "Platelets",
+            "Prothrombin",
+            "N_Days",
+        ]
         self.categorical_cols = ["Sex", "Drug"]
         self.binary_cols = ["Ascites", "Hepatomegaly", "Spiders", "Edema"]
         self.ordinal_cols = ["Stage"]  # This is an ordinal variable (1-4)
@@ -72,20 +82,26 @@ class CirrhosisDataEvaluator:
         for col in self.binary_cols:
             # Y/N to 1/0
             for df in [self.real_data, self.synthetic_data]:
-                df[col] = df[col].map({'Y': 1, 'N': 0, 'S': 0.5})  # S is "slight" -> 0.5
+                df[col] = df[col].map(
+                    {"Y": 1, "N": 0, "S": 0.5}
+                )  # S is "slight" -> 0.5
 
         # Convert numerical columns to float
         for col in self.numerical_cols:
-            self.real_data[col] = pd.to_numeric(self.real_data[col], errors='coerce')
-            self.synthetic_data[col] = pd.to_numeric(self.synthetic_data[col], errors='coerce')
+            self.real_data[col] = pd.to_numeric(self.real_data[col], errors="coerce")
+            self.synthetic_data[col] = pd.to_numeric(
+                self.synthetic_data[col], errors="coerce"
+            )
 
         # Convert Stage to numeric
         for df in [self.real_data, self.synthetic_data]:
-            df['Stage'] = pd.to_numeric(df['Stage'], errors='coerce')
+            df["Stage"] = pd.to_numeric(df["Stage"], errors="coerce")
 
         # Handle missing values
         self.real_data.fillna(self.real_data.mean(numeric_only=True), inplace=True)
-        self.synthetic_data.fillna(self.synthetic_data.mean(numeric_only=True), inplace=True)
+        self.synthetic_data.fillna(
+            self.synthetic_data.mean(numeric_only=True), inplace=True
+        )
 
     def _prepare_encoders(self):
         """Prepare label encoders for categorical variables"""
@@ -102,8 +118,12 @@ class CirrhosisDataEvaluator:
             self.encoders[col] = le
 
             # Transform the data
-            self.real_data[f"{col}_encoded"] = le.transform(self.real_data[col].astype(str))
-            self.synthetic_data[f"{col}_encoded"] = le.transform(self.synthetic_data[col].astype(str))
+            self.real_data[f"{col}_encoded"] = le.transform(
+                self.real_data[col].astype(str)
+            )
+            self.synthetic_data[f"{col}_encoded"] = le.transform(
+                self.synthetic_data[col].astype(str)
+            )
 
     def calculate_numerical_statistics(self):
         """Calculate statistical similarities for numerical variables"""
@@ -167,7 +187,7 @@ class CirrhosisDataEvaluator:
         try:
             # Include all numeric columns (numerical_cols + binary_cols converted to numeric)
             numeric_cols = self.numerical_cols + self.binary_cols + ["Stage"]
-            
+
             real_corr = self.real_data[numeric_cols].corr()
             synth_corr = self.synthetic_data[numeric_cols].corr()
 
@@ -187,8 +207,12 @@ class CirrhosisDataEvaluator:
 
         try:
             # Check Bilirubin and Stage relationship
-            real_bilirubin_by_stage = self.real_data.groupby("Stage")["Bilirubin"].mean()
-            synth_bilirubin_by_stage = self.synthetic_data.groupby("Stage")["Bilirubin"].mean()
+            real_bilirubin_by_stage = self.real_data.groupby("Stage")[
+                "Bilirubin"
+            ].mean()
+            synth_bilirubin_by_stage = self.synthetic_data.groupby("Stage")[
+                "Bilirubin"
+            ].mean()
 
             consistency_metrics["bilirubin_stage_relationship"] = {
                 "real_means": real_bilirubin_by_stage.to_dict(),
@@ -197,17 +221,23 @@ class CirrhosisDataEvaluator:
 
             # Check Albumin and Stage relationship (Albumin generally decreases with disease progression)
             real_albumin_by_stage = self.real_data.groupby("Stage")["Albumin"].mean()
-            synth_albumin_by_stage = self.synthetic_data.groupby("Stage")["Albumin"].mean()
+            synth_albumin_by_stage = self.synthetic_data.groupby("Stage")[
+                "Albumin"
+            ].mean()
 
             consistency_metrics["albumin_stage_relationship"] = {
                 "real_means": real_albumin_by_stage.to_dict(),
                 "synthetic_means": synth_albumin_by_stage.to_dict(),
             }
-            
+
             # Check Survival status and Bilirubin relationship
-            real_bilirubin_by_status = self.real_data.groupby(self.status_col)["Bilirubin"].mean()
-            synth_bilirubin_by_status = self.synthetic_data.groupby(self.status_col)["Bilirubin"].mean()
-            
+            real_bilirubin_by_status = self.real_data.groupby(self.status_col)[
+                "Bilirubin"
+            ].mean()
+            synth_bilirubin_by_status = self.synthetic_data.groupby(self.status_col)[
+                "Bilirubin"
+            ].mean()
+
             consistency_metrics["bilirubin_status_relationship"] = {
                 "real_means": real_bilirubin_by_status.to_dict(),
                 "synthetic_means": synth_bilirubin_by_status.to_dict(),
@@ -250,60 +280,71 @@ class CirrhosisDataEvaluator:
         for col in self.numerical_cols:
             try:
                 # Skip if either dataset has all NaN values for this column
-                if self.real_data[col].isna().all() or self.synthetic_data[col].isna().all():
+                if (
+                    self.real_data[col].isna().all()
+                    or self.synthetic_data[col].isna().all()
+                ):
                     metrics[col] = {
                         "wasserstein": np.nan,
                         "jensen_shannon": np.nan,
                         "kl_divergence": np.nan,
-                        "error": "All values are NaN"
+                        "error": "All values are NaN",
                     }
                     continue
-                
+
                 # Normalize the data for fair comparison
                 real_min = self.real_data[col].min()
                 real_max = self.real_data[col].max()
-                
+
                 # Check for zero range
                 if real_max == real_min:
                     metrics[col] = {
                         "wasserstein": 0.0,
                         "jensen_shannon": 0.0,
                         "kl_divergence": 0.0,
-                        "note": "All real values are identical"
+                        "note": "All real values are identical",
                     }
                     continue
-                
+
                 real_norm = (self.real_data[col] - real_min) / (real_max - real_min)
-                
+
                 synth_min = self.synthetic_data[col].min()
                 synth_max = self.synthetic_data[col].max()
-                
+
                 # Check for zero range
                 if synth_max == synth_min:
                     metrics[col] = {
                         "wasserstein": 1.0,
                         "jensen_shannon": 1.0,
                         "kl_divergence": np.inf,
-                        "note": "All synthetic values are identical"
+                        "note": "All synthetic values are identical",
                     }
                     continue
-                
-                synth_norm = (self.synthetic_data[col] - synth_min) / (synth_max - synth_min)
+
+                synth_norm = (self.synthetic_data[col] - synth_min) / (
+                    synth_max - synth_min
+                )
 
                 # Calculate histograms for KL and JS divergence
-                hist_real, bins = np.histogram(real_norm.dropna(), bins=30, density=True)
-                hist_synth, _ = np.histogram(synth_norm.dropna(), bins=bins, density=True)
+                hist_real, bins = np.histogram(
+                    real_norm.dropna(), bins=30, density=True
+                )
+                hist_synth, _ = np.histogram(
+                    synth_norm.dropna(), bins=bins, density=True
+                )
 
                 # Add small constant to avoid division by zero
                 hist_real = hist_real + 1e-10
                 hist_synth = hist_synth + 1e-10
-                
+
                 # Normalize histograms
                 hist_real = hist_real / hist_real.sum()
                 hist_synth = hist_synth / hist_synth.sum()
 
                 metrics[col] = {
-                    "wasserstein": wasserstein_distance(real_norm.dropna(), synth_norm.dropna()),
+                    "wasserstein": wasserstein_distance(
+                        real_norm.dropna(), synth_norm.dropna()
+                    ),
                     "jensen_shannon": jensenshannon(hist_real, hist_synth),
                     "kl_divergence": entropy(hist_real, hist_synth),
                 }
@@ -312,7 +353,7 @@ class CirrhosisDataEvaluator:
                     "wasserstein": np.nan,
                     "jensen_shannon": np.nan,
                     "kl_divergence": np.nan,
-                    "error": str(e)
+                    "error": str(e),
                 }
 
         return metrics
@@ -336,9 +377,7 @@ class CirrhosisDataEvaluator:
                 synth_data = self.synthetic_data[col].dropna()
 
                 if len(real_data) == 0 or len(synth_data) == 0:
-                    results[col] = {
-                        "error": "Not enough non-NA values for analysis"
-                    }
+                    results[col] = {"error": "Not enough non-NA values for analysis"}
                     continue
 
                 # Kolmogorov-Smirnov test
@@ -351,17 +390,21 @@ class CirrhosisDataEvaluator:
                 results[col] = {
                     "ks_statistic": ks_stat,
                     "ks_pvalue": ks_pval,
-                    "quartile_differences": np.abs(real_quartiles - synth_quartiles).mean(),
+                    "quartile_differences": np.abs(
+                        real_quartiles - synth_quartiles
+                    ).mean(),
                     "std_difference": abs(real_data.std() - synth_data.std()),
                     "range_coverage": (
                         min(synth_data.max(), real_data.max())
                         - max(synth_data.min(), real_data.min())
                     )
-                    / (real_data.max() - real_data.min()) if real_data.max() != real_data.min() else 0,
+                    / (real_data.max() - real_data.min())
+                    if real_data.max() != real_data.min()
+                    else 0,
                 }
             except Exception as e:
                 results[col] = {"error": str(e)}
-                
+
         return results
 
     def _analyze_categorical_features(self):
@@ -377,7 +420,9 @@ class CirrhosisDataEvaluator:
 
                 results[col] = {
                     "category_preservation": len(shared_categories)
-                    / len(set(real_dist.index)) if len(set(real_dist.index)) > 0 else 0,
+                    / len(set(real_dist.index))
+                    if len(set(real_dist.index)) > 0
+                    else 0,
                     "distribution_difference": np.mean(
                         abs(real_dist - synth_dist.reindex(real_dist.index).fillna(0))
                     ),
@@ -385,7 +430,7 @@ class CirrhosisDataEvaluator:
                 }
             except Exception as e:
                 results[col] = {"error": str(e)}
-                
+
         return results
 
     def _calculate_privacy_metrics(self):
@@ -394,12 +439,12 @@ class CirrhosisDataEvaluator:
             # Nearest neighbor distance ratio
             def calculate_nn_distance(data):
                 # Handle potential NaNs
-                data = data.dropna(axis=1, how='all')
+                data = data.dropna(axis=1, how="all")
                 data = data.fillna(data.mean())
-                
+
                 if data.empty or len(data) < 2:
                     return np.array([np.nan])
-                    
+
                 nbrs = NearestNeighbors(n_neighbors=2).fit(data)
                 distances, _ = nbrs.kneighbors(data)
                 return distances[:, 1]  # Distance to nearest neighbor
@@ -409,22 +454,27 @@ class CirrhosisDataEvaluator:
             real_sample = self.real_data.select_dtypes(include=[np.number]).sample(
                 sample_size, replace=True
             )
-            synth_sample = self.synthetic_data.select_dtypes(include=[np.number]).sample(
-                sample_size, replace=True
-            )
+            synth_sample = self.synthetic_data.select_dtypes(
+                include=[np.number]
+            ).sample(sample_size, replace=True)
 
             real_nn_dist = calculate_nn_distance(real_sample)
             synth_nn_dist = calculate_nn_distance(synth_sample)
 
             return {
-                "nn_distance_ratio": (np.mean(synth_nn_dist) / np.mean(real_nn_dist) 
-                                    if not np.isnan(np.mean(real_nn_dist)) and np.mean(real_nn_dist) != 0 
-                                    else np.nan),
+                "nn_distance_ratio": (
+                    np.mean(synth_nn_dist) / np.mean(real_nn_dist)
+                    if not np.isnan(np.mean(real_nn_dist))
+                    and np.mean(real_nn_dist) != 0
+                    else np.nan
+                ),
                 "identifiability_score": len(
                     set(self.synthetic_data.astype(str).apply(tuple, axis=1))
                     & set(self.real_data.astype(str).apply(tuple, axis=1))
                 )
-                / len(self.synthetic_data) if len(self.synthetic_data) > 0 else 0,
+                / len(self.synthetic_data)
+                if len(self.synthetic_data) > 0
+                else 0,
             }
         except Exception as e:
             return {"error": str(e)}
@@ -438,15 +488,15 @@ class CirrhosisDataEvaluator:
                 # Filter out NaN values
                 real_vals = self.real_data[col].dropna().values
                 synth_vals = self.synthetic_data[col].dropna().values
-                
+
                 if len(real_vals) < 2 or len(synth_vals) < 2:
                     results[col] = {
                         "anderson_darling_statistic": None,
                         "anderson_darling_pvalue": None,
-                        "error": "Not enough non-NA values for test"
+                        "error": "Not enough non-NA values for test",
                     }
                     continue
-                    
+
                 # Anderson-Darling test for similarity of distributions
                 ad_stat = anderson_ksamp([real_vals, synth_vals])
                 results[col] = {
@@ -459,7 +509,7 @@ class CirrhosisDataEvaluator:
                 results[col] = {
                     "anderson_darling_statistic": None,
                     "anderson_darling_pvalue": None,
-                    "error": str(e)
+                    "error": str(e),
                 }
         return results
 
@@ -470,14 +520,14 @@ class CirrhosisDataEvaluator:
             # Convert to string to handle potential numeric values in categorical columns
             real_col = self.real_data[column].astype(str)
             synth_col = self.synthetic_data[column].astype(str)
-            
+
             # Get all unique values
             all_values = np.union1d(real_col.unique(), synth_col.unique())
             le.fit(all_values)
-            
+
             real_encoded = le.transform(real_col)
             synth_encoded = le.transform(synth_col)
-            
+
             return mutual_info_score(real_encoded, synth_encoded)
         except Exception as e:
             return np.nan
@@ -504,8 +554,8 @@ def main():
 
         # Define synthetic data files
         synthetic_files = [
-            'synthetic_cirrhosis_1.csv',
-            'synthetic_cirrhosis_2.csv',
+            "synthetic_cirrhosis_1.csv",
+            "synthetic_cirrhosis_2.csv",
             # Add more synthetic data files as needed
         ]
 
@@ -533,7 +583,9 @@ def main():
                     print(results)
 
                 # Optional: Save results to file
-                output_file = f"evaluation_results_{synthetic_file.replace('.csv', '.txt')}"
+                output_file = (
+                    f"evaluation_results_{synthetic_file.replace('.csv', '.txt')}"
+                )
                 with open(output_file, "w") as f:
                     f.write(f"Evaluation Results for {synthetic_file}:\n")
                     for metric, results in evaluation_results.items():

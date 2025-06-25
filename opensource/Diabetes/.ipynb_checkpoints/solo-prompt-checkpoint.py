@@ -1,14 +1,15 @@
-import gc
-import os
-import re
-import time
 import argparse
-import random
-from pathlib import Path
-import psutil
-import subprocess
+import gc
 import json
+import os
+import random
+import re
+import subprocess
+import time
+from pathlib import Path
+
 import pandas as pd
+import psutil
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from transformers.utils import is_bitsandbytes_available
@@ -24,37 +25,37 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 NUM_RECORDS = 100
 
 # Chat style mappings
-MODELS=(
-  "openai-community/gpt2"
-  "openai-community/gpt2-medium"
-  "openai-community/gpt2-large"
-  "mistralai/Mistral-7B-Instruct-v0.2"
-  "mistralai/Mixtral-8x7B-Instruct-v0.1"
-  "meta-llama/Llama-2-7b-chat-hf"
-  "meta-llama/Llama-3.1-8b-Instruct"
-  "google/gemma-7b-it"
-  "01-ai/Yi-6B-Chat"
-  "HuggingFaceH4/zephyr-7b-beta"
-  "Qwen/Qwen-7B-Chat"
-  "Qwen/Qwen2-7B-Instruct"
-  "internlm/internlm2_5-7b-chat"
-  "stabilityai/StableBeluga-7B"
-  "openchat/openchat-3.5-0106"
-  "NousResearch/Nous-Hermes-2-Yi-34B"
-  "mosaicml/mpt-7b-instruct"
-  "openchat/openchat_3.5"
-  "TheBloke/openchat_3.5-GPTQ"
-  "lmsys/vicuna-13b-v1.5"
-  "Expert68/llama2_13b_instructed_version2"
-  # "meta-llama/Llama-2-70b-chat-hf"
-  "meta-llama/Llama-2-13b"
-  "meta-llama/Llama-2-13b-hf"
-  "meta-llama/Llama-2-13b-chat"
-  "meta-llama/Llama-2-13b-chat-hf"
-  "meta-llama/Llama-4-Maverick-17B-128E-Instruct"
-  "meta-llama/Meta-Llama-3-8B"
-  "NousResearch/Nous-Hermes-2-Mistral-7B-DPO"
-  # "Xenova/gpt-3.5-turbo-16k"
+MODELS = (
+    "openai-community/gpt2"
+    "openai-community/gpt2-medium"
+    "openai-community/gpt2-large"
+    "mistralai/Mistral-7B-Instruct-v0.2"
+    "mistralai/Mixtral-8x7B-Instruct-v0.1"
+    "meta-llama/Llama-2-7b-chat-hf"
+    "meta-llama/Llama-3.1-8b-Instruct"
+    "google/gemma-7b-it"
+    "01-ai/Yi-6B-Chat"
+    "HuggingFaceH4/zephyr-7b-beta"
+    "Qwen/Qwen-7B-Chat"
+    "Qwen/Qwen2-7B-Instruct"
+    "internlm/internlm2_5-7b-chat"
+    "stabilityai/StableBeluga-7B"
+    "openchat/openchat-3.5-0106"
+    "NousResearch/Nous-Hermes-2-Yi-34B"
+    "mosaicml/mpt-7b-instruct"
+    "openchat/openchat_3.5"
+    "TheBloke/openchat_3.5-GPTQ"
+    "lmsys/vicuna-13b-v1.5"
+    "Expert68/llama2_13b_instructed_version2"
+    # "meta-llama/Llama-2-70b-chat-hf"
+    "meta-llama/Llama-2-13b"
+    "meta-llama/Llama-2-13b-hf"
+    "meta-llama/Llama-2-13b-chat"
+    "meta-llama/Llama-2-13b-chat-hf"
+    "meta-llama/Llama-4-Maverick-17B-128E-Instruct"
+    "meta-llama/Meta-Llama-3-8B"
+    "NousResearch/Nous-Hermes-2-Mistral-7B-DPO"
+    # "Xenova/gpt-3.5-turbo-16k"
 )
 
 CHAT_STYLE_MODELS = {
@@ -73,7 +74,7 @@ CHAT_STYLE_MODELS = {
     "beluga": "beluga",
     "openchat": "openchat",
     "nous": "nous",
-    "mpt": "mpt"
+    "mpt": "mpt",
 }
 
 SYSTEM_PROMPT = """You are a synthetic medical data generator. Generate realistic patient records for diabetes research."""
@@ -83,8 +84,9 @@ EXAMPLE_RECORDS = [
     "Male,62.7,1,1,former,32.1,7.1,185,1",
     "Female,38.9,0,0,current,24.3,5.8,130,0",
     "Male,70.0,1,1,current,30.2,8.0,210,1",
-    "Female,29.4,0,0,never,23.0,5.1,110,0"
+    "Female,29.4,0,0,never,23.0,5.1,110,0",
 ]
+
 
 def detect_chat_style(model_name):
     for key, style in CHAT_STYLE_MODELS.items():
@@ -92,14 +94,22 @@ def detect_chat_style(model_name):
             return style
     return "plain"
 
+
 def build_prompt(model_name, system_prompt, user_prompt, tokenizer):
     style = detect_chat_style(model_name)
 
     if style == "llama":
-        return tokenizer(f"<s>[INST] {system_prompt}\n{user_prompt} [/INST]", return_tensors="pt")
+        return tokenizer(
+            f"<s>[INST] {system_prompt}\n{user_prompt} [/INST]", return_tensors="pt"
+        )
     elif style == "chatml":
-        messages = [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}]
-        prompt_str = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ]
+        prompt_str = tokenizer.apply_chat_template(
+            messages, tokenize=False, add_generation_prompt=True
+        )
         return tokenizer(prompt_str, return_tensors="pt", padding=True, truncation=True)
     elif style == "openai":
         messages = [{"role": "user", "content": f"{system_prompt}\n\n{user_prompt}"}]
@@ -109,18 +119,30 @@ def build_prompt(model_name, system_prompt, user_prompt, tokenizer):
         prompt_str = f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{user_prompt}<|im_end|>\n<|im_start|>assistant\n"
         return tokenizer(prompt_str, return_tensors="pt")
     elif style in ["zephyr", "qwen", "qwen2"]:
-        messages = [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}]
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ]
         prompt_str = tokenizer.apply_chat_template(messages, tokenize=False)
         return tokenizer(prompt_str, return_tensors="pt")
     elif style == "phi":
-        return tokenizer(f"<|system|>\n{system_prompt}\n<|user|>\n{user_prompt}\n<|assistant|>\n", return_tensors="pt")
+        return tokenizer(
+            f"<|system|>\n{system_prompt}\n<|user|>\n{user_prompt}\n<|assistant|>\n",
+            return_tensors="pt",
+        )
     elif style == "openchat":
-        return tokenizer(f"GPT4 System: {system_prompt}\nHuman: {user_prompt}\nAssistant:", return_tensors="pt")
+        return tokenizer(
+            f"GPT4 System: {system_prompt}\nHuman: {user_prompt}\nAssistant:",
+            return_tensors="pt",
+        )
     elif style == "mpt":
-        return tokenizer(f"System: {system_prompt}\nUser: {user_prompt}\nAssistant:", return_tensors="pt")
+        return tokenizer(
+            f"System: {system_prompt}\nUser: {user_prompt}\nAssistant:",
+            return_tensors="pt",
+        )
     else:
         return tokenizer(f"{system_prompt}\n\n{user_prompt}", return_tensors="pt")
-        
+
 
 def extract_records(text):
     print("=== DEBUG: GENERATED TEXT ===")
@@ -165,7 +187,17 @@ def extract_records(text):
         diabetes = yes_no_map.get(diabetes.lower(), diabetes)
 
         # Create a new list with the corrected values
-        record = [gender.title(), age, hyp, heart, smoking, bmi, hba1c, glucose, diabetes]
+        record = [
+            gender.title(),
+            age,
+            hyp,
+            heart,
+            smoking,
+            bmi,
+            hba1c,
+            glucose,
+            diabetes,
+        ]
         records.append(record)
 
     if bad_lines:
@@ -176,14 +208,23 @@ def extract_records(text):
     print(f"[INFO] Extracted {len(records)} valid records, skipped {skipped}")
     return records
 
-def log_system_metrics(model_name, prompt_name, start_time, end_time):
-    gpu_info_before = subprocess.check_output([
-        "nvidia-smi", "--query-gpu=memory.used", "--format=csv,nounits,noheader"
-    ]).decode().strip()
 
-    gpu_info_after = subprocess.check_output([
-        "nvidia-smi", "--query-gpu=memory.used", "--format=csv,nounits,noheader"
-    ]).decode().strip()
+def log_system_metrics(model_name, prompt_name, start_time, end_time):
+    gpu_info_before = (
+        subprocess.check_output(
+            ["nvidia-smi", "--query-gpu=memory.used", "--format=csv,nounits,noheader"]
+        )
+        .decode()
+        .strip()
+    )
+
+    gpu_info_after = (
+        subprocess.check_output(
+            ["nvidia-smi", "--query-gpu=memory.used", "--format=csv,nounits,noheader"]
+        )
+        .decode()
+        .strip()
+    )
 
     cpu = psutil.cpu_percent()
     ram = psutil.virtual_memory().percent
@@ -202,15 +243,13 @@ def log_system_metrics(model_name, prompt_name, start_time, end_time):
     with open("reports/usage.jsonl", "a") as f:
         f.write(json.dumps(report) + "\n")
 
+
 def log_generation_error(model_name, prompt_name, error):
-    error_log = {
-        "model": model_name,
-        "prompt": prompt_name,
-        "error": str(error)
-    }
+    error_log = {"model": model_name, "prompt": prompt_name, "error": str(error)}
     Path("reports").mkdir(parents=True, exist_ok=True)
     with open("reports/errors.jsonl", "a") as errfile:
         errfile.write(json.dumps(error_log) + "\n")
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -237,52 +276,54 @@ def main():
     model_kwargs = {
         "torch_dtype": torch.float16,
         "device_map": "auto",
-        "trust_remote_code": True
+        "trust_remote_code": True,
     }
-    
+
     if "mpt" not in model_name.lower():  # MPT does not support this kwarg
         model_kwargs["attn_implementation"] = attn_backend
-    
+
     try:
         quantization_config = BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_quant_type="nf4",
-            bnb_4bit_compute_dtype=torch.float16
+            bnb_4bit_compute_dtype=torch.float16,
         )
 
         from transformers import AutoConfig
 
         config = AutoConfig.from_pretrained(model_name, trust_remote_code=True)
-        
+
         if "llama" in model_name.lower() and hasattr(config, "rope_scaling"):
             current_scaling = config.rope_scaling or {}
             config.rope_scaling = {
                 "name": "dynamic",
-                "factor": current_scaling.get("factor", 8.0)
+                "factor": current_scaling.get("factor", 8.0),
             }
 
         model = AutoModelForCausalLM.from_pretrained(
             model_name,
             config=config,
             quantization_config=quantization_config,
-            **model_kwargs
+            **model_kwargs,
         )
     except Exception as e:
-        print(f"⚠️ Could not load model with quantization ({e}), falling back to basic loading.")
-        model = AutoModelForCausalLM.from_pretrained(
-            model_name,
-            **model_kwargs
+        print(
+            f"⚠️ Could not load model with quantization ({e}), falling back to basic loading."
         )
+        model = AutoModelForCausalLM.from_pretrained(model_name, **model_kwargs)
 
     try:
         from transformers.models.gpt_neox.tokenization_gpt_neox import GPTNeoXTokenizer
     except ImportError:
-        print("Could not import GPTNeoXTokenizer explicitly, falling back to AutoTokenizer.")
-    
-    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, use_fast=True)
+        print(
+            "Could not import GPTNeoXTokenizer explicitly, falling back to AutoTokenizer."
+        )
+
+    tokenizer = AutoTokenizer.from_pretrained(
+        model_name, trust_remote_code=True, use_fast=True
+    )
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
-
 
     with open(args.prompt_file, "r") as f:
         user_prompt = f.read()
@@ -295,12 +336,16 @@ def main():
 
     while len(all_records) < NUM_RECORDS:
         needed = min(batch_size, NUM_RECORDS - len(all_records))
-        print(f"Generating batch of {needed} records... ({len(all_records)}/{NUM_RECORDS} total)")
+        print(
+            f"Generating batch of {needed} records... ({len(all_records)}/{NUM_RECORDS} total)"
+        )
 
         torch.cuda.empty_cache()
         gc.collect()
 
-        chat_input = build_prompt(model_name, SYSTEM_PROMPT, user_prompt, tokenizer).to(DEVICE)
+        chat_input = build_prompt(model_name, SYSTEM_PROMPT, user_prompt, tokenizer).to(
+            DEVICE
+        )
 
         try:
             max_context = tokenizer.model_max_length
@@ -314,7 +359,7 @@ def main():
                 temperature=0.7,
                 top_p=0.9,
                 pad_token_id=tokenizer.eos_token_id,
-                eos_token_id=tokenizer.eos_token_id
+                eos_token_id=tokenizer.eos_token_id,
             )
 
             generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
@@ -338,11 +383,28 @@ def main():
     all_records = all_records[:NUM_RECORDS]
 
     if all_records:
-        columns = ["gender", "age", "hypertension", "heart_disease", "smoking_history",
-                   "bmi", "HbA1c_level", "blood_glucose_level", "diabetes"]
+        columns = [
+            "gender",
+            "age",
+            "hypertension",
+            "heart_disease",
+            "smoking_history",
+            "bmi",
+            "HbA1c_level",
+            "blood_glucose_level",
+            "diabetes",
+        ]
         df = pd.DataFrame(all_records, columns=columns)
         # Only convert numeric columns
-        numeric_columns = ["age", "hypertension", "heart_disease", "bmi", "HbA1c_level", "blood_glucose_level", "diabetes"]
+        numeric_columns = [
+            "age",
+            "hypertension",
+            "heart_disease",
+            "bmi",
+            "HbA1c_level",
+            "blood_glucose_level",
+            "diabetes",
+        ]
         for col in numeric_columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
         df.to_csv(output_path, index=False)
@@ -352,10 +414,15 @@ def main():
         print("\nData statistics:")
         print(f"Gender distribution: {df['gender'].value_counts(normalize=True)}")
         print(f"Diabetes prevalence: {df['diabetes'].value_counts(normalize=True)}")
-        print(f"Age range: {df['age'].min()} to {df['age'].max()}, mean: {df['age'].mean():.2f}")
-        print(f"BMI range: {df['bmi'].min()} to {df['bmi'].max()}, mean: {df['bmi'].mean():.2f}")
+        print(
+            f"Age range: {df['age'].min()} to {df['age'].max()}, mean: {df['age'].mean():.2f}"
+        )
+        print(
+            f"BMI range: {df['bmi'].min()} to {df['bmi'].max()}, mean: {df['bmi'].mean():.2f}"
+        )
     else:
         print("Failed to generate any valid records.")
+
 
 if __name__ == "__main__":
     main()

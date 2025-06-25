@@ -1,9 +1,10 @@
-import os
-import pandas as pd
-import numpy as np
-import warnings
 import json
+import os
+import warnings
 from pathlib import Path
+
+import numpy as np
+import pandas as pd
 
 # Import your evaluator class (assuming it's in the same directory)
 # For example, if you're working with the stroke data:
@@ -16,16 +17,17 @@ from diabetes_evaluator import DiabetesDataEvaluator
 # Suppress warnings
 warnings.filterwarnings("ignore")
 
+
 def evaluate_experiments(
-    original_data_path, 
-    experiments_root_dir, 
+    original_data_path,
+    experiments_root_dir,
     output_dir=None,
-    evaluator_class=DiabetesDataEvaluator, # Change this to your actual evaluator class
-    file_pattern="PROMPT_*.csv"
+    evaluator_class=DiabetesDataEvaluator,  # Change this to your actual evaluator class
+    file_pattern="PROMPT_*.csv",
 ):
     """
     Evaluate multiple experiments and their synthetic datasets
-    
+
     Parameters:
     -----------
     original_data_path : str
@@ -39,10 +41,10 @@ def evaluate_experiments(
     file_pattern : str, optional
         Pattern to match synthetic data files, defaults to 'PROMPT_*.csv'
     """
-    
+
     # """
     # Evaluate multiple experiments and their synthetic datasets
-    
+
     # Parameters:
     # -----------
     # original_data_path : str
@@ -60,9 +62,9 @@ def evaluate_experiments(
     if output_dir is None:
         # output_dir = "evaluation_results_stroke"
         output_dir = "diabetes_evaluation_results"
-    
+
     os.makedirs(output_dir, exist_ok=True)
-    
+
     # Load the original dataset
     print(f"Loading original dataset from {original_data_path}...")
     try:
@@ -71,32 +73,39 @@ def evaluate_experiments(
     except Exception as e:
         print(f"Error loading original data: {e}")
         return
-    
+
     # Find all experiment directories
-    experiment_dirs = [d for d in os.listdir(experiments_root_dir) 
-                      if os.path.isdir(os.path.join(experiments_root_dir, d))]
-    
+    experiment_dirs = [
+        d
+        for d in os.listdir(experiments_root_dir)
+        if os.path.isdir(os.path.join(experiments_root_dir, d))
+    ]
+
     print(f"Found {len(experiment_dirs)} experiment directories")
-    
+
     # Process each experiment
     for exp_dir in sorted(experiment_dirs):
         exp_path = os.path.join(experiments_root_dir, exp_dir)
         print(f"\n{'='*50}")
         print(f"Processing experiment: {exp_dir}")
-        
+
         # Create experiment output directory
         exp_output_dir = os.path.join(output_dir, exp_dir)
         os.makedirs(exp_output_dir, exist_ok=True)
-        
+
         # Find all synthetic data files in this experiment
         synthetic_files = []
         for root, _, files in os.walk(exp_path):
             for file in files:
-                if file.endswith('.csv') and (file_pattern == "*" or file.startswith('PROMPT_')):
+                if file.endswith(".csv") and (
+                    file_pattern == "*" or file.startswith("PROMPT_")
+                ):
                     synthetic_files.append(os.path.join(root, file))
-        
-        print(f"Found {len(synthetic_files)} synthetic datasets in experiment {exp_dir}")
-        
+
+        print(
+            f"Found {len(synthetic_files)} synthetic datasets in experiment {exp_dir}"
+        )
+
         # Skip if no files found
         if not synthetic_files:
             print(f"No synthetic datasets found in {exp_dir}, skipping...")
@@ -104,36 +113,43 @@ def evaluate_experiments(
 
         # Sort files by prompt number
         try:
-            synthetic_files.sort(key=lambda x: int(''.join(filter(str.isdigit, os.path.basename(x).split('_')[1]))))
+            synthetic_files.sort(
+                key=lambda x: int(
+                    "".join(filter(str.isdigit, os.path.basename(x).split("_")[1]))
+                )
+            )
         except:
             print("Could not sort files by prompt number, using default order")
-        
+
         # Process each synthetic dataset
         for synth_file_path in sorted(synthetic_files):
             synth_file_name = os.path.basename(synth_file_path)
             print(f"\n--- Evaluating {synth_file_name} ---")
-            
+
             try:
                 # Load synthetic data
                 synthetic_data = pd.read_csv(synth_file_path)
                 print(f"Synthetic data shape: {synthetic_data.shape}")
-                
+
                 # Skip if synthetic data is empty
                 if synthetic_data.empty:
                     print(f"Synthetic dataset {synth_file_name} is empty, skipping...")
                     continue
-                
+
                 # Initialize evaluator
                 print("Initializing evaluator...")
                 evaluator = evaluator_class(real_data, synthetic_data)
-                
+
                 # Run evaluation
                 print("Running evaluation...")
                 evaluation_results = evaluator.evaluate_all()
-                
+
                 # Save results in JSON format for easier reading
-                results_file = os.path.join(exp_output_dir, f"results_{synth_file_name.replace('.csv', '.json')}")
-                
+                results_file = os.path.join(
+                    exp_output_dir,
+                    f"results_{synth_file_name.replace('.csv', '.json')}",
+                )
+
                 # Convert any non-serializable objects to strings
                 def convert_to_serializable(obj):
                     if isinstance(obj, (np.integer, np.floating, np.bool_)):
@@ -150,33 +166,36 @@ def evaluate_experiments(
                         return [convert_to_serializable(i) for i in obj]
                     elif isinstance(obj, tuple):
                         return tuple(convert_to_serializable(i) for i in obj)
-                    elif hasattr(obj, '__dict__'):
+                    elif hasattr(obj, "__dict__"):
                         return str(obj)
                     return str(obj)
-                
+
                 # Convert results to serializable format
                 serializable_results = convert_to_serializable(evaluation_results)
-                
+
                 # Save to JSON
-                with open(results_file, 'w') as f:
+                with open(results_file, "w") as f:
                     json.dump(serializable_results, f, indent=2)
-                
+
                 # Also save a plain text version for readability
-                text_file = os.path.join(exp_output_dir, f"results_{synth_file_name.replace('.csv', '.txt')}")
-                with open(text_file, 'w') as f:
+                text_file = os.path.join(
+                    exp_output_dir, f"results_{synth_file_name.replace('.csv', '.txt')}"
+                )
+                with open(text_file, "w") as f:
                     f.write(f"Evaluation Results for {synth_file_name}:\n")
                     for metric, results in evaluation_results.items():
                         f.write(f"\n{metric.upper()}:\n")
                         f.write(str(results))
                         f.write("\n")
-                
+
                 print(f"Results saved to {results_file} and {text_file}")
-                
+
             except Exception as e:
                 print(f"Error processing {synth_file_name}: {str(e)}")
                 continue
-    
+
     print("\nEvaluation complete!")
+
 
 # def evaluate_all_datasets(datasets_config):
 #     """
@@ -201,9 +220,9 @@ def evaluate_experiments(
 #         print(f"\n\n{'='*70}")
 #         print(f"PROCESSING {config['name'].upper()} DATASET")
 #         print(f"{'='*70}")
-        
+
 #         output_dir = f"evaluation_results_{config['name']}"
-        
+
 #         evaluate_experiments(
 #             original_data_path=config['original_data'],
 #             experiments_root_dir=config['experiments_dir'],
@@ -216,17 +235,17 @@ if __name__ == "__main__":
     # Example usage
     original_data = "/home/jovyan/SynLLM/datasets/diabetes_prediction_dataset.csv"  # Change to your actual original dataset
     experiments_dir = "/home/jovyan/SynLLM/evaluation/gpt2-diabetes-data-100-5experiments"  # Directory containing experiment folders
-    
+
     # Choose the appropriate evaluator class based on your dataset
     # evaluator_class = StrokeDataEvaluator  # For stroke data
     # evaluator_class = CirrhosisDataEvaluator  # For cirrhosis data
     # evaluator_class = DiabetesDataEvaluator  # For diabetes data
-    
+
     evaluate_experiments(
         original_data_path=original_data,
         experiments_root_dir=experiments_dir,
         evaluator_class=DiabetesDataEvaluator,  # Change this to match your dataset
-        file_pattern="PROMPT_*.csv"  # Change if your files follow a different pattern
+        file_pattern="PROMPT_*.csv",  # Change if your files follow a different pattern
     )
 
     # Alternative: To evaluate multiple datasets, use the following:
@@ -247,6 +266,6 @@ if __name__ == "__main__":
             'file_pattern': 'PROMPT_*.csv'
         }
     ]
-    
+
     evaluate_all_datasets(datasets_config)
     """

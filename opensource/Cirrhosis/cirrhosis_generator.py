@@ -1,17 +1,23 @@
-import gc
-import os
-import re
-import time
 import argparse
-import random
-from pathlib import Path
-import psutil
-import subprocess
+import gc
 import json
-import pandas as pd
+import os
+import random
+import re
+import subprocess
+import time
+from pathlib import Path
+
 import numpy as np
+import pandas as pd
+import psutil
 import torch
-from transformers import AutoModelForSeq2SeqLM, AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+from transformers import (
+    AutoModelForCausalLM,
+    AutoModelForSeq2SeqLM,
+    AutoTokenizer,
+    BitsAndBytesConfig,
+)
 from transformers.utils import is_bitsandbytes_available
 
 # Restrict to first MIG instance
@@ -41,7 +47,7 @@ CHAT_STYLE_MODELS = {
     "openchat": "openchat",
     "nous": "nous",
     "mpt": "mpt",
-    "t5": "t5"  # Added T5 format
+    "t5": "t5",  # Added T5 format
 }
 
 SYSTEM_PROMPT = """You are a synthetic medical data generator. Generate realistic patient records for liver cirrhosis research."""
@@ -49,18 +55,20 @@ SYSTEM_PROMPT = """You are a synthetic medical data generator. Generate realisti
 EXAMPLE_RECORDS = [
     "1191,C,D-penicillamine,58,F,N,Y,Y,N,1.1,261,3.48,54,1636,113.52,119,221,10.6,3",
     "400,D,D-penicillamine,70,F,N,N,Y,S,12.58,200.5,2.74,140,1058,138.7,246,214,12.1,4",
-    "4556,C,Placebo,54,F,N,Y,Y,N,0.8,156,3.05,54,5882,71.0,183,416,10.9,3"
+    "4556,C,Placebo,54,F,N,Y,Y,N,0.8,156,3.05,54,5882,71.0,183,416,10.9,3",
 ]
+
 
 def detect_chat_style(model_name):
     # Special case for T5 models
     if "t5" in model_name.lower():
         return "t5"
-        
+
     for key, style in CHAT_STYLE_MODELS.items():
         if key in model_name.lower():
             return style
     return "plain"
+
 
 def build_prompt(model_name, system_prompt, user_prompt, tokenizer):
     style = detect_chat_style(model_name)
@@ -69,10 +77,17 @@ def build_prompt(model_name, system_prompt, user_prompt, tokenizer):
         # T5 uses a simple text input format
         return tokenizer(f"{system_prompt}\n\n{user_prompt}", return_tensors="pt")
     elif style == "llama":
-        return tokenizer(f"<s>[INST] {system_prompt}\n{user_prompt} [/INST]", return_tensors="pt")
+        return tokenizer(
+            f"<s>[INST] {system_prompt}\n{user_prompt} [/INST]", return_tensors="pt"
+        )
     elif style == "chatml":
-        messages = [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}]
-        prompt_str = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ]
+        prompt_str = tokenizer.apply_chat_template(
+            messages, tokenize=False, add_generation_prompt=True
+        )
         return tokenizer(prompt_str, return_tensors="pt", padding=True, truncation=True)
     elif style == "openai":
         messages = [{"role": "user", "content": f"{system_prompt}\n\n{user_prompt}"}]
@@ -82,18 +97,30 @@ def build_prompt(model_name, system_prompt, user_prompt, tokenizer):
         prompt_str = f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{user_prompt}<|im_end|>\n<|im_start|>assistant\n"
         return tokenizer(prompt_str, return_tensors="pt")
     elif style in ["zephyr", "qwen", "qwen2"]:
-        messages = [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}]
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ]
         prompt_str = tokenizer.apply_chat_template(messages, tokenize=False)
         return tokenizer(prompt_str, return_tensors="pt")
     elif style == "phi":
-        return tokenizer(f"<|system|>\n{system_prompt}\n<|user|>\n{user_prompt}\n<|assistant|>\n", return_tensors="pt")
+        return tokenizer(
+            f"<|system|>\n{system_prompt}\n<|user|>\n{user_prompt}\n<|assistant|>\n",
+            return_tensors="pt",
+        )
     elif style == "openchat":
-        return tokenizer(f"GPT4 System: {system_prompt}\nHuman: {user_prompt}\nAssistant:", return_tensors="pt")
+        return tokenizer(
+            f"GPT4 System: {system_prompt}\nHuman: {user_prompt}\nAssistant:",
+            return_tensors="pt",
+        )
     elif style == "mpt":
-        return tokenizer(f"System: {system_prompt}\nUser: {user_prompt}\nAssistant:", return_tensors="pt")
+        return tokenizer(
+            f"System: {system_prompt}\nUser: {user_prompt}\nAssistant:",
+            return_tensors="pt",
+        )
     else:
         return tokenizer(f"{system_prompt}\n\n{user_prompt}", return_tensors="pt")
-        
+
 
 def extract_records(text):
     print("=== DEBUG: GENERATED TEXT ===")
@@ -104,11 +131,26 @@ def extract_records(text):
     VALID_STATUS = {"c", "cl", "d"}  # Main values
     # Allow flexibility with more drugs
     VALID_DRUG = {
-        "d-penicillamine", "placebo", "rifaximin", "lactulose", "spirinolactone", 
-        "spironolactone", "furosemide", "frusemide", "sodium oxychloride",
-        "terlipressin", "propranolol", "prednisone", "prednisolone", "ribavirin",
-        "sulfasalazine", "sucralfate", "sodium polystyrene sulfonate", "folic acid",
-        "pantoprazole", "lisinopril"
+        "d-penicillamine",
+        "placebo",
+        "rifaximin",
+        "lactulose",
+        "spirinolactone",
+        "spironolactone",
+        "furosemide",
+        "frusemide",
+        "sodium oxychloride",
+        "terlipressin",
+        "propranolol",
+        "prednisone",
+        "prednisolone",
+        "ribavirin",
+        "sulfasalazine",
+        "sucralfate",
+        "sodium polystyrene sulfonate",
+        "folic acid",
+        "pantoprazole",
+        "lisinopril",
     }
     VALID_SEX = {"m", "f"}
     VALID_YN = {"y", "n"}
@@ -122,17 +164,21 @@ def extract_records(text):
     for line in text.splitlines():
         line = line.strip()
         line = re.sub(r"^\d+[\.,]\s*", "", line)  # Remove numbering if present
-        
+
         # Skip empty lines or lines with explanatory text
         if not line or "note:" in line.lower() or "these records" in line.lower():
             continue
-            
+
         # Skip field headers
-        if "id" in line.lower() and "n_days" in line.lower() and "status" in line.lower():
+        if (
+            "id" in line.lower()
+            and "n_days" in line.lower()
+            and "status" in line.lower()
+        ):
             continue
-        
+
         parts = [p.strip() for p in line.split(",")]
-        
+
         # Skip lines with wrong number of fields
         if len(parts) < 19:  # Allow both with and without ID
             if line:  # Only log non-empty lines
@@ -143,13 +189,50 @@ def extract_records(text):
         # Handle both with and without ID
         if len(parts) == 20:  # Has ID field
             # Skip the ID field
-            _, n_days, status, drug, age, sex, ascites, hepatomegaly, spiders, \
-            edema, bilirubin, cholesterol, albumin, copper, alk_phos, sgot, \
-            tryglicerides, platelets, prothrombin, stage = parts
+            (
+                _,
+                n_days,
+                status,
+                drug,
+                age,
+                sex,
+                ascites,
+                hepatomegaly,
+                spiders,
+                edema,
+                bilirubin,
+                cholesterol,
+                albumin,
+                copper,
+                alk_phos,
+                sgot,
+                tryglicerides,
+                platelets,
+                prothrombin,
+                stage,
+            ) = parts
         else:  # No ID field (19 fields)
-            n_days, status, drug, age, sex, ascites, hepatomegaly, spiders, \
-            edema, bilirubin, cholesterol, albumin, copper, alk_phos, sgot, \
-            tryglicerides, platelets, prothrombin, stage = parts
+            (
+                n_days,
+                status,
+                drug,
+                age,
+                sex,
+                ascites,
+                hepatomegaly,
+                spiders,
+                edema,
+                bilirubin,
+                cholesterol,
+                albumin,
+                copper,
+                alk_phos,
+                sgot,
+                tryglicerides,
+                platelets,
+                prothrombin,
+                stage,
+            ) = parts
 
         # Validate categorical fields with more flexibility
         status = status.lower()
@@ -228,7 +311,7 @@ def extract_records(text):
         try:
             # Convert to appropriate types to validate
             n_days = float(n_days)
-            
+
             # Fix the age issue - ensure it's within realistic bounds
             try:
                 age_val = float(age)
@@ -243,7 +326,7 @@ def extract_records(text):
                 bad_lines.append(f"Invalid age: {line}")
                 skipped += 1
                 continue
-                
+
             bilirubin = float(bilirubin)
             cholesterol = float(cholesterol)
             albumin = float(albumin)
@@ -271,10 +354,25 @@ def extract_records(text):
 
         # Create the record with all processed values
         record = [
-            str(n_days), status, drug, str(age), sex, ascites, hepatomegaly, spiders,
-            edema, str(bilirubin), str(cholesterol), str(albumin), str(copper), 
-            str(alk_phos), str(sgot), str(tryglicerides), str(platelets), 
-            str(prothrombin), stage
+            str(n_days),
+            status,
+            drug,
+            str(age),
+            sex,
+            ascites,
+            hepatomegaly,
+            spiders,
+            edema,
+            str(bilirubin),
+            str(cholesterol),
+            str(albumin),
+            str(copper),
+            str(alk_phos),
+            str(sgot),
+            str(tryglicerides),
+            str(platelets),
+            str(prothrombin),
+            stage,
         ]
         records.append(record)
 
@@ -284,25 +382,36 @@ def extract_records(text):
             bad.write("\n".join(bad_lines) + "\n")
 
     print(f"[INFO] Extracted {len(records)} valid records, skipped {skipped}")
-    
+
     # Debug output
     if records:
         print(f"[DEBUG] First few status values: {[r[1] for r in records[:5]]}")
         print(f"[DEBUG] First few drug values: {[r[2] for r in records[:5]]}")
-        print(f"[DEBUG] First few age values: {[r[3] for r in records[:5]]}")  # Debug age values
+        print(
+            f"[DEBUG] First few age values: {[r[3] for r in records[:5]]}"
+        )  # Debug age values
         print(f"[DEBUG] First few edema values: {[r[8] for r in records[:5]]}")
         print(f"[DEBUG] First few stage values: {[r[18] for r in records[:5]]}")
-    
+
     return records
 
-def log_system_metrics(model_name, prompt_name, start_time, end_time):
-    gpu_info_before = subprocess.check_output([
-        "nvidia-smi", "--query-gpu=memory.used", "--format=csv,nounits,noheader"
-    ]).decode().strip()
 
-    gpu_info_after = subprocess.check_output([
-        "nvidia-smi", "--query-gpu=memory.used", "--format=csv,nounits,noheader"
-    ]).decode().strip()
+def log_system_metrics(model_name, prompt_name, start_time, end_time):
+    gpu_info_before = (
+        subprocess.check_output(
+            ["nvidia-smi", "--query-gpu=memory.used", "--format=csv,nounits,noheader"]
+        )
+        .decode()
+        .strip()
+    )
+
+    gpu_info_after = (
+        subprocess.check_output(
+            ["nvidia-smi", "--query-gpu=memory.used", "--format=csv,nounits,noheader"]
+        )
+        .decode()
+        .strip()
+    )
 
     cpu = psutil.cpu_percent()
     ram = psutil.virtual_memory().percent
@@ -321,21 +430,24 @@ def log_system_metrics(model_name, prompt_name, start_time, end_time):
     with open("reports/usage.jsonl", "a") as f:
         f.write(json.dumps(report) + "\n")
 
+
 def log_generation_error(model_name, prompt_name, error):
-    error_log = {
-        "model": model_name,
-        "prompt": prompt_name,
-        "error": str(error)
-    }
+    error_log = {"model": model_name, "prompt": prompt_name, "error": str(error)}
     Path("reports").mkdir(parents=True, exist_ok=True)
     with open("reports/errors.jsonl", "a") as errfile:
         errfile.write(json.dumps(error_log) + "\n")
+
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_name", type=str, default=DEFAULT_MODEL)
     parser.add_argument("--prompt_file", type=str, required=True)
-    parser.add_argument("--batch_size", type=int, default=20, help="Number of records to generate in each batch")
+    parser.add_argument(
+        "--batch_size",
+        type=int,
+        default=20,
+        help="Number of records to generate in each batch",
+    )
     args = parser.parse_args()
 
     model_name = args.model_name
@@ -373,29 +485,29 @@ def main():
     model_kwargs = {
         "torch_dtype": torch.float16,
         "device_map": "auto",
-        "trust_remote_code": True
+        "trust_remote_code": True,
     }
-    
+
     # MPT does not support this kwarg
     if attn_backend and "mpt" not in model_name.lower():
         model_kwargs["attn_implementation"] = attn_backend
-        
+
     try:
         quantization_config = BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_quant_type="nf4",
-            bnb_4bit_compute_dtype=torch.float16
+            bnb_4bit_compute_dtype=torch.float16,
         )
 
         from transformers import AutoConfig
 
         config = AutoConfig.from_pretrained(model_name, trust_remote_code=True)
-        
+
         if "llama" in model_name.lower() and hasattr(config, "rope_scaling"):
             current_scaling = config.rope_scaling or {}
             config.rope_scaling = {
                 "name": "dynamic",
-                "factor": current_scaling.get("factor", 8.0)
+                "factor": current_scaling.get("factor", 8.0),
             }
 
         # Determine the correct model class based on the model type
@@ -404,36 +516,36 @@ def main():
                 model_name,
                 config=config,
                 quantization_config=quantization_config,
-                **model_kwargs
+                **model_kwargs,
             )
         else:
             model = AutoModelForCausalLM.from_pretrained(
                 model_name,
                 config=config,
                 quantization_config=quantization_config,
-                **model_kwargs
+                **model_kwargs,
             )
     except Exception as e:
-        print(f"⚠️ Could not load model with quantization ({e}), falling back to basic loading.")
+        print(
+            f"⚠️ Could not load model with quantization ({e}), falling back to basic loading."
+        )
         # Determine the correct model class based on the model type
         if "t5" in model_name.lower():
-            model = AutoModelForSeq2SeqLM.from_pretrained(
-                model_name,
-                **model_kwargs
-            )
+            model = AutoModelForSeq2SeqLM.from_pretrained(model_name, **model_kwargs)
         else:
-            model = AutoModelForCausalLM.from_pretrained(
-                model_name,
-                **model_kwargs
-            )
+            model = AutoModelForCausalLM.from_pretrained(model_name, **model_kwargs)
 
     try:
         from transformers.models.gpt_neox.tokenization_gpt_neox import GPTNeoXTokenizer
     except ImportError:
-        print("Could not import GPTNeoXTokenizer explicitly, falling back to AutoTokenizer.")
-    
+        print(
+            "Could not import GPTNeoXTokenizer explicitly, falling back to AutoTokenizer."
+        )
+
     # Tokenizer setup - same as diabetes code
-    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, use_fast=True)
+    tokenizer = AutoTokenizer.from_pretrained(
+        model_name, trust_remote_code=True, use_fast=True
+    )
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
 
@@ -447,21 +559,25 @@ def main():
 
     while len(all_records) < NUM_RECORDS:
         needed = min(batch_size, NUM_RECORDS - len(all_records))
-        print(f"Generating batch of {needed} records... ({len(all_records)}/{NUM_RECORDS} total)")
+        print(
+            f"Generating batch of {needed} records... ({len(all_records)}/{NUM_RECORDS} total)"
+        )
 
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
         gc.collect()
 
-        chat_input = build_prompt(model_name, SYSTEM_PROMPT, user_prompt, tokenizer).to(DEVICE)
+        chat_input = build_prompt(model_name, SYSTEM_PROMPT, user_prompt, tokenizer).to(
+            DEVICE
+        )
 
         try:
             # Calculate max tokens based on model context size
-            max_context = getattr(tokenizer, 'model_max_length', 2048)
+            max_context = getattr(tokenizer, "model_max_length", 2048)
             max_tokens = min(1000, max_context - chat_input["input_ids"].shape[-1] - 10)
-            
+
             print(f"Generating with max_new_tokens={max_tokens}")
-            
+
             # Different generation approach for T5 vs causal models
             if "t5" in model_name.lower():
                 outputs = model.generate(
@@ -470,7 +586,7 @@ def main():
                     max_length=max_tokens,
                     do_sample=True,
                     temperature=0.7,
-                    top_p=0.9
+                    top_p=0.9,
                 )
             else:
                 outputs = model.generate(
@@ -481,12 +597,15 @@ def main():
                     temperature=0.7,
                     top_p=0.9,
                     pad_token_id=tokenizer.eos_token_id,
-                    eos_token_id=tokenizer.eos_token_id
+                    eos_token_id=tokenizer.eos_token_id,
                 )
-                
+
             generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-            if "n_days" in generated_text.lower() and "status" in generated_text.lower():
+            if (
+                "n_days" in generated_text.lower()
+                and "status" in generated_text.lower()
+            ):
                 print("[DEBUG] Model likely returned schema, not data.")
 
             with open(output_dir / "raw_output.txt", "a") as f:
@@ -518,24 +637,48 @@ def main():
     if all_records:
         # Define columns based on cirrhosis dataset (without ID - we'll add it later)
         columns = [
-            "N_Days", "Status", "Drug", "Age", "Sex", "Ascites",
-            "Hepatomegaly", "Spiders", "Edema", "Bilirubin", "Cholesterol",
-            "Albumin", "Copper", "Alk_Phos", "SGOT", "Tryglicerides",
-            "Platelets", "Prothrombin", "Stage"
+            "N_Days",
+            "Status",
+            "Drug",
+            "Age",
+            "Sex",
+            "Ascites",
+            "Hepatomegaly",
+            "Spiders",
+            "Edema",
+            "Bilirubin",
+            "Cholesterol",
+            "Albumin",
+            "Copper",
+            "Alk_Phos",
+            "SGOT",
+            "Tryglicerides",
+            "Platelets",
+            "Prothrombin",
+            "Stage",
         ]
-        
+
         df = pd.DataFrame(all_records, columns=columns)
-        
+
         # Convert numeric columns
         numeric_columns = [
-            "N_Days", "Age", "Bilirubin", "Cholesterol", "Albumin", 
-            "Copper", "Alk_Phos", "SGOT", "Tryglicerides", 
-            "Platelets", "Prothrombin", "Stage"
+            "N_Days",
+            "Age",
+            "Bilirubin",
+            "Cholesterol",
+            "Albumin",
+            "Copper",
+            "Alk_Phos",
+            "SGOT",
+            "Tryglicerides",
+            "Platelets",
+            "Prothrombin",
+            "Stage",
         ]
-        
+
         for col in numeric_columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
-            
+
             # Apply additional validation/normalization
             if col == "Age":
                 # Ensure age is within realistic bounds
@@ -543,20 +686,20 @@ def main():
             elif col == "Stage":
                 # Ensure stage is between 1 and 4
                 df[col] = df[col].clip(1, 4)
-        
+
         # Debug output before saving
         print("\nDataFrame head before saving:")
         print(df.head())
         print("\nDataFrame info:")
         print(df.info())
-        
+
         # Generate a random ID for each record
-        df['ID'] = range(1, len(df) + 1)
-        
+        df["ID"] = range(1, len(df) + 1)
+
         # Reorder columns to match the original dataset
         final_columns = ["ID"] + columns
         df = df[final_columns]
-        
+
         df.to_csv(output_path, index=False)
 
         print(f"\nSuccessfully generated {len(all_records)} records!")
@@ -566,10 +709,15 @@ def main():
         print(f"Drug distribution: {df['Drug'].value_counts(normalize=True)}")
         print(f"Sex distribution: {df['Sex'].value_counts(normalize=True)}")
         print(f"Stage distribution: {df['Stage'].value_counts(normalize=True)}")
-        print(f"Age range: {df['Age'].min()} to {df['Age'].max()}, mean: {df['Age'].mean():.2f}")
-        print(f"Bilirubin range: {df['Bilirubin'].min()} to {df['Bilirubin'].max()}, mean: {df['Bilirubin'].mean():.2f}")
+        print(
+            f"Age range: {df['Age'].min()} to {df['Age'].max()}, mean: {df['Age'].mean():.2f}"
+        )
+        print(
+            f"Bilirubin range: {df['Bilirubin'].min()} to {df['Bilirubin'].max()}, mean: {df['Bilirubin'].mean():.2f}"
+        )
     else:
         print("Failed to generate any valid records.")
+
 
 if __name__ == "__main__":
     main()

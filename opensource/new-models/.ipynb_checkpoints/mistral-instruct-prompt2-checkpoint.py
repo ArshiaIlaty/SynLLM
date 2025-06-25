@@ -103,7 +103,9 @@ def main():
 
     while len(all_records) < NUM_RECORDS:
         records_needed = min(batch_size, NUM_RECORDS - len(all_records))
-        print(f"Generating batch of {records_needed} records... ({len(all_records)}/{NUM_RECORDS} total)")
+        print(
+            f"Generating batch of {records_needed} records... ({len(all_records)}/{NUM_RECORDS} total)"
+        )
 
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
@@ -114,9 +116,7 @@ def main():
             {"role": "user", "content": generate_chat_prompt(records_needed)},
         ]
 
-        chat_str = tokenizer.apply_chat_template(
-            messages, tokenize=False
-        )
+        chat_str = tokenizer.apply_chat_template(messages, tokenize=False)
 
         inputs = tokenizer(chat_str, return_tensors="pt").to(DEVICE)
 
@@ -169,7 +169,9 @@ def main():
         df["heart_disease"] = pd.to_numeric(df["heart_disease"], errors="coerce")
         df["bmi"] = pd.to_numeric(df["bmi"], errors="coerce")
         df["HbA1c_level"] = pd.to_numeric(df["HbA1c_level"], errors="coerce")
-        df["blood_glucose_level"] = pd.to_numeric(df["blood_glucose_level"], errors="coerce")
+        df["blood_glucose_level"] = pd.to_numeric(
+            df["blood_glucose_level"], errors="coerce"
+        )
         df["diabetes"] = pd.to_numeric(df["diabetes"], errors="coerce")
 
         output_path = os.path.join(OUTPUT_DIR, "diabetes_records.csv")
@@ -180,8 +182,12 @@ def main():
         print("\nData statistics:")
         print(f"Gender distribution: {df['gender'].value_counts(normalize=True)}")
         print(f"Diabetes prevalence: {df['diabetes'].value_counts(normalize=True)}")
-        print(f"Age range: {df['age'].min()} to {df['age'].max()}, mean: {df['age'].mean():.2f}")
-        print(f"BMI range: {df['bmi'].min()} to {df['bmi'].max()}, mean: {df['bmi'].mean():.2f}")
+        print(
+            f"Age range: {df['age'].min()} to {df['age'].max()}, mean: {df['age'].mean():.2f}"
+        )
+        print(
+            f"BMI range: {df['bmi'].min()} to {df['bmi'].max()}, mean: {df['bmi'].mean():.2f}"
+        )
 
     else:
         print("Failed to generate any valid records.")
@@ -189,7 +195,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
 
 # import gc
@@ -202,7 +207,7 @@ if __name__ == "__main__":
 # from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 # # Restrict to first MIG instance
-# os.environ["CUDA_VISIBLE_DEVICES"] = "0"  
+# os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 # os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 
 # # Configuration - Using Mistral Instruct model since it works well

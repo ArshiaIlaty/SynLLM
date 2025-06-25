@@ -1,11 +1,12 @@
+import argparse
+import gc
 import os
 import re
 import time
-import gc
-import argparse
-import torch
-import pandas as pd
 from pathlib import Path
+
+import pandas as pd
+import torch
 from llama_cpp import Llama
 
 # Configuration
@@ -17,11 +18,13 @@ EXAMPLE_RECORDS = [
     "Male,62.7,1,1,former,32.1,7.1,185,1",
     "Female,38.9,0,0,current,24.3,5.8,130,0",
     "Male,70.0,1,1,current,30.2,8.0,210,1",
-    "Female,29.4,0,0,never,23.0,5.1,110,0"
+    "Female,29.4,0,0,never,23.0,5.1,110,0",
 ]
+
 
 def build_prompt(system_prompt, user_prompt):
     return f"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n{system_prompt}<|eot_id|><|start_header_id|>user<|end_header_id|>\n{user_prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n"
+
 
 def extract_records(text):
     print("=== DEBUG: GENERATED TEXT ===")
@@ -65,7 +68,9 @@ def extract_records(text):
         heart = yes_no_map.get(heart.lower(), heart)
         diabetes = yes_no_map.get(diabetes.lower(), diabetes)
 
-        records.append([gender.title(), age, hyp, heart, smoking, bmi, hba1c, glucose, diabetes])
+        records.append(
+            [gender.title(), age, hyp, heart, smoking, bmi, hba1c, glucose, diabetes]
+        )
 
     if bad_lines:
         Path("reports").mkdir(parents=True, exist_ok=True)
@@ -75,13 +80,20 @@ def extract_records(text):
     print(f"[INFO] Extracted {len(records)} valid records, skipped {skipped}")
     return records
 
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model_path", type=str, required=True, help="Path to the GGUF model file")
+    parser.add_argument(
+        "--model_path", type=str, required=True, help="Path to the GGUF model file"
+    )
     parser.add_argument("--prompt_file", type=str, required=True)
     args = parser.parse_args()
 
-    output_dir = Path("bash") / Path(args.model_path).stem / f"records_{Path(args.prompt_file).stem}"
+    output_dir = (
+        Path("bash")
+        / Path(args.model_path).stem
+        / f"records_{Path(args.prompt_file).stem}"
+    )
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / "diabetes_records.csv"
 
@@ -97,13 +109,15 @@ def main():
 
     while len(all_records) < NUM_RECORDS:
         needed = min(batch_size, NUM_RECORDS - len(all_records))
-        print(f"Generating batch of {needed} records... ({len(all_records)}/{NUM_RECORDS} total)")
+        print(
+            f"Generating batch of {needed} records... ({len(all_records)}/{NUM_RECORDS} total)"
+        )
 
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
-            
+
         # No torch needed for llama-cpp
-        
+
         gc.collect()
 
         prompt = build_prompt(SYSTEM_PROMPT, user_prompt)
@@ -121,7 +135,17 @@ def main():
     print(f"[INFO] Finished generation in {end_time - start_time:.2f} seconds")
 
     if all_records:
-        columns = ["gender", "age", "hypertension", "heart_disease", "smoking_history", "bmi", "HbA1c_level", "blood_glucose_level", "diabetes"]
+        columns = [
+            "gender",
+            "age",
+            "hypertension",
+            "heart_disease",
+            "smoking_history",
+            "bmi",
+            "HbA1c_level",
+            "blood_glucose_level",
+            "diabetes",
+        ]
         df = pd.DataFrame(all_records[:NUM_RECORDS], columns=columns)
         for col in columns[1:]:
             df[col] = pd.to_numeric(df[col], errors="coerce")
@@ -130,6 +154,7 @@ def main():
         print(f"Data saved to {output_path}")
     else:
         print("Failed to generate any valid records.")
+
 
 if __name__ == "__main__":
     main()

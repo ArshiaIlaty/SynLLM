@@ -1,12 +1,12 @@
+import argparse
 import gc
 import os
 import re
 import time
-import argparse
-import torch.multiprocessing as mp
 
 import pandas as pd
 import torch
+import torch.multiprocessing as mp
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from transformers.utils import is_bitsandbytes_available
 
@@ -36,7 +36,7 @@ MODELS = {
     "stabilityai/StableBeluga-7B": "beluga",
     "openchat/openchat-3.5-0106": "openchat",
     "NousResearch/Nous-Hermes-2-Yi-34B": "nous",
-    "mosaicml/mpt-7b-instruct": "mpt"
+    "mosaicml/mpt-7b-instruct": "mpt",
 }
 
 # Chat style mappings for different model families
@@ -55,7 +55,7 @@ CHAT_STYLE_MODELS = {
     "beluga": "beluga",
     "openchat": "openchat",
     "nous": "nous",
-    "mpt": "mpt"
+    "mpt": "mpt",
 }
 
 SYSTEM_PROMPT = """You are a synthetic medical data generator. Generate realistic patient records for diabetes research."""
@@ -165,7 +165,9 @@ def build_prompt(model_name, system_prompt, user_prompt, tokenizer):
 
     elif style == "phi":
         # Phi style
-        prompt = f"<|system|>\n{system_prompt}\n<|user|>\n{user_prompt}\n<|assistant|>\n"
+        prompt = (
+            f"<|system|>\n{system_prompt}\n<|user|>\n{user_prompt}\n<|assistant|>\n"
+        )
         return tokenizer(prompt, return_tensors="pt")
 
     elif style == "qwen" or style == "qwen2":
@@ -203,22 +205,24 @@ def build_prompt(model_name, system_prompt, user_prompt, tokenizer):
         return tokenizer(prompt, return_tensors="pt")
 
 
-def generate_batch(model, tokenizer, model_name, system_prompt, batch_size, device_id=0):
+def generate_batch(
+    model, tokenizer, model_name, system_prompt, batch_size, device_id=0
+):
     """Generate a batch of records on a specific GPU"""
     device = f"cuda:{device_id}" if torch.cuda.is_available() else "cpu"
     print(f"Generating batch of {batch_size} records on {device}...")
-    
+
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
     gc.collect()
-    
+
     chat_input = build_prompt(
         model_name,
         system_prompt,
         generate_chat_prompt(batch_size),
         tokenizer,
     ).to(device)
-    
+
     try:
         outputs = model.generate(
             input_ids=chat_input["input_ids"],
@@ -229,14 +233,14 @@ def generate_batch(model, tokenizer, model_name, system_prompt, batch_size, devi
             top_p=0.9,
             pad_token_id=tokenizer.eos_token_id,
         )
-        
+
         generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
         response = generated_text.strip()
         new_records = extract_records(response)
-        
+
         print(f"Found {len(new_records)} valid records in this batch on {device}")
         return new_records
-        
+
     except Exception as e:
         print(f"Error during generation on {device}: {str(e)}")
         return []
@@ -261,7 +265,7 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
 
     print(f"Loading model {model_name} on {DEVICE}")
-    
+
     # Get number of available GPUs
     num_gpus = torch.cuda.device_count()
     print(f"Found {num_gpus} GPUs")
@@ -303,21 +307,19 @@ def main():
     print("Starting generation...")
 
     all_records = []
-    
+
     # Calculate batch size per GPU
     batch_size_per_gpu = batch_size * 2 if num_gpus > 1 else batch_size
-    
+
     while len(all_records) < num_records:
         records_needed = min(batch_size_per_gpu, num_records - len(all_records))
-        print(f"Generating batch of {records_needed} records... ({len(all_records)}/{num_records} total)")
-        
+        print(
+            f"Generating batch of {records_needed} records... ({len(all_records)}/{num_records} total)"
+        )
+
         # Generate using the model (which is already distributed across GPUs)
         new_records = generate_batch(
-            model, 
-            tokenizer, 
-            model_name, 
-            SYSTEM_PROMPT, 
-            records_needed
+            model, tokenizer, model_name, SYSTEM_PROMPT, records_needed
         )
 
         all_records.extend(new_records)
@@ -350,7 +352,9 @@ def main():
         df["heart_disease"] = pd.to_numeric(df["heart_disease"], errors="coerce")
         df["bmi"] = pd.to_numeric(df["bmi"], errors="coerce")
         df["HbA1c_level"] = pd.to_numeric(df["HbA1c_level"], errors="coerce")
-        df["blood_glucose_level"] = pd.to_numeric(df["blood_glucose_level"], errors="coerce")
+        df["blood_glucose_level"] = pd.to_numeric(
+            df["blood_glucose_level"], errors="coerce"
+        )
         df["diabetes"] = pd.to_numeric(df["diabetes"], errors="coerce")
 
         output_path = os.path.join(output_dir, "diabetes_records.csv")
@@ -361,8 +365,12 @@ def main():
         print("\nData statistics:")
         print(f"Gender distribution: {df['gender'].value_counts(normalize=True)}")
         print(f"Diabetes prevalence: {df['diabetes'].value_counts(normalize=True)}")
-        print(f"Age range: {df['age'].min()} to {df['age'].max()}, mean: {df['age'].mean():.2f}")
-        print(f"BMI range: {df['bmi'].min()} to {df['bmi'].max()}, mean: {df['bmi'].mean():.2f}")
+        print(
+            f"Age range: {df['age'].min()} to {df['age'].max()}, mean: {df['age'].mean():.2f}"
+        )
+        print(
+            f"BMI range: {df['bmi'].min()} to {df['bmi'].max()}, mean: {df['bmi'].mean():.2f}"
+        )
 
     else:
         print("Failed to generate any valid records.")
@@ -376,9 +384,11 @@ def list_available_models():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--list_models", action="store_true", help="List all available models")
+    parser.add_argument(
+        "--list_models", action="store_true", help="List all available models"
+    )
     args, _ = parser.parse_known_args()
-    
+
     if args.list_models:
         list_available_models()
     else:

@@ -2,8 +2,8 @@ import gc
 import json
 import os
 import re
-import time
 import signal
+import time
 from datetime import datetime
 
 import GPUtil
@@ -13,10 +13,9 @@ import torch
 from tqdm import tqdm
 from transformers import pipeline, set_seed
 
-
 # Set environment variables for better error reporting
 os.environ["CUDA_LAUNCH_BLOCKING"] = "1"
-os.environ["CUDA_VISIBLE_DEVICES"] = "0" 
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 
 # Configuration
@@ -28,18 +27,21 @@ MAX_NEW_TOKENS = 200
 TIMEOUT_SECONDS = 300
 NUM_EXPERIMENTS = 5
 
+
 # Add timeout handling
 class TimeoutException(Exception):
     pass
 
+
 def timeout_handler(signum, frame):
     raise TimeoutException("Generation timed out")
+
 
 # Define a function to initialize the device
 def init_device():
     # Force CPU for cirrhosis data
     return -1
-    
+
     # The following code is commented out to force CPU usage
     """
     try:
@@ -49,12 +51,12 @@ def init_device():
             torch.cuda.empty_cache()
             torch.cuda.set_per_process_memory_fraction(0.6)
             test_tensor = torch.zeros(1, device="cuda:0")
-            
+
             gpu_id = torch.cuda.current_device()
             print(f"Using GPU {gpu_id}: {torch.cuda.get_device_name(gpu_id)}")
             print(f"Initial memory allocated: {torch.cuda.memory_allocated(gpu_id) / 1024**2:.2f} MB")
             print(f"Initial memory reserved: {torch.cuda.memory_reserved(gpu_id) / 1024**2:.2f} MB")
-            
+
             print("CUDA initialization successful")
             return 0
         else:
@@ -65,6 +67,7 @@ def init_device():
         print("Using CPU")
         return -1
     """
+
 
 # Initialize device
 DEVICE = init_device()
@@ -112,7 +115,7 @@ PROMPTS = {
         """,
         "max_tokens": MAX_NEW_TOKENS,
         "temperature": 0.7,
-        "use_cpu": False
+        "use_cpu": False,
     },
     # Task 2: Prompt with Definitions
     "PROMPT_2": {
@@ -126,7 +129,7 @@ PROMPTS = {
         - Status: C or D
         - Drug: D-penicillamine or Placebo
         - Age: Measurement of age (range: 9598-28650)
-        - Sex: M or F 
+        - Sex: M or F
         - Ascites: Y or N
         - Hepatomegaly: Y or N
         - Spiders: Y or N
@@ -149,8 +152,8 @@ PROMPTS = {
         272, 1525, C, D-penicillamine, 14025, F, N, N, N, N, 0.5, 226, 2.93, 22, 674, 58, 85, 153, 9.8, 1.0
         """,
         "max_tokens": MAX_NEW_TOKENS,
-        "temperature": 0.7, 
-        "use_cpu": False
+        "temperature": 0.7,
+        "use_cpu": False,
     },
     # Task 3: Prompt with Metadata
     "PROMPT_3": {
@@ -177,7 +180,7 @@ PROMPTS = {
         - Stage distribution: 4.0 (34.4%), 3.0 (38.5%), 2.0 (22.0%), 1.0 (5.0%)
         - Stage 4.0 typically has lower N_Days, higher Bilirubin, higher Copper
         - Stage 1.0 typically has higher N_Days, lower Bilirubin
-        
+
         Examples:
         394, 1367, C, D-penicillamine, 20819, F, N, Y, N, S, 2, 309.5, 3.07, 73, 1259, 114.7, 108, 80, 12.1, 4.0
         77, 326, D, Placebo, 18199, F, N, Y, Y, S, 6.6, 244, 3.41, 199, 1819, 170.5, 91, 132, 12.1, 3.0
@@ -186,13 +189,13 @@ PROMPTS = {
         """,
         "max_tokens": MAX_NEW_TOKENS // 2,  # Half tokens for PROMPT_3
         "temperature": 0.6,  # Lower temperature for more focused generation
-        "use_cpu": True  # Force CPU for PROMPT_3 which was successful with diabetes
+        "use_cpu": True,  # Force CPU for PROMPT_3 which was successful with diabetes
     },
     # Task 4: Prompt with Rules - NO EXAMPLES
     "PROMPT_4": {
         "text": """
         Generate synthetic cirrhosis data following these rules: ID,N_Days,Status,Drug,Age,Sex,Ascites,Hepatomegaly,Spiders,Edema,Bilirubin,Cholesterol,Albumin,Copper,Alk_Phos,SGOT,Tryglicerides,Platelets,Prothrombin,Stage
-            
+
         Rules:
         1. Generate Stage with proper distribution: 4.0 (34.4%), 3.0 (38.5%), 2.0 (22.0%), 1.0 (5.0%)
         2. Higher Stage (4.0) usually correlates with lower N_Days, higher Bilirubin, higher Copper
@@ -209,7 +212,7 @@ PROMPTS = {
         """,
         "max_tokens": MAX_NEW_TOKENS // 3,  # Even fewer tokens for PROMPT_4
         "temperature": 0.5,  # Lower temperature for more focused generation
-        "use_cpu": True  # Force CPU for PROMPT_4
+        "use_cpu": True,  # Force CPU for PROMPT_4
     },
 }
 
@@ -222,9 +225,28 @@ def validate_record(record):
             return False
 
         # Extract all parts for validation
-        id_val, n_days, status, drug, age, sex, ascites, hepatomegaly, spiders, edema, \
-        bilirubin, cholesterol, albumin, copper, alk_phos, sgot, tryglicerides, platelets, \
-        prothrombin, stage = [p.strip() for p in parts]
+        (
+            id_val,
+            n_days,
+            status,
+            drug,
+            age,
+            sex,
+            ascites,
+            hepatomegaly,
+            spiders,
+            edema,
+            bilirubin,
+            cholesterol,
+            albumin,
+            copper,
+            alk_phos,
+            sgot,
+            tryglicerides,
+            platelets,
+            prothrombin,
+            stage,
+        ) = [p.strip() for p in parts]
 
         # Validate ID - should be a number
         try:
@@ -233,7 +255,7 @@ def validate_record(record):
                 return False
         except ValueError:
             return False
-            
+
         # Validate N_Days
         try:
             n_days_float = float(n_days)
@@ -241,15 +263,15 @@ def validate_record(record):
                 return False
         except ValueError:
             return False
-            
+
         # Validate Status
         if status not in ["C", "D"]:
             return False
-            
+
         # Validate Drug
         if drug not in ["D-penicillamine", "Placebo"]:
             return False
-            
+
         # Validate Age
         try:
             age_float = float(age)
@@ -257,74 +279,74 @@ def validate_record(record):
                 return False
         except ValueError:
             return False
-            
+
         # Validate Sex
         if sex not in ["M", "F"]:
             return False
-            
+
         # Validate Ascites
         if ascites not in ["Y", "N"]:
             return False
-            
+
         # Validate Hepatomegaly
         if hepatomegaly not in ["Y", "N"]:
             return False
-            
+
         # Validate Spiders
         if spiders not in ["Y", "N"]:
             return False
-            
+
         # Validate Edema
         if edema not in ["N", "S", "Y"]:
             return False
-            
+
         # Validate numerical values
         try:
             # Bilirubin
             bili_float = float(bilirubin)
             if not (0.3 <= bili_float <= 28.0):
                 return False
-                
+
             # Cholesterol
             chol_float = float(cholesterol)
             if not (120.0 <= chol_float <= 1775.0):
                 return False
-                
+
             # Albumin
             alb_float = float(albumin)
             if not (1.96 <= alb_float <= 4.64):
                 return False
-                
+
             # Copper
             copper_float = float(copper)
             if not (4.0 <= copper_float <= 588.0):
                 return False
-                
+
             # Alk_Phos
             alk_float = float(alk_phos)
             if not (289.0 <= alk_float <= 13862.4):
                 return False
-                
+
             # SGOT
             sgot_float = float(sgot)
             if not (26.35 <= sgot_float <= 457.25):
                 return False
-                
+
             # Tryglicerides
             trig_float = float(tryglicerides)
             if not (33.0 <= trig_float <= 598.0):
                 return False
-                
+
             # Platelets
             plat_float = float(platelets)
             if not (62.0 <= plat_float <= 721.0):
                 return False
-                
+
             # Prothrombin
             pro_float = float(prothrombin)
             if not (9.0 <= pro_float <= 18.0):
                 return False
-                
+
             # Stage
             if stage not in ["1.0", "2.0", "3.0", "4.0"]:
                 return False
@@ -363,30 +385,36 @@ def clear_memory():
     gc.collect()
 
 
-def generate_dataset_for_prompt4(generator, prompt_config, num_records=100, seed=None, experiment_num=1):
+def generate_dataset_for_prompt4(
+    generator, prompt_config, num_records=100, seed=None, experiment_num=1
+):
     """
     Special function for handling PROMPT_4 generation without using synthetic data.
     Uses multiple approaches to get the model to generate valid records.
     """
     if seed is not None:
         set_seed(seed)
-    
+
     # Extract settings
     prompt_text = prompt_config["text"]
     max_tokens = prompt_config["max_tokens"]
     temperature = prompt_config["temperature"]
-    
+
     # Create log file
     log_file = os.path.join(LOG_DIR, f"generation_log_exp{experiment_num}_PROMPT_4.txt")
     with open(log_file, "w") as f:
-        f.write(f"PROMPT_4 generation started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-        f.write(f"Original parameters: max_tokens={max_tokens}, temperature={temperature}\n\n")
+        f.write(
+            f"PROMPT_4 generation started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+        )
+        f.write(
+            f"Original parameters: max_tokens={max_tokens}, temperature={temperature}\n\n"
+        )
         f.write("Attempting specialized approaches for PROMPT_4 without examples\n")
-    
+
     # Create a progress bar
     pbar = tqdm(total=num_records, desc="Generating PROMPT_4 records")
     all_records = []
-    
+
     # Create CPU generator for stability
     try:
         cpu_generator = pipeline(
@@ -398,7 +426,7 @@ def generate_dataset_for_prompt4(generator, prompt_config, num_records=100, seed
     except Exception as e:
         print(f"Error creating CPU generator: {e}")
         cpu_generator = generator
-    
+
     # Try multiple approaches
     approaches = [
         # Approach 1: Add a formatting hint without examples
@@ -407,13 +435,13 @@ def generate_dataset_for_prompt4(generator, prompt_config, num_records=100, seed
             "prompt_addition": """
             To generate data, use this format exactly:
             ID,N_Days,Status,Drug,Age,Sex,Ascites,Hepatomegaly,Spiders,Edema,Bilirubin,Cholesterol,Albumin,Copper,Alk_Phos,SGOT,Tryglicerides,Platelets,Prothrombin,Stage
-            
+
             For example, a record might look like:
             ID,NDays,Status,Drug,Age,Sex,Ascites,Hepatomegaly,Spiders,Edema,Bilirubin,Cholesterol,Albumin,Copper,AlkPhos,SGOT,Tryglicerides,Platelets,Prothrombin,Stage
             """,
             "temperature": 0.5,
             "max_tokens": 500,
-            "attempts": 5
+            "attempts": 5,
         },
         # Approach 2: Add more specific instructions
         {
@@ -421,13 +449,13 @@ def generate_dataset_for_prompt4(generator, prompt_config, num_records=100, seed
             "prompt_addition": """
             Please generate exactly 10 records with the following format:
             ID,N_Days,Status,Drug,Age,Sex,Ascites,Hepatomegaly,Spiders,Edema,Bilirubin,Cholesterol,Albumin,Copper,Alk_Phos,SGOT,Tryglicerides,Platelets,Prothrombin,Stage
-            
+
             Each record should be on a new line and follow all the rules above.
             Follow the Stage distribution: 4.0 (34.4%), 3.0 (38.5%), 2.0 (22.0%), 1.0 (5.0%)
             """,
             "temperature": 0.7,
             "max_tokens": 400,
-            "attempts": 5
+            "attempts": 5,
         },
         # Approach 3: Generate one record at a time with specific format
         {
@@ -435,12 +463,12 @@ def generate_dataset_for_prompt4(generator, prompt_config, num_records=100, seed
             "prompt_addition": """
             Generate a single record in exactly this format:
             ID,N_Days,Status,Drug,Age,Sex,Ascites,Hepatomegaly,Spiders,Edema,Bilirubin,Cholesterol,Albumin,Copper,Alk_Phos,SGOT,Tryglicerides,Platelets,Prothrombin,Stage
-            
+
             Just output the record values with no additional text or explanation.
             """,
             "temperature": 0.6,
             "max_tokens": 100,
-            "attempts": 15
+            "attempts": 15,
         },
         # Approach 4: Use lower temperature
         {
@@ -448,7 +476,7 @@ def generate_dataset_for_prompt4(generator, prompt_config, num_records=100, seed
             "prompt_addition": "",  # No addition
             "temperature": 0.3,
             "max_tokens": max_tokens,
-            "attempts": 5
+            "attempts": 5,
         },
         # Approach 5: Use higher temperature
         {
@@ -456,55 +484,65 @@ def generate_dataset_for_prompt4(generator, prompt_config, num_records=100, seed
             "prompt_addition": "",  # No addition
             "temperature": 0.9,
             "max_tokens": max_tokens,
-            "attempts": 5
-        }
+            "attempts": 5,
+        },
     ]
-    
+
     # Try each approach until we have enough records
     for approach in approaches:
         if len(all_records) >= num_records:
             break
-            
+
         print(f"\nTrying PROMPT_4 approach: {approach['name']}")
         with open(log_file, "a") as f:
             f.write(f"\n\n=== Trying approach: {approach['name']} ===\n")
-            f.write(f"Temperature: {approach['temperature']}, Max tokens: {approach['max_tokens']}\n")
-            
+            f.write(
+                f"Temperature: {approach['temperature']}, Max tokens: {approach['max_tokens']}\n"
+            )
+
         # Create modified prompt
-        modified_prompt = prompt_text + approach['prompt_addition']
-        
+        modified_prompt = prompt_text + approach["prompt_addition"]
+
         # Try multiple attempts with this approach
-        for attempt in range(approach['attempts']):
+        for attempt in range(approach["attempts"]):
             if len(all_records) >= num_records:
                 break
-                
+
             try:
                 # Clear memory
                 clear_memory()
-                
+
                 # Generate text
                 output = cpu_generator(
                     modified_prompt,
-                    max_new_tokens=approach['max_tokens'],
+                    max_new_tokens=approach["max_tokens"],
                     do_sample=True,
-                    temperature=approach['temperature'],
+                    temperature=approach["temperature"],
                     pad_token_id=50256,
                     num_return_sequences=1,
-                    truncation=True
+                    truncation=True,
                 )
-                
+
                 # Get generated text
-                generated_text = output[0]["generated_text"] if isinstance(output, list) else output["generated_text"]
-                
+                generated_text = (
+                    output[0]["generated_text"]
+                    if isinstance(output, list)
+                    else output["generated_text"]
+                )
+
                 # Log a sample
                 with open(log_file, "a") as f:
                     f.write(f"\nAttempt {attempt+1}:\n")
                     f.write("Generated text sample:\n")
-                    f.write(generated_text[:500] + "...\n" if len(generated_text) > 500 else generated_text)
-                
+                    f.write(
+                        generated_text[:500] + "...\n"
+                        if len(generated_text) > 500
+                        else generated_text
+                    )
+
                 # Extract records
                 new_records = extract_records(generated_text)
-                
+
                 # Log found records
                 with open(log_file, "a") as f:
                     f.write(f"\nFound {len(new_records)} valid records\n")
@@ -512,7 +550,7 @@ def generate_dataset_for_prompt4(generator, prompt_config, num_records=100, seed
                         f.write("Records:\n")
                         for record in new_records:
                             f.write(f"{record}\n")
-                
+
                 # Add records to our collection
                 for record in new_records:
                     if len(all_records) < num_records:
@@ -520,44 +558,107 @@ def generate_dataset_for_prompt4(generator, prompt_config, num_records=100, seed
                         pbar.update(1)
                     else:
                         break
-            
+
             except Exception as e:
                 print(f"Error in PROMPT_4 generation attempt: {str(e)}")
                 with open(log_file, "a") as f:
                     f.write(f"\nError: {str(e)}\n")
                 continue
-    
+
     # If we still don't have enough records, we'll try one last approach - breaking down by steps
     if len(all_records) < num_records:
         print("\nAttempting step-by-step generation for PROMPT_4")
         with open(log_file, "a") as f:
             f.write("\n\n=== Attempting step-by-step generation ===\n")
-        
+
         # Define fields and constraints for cirrhosis data
         fields = [
             {"name": "ID", "min": 1, "max": 500},
-            {"name": "N_Days", "min": 41, "max": 4795, "mean": 1917.7823, "std": 1104.673},
+            {
+                "name": "N_Days",
+                "min": 41,
+                "max": 4795,
+                "mean": 1917.7823,
+                "std": 1104.673,
+            },
             {"name": "Status", "values": ["C", "D"]},
             {"name": "Drug", "values": ["D-penicillamine", "Placebo"]},
-            {"name": "Age", "min": 9598, "max": 28650, "mean": 18533.3517, "std": 3815.8451},
+            {
+                "name": "Age",
+                "min": 9598,
+                "max": 28650,
+                "mean": 18533.3517,
+                "std": 3815.8451,
+            },
             {"name": "Sex", "values": ["M", "F"]},
             {"name": "Ascites", "values": ["Y", "N"]},
             {"name": "Hepatomegaly", "values": ["Y", "N"]},
             {"name": "Spiders", "values": ["Y", "N"]},
             {"name": "Edema", "values": ["N", "S", "Y"]},
-            {"name": "Bilirubin", "min": 0.3, "max": 28.0, "mean": 3.2208, "std": 4.4075},
-            {"name": "Cholesterol", "min": 120.0, "max": 1775.0, "mean": 350.2727, "std": 193.1239},
+            {
+                "name": "Bilirubin",
+                "min": 0.3,
+                "max": 28.0,
+                "mean": 3.2208,
+                "std": 4.4075,
+            },
+            {
+                "name": "Cholesterol",
+                "min": 120.0,
+                "max": 1775.0,
+                "mean": 350.2727,
+                "std": 193.1239,
+            },
             {"name": "Albumin", "min": 1.96, "max": 4.64, "mean": 3.4974, "std": 0.425},
-            {"name": "Copper", "min": 4.0, "max": 588.0, "mean": 91.2799, "std": 74.4855},
-            {"name": "Alk_Phos", "min": 289.0, "max": 13862.4, "mean": 1799.145, "std": 1875.122},
-            {"name": "SGOT", "min": 26.35, "max": 457.25, "mean": 120.5641, "std": 49.0851},
-            {"name": "Tryglicerides", "min": 33.0, "max": 598.0, "mean": 119.2679, "std": 54.0507},
-            {"name": "Platelets", "min": 62.0, "max": 721.0, "mean": 256.866, "std": 97.0249},
-            {"name": "Prothrombin", "min": 9.0, "max": 18.0, "mean": 10.7311, "std": 1.0196},
-            {"name": "Stage", "values": ["1.0", "2.0", "3.0", "4.0"], 
-             "distribution": [0.05, 0.22, 0.385, 0.344]}  # Stage distribution
+            {
+                "name": "Copper",
+                "min": 4.0,
+                "max": 588.0,
+                "mean": 91.2799,
+                "std": 74.4855,
+            },
+            {
+                "name": "Alk_Phos",
+                "min": 289.0,
+                "max": 13862.4,
+                "mean": 1799.145,
+                "std": 1875.122,
+            },
+            {
+                "name": "SGOT",
+                "min": 26.35,
+                "max": 457.25,
+                "mean": 120.5641,
+                "std": 49.0851,
+            },
+            {
+                "name": "Tryglicerides",
+                "min": 33.0,
+                "max": 598.0,
+                "mean": 119.2679,
+                "std": 54.0507,
+            },
+            {
+                "name": "Platelets",
+                "min": 62.0,
+                "max": 721.0,
+                "mean": 256.866,
+                "std": 97.0249,
+            },
+            {
+                "name": "Prothrombin",
+                "min": 9.0,
+                "max": 18.0,
+                "mean": 10.7311,
+                "std": 1.0196,
+            },
+            {
+                "name": "Stage",
+                "values": ["1.0", "2.0", "3.0", "4.0"],
+                "distribution": [0.05, 0.22, 0.385, 0.344],
+            },  # Stage distribution
         ]
-        
+
         # Stage-specific means for key features
         stage_means = {
             "1.0": {
@@ -595,32 +696,33 @@ def generate_dataset_for_prompt4(generator, prompt_config, num_records=100, seed
                 "Albumin": 3.3024,
                 "Copper": 113.5764,
                 "Platelets": 225.2292,
-            }
+            },
         }
-        
+
         # Generate records needed to complete the set
         needed_records = num_records - len(all_records)
-        
+
         # Pre-determine stage distribution to ensure proper ratios
         import numpy as np
+
         np.random.seed(seed + experiment_num) if seed else np.random.seed()
-        
+
         # Generate stages based on required distribution
         stages = []
         stage_values = ["1.0", "2.0", "3.0", "4.0"]
         stage_probs = [0.05, 0.22, 0.385, 0.344]
-        
+
         for _ in range(needed_records):
             stage = np.random.choice(stage_values, p=stage_probs)
             stages.append(stage)
-        
+
         # Track used IDs to ensure uniqueness
         used_ids = set()
-        
+
         for i in range(needed_records):
             record_values = []
             stage = stages[i]
-            
+
             # Generate each field
             for field in fields:
                 try:
@@ -628,7 +730,7 @@ def generate_dataset_for_prompt4(generator, prompt_config, num_records=100, seed
                         # Already predetermined
                         record_values.append(stage)
                         continue
-                        
+
                     if field["name"] == "ID":
                         # Generate unique ID
                         while True:
@@ -638,26 +740,34 @@ def generate_dataset_for_prompt4(generator, prompt_config, num_records=100, seed
                                 record_values.append(str(id_val))
                                 break
                         continue
-                        
+
                     # For categorical fields
                     if "values" in field:
-                        if field["name"] in ["Status", "Drug", "Sex", "Ascites", "Hepatomegaly", "Spiders", "Edema"]:
+                        if field["name"] in [
+                            "Status",
+                            "Drug",
+                            "Sex",
+                            "Ascites",
+                            "Hepatomegaly",
+                            "Spiders",
+                            "Edema",
+                        ]:
                             value = np.random.choice(field["values"])
                             record_values.append(value)
                             continue
-                    
+
                     # For numerical fields, use stage-specific means when available
                     if field["name"] in stage_means[stage]:
                         # Generate value from normal distribution using stage-specific mean
                         stage_mean = stage_means[stage][field["name"]]
                         std = field["std"]
-                        
+
                         # Generate value with stage-specific mean and global std
                         while True:
                             value = np.random.normal(stage_mean, std)
                             if field["min"] <= value <= field["max"]:
                                 break
-                        
+
                         # Format based on field type
                         if field["name"] in ["N_Days", "Age"]:
                             value = int(round(value))
@@ -665,7 +775,7 @@ def generate_dataset_for_prompt4(generator, prompt_config, num_records=100, seed
                             value = round(value, 2)
                         else:
                             value = round(value, 1)
-                            
+
                         record_values.append(str(value))
                     else:
                         # Regular numerical field without stage-specific mean
@@ -673,7 +783,7 @@ def generate_dataset_for_prompt4(generator, prompt_config, num_records=100, seed
                             value = np.random.normal(field["mean"], field["std"])
                             if field["min"] <= value <= field["max"]:
                                 break
-                                
+
                         # Format based on field type
                         if field["name"] in ["N_Days", "Age"]:
                             value = int(round(value))
@@ -681,21 +791,23 @@ def generate_dataset_for_prompt4(generator, prompt_config, num_records=100, seed
                             value = round(value, 2)
                         else:
                             value = round(value, 1)
-                            
+
                         record_values.append(str(value))
-                        
+
                 except Exception as e:
                     print(f"Error generating {field['name']}: {e}")
                     # Use default values in case of error
                     if "values" in field:
                         value = field["values"][0]
                     else:
-                        value = str(round(field["min"] + (field["max"] - field["min"])/2, 2))
+                        value = str(
+                            round(field["min"] + (field["max"] - field["min"]) / 2, 2)
+                        )
                     record_values.append(value)
-            
+
             # Create record string
             record = ", ".join(record_values)
-            
+
             # Validate and add
             if validate_record(record):
                 all_records.append(record)
@@ -705,25 +817,38 @@ def generate_dataset_for_prompt4(generator, prompt_config, num_records=100, seed
             else:
                 with open(log_file, "a") as f:
                     f.write(f"Invalid record generated: {record}\n")
-    
+
     pbar.close()
-    
+
     # Log completion
     with open(log_file, "a") as f:
-        f.write(f"\nPROMPT_4 generation completed at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write(
+            f"\nPROMPT_4 generation completed at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+        )
         f.write(f"Total records generated: {len(all_records)}\n")
         if len(all_records) < num_records:
-            f.write(f"WARNING: Only generated {len(all_records)}/{num_records} requested records\n")
-    
+            f.write(
+                f"WARNING: Only generated {len(all_records)}/{num_records} requested records\n"
+            )
+
     return all_records
 
 
-def generate_dataset(generator, prompt_config, num_records=100, seed=None, experiment_num=1, prompt_name=""):
+def generate_dataset(
+    generator,
+    prompt_config,
+    num_records=100,
+    seed=None,
+    experiment_num=1,
+    prompt_name="",
+):
     """Generate dataset with improved handling and experiment-specific seed"""
     # Special case for PROMPT_4
     if prompt_name == "PROMPT_4":
-        return generate_dataset_for_prompt4(generator, prompt_config, num_records, seed, experiment_num)
-    
+        return generate_dataset_for_prompt4(
+            generator, prompt_config, num_records, seed, experiment_num
+        )
+
     # Regular generation for other prompts
     if seed is not None:
         set_seed(seed)
@@ -733,13 +858,13 @@ def generate_dataset(generator, prompt_config, num_records=100, seed=None, exper
     max_tokens = prompt_config["max_tokens"]
     temperature = prompt_config["temperature"]
     use_cpu = prompt_config["use_cpu"]
-    
+
     # Log the generation parameters
     print(f"\nGeneration parameters for {prompt_name}:")
     print(f"- Max tokens: {max_tokens}")
     print(f"- Temperature: {temperature}")
     print(f"- Using CPU: {use_cpu}")
-    
+
     # If we need to use CPU, create a CPU-specific generator
     if use_cpu or DEVICE < 0:
         print(f"Creating CPU generator for {prompt_name}")
@@ -758,24 +883,30 @@ def generate_dataset(generator, prompt_config, num_records=100, seed=None, exper
     else:
         current_generator = generator
         current_device = DEVICE
-    
+
     # Create a log file for this specific generation
-    log_file = os.path.join(LOG_DIR, f"generation_log_exp{experiment_num}_{prompt_name}.txt")
+    log_file = os.path.join(
+        LOG_DIR, f"generation_log_exp{experiment_num}_{prompt_name}.txt"
+    )
     with open(log_file, "w") as f:
-        f.write(f"Generation started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-        f.write(f"Parameters: max_tokens={max_tokens}, temperature={temperature}, device={current_device}\n\n")
+        f.write(
+            f"Generation started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+        )
+        f.write(
+            f"Parameters: max_tokens={max_tokens}, temperature={temperature}, device={current_device}\n\n"
+        )
 
     all_records = []
     pbar = tqdm(total=num_records, desc="Generating records")
     max_attempts = 10
     batch_size = 1  # Generate one at a time for better stability
 
-    # Set up timeout 
+    # Set up timeout
     signal.signal(signal.SIGALRM, timeout_handler)
-    
+
     # If there was a CUDA device-side assert, switch to CPU for this run
     had_cuda_assert = False
-    
+
     while len(all_records) < num_records:
         for attempt in range(max_attempts):
             try:
@@ -793,7 +924,7 @@ def generate_dataset(generator, prompt_config, num_records=100, seed=None, exper
                         had_cuda_assert = False  # Reset flag
                     except Exception as e:
                         print(f"Error creating CPU generator: {e}")
-                
+
                 # Clear memory safely
                 try:
                     clear_memory()  # Clear memory before generation
@@ -803,10 +934,10 @@ def generate_dataset(generator, prompt_config, num_records=100, seed=None, exper
                     if "device-side assert" in str(e) and current_device >= 0:
                         had_cuda_assert = True
                         continue  # Retry with CPU
-                
+
                 # Set timeout alarm
                 signal.alarm(TIMEOUT_SECONDS)
-                
+
                 # Generate text with appropriate parameters
                 try:
                     output = current_generator(
@@ -816,38 +947,44 @@ def generate_dataset(generator, prompt_config, num_records=100, seed=None, exper
                         temperature=temperature,
                         pad_token_id=50256,
                         num_return_sequences=batch_size,
-                        truncation=True
+                        truncation=True,
                     )
                 finally:
                     # Disable alarm
                     signal.alarm(0)
-                
+
                 # Check if output is a list or dictionary
                 if isinstance(output, list):
                     generated_texts = [item["generated_text"] for item in output]
                 else:
                     generated_texts = [output["generated_text"]]
-                
+
                 # Process each generated text
                 all_new_records = []
                 for generated_text in generated_texts:
                     # Log a sample of the generation to the file
                     with open(log_file, "a") as f:
                         f.write(f"\n--- Generation Sample (Attempt {attempt+1}) ---\n")
-                        f.write(generated_text[:500] + "...\n" if len(generated_text) > 500 else generated_text)
-                    
+                        f.write(
+                            generated_text[:500] + "...\n"
+                            if len(generated_text) > 500
+                            else generated_text
+                        )
+
                     # Extract and validate records
                     new_records = extract_records(generated_text)
                     all_new_records.extend(new_records)
-                    
+
                     # Log found records
                     with open(log_file, "a") as f:
                         f.write(f"\nFound {len(new_records)} valid records\n")
                         if new_records:
                             f.write("Sample records:\n")
-                            for i, record in enumerate(new_records[:3]):  # Log just a few samples
+                            for i, record in enumerate(
+                                new_records[:3]
+                            ):  # Log just a few samples
                                 f.write(f"{i+1}. {record}\n")
-                
+
                 # Add new valid records
                 for record in all_new_records:
                     if len(all_records) < num_records:
@@ -855,22 +992,28 @@ def generate_dataset(generator, prompt_config, num_records=100, seed=None, exper
                         pbar.update(1)
                     else:
                         break
-                        
+
                 # If we got records, no need to retry
                 if all_new_records:
                     break
                 else:
                     # If no records found, try with different temperature
                     with open(log_file, "a") as f:
-                        f.write(f"\nNo valid records found, changing temperature for next attempt\n")
+                        f.write(
+                            f"\nNo valid records found, changing temperature for next attempt\n"
+                        )
                     temperature = 0.8 if temperature < 0.7 else 0.6
                     time.sleep(1)  # Wait a moment before retrying
-                    
+
             except TimeoutException:
                 with open(log_file, "a") as f:
-                    f.write(f"\n!!! Generation timed out after {TIMEOUT_SECONDS} seconds !!!\n")
-                print(f"\nWarning: Generation timed out for {prompt_name}. Trying again with different parameters.")
-                
+                    f.write(
+                        f"\n!!! Generation timed out after {TIMEOUT_SECONDS} seconds !!!\n"
+                    )
+                print(
+                    f"\nWarning: Generation timed out for {prompt_name}. Trying again with different parameters."
+                )
+
                 # Fall back to CPU if on GPU
                 if current_device >= 0:
                     with open(log_file, "a") as f:
@@ -886,25 +1029,29 @@ def generate_dataset(generator, prompt_config, num_records=100, seed=None, exper
                         current_device = -1
                     except Exception as e:
                         print(f"Error creating CPU generator: {e}")
-                
+
                 # Reduce tokens and try again
                 max_tokens = max(50, max_tokens // 2)
                 with open(log_file, "a") as f:
                     f.write(f"\nReducing max_tokens to {max_tokens}\n")
-                
+
                 continue  # Try the next attempt
-                
+
             except RuntimeError as e:
                 # Handle out-of-memory errors and CUDA device-side assert errors
                 with open(log_file, "a") as f:
                     f.write(f"\nRuntime error: {str(e)}\n")
-                
+
                 # Check for CUDA device-side assert error
                 if "device-side assert" in str(e) and current_device >= 0:
-                    print(f"CUDA device-side assert error on attempt {attempt+1}, switching to CPU")
+                    print(
+                        f"CUDA device-side assert error on attempt {attempt+1}, switching to CPU"
+                    )
                     had_cuda_assert = True
                     with open(log_file, "a") as f:
-                        f.write(f"\nSwitching to CPU after CUDA device-side assert error\n")
+                        f.write(
+                            f"\nSwitching to CPU after CUDA device-side assert error\n"
+                        )
                     try:
                         temp_generator = pipeline(
                             "text-generation",
@@ -955,30 +1102,35 @@ def generate_dataset(generator, prompt_config, num_records=100, seed=None, exper
                     continue
                 else:
                     break
-    
+
     pbar.close()
-    
+
     # Log completion
     with open(log_file, "a") as f:
-        f.write(f"\nGeneration completed at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write(
+            f"\nGeneration completed at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+        )
         f.write(f"Total records generated: {len(all_records)}\n")
-    
+
     return all_records
+
 
 def get_system_info():
     """Get current system resource usage - with better error handling for MIG"""
     system_info = {}
-    
+
     try:
         cpu_percent = psutil.cpu_percent(interval=1)
         memory = psutil.virtual_memory()
-        
-        system_info.update({
-            "cpu_percent": cpu_percent,
-            "memory_total_gb": memory.total / (1024**3),
-            "memory_used_gb": memory.used / (1024**3),
-            "memory_percent": memory.percent,
-        })
+
+        system_info.update(
+            {
+                "cpu_percent": cpu_percent,
+                "memory_total_gb": memory.total / (1024**3),
+                "memory_used_gb": memory.used / (1024**3),
+                "memory_percent": memory.percent,
+            }
+        )
     except Exception as e:
         print(f"Warning: Error getting system info: {e}")
         system_info["system_error"] = str(e)
@@ -989,27 +1141,34 @@ def get_system_info():
             gpus = GPUtil.getGPUs()
             if gpus:
                 gpu = gpus[0]
-                system_info.update({
-                    "gpu_name": gpu.name,
-                    "gpu_memory_total_mb": gpu.memoryTotal,
-                    "gpu_memory_used_mb": gpu.memoryUsed,
-                    "gpu_memory_percent": (gpu.memoryUsed / gpu.memoryTotal) * 100,
-                    "gpu_temperature": gpu.temperature,
-                })
+                system_info.update(
+                    {
+                        "gpu_name": gpu.name,
+                        "gpu_memory_total_mb": gpu.memoryTotal,
+                        "gpu_memory_used_mb": gpu.memoryUsed,
+                        "gpu_memory_percent": (gpu.memoryUsed / gpu.memoryTotal) * 100,
+                        "gpu_temperature": gpu.temperature,
+                    }
+                )
             else:
                 system_info["gpu_info"] = "No GPUs found by GPUtil"
-                
+
             # Add torch.cuda info as fallback
-            system_info.update({
-                "cuda_device_count": torch.cuda.device_count(),
-                "cuda_current_device": torch.cuda.current_device(),
-                "cuda_device_name": torch.cuda.get_device_name(0) if torch.cuda.is_available() else "N/A",
-            })
+            system_info.update(
+                {
+                    "cuda_device_count": torch.cuda.device_count(),
+                    "cuda_current_device": torch.cuda.current_device(),
+                    "cuda_device_name": torch.cuda.get_device_name(0)
+                    if torch.cuda.is_available()
+                    else "N/A",
+                }
+            )
         except Exception as e:
             print(f"Warning: Error getting GPU info: {e}")
             system_info["gpu_error"] = str(e)
 
     return system_info
+
 
 def log_experiment_metrics(
     experiment_num,
@@ -1041,11 +1200,13 @@ def log_experiment_metrics(
     )
     with open(metrics_file, "w") as f:
         json.dump(metrics, f, indent=4)
-    
+
     # Also save a combined status file to track overall progress
     status_file = os.path.join(output_dir, "experiment_status.txt")
     with open(status_file, "a") as f:
-        f.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - Experiment {experiment_num}, {prompt_name}: Complete ({num_records} records in {(end_time - start_time):.1f}s)\n")
+        f.write(
+            f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - Experiment {experiment_num}, {prompt_name}: Complete ({num_records} records in {(end_time - start_time):.1f}s)\n"
+        )
 
     return metrics
 
@@ -1079,14 +1240,14 @@ def save_and_validate_dataset(records, prompt_name, experiment_num):
         "Tryglicerides",
         "Platelets",
         "Prothrombin",
-        "Stage"
+        "Stage",
     ]
 
     # Clean up strings and split by comma
     cleaned_records = []
     for record in records:
         # Replace any spaces after commas
-        parts = [part.strip() for part in record.split(',')]
+        parts = [part.strip() for part in record.split(",")]
         cleaned_records.append(parts)
 
     df = pd.DataFrame(cleaned_records, columns=columns)
@@ -1127,7 +1288,7 @@ def save_and_validate_dataset(records, prompt_name, experiment_num):
     ]:
         print(f"\n{col}:")
         print(df[col].value_counts(normalize=True))
-    
+
     # Calculate and print Stage distribution
     stage_dist = df["Stage"].value_counts(normalize=True)
     print("\nStage distribution:")
@@ -1135,38 +1296,42 @@ def save_and_validate_dataset(records, prompt_name, experiment_num):
     print(f"2.0: {stage_dist.get(2.0, 0)*100:.2f}%")
     print(f"3.0: {stage_dist.get(3.0, 0)*100:.2f}%")
     print(f"4.0: {stage_dist.get(4.0, 0)*100:.2f}%")
-    
+
     # Check if stage distribution is close to expected
     expected_dist = {1.0: 0.05, 2.0: 0.22, 3.0: 0.385, 4.0: 0.344}
     for stage, expected in expected_dist.items():
         actual = stage_dist.get(stage, 0)
         if abs(actual - expected) > 0.1:  # Allow 10% deviation
-            print(f"WARNING: Stage {stage} percentage ({actual*100:.2f}%) deviates significantly from expected {expected*100:.2f}%")
+            print(
+                f"WARNING: Stage {stage} percentage ({actual*100:.2f}%) deviates significantly from expected {expected*100:.2f}%"
+            )
 
 
 def main(device_val=None):
     # Use device_val instead of DEVICE throughout this function
     status_file = os.path.join(OUTPUT_DIR, "experiment_status.txt")
     with open(status_file, "w") as f:
-        f.write(f"Experiment started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write(
+            f"Experiment started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+        )
         f.write(f"Model: {MODEL_NAME}\n")
         f.write(f"Device: {'CUDA' if device_val >= 0 else 'CPU'}\n")
         f.write(f"Experiments: {NUM_EXPERIMENTS}\n")
         f.write("----------------------------------------\n")
-    
+
     print(f"Starting GPT-2 cirrhosis data generation on device {device_val}")
     print(f"Device is {'CUDA' if device_val >= 0 else 'CPU'}")
     print(f"Results will be saved to: {OUTPUT_DIR}")
     print(f"Logs will be saved to: {LOG_DIR}")
-    
+
     # When you need to modify the device value:
     local_device = device_val  # Create a local copy to modify
-    
+
     try:
         # Initialize generator with careful error handling
         print(f"Initializing generator with {MODEL_NAME} on device {local_device}")
         generator = None
-        
+
         # Try to initialize with GPU first
         if local_device >= 0:
             try:
@@ -1181,8 +1346,8 @@ def main(device_val=None):
             except Exception as e:
                 print(f"Error initializing with GPU: {e}")
                 print("Falling back to CPU")
-                local_device = -1 
-        
+                local_device = -1
+
         # Initialize with CPU if GPU failed or wasn't available
         if generator is None:
             try:
@@ -1194,8 +1359,10 @@ def main(device_val=None):
                 print("Successfully initialized generator with CPU")
             except Exception as e:
                 print(f"Error initializing with CPU: {e}")
-                raise RuntimeError("Failed to initialize generator with either GPU or CPU")
-                
+                raise RuntimeError(
+                    "Failed to initialize generator with either GPU or CPU"
+                )
+
         # Store all experiment metrics
         all_metrics = []
 
@@ -1207,28 +1374,30 @@ def main(device_val=None):
             print(
                 f"\n=== Starting Experiment {experiment_num} (Seed: {experiment_seed}) ==="
             )
-            
+
             # Track experiment progress
             with open(status_file, "a") as f:
-                f.write(f"\nExperiment {experiment_num} started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                f.write(
+                    f"\nExperiment {experiment_num} started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+                )
 
             for prompt_name, prompt_config in PROMPTS.items():
                 try:
                     print(
                         f"\n=== Generating for: {prompt_name} (Experiment {experiment_num}) ==="
                     )
-                    
+
                     # Record start time and initial system info
                     start_time = time.time()
                     initial_system_info = get_system_info()
 
                     # Generate dataset with specific prompt settings
                     records = generate_dataset(
-                        generator, 
-                        prompt_config, 
+                        generator,
+                        prompt_config,
                         seed=experiment_seed,
                         experiment_num=experiment_num,
-                        prompt_name=prompt_name
+                        prompt_name=prompt_name,
                     )
 
                     # Record end time and final system info
@@ -1263,10 +1432,13 @@ def main(device_val=None):
                     except Exception as e:
                         print(f"Warning: Cleanup error between prompts: {e}")
                     time.sleep(2)
-                    
+
                 except Exception as e:
-                    print(f"Error in experiment {experiment_num}, prompt {prompt_name}: {e}")
+                    print(
+                        f"Error in experiment {experiment_num}, prompt {prompt_name}: {e}"
+                    )
                     import traceback
+
                     traceback.print_exc()
                     # Log the error
                     with open(status_file, "a") as f:
@@ -1276,7 +1448,9 @@ def main(device_val=None):
 
             print(f"\n=== Completed Experiment {experiment_num} ===")
             with open(status_file, "a") as f:
-                f.write(f"Experiment {experiment_num} completed at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                f.write(
+                    f"Experiment {experiment_num} completed at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+                )
 
         # Save summary of all experiments
         summary_file = os.path.join(OUTPUT_DIR, "metrics", "experiments_summary.json")
@@ -1286,24 +1460,28 @@ def main(device_val=None):
                     "total_experiments": NUM_EXPERIMENTS,
                     "model_name": MODEL_NAME,
                     "device": DEVICE,
-                    "timestamp": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                     "metrics": all_metrics,
                 },
                 f,
                 indent=4,
             )
-        
+
         print(f"\n=== All experiments completed successfully ===")
         print(f"Results saved to {OUTPUT_DIR}")
         with open(status_file, "a") as f:
-            f.write(f"\nAll experiments completed successfully at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-        
+            f.write(
+                f"\nAll experiments completed successfully at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+            )
+
     except Exception as e:
         print(f"Critical error in main function: {e}")
         import traceback
+
         traceback.print_exc()
         with open(status_file, "a") as f:
             f.write(f"\nCRITICAL ERROR: {str(e)}\n")
+
 
 if __name__ == "__main__":
     try:
@@ -1312,30 +1490,39 @@ if __name__ == "__main__":
         if torch.cuda.is_available():
             print(f"CUDA Version: {torch.version.cuda}")
             print(f"GPU Device: {torch.cuda.get_device_name(0)}")
-            print(f"Available memory: {torch.cuda.get_device_properties(0).total_memory / 1024**3:.2f} GB")
+            print(
+                f"Available memory: {torch.cuda.get_device_properties(0).total_memory / 1024**3:.2f} GB"
+            )
         else:
             print("CUDA not available")
-        
+
         # Initialize a basic progress file
         progress_file = os.path.join(OUTPUT_DIR, "progress.log")
         with open(progress_file, "w") as f:
-            f.write(f"Script started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-        
+            f.write(
+                f"Script started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+            )
+
         # Run the main process
         main(DEVICE)
-        
+
     except KeyboardInterrupt:
         print("\n\nProcess interrupted by user. Exiting gracefully...")
         # Log the interruption
         with open(os.path.join(OUTPUT_DIR, "experiment_status.txt"), "a") as f:
-            f.write(f"\nProcess interrupted by user at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write(
+                f"\nProcess interrupted by user at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+            )
     except Exception as e:
         print(f"\n\nUnhandled exception: {str(e)}")
         import traceback
+
         traceback.print_exc()
         # Log the error
         with open(os.path.join(OUTPUT_DIR, "experiment_status.txt"), "a") as f:
-            f.write(f"\nUnhandled exception: {str(e)} at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write(
+                f"\nUnhandled exception: {str(e)} at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+            )
     finally:
         print("\nExiting script")
         # Final cleanup - be cautious with CUDA operations

@@ -215,16 +215,20 @@ PROMPTS = {
 def check_hardware_compatibility():
     """Check if running on compatible hardware"""
     if not torch.cuda.is_available():
-        print("WARNING: No CUDA device available. This code is optimized for NVIDIA A100 GPUs.")
+        print(
+            "WARNING: No CUDA device available. This code is optimized for NVIDIA A100 GPUs."
+        )
         return False
-        
+
     try:
         device_name = torch.cuda.get_device_name(0).lower()
         if "a100" in device_name:
             print(f"Compatible hardware detected: {device_name}")
             return True
         else:
-            print(f"WARNING: Running on {device_name}. This code is optimized for NVIDIA A100 GPUs and may not work correctly.")
+            print(
+                f"WARNING: Running on {device_name}. This code is optimized for NVIDIA A100 GPUs and may not work correctly."
+            )
             return False
     except Exception as e:
         print(f"Error checking hardware compatibility: {e}")
@@ -241,7 +245,7 @@ def find_least_used_gpu():
         if device_count == 0:
             print("No CUDA devices found, falling back to CPU")
             return -1
-            
+
         if device_count == 1:
             print(f"Only one CUDA device available, using device 0")
             return 0
@@ -292,7 +296,7 @@ def clean_gpu_memory():
                     print(f"GPU {i}: {free_memory / 1024**2:.2f} MiB free")
             except Exception as e:
                 print(f"Warning: Could not get GPU memory info: {e}")
-                
+
     except Exception as e:
         print(f"Warning: Error cleaning GPU memory: {e}")
         # Still do garbage collection even if GPU operations fail
@@ -345,16 +349,18 @@ def extract_records(text):
 
     # Validate each potential record
     valid_records = [record for record in potential_records if validate_record(record)]
-    
+
     # Print some debug info
     if valid_records:
-        print(f"Successfully extracted {len(valid_records)} valid records from generated text")
+        print(
+            f"Successfully extracted {len(valid_records)} valid records from generated text"
+        )
     elif potential_records:
         print(f"Found {len(potential_records)} potential records but none were valid")
         # Show a sample of invalid records for debugging
         if len(potential_records) > 0:
             print(f"Sample invalid record: {potential_records[0]}")
-    
+
     return valid_records
 
 
@@ -365,22 +371,22 @@ def generate_dataset(tokenizer, model, prompt, num_records=100, seed=None):
 
     all_records = []
     pbar = tqdm(total=num_records, desc="Generating records")
-    
+
     # Track unique records
     unique_records = set()
-    
+
     attempts = 0
     max_attempts = num_records * 3  # Allow more attempts than needed records
-    
+
     while len(all_records) < num_records and attempts < max_attempts:
         attempts += 1
-        
+
         try:
             clean_gpu_memory()
-            
+
             # Tokenize prompt
             inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-            
+
             # Generate text directly with model
             with torch.no_grad():
                 outputs = model.generate(
@@ -392,48 +398,52 @@ def generate_dataset(tokenizer, model, prompt, num_records=100, seed=None):
                     pad_token_id=tokenizer.pad_token_id,
                     num_return_sequences=1,
                 )
-            
+
             # Decode output
             generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
-            
+
             # Extract only the newly generated part (after the prompt)
             if prompt in generated_text:
-                response_text = generated_text[len(prompt):]
+                response_text = generated_text[len(prompt) :]
             else:
                 response_text = generated_text
-                
+
             # Debug - print a preview of the generated text
-            print(f"\nGenerated text preview (first 200 chars):\n{response_text[:200]}...\n")
-            
+            print(
+                f"\nGenerated text preview (first 200 chars):\n{response_text[:200]}...\n"
+            )
+
             # Extract records
             new_records = extract_records(response_text)
             print(f"Found {len(new_records)} records in attempt {attempts}")
-            
+
             # Add valid records
             for record in new_records:
                 if record not in unique_records and len(all_records) < num_records:
                     unique_records.add(record)
                     all_records.append(record)
                     pbar.update(1)
-            
+
             # If we didn't find any records, wait a bit before trying again
             if not new_records:
                 time.sleep(1)
-            
+
         except Exception as e:
             print(f"Error in generation: {e}")
             time.sleep(2)
-        
+
         # If we got some records, print them for visibility
         if len(all_records) > 0 and len(all_records) % 5 == 0:
             print(f"Progress: {len(all_records)}/{num_records} records")
             print(f"Latest record: {all_records[-1]}")
-    
+
     pbar.close()
-    
+
     # Final report
-    print(f"\nGeneration complete: collected {len(all_records)} records in {attempts} attempts")
-    
+    print(
+        f"\nGeneration complete: collected {len(all_records)} records in {attempts} attempts"
+    )
+
     return all_records
 
 
@@ -460,7 +470,9 @@ def save_and_validate_dataset(records, prompt_name, experiment_num):
 
     # Safety check
     if not records:
-        print(f"Warning: No records to save for {prompt_name} (Experiment {experiment_num})")
+        print(
+            f"Warning: No records to save for {prompt_name} (Experiment {experiment_num})"
+        )
         # Create empty DataFrame with correct columns
         df = pd.DataFrame(columns=columns)
     else:
@@ -483,7 +495,7 @@ def save_and_validate_dataset(records, prompt_name, experiment_num):
     # Print basic statistics
     print(f"\nDataset statistics for {prompt_name} (Experiment {experiment_num}):")
     print(f"Total records: {len(df)}")
-    
+
     if not df.empty:
         print("\nNumerical columns summary:")
         print(df.describe())
@@ -502,18 +514,20 @@ def save_and_validate_dataset(records, prompt_name, experiment_num):
 def get_system_info():
     """Get current system resource usage with better error handling for MIG"""
     system_info = {}
-    
+
     try:
         # Get CPU info
         cpu_percent = psutil.cpu_percent(interval=1)
         memory = psutil.virtual_memory()
 
-        system_info.update({
-            "cpu_percent": cpu_percent,
-            "memory_total_gb": memory.total / (1024**3),
-            "memory_used_gb": memory.used / (1024**3),
-            "memory_percent": memory.percent,
-        })
+        system_info.update(
+            {
+                "cpu_percent": cpu_percent,
+                "memory_total_gb": memory.total / (1024**3),
+                "memory_used_gb": memory.used / (1024**3),
+                "memory_percent": memory.percent,
+            }
+        )
     except Exception as e:
         print(f"Warning: Error getting CPU info: {e}")
         system_info["cpu_error"] = str(e)
@@ -522,34 +536,43 @@ def get_system_info():
     try:
         if torch.cuda.is_available():
             # Add CUDA info from torch directly
-            system_info.update({
-                "cuda_available": True,
-                "cuda_device_count": torch.cuda.device_count(),
-                "cuda_current_device": torch.cuda.current_device(),
-            })
-            
+            system_info.update(
+                {
+                    "cuda_available": True,
+                    "cuda_device_count": torch.cuda.device_count(),
+                    "cuda_current_device": torch.cuda.current_device(),
+                }
+            )
+
             # Try to get device name and memory info
             try:
                 system_info["cuda_device_name"] = torch.cuda.get_device_name(0)
-                system_info["cuda_memory_allocated_gb"] = torch.cuda.memory_allocated(0) / (1024**3)
-                system_info["cuda_memory_reserved_gb"] = torch.cuda.memory_reserved(0) / (1024**3)
+                system_info["cuda_memory_allocated_gb"] = torch.cuda.memory_allocated(
+                    0
+                ) / (1024**3)
+                system_info["cuda_memory_reserved_gb"] = torch.cuda.memory_reserved(
+                    0
+                ) / (1024**3)
             except Exception as e:
                 system_info["cuda_device_info_error"] = str(e)
-            
+
             # Try GPUtil as fallback
             try:
                 gpus = GPUtil.getGPUs()
                 if gpus:
                     gpu_info = []
                     for i, gpu in enumerate(gpus):
-                        gpu_info.append({
-                            "gpu_id": i,
-                            "gpu_name": gpu.name,
-                            "gpu_memory_total_mb": gpu.memoryTotal,
-                            "gpu_memory_used_mb": gpu.memoryUsed,
-                            "gpu_memory_percent": (gpu.memoryUsed / gpu.memoryTotal) * 100,
-                            "gpu_temperature": gpu.temperature,
-                        })
+                        gpu_info.append(
+                            {
+                                "gpu_id": i,
+                                "gpu_name": gpu.name,
+                                "gpu_memory_total_mb": gpu.memoryTotal,
+                                "gpu_memory_used_mb": gpu.memoryUsed,
+                                "gpu_memory_percent": (gpu.memoryUsed / gpu.memoryTotal)
+                                * 100,
+                                "gpu_temperature": gpu.temperature,
+                            }
+                        )
                     system_info["gpus"] = gpu_info
             except Exception as e:
                 system_info["gputil_error"] = str(e)
@@ -597,22 +620,22 @@ def log_experiment_metrics(
 def main():
     print(f"Starting Mistral data generation experiment")
     print(f"Output directory: {OUTPUT_DIR}")
-    
+
     # Check hardware compatibility
     check_hardware_compatibility()
-    
+
     # Select the best GPU to use
     gpu_id = find_least_used_gpu()
-    
+
     # Set device based on GPU detection
     device = f"cuda:{gpu_id}" if gpu_id >= 0 else "cpu"
-    
+
     print(f"Using device: {device}")
 
     try:
         # Initialize model with adaptations for MIG
         print(f"Loading model {MODEL_NAME}")
-        
+
         # Try loading with 4-bit quantization first (better for MIG memory constraints)
         try:
             print("Attempting to load with 4-bit quantization...")
@@ -621,12 +644,12 @@ def main():
                 bnb_4bit_quant_type="nf4",
                 bnb_4bit_compute_dtype=torch.float16,
             )
-            
+
             # Load tokenizer first
             tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
             if tokenizer.pad_token is None:
                 tokenizer.pad_token = tokenizer.eos_token
-                
+
             # Load model without device_map="auto" for MIG compatibility
             model = AutoModelForCausalLM.from_pretrained(
                 MODEL_NAME,
@@ -635,12 +658,12 @@ def main():
                 # Avoid device_map="auto" for MIG
                 device_map={"": 0},  # Explicitly map to first device
             )
-            
+
             print("Successfully loaded model with 4-bit quantization")
-            
+
         except Exception as e:
             print(f"Error loading with 4-bit quantization: {e}")
-            
+
             print("Falling back to 8-bit quantization...")
             try:
                 # Try 8-bit as fallback
@@ -648,36 +671,36 @@ def main():
                     load_in_8bit=True,
                     llm_int8_threshold=6.0,
                 )
-                
+
                 # Load tokenizer first
                 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
                 if tokenizer.pad_token is None:
                     tokenizer.pad_token = tokenizer.eos_token
-                
-                # Load model 
+
+                # Load model
                 model = AutoModelForCausalLM.from_pretrained(
                     MODEL_NAME,
                     quantization_config=quantization_config,
                     torch_dtype=torch.float16,
                     device_map={"": 0},  # Explicitly map to first device
                 )
-                
+
                 print("Successfully loaded model with 8-bit quantization")
-                
+
             except Exception as e2:
                 print(f"Error loading with 8-bit quantization: {e2}")
-                
+
                 print("Falling back to regular model loading with explicit device...")
                 # Final fallback: regular loading to specific device
                 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
                 if tokenizer.pad_token is None:
                     tokenizer.pad_token = tokenizer.eos_token
-                    
+
                 model = AutoModelForCausalLM.from_pretrained(
                     MODEL_NAME,
                     torch_dtype=torch.float16,
                 ).to(device)
-                
+
                 print(f"Model loaded on {device} without quantization")
 
         # Store all experiment metrics
@@ -764,6 +787,7 @@ def main():
     except Exception as e:
         print(f"Critical error in main function: {e}")
         import traceback
+
         traceback.print_exc()
 
 

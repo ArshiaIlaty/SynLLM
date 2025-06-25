@@ -10,7 +10,12 @@ import pandas as pd
 import psutil
 import torch
 from tqdm import tqdm
-from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed, BitsAndBytesConfig
+from transformers import (
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    BitsAndBytesConfig,
+    set_seed,
+)
 
 """
 IMPORTANT: This code is optimized for NVIDIA A100 GPUs with MIG configuration.
@@ -58,7 +63,6 @@ BASE_PROMPTS = {
     Male,58.0,0,0,former,36.53,5.8,160,0
     Male,11.0,0,0,No Info,27.59,6.6,100,0
     """,
-    
     # Step 2: Prompt with Definitions
     "PROMPT_2": """
     Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions:
@@ -82,7 +86,6 @@ BASE_PROMPTS = {
     Male,58.0,0,0,former,36.53,5.8,160,0
     Male,11.0,0,0,No Info,27.59,6.6,100,0
     """,
-    
     # Step 3: Prompt with Definitions and Metadata
     "PROMPT_3": """
     Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
@@ -136,7 +139,6 @@ BASE_PROMPTS = {
     Male,58.0,0,0,former,36.53,5.8,160,0
     Male,11.0,0,0,No Info,27.59,6.6,100,0
     """,
-    
     # Step 4: Prompt with only Definitions and Metadata (No Examples)
     "PROMPT_4": """
     Generate realistic synthetic patient records for diabetes prediction. Here are the features with definitions and statistical metadata:
@@ -191,6 +193,7 @@ BASE_PROMPTS = {
     """,
 }
 
+
 # Function to convert base prompts to chat format for Gemma
 def get_chat_prompt(base_prompt, examples=None):
     """Convert base prompt to Gemma chat format with explicit instructions"""
@@ -198,7 +201,7 @@ def get_chat_prompt(base_prompt, examples=None):
     example_text = ""
     if examples and len(examples) > 0:
         example_text = "\n".join(examples[:10])  # Use up to 10 examples
-    
+
     chat_prompt = f"""<s>[INST] You are an expert medical data generator.
 ONLY generate numerical records in CSV format.
 DO NOT output code, explanations, or comments.
@@ -214,7 +217,7 @@ Generate 10 new records following the exact format shown in the examples.
 Do not include any text, code, or explanation - ONLY the records. [/INST]
 
 """
-    
+
     # Add starter examples to help the model understand the format
     chat_prompt += """Female,45.2,1,0,never,28.5,6.2,140,0
 Male,62.7,1,1,former,32.1,7.1,185,1
@@ -227,23 +230,27 @@ Male,55.6,1,0,current,30.5,6.4,160,1
 Female,44.2,0,0,former,25.8,5.7,132,0
 Male,68.0,1,1,former,34.7,7.5,200,1
 </s>"""
-    
+
     return chat_prompt
 
 
 def check_hardware_compatibility():
     """Check if running on compatible hardware"""
     if not torch.cuda.is_available():
-        print("WARNING: No CUDA device available. This code is optimized for NVIDIA A100 GPUs.")
+        print(
+            "WARNING: No CUDA device available. This code is optimized for NVIDIA A100 GPUs."
+        )
         return False
-        
+
     try:
         device_name = torch.cuda.get_device_name(0).lower()
         if "a100" in device_name:
             print(f"Compatible hardware detected: {device_name}")
             return True
         else:
-            print(f"WARNING: Running on {device_name}. This code is optimized for NVIDIA A100 GPUs and may not work correctly.")
+            print(
+                f"WARNING: Running on {device_name}. This code is optimized for NVIDIA A100 GPUs and may not work correctly."
+            )
             return False
     except Exception as e:
         print(f"Error checking hardware compatibility: {e}")
@@ -270,7 +277,7 @@ def clean_gpu_memory():
                     print(f"GPU {i}: {free_memory / 1024**2:.2f} MiB free")
             except Exception as e:
                 print(f"Warning: Could not get GPU memory info: {e}")
-                
+
     except Exception as e:
         print(f"Warning: Error cleaning GPU memory: {e}")
         # Still do garbage collection even if GPU operations fail
@@ -323,22 +330,24 @@ def extract_records(text):
     clean_records = []
     for record in potential_records:
         # Remove numbering (like "1. ", "2. ", etc.)
-        record = re.sub(r'^\d+\.\s*', '', record)
+        record = re.sub(r"^\d+\.\s*", "", record)
         # Remove quotes if present
-        record = record.strip('"\'')
+        record = record.strip("\"'")
         # Add to clean records
         clean_records.append(record)
 
     # Validate each potential record
     valid_records = [record for record in clean_records if validate_record(record)]
-    
+
     # Print stats for debugging
     if len(valid_records) > 0:
-        print(f"Successfully extracted {len(valid_records)} valid records from {len(potential_records)} potential records")
+        print(
+            f"Successfully extracted {len(valid_records)} valid records from {len(potential_records)} potential records"
+        )
     elif len(potential_records) > 0:
         print(f"Found {len(potential_records)} potential records but none were valid")
         print(f"Example potential record: {potential_records[0]}")
-    
+
     return valid_records
 
 
@@ -351,16 +360,16 @@ def extract_records(text):
 
 #     all_records = []
 #     pbar = tqdm(total=num_records, desc="Generating records")
-    
+
 #     # Track unique records to avoid duplicates
 #     unique_records = set()
-    
+
 #     # Start with the standard chat prompt
 #     chat_prompt = get_chat_prompt(base_prompt)
-    
+
 #     attempts = 0
 #     max_attempts = num_records * 3  # Allow more attempts than needed records
-    
+
 #     # Use these example records to avoid repeating the same initial examples
 #     existing_examples = [
 #         "Female,45.2,1,0,never,28.5,6.2,140,0",
@@ -374,17 +383,17 @@ def extract_records(text):
 #         "Female,44.2,0,0,former,25.8,5.7,132,0",
 #         "Male,68.0,1,1,former,34.7,7.5,200,1"
 #     ]
-    
+
 #     # Add these to already seen records
 #     for record in existing_examples:
 #         unique_records.add(record)
-    
+
 #     while len(all_records) < num_records and attempts < max_attempts:
 #         attempts += 1
-        
+
 #         try:
 #             clean_gpu_memory()
-            
+
 #             # After first few failed attempts, use a more direct prompt
 #             if attempts % 3 == 0:
 #                 direct_prompt = f"""<s>[INST] Generate {min(20, num_records - len(all_records))} NEW and DIFFERENT synthetic patient records for diabetes.
@@ -410,10 +419,10 @@ def extract_records(text):
 # Male,44.7,0,0,former,26.9,5.8,131,0
 # </s>"""
 #                 chat_prompt = direct_prompt
-            
+
 #             # Tokenize prompt
 #             inputs = tokenizer(chat_prompt, return_tensors="pt")
-            
+
 #             # Move to device safely
 #             try:
 #                 inputs = inputs.to("cuda:0")
@@ -421,7 +430,7 @@ def extract_records(text):
 #                 print(f"Warning: Error moving inputs to GPU: {e}")
 #                 print("Falling back to CPU")
 #                 inputs = inputs
-            
+
 #             # Generate text with explicit device management
 #             try:
 #                 with torch.no_grad():
@@ -435,48 +444,48 @@ def extract_records(text):
 #                         pad_token_id=tokenizer.pad_token_id,
 #                         num_return_sequences=1,
 #                     )
-                
+
 #                 # Decode output
 #                 generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
-                
+
 #                 # Extract only the newly generated part
 #                 if "[/INST]" in generated_text:
 #                     response_text = generated_text.split("[/INST]")[1].strip()
 #                 else:
 #                     response_text = generated_text
-                    
+
 #                 # Debug - print a preview of the generated text
 #                 print(f"\nGenerated text preview (first 300 chars):\n{response_text[:300]}...\n")
-                
+
 #                 # Extract records
 #                 new_records = extract_records(response_text)
 #                 print(f"Found {len(new_records)} potential records in attempt {attempts}")
-                
+
 #                 # Filter out duplicates
 #                 truly_new_records = []
 #                 for record in new_records:
 #                     if record not in unique_records:
 #                         unique_records.add(record)
 #                         truly_new_records.append(record)
-                
+
 #                 print(f"After filtering duplicates: {len(truly_new_records)} new records")
-                
+
 #                 # Add valid records
 #                 for record in truly_new_records:
 #                     all_records.append(record)
 #                     pbar.update(1)
 #                     if len(all_records) >= num_records:
 #                         break
-                
+
 #                 # If we've made progress, show some records
 #                 if truly_new_records:
 #                     print(f"Progress: {len(all_records)}/{num_records} records")
 #                     print(f"Latest new record: {truly_new_records[0]}")
-                    
+
 #                     # Update our examples list with some new records to prevent repetition
 #                     if len(truly_new_records) >= 3:
 #                         existing_examples = existing_examples[3:] + truly_new_records[:3]
-                
+
 #             except RuntimeError as e:
 #                 if "out of memory" in str(e):
 #                     print(f"OOM error in generation: {str(e)}")
@@ -485,15 +494,16 @@ def extract_records(text):
 #                 else:
 #                     print(f"Error in generation: {str(e)}")
 #                     time.sleep(2)
-            
+
 #         except Exception as e:
 #             print(f"Unexpected error: {str(e)}")
 #             time.sleep(2)
-    
+
 #     pbar.close()
 #     print(f"\nGeneration complete: collected {len(all_records)} records in {attempts} attempts")
-    
+
 #     return all_records
+
 
 def generate_dataset(
     model, tokenizer, base_prompt, prompt_name, num_records=100, seed=None
@@ -504,16 +514,16 @@ def generate_dataset(
 
     all_records = []
     pbar = tqdm(total=num_records, desc="Generating records")
-    
+
     # Track unique records to avoid duplicates
     unique_records = set()
-    
+
     # Start with the standard chat prompt
     chat_prompt = get_chat_prompt(base_prompt)
-    
+
     attempts = 0
     max_attempts = num_records * 3  # Allow more attempts than needed records
-    
+
     # Use these example records to avoid repeating the same initial examples
     existing_examples = [
         "Female,45.2,1,0,never,28.5,6.2,140,0",
@@ -525,16 +535,16 @@ def generate_dataset(
         "Female,31.9,0,0,never,22.1,5.2,115,0",
         "Male,55.6,1,0,current,30.5,6.4,160,1",
         "Female,44.2,0,0,former,25.8,5.7,132,0",
-        "Male,68.0,1,1,former,34.7,7.5,200,1"
+        "Male,68.0,1,1,former,34.7,7.5,200,1",
     ]
-    
+
     # Add these to already seen records
     for record in existing_examples:
         unique_records.add(record)
-    
+
     while len(all_records) < num_records and attempts < max_attempts:
         attempts += 1
-        
+
         # Force diversity by constructing prompts with varied parameters
         gender = "Male" if attempts % 2 == 0 else "Female"
         age = 25 + (attempts % 50)
@@ -546,9 +556,9 @@ def generate_dataset(
         hba1c = 4.5 + (attempts * 0.1) % 4.0
         glucose = 100 + (attempts * 5) % 150
         is_diabetes = 1 if hba1c > 6.5 or glucose > 180 else 0
-        
+
         seed_record = f"{gender},{age},{1 if is_hypertension else 0},{1 if is_heart_disease else 0},{smoking},{bmi:.1f},{hba1c:.1f},{glucose},{is_diabetes}"
-        
+
         # Create a prompt that explicitly requests variation
         direct_prompt = f"""<s>[INST] Generate 10 synthetic patient records for diabetes that are COMPLETELY DIFFERENT from each other and from these examples:
 
@@ -564,7 +574,7 @@ Each record MUST have 9 fields in this order:
 gender,age,hypertension,heart_disease,smoking_history,bmi,HbA1c_level,blood_glucose_level,diabetes
 
 Make sure:
-- gender: 'Male' or 'Female' 
+- gender: 'Male' or 'Female'
 - age: between 18-80
 - hypertension: 0 or 1
 - heart_disease: 0 or 1
@@ -578,13 +588,13 @@ ONLY output the records. No explanations. [/INST]
 
 """
         chat_prompt = direct_prompt
-        
+
         try:
             clean_gpu_memory()
-            
+
             # Tokenize prompt
             inputs = tokenizer(chat_prompt, return_tensors="pt")
-            
+
             # Move to device safely
             try:
                 inputs = inputs.to("cuda:0")
@@ -592,7 +602,7 @@ ONLY output the records. No explanations. [/INST]
                 print(f"Warning: Error moving inputs to GPU: {e}")
                 print("Falling back to CPU")
                 inputs = inputs
-            
+
             # Generate text with explicit device management
             try:
                 with torch.no_grad():
@@ -600,54 +610,63 @@ ONLY output the records. No explanations. [/INST]
                         **inputs,
                         max_new_tokens=MAX_NEW_TOKENS,
                         do_sample=True,
-                        temperature=0.7 + (attempts % 10) * 0.05,  # More temperature variation
+                        temperature=0.7
+                        + (attempts % 10) * 0.05,  # More temperature variation
                         top_p=0.95,
                         repetition_penalty=1.3,  # Higher to avoid repetition
                         pad_token_id=tokenizer.pad_token_id,
                         num_return_sequences=1,
                     )
-                
+
                 # Decode output
                 generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
-                
+
                 # Extract only the newly generated part
                 if "[/INST]" in generated_text:
                     response_text = generated_text.split("[/INST]")[1].strip()
                 else:
                     response_text = generated_text
-                    
+
                 # Debug - print a preview of the generated text
-                print(f"\nGenerated text preview (first 300 chars):\n{response_text[:300]}...\n")
-                
+                print(
+                    f"\nGenerated text preview (first 300 chars):\n{response_text[:300]}...\n"
+                )
+
                 # Extract records
                 new_records = extract_records(response_text)
-                print(f"Found {len(new_records)} potential records in attempt {attempts}")
-                
+                print(
+                    f"Found {len(new_records)} potential records in attempt {attempts}"
+                )
+
                 # Filter out duplicates
                 truly_new_records = []
                 for record in new_records:
                     if record not in unique_records:
                         unique_records.add(record)
                         truly_new_records.append(record)
-                
-                print(f"After filtering duplicates: {len(truly_new_records)} new records")
-                
+
+                print(
+                    f"After filtering duplicates: {len(truly_new_records)} new records"
+                )
+
                 # Add valid records
                 for record in truly_new_records:
                     all_records.append(record)
                     pbar.update(1)
                     if len(all_records) >= num_records:
                         break
-                
+
                 # If we've made progress, show some records
                 if truly_new_records:
                     print(f"Progress: {len(all_records)}/{num_records} records")
                     print(f"Latest new record: {truly_new_records[0]}")
-                    
+
                     # Update our examples list with some new records to prevent repetition
                     if len(truly_new_records) >= 3:
-                        existing_examples = existing_examples[3:] + truly_new_records[:3]
-                
+                        existing_examples = (
+                            existing_examples[3:] + truly_new_records[:3]
+                        )
+
             except RuntimeError as e:
                 if "out of memory" in str(e):
                     print(f"OOM error in generation: {str(e)}")
@@ -656,15 +675,18 @@ ONLY output the records. No explanations. [/INST]
                 else:
                     print(f"Error in generation: {str(e)}")
                     time.sleep(2)
-            
+
         except Exception as e:
             print(f"Unexpected error: {str(e)}")
             time.sleep(2)
-    
+
     pbar.close()
-    print(f"\nGeneration complete: collected {len(all_records)} records in {attempts} attempts")
-    
+    print(
+        f"\nGeneration complete: collected {len(all_records)} records in {attempts} attempts"
+    )
+
     return all_records
+
 
 def save_and_validate_dataset(records, prompt_name, experiment_num):
     """Save dataset and perform basic validation with experiment number"""
@@ -689,7 +711,9 @@ def save_and_validate_dataset(records, prompt_name, experiment_num):
 
     # Safety check for empty records
     if not records:
-        print(f"Warning: No records to save for {prompt_name} (Experiment {experiment_num})")
+        print(
+            f"Warning: No records to save for {prompt_name} (Experiment {experiment_num})"
+        )
         df = pd.DataFrame(columns=columns)
     else:
         df = pd.DataFrame([r.split(",") for r in records], columns=columns)
@@ -711,7 +735,7 @@ def save_and_validate_dataset(records, prompt_name, experiment_num):
     # Print basic statistics
     print(f"\nDataset statistics for {prompt_name} (Experiment {experiment_num}):")
     print(f"Total records: {len(df)}")
-    
+
     if not df.empty:
         print("\nNumerical columns summary:")
         print(df.describe())
@@ -730,18 +754,20 @@ def save_and_validate_dataset(records, prompt_name, experiment_num):
 def get_system_info():
     """Get current system resource usage with error handling for MIG"""
     system_info = {}
-    
+
     try:
         # Get CPU info
         cpu_percent = psutil.cpu_percent(interval=1)
         memory = psutil.virtual_memory()
 
-        system_info.update({
-            "cpu_percent": cpu_percent,
-            "memory_total_gb": memory.total / (1024**3),
-            "memory_used_gb": memory.used / (1024**3),
-            "memory_percent": memory.percent,
-        })
+        system_info.update(
+            {
+                "cpu_percent": cpu_percent,
+                "memory_total_gb": memory.total / (1024**3),
+                "memory_used_gb": memory.used / (1024**3),
+                "memory_percent": memory.percent,
+            }
+        )
     except Exception as e:
         print(f"Warning: Error getting CPU info: {e}")
         system_info["cpu_error"] = str(e)
@@ -750,34 +776,43 @@ def get_system_info():
     try:
         if torch.cuda.is_available():
             # Add CUDA info from torch directly
-            system_info.update({
-                "cuda_available": True,
-                "cuda_device_count": torch.cuda.device_count(),
-                "cuda_current_device": torch.cuda.current_device(),
-            })
-            
+            system_info.update(
+                {
+                    "cuda_available": True,
+                    "cuda_device_count": torch.cuda.device_count(),
+                    "cuda_current_device": torch.cuda.current_device(),
+                }
+            )
+
             # Try to get device name and memory info
             try:
                 system_info["cuda_device_name"] = torch.cuda.get_device_name(0)
-                system_info["cuda_memory_allocated_gb"] = torch.cuda.memory_allocated(0) / (1024**3)
-                system_info["cuda_memory_reserved_gb"] = torch.cuda.memory_reserved(0) / (1024**3)
+                system_info["cuda_memory_allocated_gb"] = torch.cuda.memory_allocated(
+                    0
+                ) / (1024**3)
+                system_info["cuda_memory_reserved_gb"] = torch.cuda.memory_reserved(
+                    0
+                ) / (1024**3)
             except Exception as e:
                 system_info["cuda_device_info_error"] = str(e)
-            
+
             # Try GPUtil as fallback
             try:
                 gpus = GPUtil.getGPUs()
                 if gpus:
                     gpu_info = []
                     for i, gpu in enumerate(gpus):
-                        gpu_info.append({
-                            "gpu_id": i,
-                            "gpu_name": gpu.name,
-                            "gpu_memory_total_mb": gpu.memoryTotal,
-                            "gpu_memory_used_mb": gpu.memoryUsed,
-                            "gpu_memory_percent": (gpu.memoryUsed / gpu.memoryTotal) * 100,
-                            "gpu_temperature": gpu.temperature,
-                        })
+                        gpu_info.append(
+                            {
+                                "gpu_id": i,
+                                "gpu_name": gpu.name,
+                                "gpu_memory_total_mb": gpu.memoryTotal,
+                                "gpu_memory_used_mb": gpu.memoryUsed,
+                                "gpu_memory_percent": (gpu.memoryUsed / gpu.memoryTotal)
+                                * 100,
+                                "gpu_temperature": gpu.temperature,
+                            }
+                        )
                     system_info["gpus"] = gpu_info
             except Exception as e:
                 system_info["gputil_error"] = str(e)
@@ -825,17 +860,17 @@ def log_experiment_metrics(
 def main():
     print(f"Starting Gemma data generation experiment")
     print(f"Output directory: {OUTPUT_DIR}")
-    
+
     # Check hardware compatibility
     check_hardware_compatibility()
-    
+
     # Add token for Gemma access if needed - uncomment if you need to use a token
     # os.environ["HF_TOKEN"] = "your_huggingface_token"
-    
+
     try:
         # Load model and tokenizer with 4-bit quantization
         print(f"Loading model {MODEL_NAME} on CUDA")
-        
+
         # Try 4-bit quantization first (better for MIG constraints)
         try:
             print("Attempting to load with 4-bit quantization...")
@@ -844,12 +879,12 @@ def main():
                 bnb_4bit_quant_type="nf4",
                 bnb_4bit_compute_dtype=torch.float16,
             )
-            
+
             # Make sure tokenizer is loaded first
             tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
             if tokenizer.pad_token is None:
                 tokenizer.pad_token = tokenizer.eos_token
-            
+
             # Load model with device_map explicit - not "auto" for MIG
             model = AutoModelForCausalLM.from_pretrained(
                 MODEL_NAME,
@@ -857,24 +892,24 @@ def main():
                 torch_dtype=torch.float16,
                 device_map={"": 0},  # Explicitly map to the first device
             )
-            
+
             print("Successfully loaded with 4-bit quantization")
-        
+
         except Exception as e:
             print(f"Error loading with 4-bit quantization: {e}")
-            
+
             print("Falling back to standard loading...")
             # Standard loading approach
             tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
             if tokenizer.pad_token is None:
                 tokenizer.pad_token = tokenizer.eos_token
-                
+
             model = AutoModelForCausalLM.from_pretrained(
                 MODEL_NAME,
                 torch_dtype=torch.float16,
                 device_map={"": 0},  # Explicit device mapping for MIG
             )
-            
+
             print("Successfully loaded model with standard config")
 
         # Store all experiment metrics
@@ -956,13 +991,14 @@ def main():
                 f,
                 indent=4,
             )
-            
+
         print(f"\n=== All experiments completed successfully ===")
         print(f"Results saved to {OUTPUT_DIR}")
 
     except Exception as e:
         print(f"Critical error in main function: {e}")
         import traceback
+
         traceback.print_exc()
 
 

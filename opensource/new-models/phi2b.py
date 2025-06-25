@@ -8,7 +8,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 # Be very specific about which MIG device to use
-os.environ["CUDA_VISIBLE_DEVICES"] = "0:9:0" 
+os.environ["CUDA_VISIBLE_DEVICES"] = "0:9:0"
 # os.environ["CUDA_VISIBLE_DEVICES"] = "0"  # Use only the first GPU
 
 # Configuration
@@ -163,11 +163,11 @@ def main():
     )
 
     model = AutoModelForCausalLM.from_pretrained(
-    MODEL_NAME,
-    torch_dtype=torch.float16 if DEVICE == "cuda" else torch.float32,
-    quantization_config=quantization_config if DEVICE == "cuda" else None,
-    trust_remote_code=True,
-    # Remove device_map parameter
+        MODEL_NAME,
+        torch_dtype=torch.float16 if DEVICE == "cuda" else torch.float32,
+        quantization_config=quantization_config if DEVICE == "cuda" else None,
+        trust_remote_code=True,
+        # Remove device_map parameter
     )
     model = model.to(DEVICE)
 

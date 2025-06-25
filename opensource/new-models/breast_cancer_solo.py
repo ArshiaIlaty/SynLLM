@@ -1,8 +1,8 @@
+import argparse
 import gc
 import os
 import re
 import time
-import argparse
 
 import pandas as pd
 import torch
@@ -22,7 +22,7 @@ CHAT_STYLE_MODELS = {
     "llama": "instruct",
     "gemma": "openai",
     "yi": "im_start",
-    "mixtral": "instruct"
+    "mixtral": "instruct",
 }
 
 SYSTEM_PROMPT = """You are a synthetic medical data generator. Generate realistic patient records for breast cancer research."""
@@ -135,16 +135,15 @@ def main():
 
     while len(all_records) < NUM_RECORDS:
         records_needed = min(batch_size, NUM_RECORDS - len(all_records))
-        print(f"Generating batch of {records_needed}... ({len(all_records)}/{NUM_RECORDS})")
+        print(
+            f"Generating batch of {records_needed}... ({len(all_records)}/{NUM_RECORDS})"
+        )
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
         gc.collect()
 
         chat_input = build_prompt(
-            model_name,
-            SYSTEM_PROMPT,
-            generate_chat_prompt(records_needed),
-            tokenizer
+            model_name, SYSTEM_PROMPT, generate_chat_prompt(records_needed), tokenizer
         ).to(DEVICE)
 
         try:

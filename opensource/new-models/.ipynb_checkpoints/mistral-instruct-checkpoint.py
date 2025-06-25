@@ -5,8 +5,8 @@ import time
 
 import pandas as pd
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from huggingface_hub import hf_hub_url, model_info
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 # info = model_info("mistralai/Mistral-7B-Instruct-v0.2")
 # print(info.safetensors)
@@ -44,6 +44,7 @@ SYSTEM_PROMPT = """You are a synthetic medical data generator. Generate realisti
 # ONLY output the records, with no additional text or explanation. Do not write any code. [/INST]
 # """
 
+
 def generate_chat_prompt(batch_size=10):
     return f"""{SYSTEM_PROMPT}
 
@@ -79,13 +80,25 @@ def extract_records(text):
                 continue
 
             if (
-                gender == "Male" and age == "45.2" and hyp == "0" and heart == "0"
-                and smoking == "never" and bmi == "26.3" and hba1c == "5.2"
-                and glucose == "110" and diabetes == "0"
+                gender == "Male"
+                and age == "45.2"
+                and hyp == "0"
+                and heart == "0"
+                and smoking == "never"
+                and bmi == "26.3"
+                and hba1c == "5.2"
+                and glucose == "110"
+                and diabetes == "0"
             ) or (
-                gender == "Female" and age == "62.7" and hyp == "1" and heart == "1"
-                and smoking == "former" and bmi == "32.1" and hba1c == "7.1"
-                and glucose == "185" and diabetes == "1"
+                gender == "Female"
+                and age == "62.7"
+                and hyp == "1"
+                and heart == "1"
+                and smoking == "former"
+                and bmi == "32.1"
+                and hba1c == "7.1"
+                and glucose == "185"
+                and diabetes == "1"
             ):
                 continue
 
@@ -108,7 +121,7 @@ def main():
 
     # GPT-2 is small and fast
     quantization_config = None
-    
+
     # 4-bit quantization config
     # quantization_config = BitsAndBytesConfig(
     #     load_in_4bit=True,
@@ -125,13 +138,13 @@ def main():
     )
 
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-    
+
     # GPT-2 has no pad token, so this line should remain
     # GPT-2 has no pad_token by default — we must define one manually
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token  # use EOS as pad token
         model.config.pad_token_id = tokenizer.eos_token_id
-    
+
     # if tokenizer.pad_token is None:
     #     tokenizer.pad_token = tokenizer.eos_token
 
@@ -142,14 +155,18 @@ def main():
 
     while len(all_records) < NUM_RECORDS:
         records_needed = min(batch_size, NUM_RECORDS - len(all_records))
-        print(f"Generating batch of {records_needed} records... ({len(all_records)}/{NUM_RECORDS} total)")
+        print(
+            f"Generating batch of {records_needed} records... ({len(all_records)}/{NUM_RECORDS} total)"
+        )
 
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
         gc.collect()
 
         prompt = generate_chat_prompt(records_needed)
-        inputs = tokenizer(prompt, return_tensors="pt", add_special_tokens=False).to(DEVICE)
+        inputs = tokenizer(prompt, return_tensors="pt", add_special_tokens=False).to(
+            DEVICE
+        )
 
         try:
             print("Input IDs:", inputs["input_ids"])
@@ -184,8 +201,15 @@ def main():
 
     if all_records:
         columns = [
-            "gender", "age", "hypertension", "heart_disease", "smoking_history",
-            "bmi", "HbA1c_level", "blood_glucose_level", "diabetes",
+            "gender",
+            "age",
+            "hypertension",
+            "heart_disease",
+            "smoking_history",
+            "bmi",
+            "HbA1c_level",
+            "blood_glucose_level",
+            "diabetes",
         ]
         df = pd.DataFrame([r.split(",") for r in all_records], columns=columns)
 
@@ -194,7 +218,9 @@ def main():
         df["heart_disease"] = pd.to_numeric(df["heart_disease"], errors="coerce")
         df["bmi"] = pd.to_numeric(df["bmi"], errors="coerce")
         df["HbA1c_level"] = pd.to_numeric(df["HbA1c_level"], errors="coerce")
-        df["blood_glucose_level"] = pd.to_numeric(df["blood_glucose_level"], errors="coerce")
+        df["blood_glucose_level"] = pd.to_numeric(
+            df["blood_glucose_level"], errors="coerce"
+        )
         df["diabetes"] = pd.to_numeric(df["diabetes"], errors="coerce")
 
         output_path = os.path.join(OUTPUT_DIR, "diabetes_records.csv")
@@ -206,8 +232,12 @@ def main():
         print("\n📊 Data statistics:")
         print(f"Gender distribution:\n{df['gender'].value_counts(normalize=True)}\n")
         print(f"Diabetes prevalence:\n{df['diabetes'].value_counts(normalize=True)}\n")
-        print(f"Age: {df['age'].min()} - {df['age'].max()} (mean: {df['age'].mean():.2f})")
-        print(f"BMI: {df['bmi'].min()} - {df['bmi'].max()} (mean: {df['bmi'].mean():.2f})")
+        print(
+            f"Age: {df['age'].min()} - {df['age'].max()} (mean: {df['age'].mean():.2f})"
+        )
+        print(
+            f"BMI: {df['bmi'].min()} - {df['bmi'].max()} (mean: {df['bmi'].mean():.2f})"
+        )
     else:
         print("❌ Failed to generate any valid records.")
 
